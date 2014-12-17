@@ -1,0 +1,1 @@
+msiexec /i  E:\work\sep\trunk\Coding\Source\UI\SEP.UI\Setup1\Release\Setup1.msi

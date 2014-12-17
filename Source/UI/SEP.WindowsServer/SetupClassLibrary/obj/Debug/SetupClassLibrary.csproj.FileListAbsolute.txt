@@ -1,0 +1,5 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SetupClassLibrary\bin\Debug\SetupClassLibrary.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SetupClassLibrary\bin\Debug\SetupClassLibrary.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SetupClassLibrary\obj\Debug\ResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SetupClassLibrary\obj\Debug\SetupClassLibrary.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SetupClassLibrary\obj\Debug\SetupClassLibrary.pdb

@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B797E631-B382-4E75-8767-7B0FEC1EBD22}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.Bll</RootNamespace>
+    <AssemblyName>SEP.Bll</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.Bll/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Framework.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Mail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="ShiXin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ShiXin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="SmsDataContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SmsDataContract.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\System.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\AccountBll.cs" />
+    <Compile Include="Accounts\AuthBll.cs" />
+    <Compile Include="Accounts\CreateAccount.cs" />
+    <Compile Include="Accounts\CreateAccountGroup.cs" />
+    <Compile Include="Accounts\DeleteAccount.cs" />
+    <Compile Include="Accounts\DeleteAccountGroup.cs" />
+    <Compile Include="Accounts\Login.cs" />
+    <Compile Include="Accounts\ResetPassword.cs" />
+    <Compile Include="Accounts\SavePersonalConfig.cs" />
+    <Compile Include="Accounts\UpdateAccount.cs" />
+    <Compile Include="Accounts\UpdateAccountGroup.cs" />
+    <Compile Include="Accounts\UpdatePassword.cs" />
+    <Compile Include="Accounts\UpdateUsbKey.cs" />
+    <Compile Include="Bulletins\AddAppendix.cs" />
+    <Compile Include="Bulletins\AddBulletin.cs" />
+    <Compile Include="Bulletins\BulletinBll.cs" />
+    <Compile Include="Bulletins\BulletinBllUtiltiy.cs" />
+    <Compile Include="Bulletins\DeleteAppendix.cs" />
+    <Compile Include="Bulletins\DeleteBulletin.cs" />
+    <Compile Include="Bulletins\SendEmailForBulletin.cs" />
+    <Compile Include="Bulletins\UpdateBulletin.cs" />
+    <Compile Include="Departments\AddDepartment.cs" />
+    <Compile Include="Departments\DeleteDepartment.cs" />
+    <Compile Include="Departments\DepartmentBll.cs" />
+    <Compile Include="Departments\UpdateDepartment.cs" />
+    <Compile Include="Goals\AddCompanyGoal.cs" />
+    <Compile Include="Goals\AddPersonalGoal.cs" />
+    <Compile Include="Goals\AddTeamGoal.cs" />
+    <Compile Include="Goals\DeleteGoal.cs" />
+    <Compile Include="Goals\DeletePersonalGoalBySetHostID.cs" />
+    <Compile Include="Goals\DeleteTeamGoalBySetHostID.cs" />
+    <Compile Include="Goals\GoalBll.cs" />
+    <Compile Include="CompanyRegulations\CompanyRegulationBll.cs" />
+    <Compile Include="Goals\UpdateCompanyGoal.cs" />
+    <Compile Include="Goals\UpdatePersonalGoal.cs" />
+    <Compile Include="Goals\UpdateTeamGoal.cs" />
+    <Compile Include="Mail\MailFilter.cs" />
+    <Compile Include="Mail\MailGateWay.cs" />
+    <Compile Include="Mail\MailSource.cs" />
+    <Compile Include="Positions\AddPosition.cs" />
+    <Compile Include="Positions\AddPositionGrade.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Positions\AddPositionNature.cs" />
+    <Compile Include="Positions\DeletePosition.cs" />
+    <Compile Include="Positions\DeletePositionGrade.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Positions\DeletePositionNature.cs" />
+    <Compile Include="Positions\PositionBll.cs" />
+    <Compile Include="Positions\UpdatePosition.cs" />
+    <Compile Include="Positions\UpdatePositionGrade.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Positions\UpdatePositionNature.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SMS\SendSMSBll.cs" />
+    <Compile Include="SMS\SmsServiceContractImpls.cs" />
+    <Compile Include="SpecialDates\AddSpecialDate.cs" />
+    <Compile Include="SpecialDates\SpecialDateBll.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="WelcomeMails\SaveWelcomeMail.cs" />
+    <Compile Include="WelcomeMails\SendWelcomeMail.cs" />
+    <Compile Include="WelcomeMails\WelcomeMailBll.cs" />
+    <Compile Include="WorkTasks\AddWorkTask.cs" />
+    <Compile Include="WorkTasks\AnswerWorkTask.cs" />
+    <Compile Include="WorkTasks\DeleteWorkTask.cs" />
+    <Compile Include="WorkTasks\DeleteWorkTaskQA.cs" />
+    <Compile Include="WorkTasks\QuestionWorkTask.cs" />
+    <Compile Include="WorkTasks\UpdateWorkTask.cs" />
+    <Compile Include="WorkTasks\WorkTaskBll.cs" />
+    <Compile Include="WorkTasks\WorkTaskEmail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEP.IBll\SEP.IBll.csproj">
+      <Project>{F4C5BFD7-3DDF-4DD5-97CF-D81AB2620038}</Project>
+      <Name>SEP.IBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.IDal\SEP.IDal.csproj">
+      <Project>{B88C5AAD-36C5-42DA-88B7-BD0B8ACD53AC}</Project>
+      <Name>SEP.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.Model\SEP.Model.csproj">
+      <Project>{054CB2F3-C375-425E-8EDF-417EF5BD5F43}</Project>
+      <Name>SEP.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

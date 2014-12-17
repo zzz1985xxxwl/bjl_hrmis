@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="宋体" Size="9" />
+  <Class Name="SEP.HRMIS.Model.DiyProcesss.DiyProcess">
+    <Position X="4.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>DiyProcesss\DiyProcess.cs</FileName>
+      <HashCode>AAgAAAAAAAAAgAAQAAAAIIQAAAAAAAAAASJAAQAEBQA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_Type" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="_DiySteps" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="SEP.HRMIS.Model.DiyProcesss.DiyStep">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>DiyProcesss\DiyStep.cs</FileName>
+      <HashCode>AAAQABFEAAAAAAQAAAAAAAACAAACQAAEAAAAgACAAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_OperatorType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="MailAccount" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="SEP.HRMIS.Model.DiyProcesss.ProcessType">
+    <Position X="6.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <FileName>DiyProcesss\ProcessType.cs</FileName>
+      <HashCode>EAAAAAAAAAAAAAAEAAABAAAAAIAMAAAAAACAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEP.HRMIS.Model.DiyProcesss.OperatorType">
+    <Position X="9.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>DiyProcesss\OperatorType.cs</FileName>
+      <HashCode>BAAAAIAAAAAAAQAAAAACACAACIABAAAAAAAIIAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SEP.HRMIS.Model.Employee">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>Employee\Employee.cs</FileName>
+      <HashCode>AABCQIAAgJAARCQAgAUCAEgAuBAAYIAABkEBAgCEAGY=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="DiyProcessList" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="SEP.HRMIS.Model.Employee.EmployeeSortField" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Employee\Employee.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SEP.Model.Accounts.Account" Collapsed="true">
+    <Position X="10.5" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+</ClassDiagram>

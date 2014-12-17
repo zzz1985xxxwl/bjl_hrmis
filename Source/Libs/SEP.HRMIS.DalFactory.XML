@@ -1,0 +1,324 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SEP.HRMIS.DalFactory</name>
+    </assembly>
+    <members>
+        <member name="T:SEP.HRMIS.DalFactory.PayModuleDataAccess">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.PayModuleDataAccess.CreateAccountSet">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.PayModuleDataAccess.CreateEmployeeAccountSet">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.PayModuleDataAccess.CreateEmployeeSarary">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.PayModuleDataAccess.CreateTax">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.DalFactory.DataAccess">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateLeaveRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateLeaveRequest">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal.LeaveRequestDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateOutApplication">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal.ApplicationDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateOverWork">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal.OverWorkDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateLeaveRequestFlow">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal.LeaveRequestFlowDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateBadAttendanceDal">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.BadAttendanceDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAttendanceReadRule">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AttendanceReadRuleDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAttendanceReadHistory">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.ReadDataHistoryDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAttendanceInAndOutRecord">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateInAndOutRecordLog">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordLogDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAuthDal">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AuthDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAdjustRest">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AdjustRestDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateDiyProcessDal">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AdjustRestDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeDiyProcessDal">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployee">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAssessTemplateItem">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAssessTemplatePaper">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateVacation">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateParameter">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateContract">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateReimburse">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateTraineeApplication">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreatePlanDutyDal">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateFBQues">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeSkill">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateSkill">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateMailAccount">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeHistory">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreatePositionHistory">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateDepartmentHistory">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateTrain">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateContractType">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateContractBookMark">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeContractBookMark">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateWelcomeMail">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeWelfare">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeWelfareHistory">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreatePhoneMessage">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateFeedBackPaper">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateFileCargo">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAdjustRule">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateEmployeeAdjustRule">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAssessTemplatePaperBindPosition">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateCustomerInfoDal">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateAdjustRestHistory">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreateSystemError">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal类工厂
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.DalFactory.DataAccess.CreatePositionApplication">
+            <summary>
+            构造SEP.HRMIS.SqlServerDal.PositionApplicationDal
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:SEP.HRMIS.DalFactory.DataAccess.AssessActivityDal">
+            <summary>
+             构造SEP.HRMIS.SqlServerDal.AssessActivityDal
+            </summary>
+        </member>
+    </members>
+</doc>

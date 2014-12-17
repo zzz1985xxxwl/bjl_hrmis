@@ -1,0 +1,51 @@
+﻿<Window x:Class="Sms.Control.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="783">
+    <Grid>
+        <TabControl Height="440"  HorizontalAlignment="Left" Margin="10" Name="tabControl1" VerticalAlignment="Top" Width="740">
+            <TabItem Header="短信" Name="tabSms">
+                <StackPanel HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top" Orientation="Horizontal" >
+                    <StackPanel HorizontalAlignment="Left"  Margin="0 0 10 0"  Name="stackPanel1" VerticalAlignment="Top"  >
+                        <StackPanel HorizontalAlignment="Left" Margin="0 0 0 10"  VerticalAlignment="Top" Orientation="Horizontal">
+                            <Button Content="启动短信服务"  Margin="0 0 10 10" Height="23" HorizontalAlignment="Left"  Name="btnSms" VerticalAlignment="Top" Width="86" Click="btnSms_Click"/>
+                            <Button Content="停止短信服务"  Margin="0 0 0 10" Height="23" HorizontalAlignment="Left"  Name="btnStopSms" VerticalAlignment="Top" Width="86" Click="btnStopSms_Click"/>
+                        </StackPanel>
+                        <TextBlock Height="23" Margin="0 0 0 2"  HorizontalAlignment="Left"  Text="测试短信" VerticalAlignment="Top" />
+                        <StackPanel HorizontalAlignment="Left" Margin="0 0 0 10"  VerticalAlignment="Top" Orientation="Horizontal">
+                            <Label Content="手机号" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox Height="23"  HorizontalAlignment="Left"  Name="txtNumber"  VerticalAlignment="Top" Width="120" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Margin="0 0 0 10"  VerticalAlignment="Top" Orientation="Horizontal">
+                            <Label Content="内容    " Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox Height="43" TextWrapping="Wrap" HorizontalAlignment="Left"  Name="txtContent" VerticalAlignment="Bottom" Width="181" />
+                        </StackPanel>
+                        <Button Content="发送" Height="23" HorizontalAlignment="Left" Name="btnSendSms" VerticalAlignment="Top" Width="75" Click="btnSendSms_Click" />
+                    </StackPanel>
+                    <TextBlock Height="245"  HorizontalAlignment="Left" Name="txtSmsError" Text="" VerticalAlignment="Top" Width="464" />
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="邮件" Name="tabMail">
+                <StackPanel HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top" Orientation="Horizontal" >
+                    <StackPanel HorizontalAlignment="Left"  Margin="10" VerticalAlignment="Top" Orientation="Vertical" >
+                        <Button Content="启动邮件服务" HorizontalAlignment="Left" Margin="0 0 0 10"  Name="btnMail" VerticalAlignment="Top"  Click="btnMail_Click" />
+                        <StackPanel HorizontalAlignment="Left" Margin="0 0 0 10"  VerticalAlignment="Top" Orientation="Horizontal">
+                            <Label Content="To" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox Height="23" Name="txtMailTo" Width="333" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Margin="0 0 0 10"  VerticalAlignment="Top" Orientation="Horizontal">
+                            <Label Content="Subject" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox Height="23"  HorizontalAlignment="Left"  Name="txtMailSubject"  VerticalAlignment="Top" Width="309" />
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Left" Margin="0 0 0 10"  VerticalAlignment="Top" Orientation="Horizontal">
+                            <Label Content="Body" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox Height="109"  HorizontalAlignment="Left"  Name="txtMailBody"  VerticalAlignment="Top" Width="329" />
+                        </StackPanel>
+                        <Button Content="Send" HorizontalAlignment="Left" Margin="0 0 0 10"  Name="btnSendMail" VerticalAlignment="Top"  Click="btnSendMail_Click" />
+                    </StackPanel>
+                    <TextBlock Height="257" Name="txtMailError" Text="" Width="325" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

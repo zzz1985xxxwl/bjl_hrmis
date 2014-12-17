@@ -1,0 +1,127 @@
+ 
+操作说明：每人检查所有自己涉及的表，然后回忆相关内容，仔细阅读下面2则内容后，填写列1、2、3、4，如果列之前是已经填写好的，说明做过了一些预判
+	   但是没有任何证据显示这些预判是正确的，最好的方式依然是自己判断，最后别忘了在确定的表之前填写自己的名字
+	PS.文档的格式是用NotePad写的，如果发现格式对比齐，看起来比较累的话，访问http://10.10.10.16/mysharesoft/ 下有notePad
+ 
+数据表同步方式分为以下几种
+1、覆盖式同步(C)：即用主系统的表全部覆盖从系统的表
+2、不做任何操作(N)：即从系统的表不会有任何改变
+3、时间条件式筛选(T)：即同步的数据取决于时间条件，需要在第4列中写根据时间段选择的语句,如果是连表的，则需要在标记上写明与哪张表相关，哪个是FK
+4、?：完全不确定的，由数据库设计人决定究竟该使用什么方式
+
+两个不同的同步规则：
+1、覆盖式考勤数据同步：（未经老大确认）
+	 *简要说明：与员工个人信息有关的信息，考勤所有信息，参数，都是覆盖式地从主系统导入从系统
+	 *典型使用：每个月需要做薪资了，相关操作人员会使用该数据同步规则将所有数据从主系统导入从系统
+2、筛选式考勤数据同步：（未经老大确认）
+	 *简要说明：根据时段选择性地将考勤的一部分信息从主系统导入从系统
+	 *典型使用：某一个员工的考勤数据有误，导致薪资不正常，在修改主系统数据之后，需要快速的导入到从系统，所以只选择了相关时间段的考勤数据
+
+
+	 
+--Sep数据库						1、覆盖式			2、考勤数据			  3、确认人				4、条件筛选语句([fromDay],[toDay])
+01、dbo.TAccount					C					C					陈中超
+02、dbo.TAccountAuth				N					N					陈中超
+03、dbo.TAppendix					N					N					王玥琦
+04、dbo.TAuth						N					N					陈中超
+05、dbo.TBulletin					N					N					王玥琦
+06、dbo.TCompanyReguAppendix		N					N					陈中超
+07、dbo.TCompanyRegulations			N					N					陈中超
+08、dbo.TDepartment					C					C					陈中超
+09、dbo.TElectronIdiograph			N					N					施益宇
+10、dbo.TGoal						N					N					王玥琦
+11、dbo.TPosition					C					C					陈中超
+12、dbo.TPositionGrade				C					C					陈中超
+13、dbo.TSpecialDate				C					C					王玥琦
+14、dbo.TWelcomeMail				N					N					陈中超
+
+--Hrmis数据库
+01、dbo.TAccountAuth				N					N					陈中超
+02、dbo.TAccountSet					N					N					王莎莉
+03、dbo.TAccountSetItem				N					N					王莎莉
+04、dbo.TAccountSetPara				N					N					王莎莉
+05、dbo.TAdjustRest					C					C					薛文龙
+06、dbo.TAdjustSalaryHistory		N					N					王莎莉
+07、dbo.TApplyAssessCondition		N					N					陈中超
+08、dbo.TAssessActivity				N					N					陈中超
+09、dbo.TAssessActivityItem			N					N					陈中超
+10、dbo.TAssessActivityPaper		N					N					陈中超
+11、dbo.TAssessTemplateItem			N					N					陈中超
+12、dbo.TAssessTemplatePaper		N					N					陈中超
+13、dbo.TAssessTemplatePIShip		N					N					陈中超
+14、dbo.TAttendanceReadTime			C					C					王玥琦
+15、dbo.TAuth						N					N					陈中超
+16、dbo.TContractBookMark			N					N					薛文龙
+17、dbo.TContractType				N					N					薛文龙
+18、dbo.TCourse						N					N					王莎莉
+19、dbo.TCourseFB					N					N					王莎莉
+20、dbo.TCourseFBResult				N					N					王莎莉
+21、dbo.TCourseSkill				N					N					王莎莉
+22、dbo.TCourseTrainee				N					N					王莎莉
+23、dbo.TDepartmentHistory			C					T					王莎莉              select * from TDepartmentHistory where  operationTime >= [fromDay] and operationTime <= [toDay] 注意要精确到秒，用Datediff
+24、dbo.TDiyProcess					N					N					陈中超
+25、dbo.TDiyStep					N					N					陈中超
+26、dbo.TDutyClass					C					C					王玥琦
+27、dbo.TEmployee					C					C					王莎莉
+28、dbo.TEmployeeAccountSet			N					N					王莎莉
+29、dbo.TEmployeeAttendance			C					T					王玥琦				select * from TEmployeeAttendance where  TheDay >= [fromDay] and TheDay <= [toDay]					
+30、dbo.TEmployeeContract			N					N					薛文龙		
+31、dbo.TEmployeeContractBookMark	N					N					薛文龙
+32、dbo.TEmployeeDiyProcess			N					N					王莎莉		
+33、dbo.TEmployeeHistory			C					T					王莎莉              select * from TEmployeeHistory where  operationTime >= [fromDay] and operationTime <= [toDay] 注意要精确到秒，用Datediff
+34、dbo.TEmployeeInAndOutRecord		C					T					王玥琦				select * from TEmployeeInAndOutRecord where IOTime >= [fromDay] and IOTime <= [toDay]
+35、dbo.TEmployeeSalaryHistory		N					N					王莎莉
+36、dbo.TEmployeeSkill				N					N					王莎莉
+37、dbo.TEmployeeWelfare			N					N					王莎莉
+38、dbo.TEmployeeWelfareHistory		N					N					王莎莉
+39、dbo.TInAndOutRecordLog			C					T					王玥琦              select * from TInAndOutRecordLog where OperateTime>= [fromDay] and OperateTime<= [toDay]
+40、dbo.TIndividualIncomeTax		N					N					王莎莉
+41、dbo.TLeaveRequest				C					T					杨俞彬				select * from TLeaveRequest where AbsentFrom<=[toDay] and [fromDay]<=AbsentTo
+42、dbo.TLeaveRequestFlow			C					T					杨俞彬				(连表43)FK:LeaveRequestItemID
+43、dbo.TLeaveRequestItem			C					T					杨俞彬				(连表41)FK:LeaveRequestID
+44、dbo.TLeaveRequestType			C					C					杨俞彬
+45、dbo.TOutApplication				C					T					薛文龙				select * from TOutApplication where From<=[toDay] and [fromDay]<=To
+46、dbo.TOutApplicationFlow			C					T					薛文龙				(连表47)FK:OutApplicationItemID
+47、dbo.TOutApplicationItem			C					T					薛文龙				(连表45)FK:OutApplicationID
+48、dbo.TOverWork					C					T					薛文龙				select * from TOverWork where From<=[toDay] and [fromDay]<=To
+49、dbo.TOverWorkFlow				C					T					薛文龙				(连表50)FK:OverWorkItemID
+50、dbo.TOverWorkItem				C					T					薛文龙				(连表48)FK:OverWorkID
+51、dbo.TParameter					C					C					倪  豪
+52、dbo.TPhoneMessage				N					N					薛文龙
+53、dbo.TPhoneMessageOperation		N					N					薛文龙              此表已删除
+54、dbo.TPlanDuty					C					C					王玥琦  
+55、dbo.TPlanDutyDetail				C					T					王玥琦				select * from TPlanDutyDetail where Date>= [fromDay] and Date<= [toDay]
+56、dbo.TPlanDutyTable				C					T					王玥琦				select * from TPlanDutyTable where FromTime<=[toDay] and [fromDay]<=ToTime
+57、dbo.TPositionHistory			C					N					王莎莉
+58、dbo.TReadDataHistory			C					T					王玥琦				select * from TReadDataHistory where ReadTime >= [fromDay] and ReadTime <= [toDay]
+59、dbo.TReimburse					N					T					施益宇				select * from TReimburse where ApplyDate<=[toDay] and [fromDay]<=ApplyDate
+60、dbo.TReimburseFlow				N					T					施益宇             	select * from TReimburseFlow where OperationTime<=[toDay] and [fromDay]<=OperationTime
+61、dbo.TReimburseItem				N					T					施益宇				(连表59)FK:ReimburseID
+62、dbo.TSkill						N					N					王莎莉
+63、dbo.TTrainFBItem				N					N					王莎莉
+64、dbo.TTrainFBQues				N					N					王莎莉
+65、dbo.TVacation					C					T					王玥琦				select * from TVacation where VacationStartDate<=[toDay] and [fromDay]<=VacationEndDate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

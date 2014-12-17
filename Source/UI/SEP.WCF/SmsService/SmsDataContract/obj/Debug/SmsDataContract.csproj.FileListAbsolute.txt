@@ -1,0 +1,4 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsDataContract\bin\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsDataContract\bin\Debug\SmsDataContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsDataContract\obj\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsDataContract\obj\Debug\SmsDataContract.pdb

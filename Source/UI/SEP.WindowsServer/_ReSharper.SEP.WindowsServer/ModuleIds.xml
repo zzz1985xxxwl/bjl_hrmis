@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="FA27551E-753D-46E1-B9C6-E0DAAB767362" ModuleId="SEP.AutoRemindServer" />
+  <Module PersistentId="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9" ModuleId="SEP.ReadExternalAttendanceData" />
+</Modules>

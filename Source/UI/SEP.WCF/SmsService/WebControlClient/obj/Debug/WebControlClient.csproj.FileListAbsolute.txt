@@ -1,0 +1,1 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\WebControlClient\obj\Debug\WebControlClient.csprojResolveAssemblyReference.cache

@@ -1,0 +1,3275 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SEP.HRMIS.IFacede</name>
+    </assembly>
+    <members>
+        <member name="T:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.CreateAccountSetParaFacade(System.String,SEP.HRMIS.Model.PayModule.FieldAttributeEnum,SEP.HRMIS.Model.PayModule.BindItemEnum,SEP.HRMIS.Model.PayModule.MantissaRoundEnum,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="accountSetParaName"></param>
+            <param name="fieldAttributes"></param>
+            <param name="bindItem"></param>
+            <param name="mantissaRoundEnum"></param>
+            <param name="description"></param>
+            <param name="isVisibleToEmployee"></param>
+            <param name="isVisibleWhenZero"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.CreateAccountSetFacade(System.String,System.String,System.Collections.Generic.List{SEP.HRMIS.Model.PayModule.AccountSetItem})">
+            <summary>
+            </summary>
+            <param name="accountSetName"></param>
+            <param name="description"></param>
+            <param name="accountSetItems"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.DeleteAccountSetFacade(System.Int32)">
+            <summary>
+            </summary>
+            <param name="accountSetID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.DeleteAccountSetParaFacade(System.Int32)">
+            <summary>
+            </summary>
+            <param name="accountSetParaID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.UpdateAccountSetFacade(System.Int32,System.String,System.String,System.Collections.Generic.List{SEP.HRMIS.Model.PayModule.AccountSetItem},System.String)">
+            <summary>
+            </summary>
+            <param name="accountSetID"></param>
+            <param name="accountSetName"></param>
+            <param name="description"></param>
+            <param name="accountSetItems"></param>
+            <param name="operatorName"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.UpdateAccountSetParaFacade(System.Int32,System.String,SEP.HRMIS.Model.PayModule.FieldAttributeEnum,SEP.HRMIS.Model.PayModule.BindItemEnum,SEP.HRMIS.Model.PayModule.MantissaRoundEnum,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="accountSetParaID"></param>
+            <param name="accountSetParaName"></param>
+            <param name="fieldAttributes"></param>
+            <param name="bindItem"></param>
+            <param name="mantissaRoundEnum"></param>
+            <param name="description"></param>
+            <param name="operatorName"></param>
+            <param name="isVisibleToEmployee"></param>
+            <param name="isVisibleWhenZero"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.GetAccountSetParaByPKIDFacade(System.Int32)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.GetAccountSetParaByCondition(System.String,SEP.HRMIS.Model.PayModule.FieldAttributeEnum,SEP.HRMIS.Model.PayModule.MantissaRoundEnum,SEP.HRMIS.Model.PayModule.BindItemEnum)">
+            <summary>
+            </summary>
+            <param name="name"></param>
+            <param name="fieldAttribute"></param>
+            <param name="mantissaRound"></param>
+            <param name="bindItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.GetWholeAccountSetByPKID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.GetAccountSetByCondition(System.String)">
+            <summary>
+            </summary>
+            <param name="accountSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.CountAccountSetItemByAccountSetParaID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="accountSetParaID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.GetAccountSetByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accountSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IAccountSetFacade.GetAccountSetParaByNameFacade(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="accountSetParaByName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IFileCargoFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFileCargoFacade.AddFileCargo(SEP.HRMIS.Model.FileCargo)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFileCargoFacade.UpdateFileCargo(SEP.HRMIS.Model.FileCargo)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFileCargoFacade.DeleteFileCargo(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFileCargoFacade.GetFileCargoByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFileCargoFacade.GetFileCargoByFileCargoID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="FileCargoID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.AddEmployeeContract(SEP.HRMIS.Model.Contract,SEP.HRMIS.Model.Employee)">
+            <summary>
+            新增员工合同
+            </summary>
+            <param name="contract"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.UpdateEmployeeContract(SEP.HRMIS.Model.Contract,SEP.HRMIS.Model.Employee)">
+            <summary>
+            修改员工合同
+            </summary>
+            <param name="contract"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.DeleteEmployeeContract(System.Int32,System.Int32)">
+            <summary>
+            删除员工合同
+            </summary>
+            <param name="contractID"></param>
+            <param name="accountID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetEmployeeContractByContractId(System.Int32)">
+            <summary>
+            根据合同ID获得合同信息
+            </summary>
+            <param name="contractId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetEmployeeContractByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获得员工合同信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetLastContractByAccountID(System.Int32)">
+            <summary>
+            获得员工最新的最新合同信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetEmployeeContractByCondition(System.String,System.DateTime,System.DateTime,System.DateTime,System.DateTime,System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            根据条件获取员工合同
+            </summary>
+            <param name="employeeName"></param>
+            <param name="StratTimeFrom"></param>
+            <param name="StratTimeTo"></param>
+            <param name="EndTimeFrom"></param>
+            <param name="EndTimeTo"></param>
+            <param name="ContractTypeId"></param>
+            <returns></returns>
+            <param name="Operator"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetEmployeeContractBookMarkByContractTypeID(System.Int32,System.Int32)">
+            <summary>
+            根据合同类型，获得员工的合同标签信息
+            </summary>
+            <param name="contractTypeId"></param>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetRealEmployeeContractBookMarkByContractID(System.Int32)">
+            <summary>
+            根据合同，获得员工的合同标签信息
+            </summary>
+            <param name="contractID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.ExportEmployeeContract(System.Int32)">
+            <summary>
+            导出
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeContractFacade.GetEmployeeContractByCondition(System.String,System.DateTime,System.DateTime,System.DateTime,System.DateTime,System.Int32,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+             有员工状态的查询
+            </summary>
+            <param name="employeeName"></param>
+            <param name="StratTimeFrom"></param>
+            <param name="StratTimeTo"></param>
+            <param name="EndTimeFrom"></param>
+            <param name="EndTimeTo"></param>
+            <param name="ContractTypeId"></param>
+            <param name="Operator"></param>
+            <param name="employeeStatus"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IConfirmMessageFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IConfirmMessageFacade.ReSendBlockMessage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IConfirmMessageFacade.ReceiveMessage(SmsDataContract.ReceiveMessageDataModel)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IConfirmMessageFacade.FailedSendMessageProcess(SmsDataContract.SendMessageDataModel)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.AddAssessTemplatePaper(SEP.HRMIS.Model.AssessTemplatePaper)">
+            <summary>
+            新增考评表
+            </summary>
+            <param name="assessTemplatePaper"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.UpdateAssessTemplatePaper(SEP.HRMIS.Model.AssessTemplatePaper)">
+            <summary>
+            修改考评表
+            </summary>
+            <param name="assessTemplatePaper"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.DeleteAssessTemplatePaper(System.Int32)">
+            <summary>
+            删除考评表
+            </summary>
+            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.AddAssessTemplateItem(SEP.HRMIS.Model.AssessTemplateItem)">
+            <summary>
+            新增考评项
+            </summary>
+            <param name="assessTemplateItem"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.UpdateAssessTemplateItem(SEP.HRMIS.Model.AssessTemplateItem)">
+            <summary>
+            修改考评项
+            </summary>
+            <param name="assessTemplateItem"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.DeleteAssessTemplateItem(System.Int32)">
+            <summary>
+            删除考评项
+            </summary>
+            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetAssessTempletPaperById(System.Int32)">
+            <summary>
+            根据ID获得考评表信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetAllTemplatePaper">
+            <summary>
+            获得所有考评表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetTemplatePapersByPaperName(System.String)">
+            <summary>
+            根据名称获得考评表
+            </summary>
+            <param name="paperName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetTemplateItemById(System.Int32)">
+            <summary>
+            根据ID获取考评项信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetAllTemplateItems">
+            <summary>
+            获得所有考评项
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetTemplateItemsByConditon(System.String,SEP.HRMIS.Model.OperateType,SEP.HRMIS.Model.ItemClassficationEmnu,SEP.HRMIS.Model.AssessTemplateItemType)">
+            <summary>
+            根据条件获取考评项
+            </summary>
+            <param name="question"></param>
+            <param name="type"></param>
+            <param name="classfication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetTempletPaperAndItemById(System.Int32)">
+            <summary>
+            根据ID获得考评表信息及考评项信息
+            </summary>
+            <param name="paperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.ManagerPaperItem(System.Int32,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            管理考评表的考评项
+            </summary>
+            <param name="paperId"></param>
+            <param name="items"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetTempletPaperIDByEmployeePositionID(System.Int32)">
+            <summary>
+            通过员工职位得到对应的考评表
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.GetTemplatePapersAllInfoByPaperName(System.String)">
+            <summary>
+            for export
+            </summary>
+            <param name="paperName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessManagementFacade.ImportTemplatePaper(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filePath"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade">
+            <summary>
+            员工统计
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade.BindEmployeeStatistics(System.DateTime,System.Int32,SEP.Model.Accounts.Account,System.Collections.Generic.List{SEP.HRMIS.Model.Employee})">
+            <summary>
+            员工统计
+            </summary>
+            <param name="dt"></param>
+            <param name="departmentID"></param>
+            <param name="accountoperator"></param>
+            <returns></returns>
+            <param name="employeeSource"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade.ComeAndLeaveStatistics(System.DateTime,System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            员工统计入职离职
+            </summary>
+            <param name="time"></param>
+            <param name="departmentID"></param>
+            <param name="accountoperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade.ComeAndLeaveStatisticsOnlyOneMonth(System.DateTime,System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            员工统计入职离职
+            </summary>
+            <param name="dt"></param>
+            <param name="departmentID"></param>
+            <param name="accountoperator"></param>        
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade.ResidenceStatistics(System.DateTime,System.Int32,SEP.Model.Accounts.Account,System.Collections.Generic.List{SEP.HRMIS.Model.Employee})">
+            <summary>
+            员工统计合同工类型分布
+            </summary>
+            <param name="time"></param>
+            <param name="departmentID"></param>
+            <param name="accountoperator"></param>
+            <param name="employeeSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade.VocationStatistics(System.DateTime,System.Int32,SEP.Model.Accounts.Account,System.Collections.Generic.List{SEP.HRMIS.Model.Employee})">
+            <summary>
+            员工统计年假分布
+            </summary>
+            <param name="time"></param>
+            <param name="departmentID"></param>
+            <param name="employeeSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeStatisticsFacade.PositionGradeStatistics(System.DateTime,System.Int32,SEP.Model.Accounts.Account,System.Collections.Generic.List{SEP.HRMIS.Model.Employee})">
+            <summary>
+            员工统计层级构成
+            </summary>
+            <param name="time"></param>
+            <param name="departmentID"></param>
+            <param name="accountoperator"></param>
+            <returns></returns>
+            <param name="employeeSource"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.ICompanyInvolveFacade">
+            <summary>
+            根据公司获取相关信息接口
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetEmployeeBasicInfoByCompanyID(System.Int32)">
+            <summary>
+            获得某个公司的所有员工
+            </summary>
+            <param name="companyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetPositionByCompanyID(System.Int32)">
+            <summary>
+            获得某个公司的所有职位
+            </summary>
+            <param name="companyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetDepartmentByCompanyID(System.Int32)">
+            <summary>
+            获得某个公司的所有部门
+            </summary>
+            <param name="companyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetAllCompanyHaveEmployee">
+            <summary>
+            获得系统中所有公司
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetAllCompanyHaveEmployee(SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            根据帐号，获得系统中所有公司
+            </summary>
+            <param name="_operator"></param>
+            <param name="powerID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetDepartmentAndChildrenDeptByEmployeeIDAndCompanyID(System.Int32,System.Int32)">
+            <summary>
+            获得在companyID公司内employeeID所管辖的部门
+            </summary>
+            <param name="employeeID"></param>
+            <param name="companyID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICompanyInvolveFacade.GetDepartmentInCompanyByAuthAndEmployee(System.Int32,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            获得employeeID在companyID中所管辖的部门以及拥有权限的部门
+            </summary>
+            <param name="companyID"></param>
+            <param name="_operator"></param>
+            <param name="power"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IApplyAssessConditionFacade">
+            <summary>
+            考核条件相关接口
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IApplyAssessConditionFacade.AddApplyAssessCondition(System.Collections.Generic.List{SEP.HRMIS.Model.ApplyAssessCondition},SEP.HRMIS.Model.ApplyAssessCondition)">
+            <summary>
+            新增考核条件
+            </summary>
+            <param name="conditions"></param>
+            <param name="condition"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IApplyAssessConditionFacade.UpdateApplyAssessCondition(System.Collections.Generic.List{SEP.HRMIS.Model.ApplyAssessCondition},SEP.HRMIS.Model.ApplyAssessCondition)">
+            <summary>
+            修改考核条件
+            </summary>
+            <param name="conditions"></param>
+            <param name="condition"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IApplyAssessConditionFacade.DeleteApplyAssessCondition(System.Collections.Generic.List{SEP.HRMIS.Model.ApplyAssessCondition},System.Int32)">
+            <summary>
+            删除考核条件
+            </summary>
+            <param name="conditions"></param>
+            <param name="id"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IApplyAssessConditionFacade.SystemSetApplyAssessCondition(System.Collections.Generic.List{SEP.HRMIS.Model.ApplyAssessCondition},System.Int32,System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            自动生成考核条件
+            </summary>
+            <param name="conditions"></param>
+            <param name="id"></param>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <param name="employeeID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IApplyAssessConditionFacade.GetApplyAssessConditionByEmployeeContractID(System.Int32)">
+            <summary>
+            根据员工合同ID获得考核条件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.PayModule.IGetBindFieldFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IGetBindFieldFacade.GetEmployeePassMonthBindField(System.Int32,System.DateTime)">
+            <summary>
+            仅获取GetEmployeePassMonth数据
+            </summary>
+            <param name="accountID"></param>
+            <param name="endDt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IVacationFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.AddVacation(SEP.HRMIS.Model.Vacation)">
+            <summary>
+            新增员工年假信息
+            </summary>
+            <param name="vacation"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.UpdateVacation(SEP.HRMIS.Model.Vacation)">
+            <summary>
+            修改员工年假信息
+            </summary>
+            <param name="vacation"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.DeleteVacation(System.Int32)">
+            <summary>
+            删除员工年假信息
+            </summary>
+            <param name="vacationID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.GetVacationByVacationID(System.Int32)">
+            <summary>
+            根据年假ID获得年假信息
+            </summary>
+            <param name="vacationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.EditVacation(System.Collections.Generic.List{SEP.HRMIS.Model.Vacation},SEP.HRMIS.Model.Employee)">
+            <summary>
+            编辑一个员工的年假信息
+            </summary>
+            <param name="list"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.GetVacationByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获得员工的年假列表
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.GetLastVacationByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获得员工的最新年假信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IVacationFacade.GetVacationByCondition(System.String,System.Decimal,System.Decimal,System.DateTime,System.DateTime,System.Decimal,System.Decimal,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            根据条件获得员工年假信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.AddPositionApplication(SEP.HRMIS.Model.PositionApp.PositionApplication)">
+            <summary>
+            新增
+            </summary>
+            <param name="positionApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.SubmitPositionApplication(SEP.HRMIS.Model.PositionApp.PositionApplication)">
+            <summary>
+            提交
+            </summary>
+            <param name="positionApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.UpdatePositionApplication(SEP.HRMIS.Model.PositionApp.PositionApplication)">
+            <summary>
+            修改
+            </summary>
+            <param name="positionApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.UpdateSubmitPositionApplication(SEP.HRMIS.Model.PositionApp.PositionApplication)">
+            <summary>
+            修改提交
+            </summary>
+            <param name="positionApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.DeletePositionApplication(System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="positionApplicationID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.GetPositionApplicationByAccountID(System.Int32)">
+            <summary>
+            根据账号ID获得该账号的所有信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.GetPositionApplicationByPKID(System.Int32)">
+            <summary>
+            根据pkid获得信息
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.CancelPositionApplication(System.Int32,System.Int32,SEP.HRMIS.Model.Request.RequestStatus,System.String)">
+            <summary>
+            取消
+            </summary>
+            <param name="positionApplicationID"></param>
+            <param name="operatorID"></param>
+            <param name="requestStatus"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.ApprovePositionApplication(SEP.HRMIS.Model.PositionApp.PositionApplication,System.Int32,SEP.HRMIS.Model.Request.RequestStatus,System.String)">
+            <summary>
+            审核
+            </summary>
+            <param name="positionApplication"></param>
+            <param name="accountID"></param>
+            <param name="requestStatus"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.GetConfirmPositionApplication(System.Int32)">
+            <summary>
+            根据账号ID获取该待审核的
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.GetPositionApplicationConfirmHistoryByOperatorID(System.Int32,System.String)">
+            <summary>
+            审核过的
+            </summary>
+            <param name="operatorID"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.GetPositionApplicationFlowByPositionApplicationID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="positionApplicationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionApplicationFacade.GetPositionApplicationByCondition(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            人事查询专用
+            </summary>
+            <param name="name"></param>
+            <param name="account"></param>
+            <param name="isPublish"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.PayModule.PayModuleInstanceFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.PayModuleInstanceFactory.CreateAccountSetFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.PayModuleInstanceFactory.CreateEmployeeAccountSetFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.PayModuleInstanceFactory.CreateTaxFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.PayModuleInstanceFactory.CreateEmployeeSalaryStatisticsFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.PayModuleInstanceFactory.CreateGetBindFieldFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.CreateEmployeeAccountSetFacade(System.Int32,SEP.HRMIS.Model.PayModule.AccountSet,System.String,System.DateTime,System.String)">
+            <summary>
+            1 为员工设置帐套，获得自己的帐套
+            2 给帐套赋初始值，并得记录调薪历史的结果
+            </summary>
+            <param name="employeeID"></param>
+            <param name="accountSet"></param>
+            <param name="backAccountsName"></param>
+            <param name="changeDate"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.UpdateEmployeeAccountSetFacade(System.Int32,SEP.HRMIS.Model.PayModule.AccountSet,System.String,System.DateTime,System.String)">
+            <summary>
+            调薪（修改固定项），并得记录调薪历史的结果
+            </summary>
+            <param name="employeeID"></param>
+            <param name="accountSet"></param>
+            <param name="backAccountsName"></param>
+            <param name="changeDate"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeAccountSetByEmployeeID(System.Int32)">
+            <summary>
+            根据员工编号获得员工薪资
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.InitialEmployeeSalaryFacade(System.DateTime,System.String,System.String,System.Int32)">
+            <summary>
+            初始化工资
+            </summary>
+            <param name="dt">发放工资时间</param>
+            <param name="backAcountsName">操作人</param>
+            <param name="description">描述</param>
+            <param name="companyId">公司</param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.CloseEmployeeSalaryFacade(System.DateTime,System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            封账
+            </summary>
+            <param name="dt">封帐时间</param>
+            <param name="backAcountsName">操作人</param>
+            <param name="description">描述</param>       
+            <param name="companyId">公司</param>
+            <param name="isSendEmail"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.TemporarySaveEmployeeAccountSetFacadeFacade(System.Int32,System.Int32,System.DateTime,SEP.HRMIS.Model.PayModule.AccountSet,System.String,System.String,System.Int32)">
+            <summary>
+            暂存
+            </summary>
+            <param name="salaryId">薪资id</param>
+            <param name="employeeID">员工id</param>
+            <param name="dt">发薪时间</param>
+            <param name="accountSet">员工帐套</param>
+            <param name="backAcountsName">操作人</param>
+            <param name="description"></param>
+            <param name="versionNumber"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.ReopenEmployeeSalaryFacade(System.DateTime,System.String,System.String,System.Int32)">
+            <summary>
+            解封
+            </summary>
+            <param name="dt">解封时间</param>
+            <param name="backAcountsName">操作人</param>
+            <param name="description">描述</param>
+            <param name="companyId">公司</param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeAccountSetByCondition(System.String,System.Int32,System.Int32,SEP.HRMIS.Model.EmployeeTypeEnum,System.Boolean,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            根据条件查询员工帐套
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryByEmployeeIDFacade(System.Int32)">
+            <summary>
+            员工的所有工资记录
+            </summary>
+            <param name="employeeID">员工id</param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryHistoryByEmployeeIdAndDateTimeFacade(System.Int32,System.DateTime)">
+            <summary>
+            获取一个员工某月的工资记录
+            </summary>
+            <param name="employeeID">员工id</param>
+            <param name="dt">查询时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryByConditionFacade(System.String,System.DateTime,System.Int32,System.Int32,System.Int32,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32)">
+            <summary>
+            查询工资情况
+            </summary>
+            <param name="name"></param>
+            <param name="salaryTime"></param>
+            <param name="departmentId"></param>
+            <param name="positionId"></param>
+            <param name="accountSetId"></param>
+            <param name="employeeType"></param>
+            <param name="companyId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.ImportEmployeeSalary(System.String,System.DateTime,System.String,System.Int32)">
+            <summary>
+            导入员工工资
+            </summary>
+            <param name="filePath">要导入的excel文档路径</param>
+            <param name="dt">发薪时间</param>
+            <param name="backAcountsName">操作人姓名</param>
+            <param name="companyId">公司</param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.ExportEmployeeAccountSetFacade(System.String,System.Int32,System.Int32,SEP.HRMIS.Model.EmployeeTypeEnum,System.Boolean,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            导出员工帐套信息
+            </summary>
+            <param name="employeeName"></param>
+            <param name="departmentID"></param>
+            <param name="positionID"></param>
+            <param name="employeeType"></param>
+            <param name="isRecursionDepartment"></param>
+            <param name="accountOperator"></param>
+            <param name="employeeStatus"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.ImportEmployeeAccountSetFacade(System.String,SEP.Model.Accounts.Account)">
+            <summary>
+            导入员工帐套信息
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetAdjustSalaryHistoryByPKID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetAdjustSalaryHistoryByEmployeeID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryByEmployeeID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryHistoryByPKID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryByEmployeeSalaryHistoryID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="historyid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryHistoryByEmployeeIdAndDateTime(System.Int32,System.DateTime)">
+            <summary>
+            </summary>
+            <param name="employeeID"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryHistoryByEmployeeId(System.Int32)">
+            <summary>
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.GetEmployeeSalaryByCompnay(System.DateTime,System.Int32)">
+            <summary>
+             获取某个子公司的发薪情况
+            </summary>
+            <param name="salaryTime"></param>
+             <param name="companyId">公司</param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeAccountSetFacade.SendEmployeeEmail(System.Int32,System.DateTime)">
+            <summary>
+            给员工发送工资单
+            </summary>
+            <param name="accountId"></param>
+            <param name="salaryDate"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.ITrainFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.AddFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
+            <summary>
+            </summary>
+            <param name="trainfbquestype"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.UpdateFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
+            <summary>
+            </summary>
+            <param name="fbQuesType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.DeleteFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
+            <summary>
+            </summary>
+            <param name="fbQuesType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetTrainFBQuesTypeByPKID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetTrainFBQuesTypeByCondition(System.Int32,System.String)">
+            <summary>
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.AddTrainFBQuestion(SEP.HRMIS.Model.TrainFBQuestion)">
+            <summary>
+            </summary>
+            <param name="fbquestion"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.UpdateTrainFBQuestion(SEP.HRMIS.Model.TrainFBQuestion)">
+            <summary>
+            </summary>
+            <param name="fbquestion"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.DeleteTrainFBQuestion(SEP.HRMIS.Model.TrainFBQuestion)">
+            <summary>
+            </summary>
+            <param name="fbquestion"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetFBQuestionByID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetFBQuestionByConditon(System.String,System.Int32)">
+            <summary>
+            </summary>
+            <param name="name"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.AddTrainCourse(SEP.HRMIS.Model.Course,System.Collections.Generic.List{SEP.HRMIS.Model.Skill},System.Collections.Generic.List{SEP.Model.Accounts.Account},SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="course"></param>
+            <param name="skills"></param>
+            <param name="employees"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.UpdateTrainCourse(SEP.HRMIS.Model.Course,System.Collections.Generic.List{SEP.HRMIS.Model.Skill},System.Collections.Generic.List{SEP.Model.Accounts.Account},SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="course"></param>
+            <param name="skills"></param>
+            <param name="employees"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.DeleteTrainCourse(System.Int32)">
+            <summary>
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.AddCourseFeedBack(System.Int32,SEP.HRMIS.Model.TrainEmployeeFB)">
+            <summary>
+            </summary>
+            <param name="courseId"></param>
+            <param name="employeeFB"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.FinishTrainCourse(System.Int32)">
+            <summary>
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetTrainCourseByPKID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetCourseByConditon(System.String,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.DateTime,System.DateTime,System.DateTime,System.DateTime,System.Decimal,System.Decimal,System.Decimal,System.Decimal,SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="courseName"></param>
+            <param name="coordinator"></param>
+            <param name="scope"></param>
+            <param name="status"></param>
+            <param name="trainer"></param>
+            <param name="trainee"></param>
+            <param name="skillName"></param>
+            <param name="expectedTimeFrom"></param>
+            <param name="expectedTimeTo"></param>
+            <param name="actualTimeFrom"></param>
+            <param name="actualTimeTo"></param>
+            <param name="expctedCostFrom"></param>
+            <param name="expectedCostTo"></param>
+            <param name="actaulCostFrom"></param>
+            <param name="actualCostTo"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetCourseTrainneeByCondition(System.Int32,System.Int32,System.String,System.String,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            </summary>
+            <param name="traineeAccontID"></param>
+            <param name="courseId"></param>
+            <param name="courseName"></param>
+            <param name="traineeName"></param>
+            <param name="status"></param>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetTrainEmployeeFB(System.Int32,System.Int32,System.String,System.String,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},SEP.Model.Accounts.Account,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="traineeAccontID"></param>
+            <param name="courseId"></param>
+            <param name="courseName"></param>
+            <param name="traineeName"></param>
+            <param name="status"></param>
+            <param name="startTime"></param>
+            <param name="endTime"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.GetTraineeFBItems(System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="courseId"></param>
+            <param name="employeeAccountId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITrainFacade.ExportFeedBackResult(System.Int32,System.String)">
+            <summary>
+            导出培训反馈结果
+            </summary>
+            <param name="courseId"></param>
+            <param name="reportTemplateLocation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillTypeFacade.AddSkillType(SEP.HRMIS.Model.SkillType)">
+            <summary>
+            新增技能类型
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillTypeFacade.DeleteSkillType(System.Int32)">
+            <summary>
+            删除技能类型
+            </summary>
+            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillTypeFacade.UpdateSkillType(SEP.HRMIS.Model.SkillType)">
+            <summary>
+            更新技能类型
+            </summary>
+            <param name="type"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillTypeFacade.GetSkillTypeByPKID(System.Int32)">
+            <summary>
+            根据PKID获得技能类型
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillTypeFacade.GetSkillTypeByCondition(System.Int32,System.String)">
+            <summary>
+            根据条件获得技能类型
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.PayModule.ITaxFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.ITaxFacade.SaveTaxCutoffPoint(System.Decimal,System.Decimal)">
+            <summary>
+            </summary>
+            <param name="taxCutoffPoint"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.ITaxFacade.CreateTaxBand(System.Decimal,System.Decimal)">
+            <summary>
+            </summary>
+            <param name="bandMin"></param>
+            <param name="taxRate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.ITaxFacade.UpdateTaxBand(System.Int32,System.Decimal,System.Decimal)">
+            <summary>
+            </summary>
+            <param name="taxBandID"></param>
+            <param name="bandMin"></param>
+            <param name="taxRate"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.ITaxFacade.DeleteTaxBand(System.Int32)">
+            <summary>
+            </summary>
+            <param name="taxBandID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.ITaxFacade.GetTaxBandByTaxBandID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="taxBandID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.ITaxFacade.GetIndividualIncomeTax">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IOutApplicationFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.AddOutApplication(SEP.HRMIS.Model.OutApplication.OutApplication,System.Collections.Generic.List{SEP.Model.Accounts.Account})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetOutApplicationByOutApplicationID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetAllOutApplicationByAccountID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.UpdateOutApplication(SEP.HRMIS.Model.OutApplication.OutApplication,System.Collections.Generic.List{SEP.Model.Accounts.Account})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.DeleteOutApplicationByPKID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.CalculateOutHour(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            自动计算小时
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.CalculateOutCityHour(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            自动计算出差小时
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetConfirmOutApplicationByNextOperatorID(System.Int32)">
+            <summary>
+            得到审核待审核的单子
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetConfirmHistroy(System.Int32,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            审核历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.ApproveWholeOutApplication(System.Int32,System.Int32,System.Boolean,System.String)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.CancelAllOutApplication(System.Int32,System.String)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.CancelOutApplicationItem(System.Int32,System.String,SEP.Model.Accounts.Account)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.ApproveOutApplicationItem(System.Int32,System.Int32,System.Boolean,System.String,System.Int32,System.Boolean,System.Decimal)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetOutApplicationFlowList(System.Int32)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetOutApplicationItemByItemID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.SetCanChangeAdjust(SEP.HRMIS.Model.OutApplication.OutApplication)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOutApplicationFacade.GetOutApplicationByAccountAndRelatedDate(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            为高级日历的数据获取
+            </summary>
+            <param name="accountID"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.INationalityFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.INationalityFacade.AddNationality(SEP.HRMIS.Model.Nationality)">
+            <summary>
+            
+            </summary>
+            <param name="nationality"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.INationalityFacade.UpdateNationality(SEP.HRMIS.Model.Nationality)">
+            <summary>
+            
+            </summary>
+            <param name="nationality"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.INationalityFacade.DeleteNationality(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.INationalityFacade.GetNationalityByPkid(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.INationalityFacade.GetNationalityByCondition(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceReadDataFacade.ReadDataFromAccessToSQL(System.Int32,SEP.Model.Accounts.Account,System.DateTime,System.DateTime)">
+            <summary>
+            添加读取时间段 2009-09-28
+            </summary>
+            <param name="readDataHistoryID"></param>
+            <param name="loginUser"></param>
+            <param name="readFromTime"></param>
+            <param name="readToTime"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.PayModule.IEmployeeSalaryStatisticsFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeSalaryStatisticsFacade.DepartmentStatistics(System.DateTime,System.DateTime,System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.PayModule.AccountSetPara},System.Int32,System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <param name="departmentID"></param>
+            <param name="items"></param>
+            <returns></returns>
+            <param name="companyID"></param>
+            <param name="isIncludeChildDeptMember"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeSalaryStatisticsFacade.PositionStatistics(System.DateTime,System.DateTime,System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.PayModule.AccountSetPara},System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <param name="departmentID"></param>
+            <param name="items"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+            <param name="companyID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeSalaryStatisticsFacade.AverageStatistics(System.DateTime,System.DateTime,System.Int32,SEP.HRMIS.Model.PayModule.AccountSetPara,System.Int32,System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <param name="departmentID"></param>
+            <param name="item"></param>
+            <returns></returns>
+            <param name="companyID"></param>
+            <param name="isIncludeChildDeptMember"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeSalaryStatisticsFacade.TimeSpanStatisticsGroupByParameter(System.DateTime,System.DateTime,System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.PayModule.AccountSetPara},System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <param name="departmentID"></param>
+            <param name="items"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+            <param name="companyID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.PayModule.IEmployeeSalaryStatisticsFacade.TimeSpanStatisticsGroupByDepartment(System.DateTime,System.DateTime,System.Int32,SEP.HRMIS.Model.PayModule.AccountSetPara,System.Int32,System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+            </summary>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <param name="departmentID"></param>
+            <param name="item"></param>
+            <returns></returns>
+            <param name="companyID"></param>
+            <param name="isIncludeChildDeptMember"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.ISystemErrorFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.GetDiyProcessError(System.Boolean,SEP.HRMIS.Model.SystemError.ErrorType,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.GetDoorCardError(System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.GetDutyCalssError(System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.GetAttendanceError(System.String,System.Int32,System.DateTime,System.DateTime,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.GetPhoneMessageByCondition(System.String,SEP.HRMIS.Model.PhoneMessage.PhoneMessageStatus,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.GetEmployeeContractError(System.String,System.Int32,System.DateTime,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISystemErrorFacade.UpdateErrorStatus(SEP.HRMIS.Model.SystemError.SystemError)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IReadExternalDataFacade">
+            <summary>
+            读取外部考勤机数据接口
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReadExternalDataFacade.SystemReadDataFromAccessToSQL(SEP.HRMIS.Model.EmployeeAttendance.ReadData.ReadDataHistory,SEP.Model.Accounts.Account)">
+            <summary>
+            系统自动读数据
+            </summary>
+            <param name="readNewHistory"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReadExternalDataFacade.SystemReadDataFromSetTime(SEP.Model.Accounts.Account)">
+            <summary>
+            系统自动在指定时间读取考勤数据
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IPhoneMessageFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPhoneMessageFacade.FinishPhoneMessageByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IFeedBackPaperFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFeedBackPaperFacade.AddAFeedBackPaper(SEP.HRMIS.Model.FeedBackPaper)">
+            <summary>
+            新增反馈表
+            </summary>
+            <param name="feedBackPaper"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFeedBackPaperFacade.UpdateFeedBackPaper(SEP.HRMIS.Model.FeedBackPaper)">
+            <summary>
+            修改反馈表
+            </summary>
+            <param name="feedBackPaper"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFeedBackPaperFacade.DeleteFeedBackPaper(System.Int32)">
+            <summary>
+            删除反馈表
+            </summary>
+            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFeedBackPaperFacade.GetFeedBackPaperById(System.Int32)">
+            <summary>
+            根据ID获得反馈表信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IFeedBackPaperFacade.GetFeedBackPaperByPaperName(System.String)">
+            <summary>
+            查询反馈表
+            </summary>
+            <param name="paperName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IEmployeeWelfareFacade">
+            <summary>
+            员工福利
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeWelfareFacade.GetEmployeeWelfareByAccountID(System.Int32)">
+            <summary>
+            根据账号获得员工福利信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeWelfareFacade.GetEmployeeWelfareHistoryByAccountID(System.Int32)">
+            <summary>
+            根据账号获得员工福利历史信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeWelfareFacade.SaveEmployeeWelfare(System.Int32,SEP.HRMIS.Model.SocialSecurityTypeEnum,System.Nullable{System.Decimal},System.Nullable{System.DateTime},System.String,System.Nullable{System.DateTime},System.Nullable{System.Decimal},System.String,System.String,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            保存员工福利，有则更新，没有则新增
+            </summary>
+            <param name="employeeID">员工ID</param>
+            <param name="socialSecurityType">社保类型</param>
+            <param name="socialSecurityBase">社保基数</param>
+            <param name="socialSecurityEffectiveYearMonth">社保有效年月</param>
+            <param name="accumulationFundAccount">公积金帐号</param>
+            <param name="accumulationFundEffectiveYearMonth">公积金有效年月</param>
+            <param name="accumulationFundBase">公积金基数</param>
+            <param name="operationName">操作人姓名</param>
+            <param name="accumulationFundSupplyAccount"></param>
+            <returns>pkid</returns>
+            <param name="accumulationFundSupplyBase">补充公积金基数</param>
+            <param name="yangLaoBase">养老缴费基数</param>
+            <param name="shiYeBase">失业缴费基数</param>
+            <param name="yiLiaoBase">医疗缴费基数</param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeWelfareFacade.ImportEmployeeWelfare(System.String,SEP.Model.Accounts.Account)">
+            <summary>
+            导入员工福利
+            </summary>
+            <param name="filePath">文件地址</param>
+            <param name="account">操作人</param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IDepartmentHistoryFacade">
+            <summary>
+            部门历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDepartmentHistoryFacade.AddDepartmentHistory(SEP.Model.Accounts.Account)">
+            <summary>
+            新增部门历史，拍下整个公司历史信息
+            </summary>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDepartmentHistoryFacade.GetDepartmentNoStructByDateTime(System.DateTime)">
+            <summary>
+            获得dt时间点的组织架构,无结构
+            </summary>
+            <param name="searchTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDepartmentHistoryFacade.GetDepartmentListStructByDepartmentIDAndDateTime(System.Int32,System.DateTime)">
+            <summary>
+            获得dt时间点deparmentID的树形结构，以列表形式返回
+            </summary>
+            <param name="deparmentID"></param>
+            <param name="searchTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDepartmentHistoryFacade.GetDepartmentTreeStructByDateTime(System.DateTime)">
+            <summary>
+            获得dt时间点的组织架构,有树型结构
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.ICustomerInfoFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICustomerInfoFacade.InsertCustomerInfo(SEP.HRMIS.Model.CustomerInfo)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICustomerInfoFacade.UpdateCustomerInfo(SEP.HRMIS.Model.CustomerInfo)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICustomerInfoFacade.DeleteCustomerInfo(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICustomerInfoFacade.GetCustomerInfoByID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICustomerInfoFacade.GetCustomerIDInfoByName(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ICustomerInfoFacade.GetCustomerInfoByNameLike(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.AddReimburse(System.Int32,SEP.HRMIS.Model.Reimburse)">
+            <summary>
+            新增报销单
+            </summary>
+            <param name="reimburse"></param>
+            <param name="Employeed"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.UpdateReimburse(System.Int32,SEP.HRMIS.Model.Reimburse)">
+            <summary>
+            修改报销单
+            </summary>
+            <param name="reimburse"></param>
+            <param name="Employeed"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.DeleteReimburse(System.Int32,System.Int32)">
+            <summary>
+            删除报销单
+            </summary>
+            <param name="reimburseID"></param>
+            <param name="Employeed"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetEmployeeReimbursingByEmployeeID(System.Int32)">
+            <summary>
+            等待的报销
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetEmployeeReimburseHistoryByEmployeeID(System.Int32)">
+            <summary>
+            我的报销历史
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetEmployeeReimburseByEmployeeID(System.Int32)">
+            <summary>
+            我的报销
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetReimburseByCondition(SEP.Model.Accounts.Account,System.String,System.Int32,SEP.HRMIS.Model.ReimburseStatusEnum,System.Int32,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            查询报销
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetReimburseForCustomerByCondition(SEP.Model.Accounts.Account,System.String,System.Int32,SEP.HRMIS.Model.ReimburseStatusEnum,System.Int32,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            查询客户维护
+            </summary>
+            <param name="loginUser"></param>
+            <param name="employeename"></param>
+            <param name="departmentid"></param>
+            <param name="statusEnum"></param>
+            <param name="reimburseCategoriesEnumID"></param>
+            <param name="totalcostfrom"></param>
+            <param name="totalcostto"></param>
+            <param name="applydateFrom"></param>
+            <param name="applydateTo"></param>
+            <param name="billtimeFrom"></param>
+            <param name="billtimeTo"></param>
+            <param name="companyID"></param>
+            <param name="auth"></param>
+            <param name="finishStatus"></param>
+            <returns></returns>
+            <param name="isCustomerFilled"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.FinishEmployeeReimburses(System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.Reimburse},SEP.HRMIS.Model.Employee)">
+            <summary>
+            完成报销单
+            </summary>
+            <param name="employeeId"></param>
+            <param name="reimburses"></param>
+            <param name="curroperator"></param> 
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.QuickPassReimburses(SEP.Model.Accounts.Account,System.Int32,System.Int32,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Decimal,System.Decimal)">
+            <summary>
+            快速完成
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetReimburseByPkid(System.Int32)">
+            <summary>
+            查找报销
+            </summary>
+            <param name="reimburseID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetReimbursesHistory(System.Int32)">
+            <summary>
+            报销的流程记录
+            </summary>
+            <param name="ReimburseID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.DepartmentStatistics(System.DateTime,System.DateTime,System.Int32,System.Int32,System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+             报销统计
+            </summary>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <param name="departmentID"></param>
+            <param name="companyID"></param>
+            <param name="isIncludeChildDeptMember"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.WaitAuditReimburses(System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.Reimburse},SEP.HRMIS.Model.Employee)">
+            <summary>
+            设置待审核的报销单
+            </summary>
+            <param name="employeeId"></param>
+            <param name="reimburses"></param>
+            <param name="curroperator"></param> 
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.ReturnEmployeeReimburses(System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.Reimburse},SEP.HRMIS.Model.Employee)">
+            <summary>
+            退回报销单
+            </summary>
+            <param name="employeeId"></param>
+            <param name="reimburses"></param>
+            <param name="curroperator"></param> 
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.ReturnOrCancelReimburses(System.Int32,SEP.HRMIS.Model.Employee)">
+            <summary>
+            退回报销单
+            </summary>
+            <param name="reimburseID"></param>
+             <param name="curroperator"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.SetBillingTime(System.Int32,System.DateTime,SEP.HRMIS.Model.Employee)">
+            <summary>
+            设置记账时间
+            </summary>
+            <param name="reimburseID"></param>
+            <param name="billingTime"></param>
+             <param name="curroperator"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetReiburseTotalByCondition(SEP.Model.Accounts.Account,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.String,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Int32)">
+            <summary>
+            查询差旅报销统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.GetReiburseByCustomerID(System.Int32)">
+            <summary>
+            根据客户ID查找是否有报销单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IReimburseFacade.UpdateReimburseItemCustomer(SEP.HRMIS.Model.Reimburse)">
+            <summary>
+            修改报销项客户
+            </summary>
+            <param name="reimburse"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IAutoRemindServerFacade">
+            <summary>
+            自动提醒业务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoRemindProbationDateRearch(System.DateTime,System.Int32)">
+            <summary>
+            自动提醒员工n天后试用期到期,提醒人事
+            </summary>
+            <param name="currDate"></param>
+            <param name="days"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoEmployeeResidenceDateRearchFacade(System.DateTime,System.Int32)">
+            <summary>
+            自动提醒员工居住证到期，在该居住证到期前days天，可以发Email提醒人事部门和员 工本人居住证即将到期
+            </summary>
+            <param name="currDate"></param>
+            <param name="days"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoRemindContractFacade(System.DateTime,System.Int32)">
+            <summary>
+            员工合同到期前days提醒人事
+            </summary>
+            <param name="currDate"></param>
+            <param name="days"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoRemindEmployeeConfirmAttendanceFacade(System.DateTime)">
+            <summary>
+            月底自动提醒员工核对考勤数据
+            </summary>
+            <param name="currDate"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoRemindVacationFacade(System.DateTime,System.Int32)">
+            <summary>
+            年假到期前days提醒个人，提醒人事
+            </summary>
+            <param name="currDate"></param>
+            <param name="days"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoAssessFacade(System.DateTime)">
+            <summary>
+            自动发起考评
+            </summary>
+            <param name="currDate"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoCreateVacation(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+             <summary>
+             根据当前时间自动生成年假
+             </summary>
+            <param name="date"></param>
+            <param name="inComanyMonth"></param>
+            <param name="createAnnualHolidayDay"></param>
+            <param name="createAnnualHolidayMonth"></param>
+            <param name="annualHolidayLow"></param>
+            <param name="annualHolidayHigh"></param>
+            <param name="deferredMonths"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoRemindVacationSendEmail(System.DateTime,System.Collections.Generic.List{System.DateTime})">
+            <summary>
+             根据设定个时间自动提醒员工年假
+            </summary>
+            <param name="date"></param>
+            <param name="dateList"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoRemindReimburse">
+            <summary>
+            根据当前时间查找1天之前未给财务审核的报销单
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAutoRemindServerFacade.AutoSendBirthdayMailFacade(System.DateTime)">
+            <summary>
+            自动发送生日祝贺信
+            </summary>
+            <param name="currDate"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IAdjustRuleFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdjustRuleFacade.InsertAdjustRule(SEP.HRMIS.Model.Adjusts.AdjustRule)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdjustRuleFacade.UpdateAdjustRule(SEP.HRMIS.Model.Adjusts.AdjustRule)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdjustRuleFacade.DeleteAdjustRule(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdjustRuleFacade.GetAdjustRuleByAdjustRuleID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdjustRuleFacade.GetAdjustRuleByNameLike(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.AddTraineeApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            新增培训申请
+            </summary>
+            <param name="TraineeApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.UpdateTraineeApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            修改培训申请
+            </summary>
+            <param name="TraineeApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.UpdateTraineeApplicationDal(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            直接修改，不做任何判断
+            </summary>
+            <param name="TraineeApplication"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.DeleteTraineeApplication(System.Int32)">
+            <summary>
+            删除培训申请
+            </summary>
+            <param name="TraineeApplicationID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.GetEmployeeTraineeApplicationByEmployeeID(System.Int32)">
+            <summary>
+            我的培训申请
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.GetTraineeApplicationByCondition(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.HRMIS.Model.TrainScopeType,SEP.HRMIS.Model.TraineeApplications.TraineeApplicationStatus)">
+            <summary>
+            查询培训申请
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.GetEmployeeReimbursingByLeadID(System.Int32)">
+            <summary>
+            等待审核的培训申请
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.ApproveTraineeApplication(SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            快速完成
+            </summary>
+            <param name="loginUser"></param>
+            <param name="TraineeApplicationID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.GetTraineeApplicationByPkid(System.Int32)">
+            <summary>
+            查找培训申请
+            </summary>
+            <param name="TraineeApplicationID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.GetMyAuditingTraineeApplications(System.Int32)">
+            <summary>
+            已经审核的培训申请
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.GetTraineeApplicationFlowByTraineeApplicationID(System.Int32)">
+            <summary>
+            培训申请的流程记录
+            </summary>
+            <param name="TraineeApplicationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ITraineeApplicationFacade.ApproveTraineeApplicationWhole(SEP.Model.Accounts.Account,System.Int32,SEP.HRMIS.Model.TraineeApplications.TraineeApplicationStatus,System.String)">
+            <summary>
+            审核培训申请流程
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillFacade.AddSkill(SEP.HRMIS.Model.Skill)">
+            <summary>
+            新增技能
+            </summary>
+            <param name="skill"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillFacade.UpdateSkill(SEP.HRMIS.Model.Skill)">
+            <summary>
+            修改技能
+            </summary>
+            <param name="skill"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillFacade.DeleteSkill(System.Int32)">
+            <summary>
+            删除技能
+            </summary>
+            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillFacade.GetSkillByPKID(System.Int32)">
+            <summary>
+            根据ID获得技能信息
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ISkillFacade.GetSkillByCondition(System.String,System.Int32)">
+            <summary>
+            根据条件查询技能
+            </summary>
+            <param name="skillname"></param>
+            <param name="skillTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IPositionHistoryFacade">
+            <summary>
+            职位历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionHistoryFacade.AddPositionHistoryFacade(SEP.Model.Accounts.Account)">
+            <summary>
+            新增职位历史，当修改职位等级时调用
+            </summary>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPositionHistoryFacade.AddPositionHistoryFacade(SEP.Model.Accounts.Account,SEP.Model.Positions.Position)">
+            <summary>
+            新增职位历史，当修改某个职位时调用，并生成Positioin相关的员工历史
+            </summary>
+            <param name="operatorAccount"></param>
+            <param name="position"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.AddLeaveRequestType(SEP.HRMIS.Model.Request.LeaveRequestType)">
+            <summary>
+            
+            </summary>
+            <param name="leaveRequestType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.UpdateLeaveRequestType(SEP.HRMIS.Model.Request.LeaveRequestType)">
+            <summary>
+            
+            </summary>
+            <param name="leaveRequestType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.DeleteLeaveRequestType(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="leaveRequestID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.GetLeaveRequestTypeByPkid(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.GetLeaveRequestTypeByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.GetLeaveRequestTypeByNameLike(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="nameLike"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestTypeFacade.GetAllLeaveRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IAdvanceSearchFacade">
+            <summary>
+            高级查询
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdvanceSearchFacade.AdvanceSearchEmployeeFacade(System.Collections.Generic.List{AdvancedCondition.SearchField},SEP.Model.Accounts.Account)">
+            <summary>
+            高级查询员工
+            </summary>
+            <param name="employeeSearchField"></param>
+            <returns></returns>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdvanceSearchFacade.BindEmployeeSearchExpression(System.String,SEP.Model.Accounts.Account)">
+            <summary>
+            绑定比较值的googledown数据
+            </summary>
+            <param name="fieldParaBaseId"></param>
+            <returns></returns>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdvanceSearchFacade.AdvanceSearchContractFacade(System.Collections.Generic.List{AdvancedCondition.SearchField},SEP.Model.Accounts.Account)">
+            <summary>
+            高级查询合同
+            </summary>
+            <param name="contractSearchField"></param>
+            <returns></returns>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAdvanceSearchFacade.BindContractSearchExpression(System.String,SEP.Model.Accounts.Account)">
+            <summary>
+            绑定比较值的googledown数据
+            </summary>
+            <param name="fieldParaBaseId"></param>
+            <returns></returns>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade">
+            <summary>
+             员工考勤统计
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetAllEmployeeAttendanceByCondition(System.String,System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+             按部门，员工姓名查询员工考勤
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetCalendarByEmployee(System.Int32,System.DateTime,System.DateTime,SEP.Model.Accounts.Account)">
+            <summary>
+             把员工的考勤情况，如外出，加班，请假，迟到早退等信息赋值给员工，用于在日历控件中显示员工的考勤情况
+            </summary>
+            <param name="EmployeeID"></param>
+            <param name="Form"></param>
+            <param name="To"></param>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetMonthAttendanceStatisticsFacade(System.String,System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime,SEP.Model.Accounts.Account,System.Nullable{System.Int32})">
+            <summary>
+            根据时间段统计员工的考勤信息
+            </summary>
+            <param name="employeeName"></param>
+            <param name="departmentID"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <param name="account"></param>
+            <param name="powers"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetLeaveRequestListDetailByEmployee(System.Int32,System.DateTime)">
+            <summary>
+             得到某一员工，某天的所有请假单
+            </summary>
+            <param name="employeeID"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetOutApplicationDetailByEmployee(System.Int32,System.DateTime)">
+            <summary>
+            得到某一员工，某天的外出申请
+            </summary>
+            <param name="employeeID"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetOverWorkDetailByEmployee(System.Int32,System.DateTime)">
+            <summary>
+            得到某一员工，某天的加班申请
+            </summary>
+            <param name="employeeID"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetAttendanceBaseListDetailByEmployee(System.Int32,System.DateTime)">
+            <summary>
+            得到某一员工，某天的考勤情况（迟到，早退，旷工）
+            </summary>
+            <param name="employeeID"></param>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetPlanDutyDetailByAccount(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            用于自动计算考勤时间
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetEmployeeAttendanceByCondition(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+             通过employeeID,开始结束时间得到员工的考勤信息,只获得已经结束的考勤
+            </summary>
+            <param name="employeeID"></param>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceStatisticsFacade.GetMonthAttendanceStatisticsFacade(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            根据时间段统计单个员工的考勤信息
+            </summary>
+            <param name="employeeID"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IContractTypeFacade.AddContractType(SEP.HRMIS.Model.ContractType)">
+            <summary>
+            新增合同类型
+            </summary>
+            <param name="contractType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IContractTypeFacade.UpdateContractType(SEP.HRMIS.Model.ContractType)">
+            <summary>
+            修改合同类型
+            </summary>
+            <param name="contractType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IContractTypeFacade.DeleteContractType(System.Int32)">
+            <summary>
+            删除合同类型
+            </summary>
+            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IContractTypeFacade.GetContractTypeByPKID(System.Int32)">
+            <summary>
+            根据PKID获得合同类型
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IContractTypeFacade.GetContractTypeByCondition(System.Int32,System.String)">
+            <summary>
+            根据条件获得合同类型
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IContractTypeFacade.GetContractTypeByContractID(System.Int32)">
+            <summary>
+            根据合同获得合同类型
+            </summary>
+            <param name="contractID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IAccountAuthFacade">
+            <summary>
+            IAccountAuthFacade接口
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IEmployeeHistoryFacade">
+            <summary>
+            员工历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeHistoryFacade.AddEmployeeHistoryByDepartment(SEP.Model.Departments.Department,SEP.Model.Accounts.Account)">
+            <summary>
+            给部门下的人员添加历史
+            </summary>
+            <param name="department"></param>
+            <param name="operatorAccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeHistoryFacade.GetEmployeeHistoryBasicInfoByAccountID(System.Int32)">
+            <summary>
+            根据帐号ID获取员工历史基本信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeHistoryFacade.GetEmployeeHistoryByAccountID(System.Int32)">
+            <summary>
+            根据帐号ID获取员工历史所有信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeHistoryFacade.GetEmployeeHistoryByEmployeeHistoryID(System.Int32)">
+            <summary>
+            通过员工历史表ID得到员工所有信息
+            </summary>
+            <param name="employeeHistoryID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeHistoryFacade.GetOnDutyEmployeeBasicInfoByDateTime(System.DateTime)">
+            <summary>
+            根据某一时刻获得所有员工
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeHistoryFacade.GetEmployeeOnDutyByDepartmentAndDateTime(System.Int32,System.DateTime,System.Boolean,SEP.Model.Accounts.Account,System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.Employee})">
+            <summary>
+            根据某一时刻获得所有在职员工
+            allEmployeeSource可以为null
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.InstanceFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:SEP.HRMIS.IFacede.InstanceFactory._path">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeWelfareFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateAutoRemindServerFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeHistoryFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateDepartmentHistoryFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreatePlanDutyFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateAttendanceReadDataFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateTrainFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateSkillFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateSkillTypeFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateVacationFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateContractTypeFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateApplyAssessConditionFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeContractFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeStatisticsFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateReimburseFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateTraineeApplicationFacade">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateLeaveRequestFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateLeaveRequestTypeFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeAttendanceFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateAccountAuthFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreatePositionHistoryFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateOutApplicationFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateAssessManagementFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateCompanyInvolveFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateDiyProcessFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateOverWorkFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeAttendanceStatisticsFacade">
+            <summary>
+            考勤统计
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateConfirmMessageFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateNationalityFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateFileCargoFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateFeedBackPaperFacade">
+            <summary>
+            反馈问卷
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateAdjustRuleFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateEmployeeAdjustRuleFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateCustomerInfoFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateSystemErrorFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreatePhoneMessageFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreateAdvanceSearchFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.InstanceFactory.CreatePositionApplicationFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SEP.HRMIS.IFacede.InstanceFactory.AttendanceInOutRecordFacade">
+            <summary>
+            实例化SEP.HRMIS.Facade.AttendanceInOutRecordFacade
+            </summary>
+        </member>
+        <member name="P:SEP.HRMIS.IFacede.InstanceFactory.ReadExternalDataFacade">
+            <summary>
+            实例化SEP.HRMIS.Facade.ReadExternalDataFacade
+            </summary>
+        </member>
+        <member name="P:SEP.HRMIS.IFacede.InstanceFactory.AssessActivityFacade">
+            <summary>
+            实例化SEP.HRMIS.Facade.AssessActivityFacade
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.ILeaveRequestFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.AddLeaveRequest(SEP.HRMIS.Model.Request.LeaveRequest)">
+            <summary>
+            新增请假单
+            </summary>
+            <param name="leaveRequest"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.SubmitLeaveRequest(SEP.HRMIS.Model.Request.LeaveRequest)">
+            <summary>
+            提交请假单
+            </summary>
+            <param name="leaveRequest"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.UpdateLeaveRequest(SEP.HRMIS.Model.Request.LeaveRequest)">
+            <summary>
+            修改请假单
+            </summary>
+            <param name="leaveRequest"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.UpdateSubmitLeaveRequest(SEP.HRMIS.Model.Request.LeaveRequest)">
+            <summary>
+            修改提交请假单
+            </summary>
+            <param name="leaveRequest"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.DeleteLeaveRequest(System.Int32)">
+            <summary>
+            删除请假单
+            </summary>
+            <param name="leaveRequestID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetLeaveRequestByAccountID(System.Int32)">
+            <summary>
+            根据账号ID获得该账号的所有请假信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetLeaveRequestByPKID(System.Int32)">
+            <summary>
+            根据pkid获得请假信息
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.CalculateCostHour(System.DateTime,System.DateTime,System.Int32,System.Int32)">
+            <summary>
+            自动计算小时
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="employeeID"></param>
+            <param name="leaveRequestTypeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.CancelAllLeaveRequest(System.Int32,SEP.HRMIS.Model.Request.RequestStatus,System.String)">
+            <summary>
+            取消整张请假单
+            </summary>
+            <param name="leaveRequestID"></param>
+            <param name="requestStatus"></param>
+            <param name="reason"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.ApproveWholeLeaveRequest(System.Int32,System.Int32,SEP.HRMIS.Model.Request.RequestStatus,System.String)">
+            <summary>
+            审核整张请假单
+            </summary>
+            <param name="leaveRequestID"></param>
+            <param name="accountID"></param>
+            <param name="requestStatus"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.FastApproveWholeLeaveRequest(System.Int32,System.Int32,System.String)">
+            <summary>
+            快速通过
+            </summary>
+            <param name="leaveRequestID"></param>
+            <param name="accountID"></param>
+            <param name="reason"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetConfirmLeaveRequest(System.Int32)">
+            <summary>
+            根据账号ID获取该待审核的请假单
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetLeaveRequestConfirmHistoryByOperatorID(System.Int32,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            审核过的请假单
+            </summary>
+            <param name="operatorID"></param>
+            <param name="name"></param>
+            <param name="fromTime"></param>
+            <param name="toTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.CancelLeaveRequestItem(System.Int32,System.Int32,System.Int32,SEP.HRMIS.Model.Request.RequestStatus,System.String)">
+            <summary>
+            取消单个请假项
+            </summary>
+            <param name="leaveRequestID"></param>
+            <param name="leaveRequestItemID"></param>
+            <param name="operatorID"></param>
+            <param name="requestStatus"></param>
+            <param name="reason"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.ApproveLeaveRequestItem(System.Int32,System.Int32,System.Int32,SEP.HRMIS.Model.Request.RequestStatus,System.String)">
+            <summary>
+            审核单个请假项
+            </summary>
+            <param name="leaveRequestID"></param>
+            <param name="leaveRequestItemID"></param>
+            <param name="operatorID"></param>
+            <param name="requestStatus"></param>
+            <param name="reason"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetLeaveRequestFlowByLeaveRequestID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="leaveRequestID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetVacationUsedDetailByAccountID(System.Int32)">
+            <summary>
+             查看员工的所有请年假情况
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.ILeaveRequestFacade.GetLeaveRequestByAccountAndRelatedDate(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            获得与fromDate-toDate事件上有交集的请假信息
+            </summary>
+            <param name="accountID"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetRequestRecordByCondition(System.String,System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime,SEP.HRMIS.Model.ApplicationTypeEnum,SEP.HRMIS.Model.Request.RequestStatus,SEP.Model.Accounts.Account)">
+            <summary>
+             查询申请记录
+            </summary>
+            <param name="employeeName"></param>
+            <param name="departmentID"></param>
+            <param name="searchFrom"></param>
+            <param name="searchTo"></param>
+            <param name="applicationType"></param>
+            <param name="applicationStatus"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.RecordAbsentAttendance(System.String,System.DateTime,System.Decimal,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+            <param name="empName"></param>
+            <param name="theDay"></param>
+            <param name="days"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.RecordLaterAttendance(System.String,System.DateTime,System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+            <param name="empName"></param>
+            <param name="theDay"></param>
+            <param name="laterMinutes"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.RecordEarlyLeaveAttendance(System.String,System.DateTime,System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+            <param name="empName"></param>
+            <param name="theDay"></param>
+            <param name="earlyLeaveMinutes"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.DeleteBadAttendance(System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+            <param name="attendanceId"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetAttendanceByCondition(System.String,System.Nullable{System.Int32},System.DateTime,System.DateTime,System.String,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+            <param name="employeeName"></param>
+            <param name="theDayFrom"></param>
+            <param name="theDayTo"></param>
+            <param name="AttendaceType"></param>
+            <param name="loginUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.TurnToDayAttendanceList(SEP.HRMIS.Model.Employee,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+            <param name="employee"></param>
+            <param name="loginUser"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetAdjustRestRemainedDaysByEmployeeID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetAdjustRestByCondition(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,SEP.Model.Accounts.Account,System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            根据条件获得调休列表
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetAdjustRestByAccountID(System.Int32)">
+            <summary>
+            根据员工ID获得调休信息，包括历史信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.UpdateAdjustRest(System.Int32,System.Decimal,System.String,System.Int32)">
+            <summary>
+            修改员工调休
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetAdjustRestByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAttendanceFacade.GetAbsentAttendanceByAccountAndRelatedDate(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            获得与fromDate-toDate事件上有交集的缺勤信息
+            </summary>
+            <param name="accountID"></param>
+            <param name="fromDate"></param>
+            <param name="toDate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IDiyProcessFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.GetDiyProcessByProcessType(System.Int32)">
+            <summary>
+             根据自定义流程类型获取自定义流程
+            </summary>
+            <param name="processTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.GetDiyProcessStepString(System.Int32,System.Int32)">
+            <summary>
+            获取某人流程中的详细步骤
+            </summary>
+            <param name="accountId">员工id</param>
+            <param name="DiyprocessId">diy流程id</param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.AddDiyProcess(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
+            <summary>
+            
+            </summary>
+            <param name="diyProcess"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.UpdateDiyProcess(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
+            <summary>
+            
+            </summary>
+            <param name="diyProcess"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.DeleteDiyProcess(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="diyProcessID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.GetDiyProcessByCondition(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="processTypeId"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IDiyProcessFacade.GetDiyProcessByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.InsertAttendanceInOutRecord(System.Int32,SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord.AttendanceInAndOutRecord,SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord.AttendanceInAndOutRecordLog,SEP.Model.Accounts.Account)">
+            <summary>
+            新增出勤情况
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.DeleteAttendanceInOutRecord(System.Int32,System.Int32,System.DateTime,SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord.AttendanceInAndOutRecordLog,SEP.Model.Accounts.Account)">
+            <summary>
+            删除出勤情况
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.UpdateAttendanceInOutRecord(System.Int32,SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord.AttendanceInAndOutRecord,System.DateTime,SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord.AttendanceInAndOutRecordLog,SEP.Model.Accounts.Account)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.GetAttendanceOutInRecordByCondition(System.String,System.Nullable{System.Int32},System.Int32,System.DateTime,System.DateTime,SEP.HRMIS.Model.OutInTimeConditionEnum,SEP.Model.Accounts.Account)">
+            <summary>
+            用于查询某个员工更多信息
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.GetEmployeeInAndOutRecordByCondition(System.Int32,System.String,System.Int32,System.String,System.DateTime,System.DateTime,SEP.HRMIS.Model.InOutStatusEnum,SEP.HRMIS.Model.OutInRecordOperateStatusEnum,System.DateTime,System.DateTime,SEP.Model.Accounts.Account)">
+            <summary>
+            用于查询某个员工更多信息
+            </summary>
+            <param name="employeeID"></param>
+            <param name="employeeName"></param>
+            <param name="departmentID"></param>
+            <param name="doorCardNo"></param>
+            <param name="iOTimeFrom">1900-1-1</param>
+            <param name="iOTimeTo">2900-12-31</param>
+            <param name="iOStatus">/刷卡状态，0：进，1：出</param>
+            <param name="operateStatus">0:表示从OA数据库读入，1：考勤人员新增，2：考勤人员修改</param>
+            <param name="operateTimeFrom">1900-1-1表全部</param>
+            <param name="operateTimeTo">2900-12-31 表全部</param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.GetEmployeeInAndOutRecordByEmployeeId(System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            通过员工ID查找员工的进出记录
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.GetInAndOutLogByCondition(System.String,System.Int32,System.DateTime,System.DateTime,System.String,System.DateTime,System.DateTime,SEP.Model.Accounts.Account)">
+            <summary>
+            条件查询打卡纪录日志
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAttendanceInOutRecordFacade.GetSelfAttendanceInAndOutRecordByCondition(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            得到员工自己的进出记录
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IEmployeeFacade">
+            <summary>
+            员工业务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.InitEmployeeProxy(System.Int32,SEP.Model.Accounts.Account)">
+            <summary>
+            初始化员工信息
+            </summary>
+            <param name="newEmployeeAccountID"></param>
+            <param name="operatoraccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.AddEmployeeProxy(SEP.HRMIS.Model.Employee,SEP.Model.Accounts.Account)">
+            <summary>
+            新增员工
+            </summary>
+            <param name="employee"></param>
+            <param name="operatoraccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.UpdateEmployeeProxy(SEP.HRMIS.Model.Employee,SEP.Model.Accounts.Account)">
+            <summary>
+            修改员工
+            </summary>
+            <param name="employee"></param>
+            <param name="operatoraccount"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获得员工所有信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeBasicInfoByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获得员工基本信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeSkillInfoByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获取所有员工基本信息和员工技能信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeAttendenceInfoByAccountID(System.Int32)">
+            <summary>
+            根据员工帐号ID获得员工考勤信息，考勤规则详情，门禁卡号
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeBasicInfoByBasicCondition(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            根据条件获得员工基本信息
+            </summary>
+            <param name="name"></param>
+            <param name="employeeType"></param>
+            <param name="positionID"></param>
+            <param name="departmentID"></param>
+            <param name="recursionDepartment"></param>
+            <returns></returns>
+            <param name="employeestatus"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeByBasicCondition(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            根据条件获得员工所有信息
+            </summary>
+            <param name="name"></param>
+            <param name="employeeType"></param>
+            <param name="positionID"></param>
+            <param name="departmentID"></param>
+            <param name="recursionDepartment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeBasicInfoByBasicConditionExceptEmployeeType(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            根据条件获得员工基本信息，并移除employeeType的员工
+            </summary>
+            <param name="name"></param>
+            <param name="employeeType"></param>
+            <param name="positionID"></param>
+            <param name="departmentID"></param>
+            <param name="recursionDepartment"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeBasicInfoByBasicConditionAndFirstLetter(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,System.String)">
+            <summary>
+            根据条件获取员工基本信息，条件包括：员工首字符筛选
+            </summary>
+            <param name="name"></param>
+            <param name="employeetype"></param>
+            <param name="positionID"></param>
+            <param name="departmentId"></param>
+            <param name="firstLetter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeByBasicConditionAndFirstLetter(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,System.String)">
+            <summary>
+            根据条件获取员工所有信息，条件包括：员工首字符筛选
+            </summary>
+            <param name="name"></param>
+            <param name="employeetype"></param>
+            <param name="positionID"></param>
+            <param name="departmentId"></param>
+            <param name="firstLetter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.ExportEmployeeInfo(System.Int32,System.String)">
+            <summary>
+            导出员工基本信息Word
+            </summary>
+            <param name="accountID"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeePhotoByAccountID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeBasicInfoByBasicConditionWithCompanyAge(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Nullable{System.Int32},System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Boolean,System.Int32)">
+            <summary>
+            带有司龄的员工查询
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeByBasicConditionWithFirstLetterAndCompanyAge(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32)">
+            <summary>
+             根据条件获取员工所有信息，条件包括：员工首字符及公司工龄筛选
+            </summary>
+            <param name="employeeName"></param>
+            <param name="employeeType"></param>
+            <param name="positionId"></param>
+            <param name="departmentId"></param>
+            <param name="recursionDepartment"></param>
+            <param name="firstLetter"></param>
+            <param name="CompanyAgeFrom"></param>
+            <param name="CompanyAgeTo"></param>
+            <param name="employeeStatus"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetAllEmployeeBasicInfoWithOutLoadAccount">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeFacade.GetEmployeeBasicInfoByBasicCondition(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            根据条件获得员工基本信息列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IEmployeeAdjustRuleFacade">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IEmployeeAdjustRuleFacade.GetAdjustRuleByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IAssessActivityFacade">
+            <summary>
+            考核活动业务接口
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityByAssessActivityID(System.Int32)">
+            <summary>
+            根据活动状态的ID，获取相应的考评活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityForManagerApply(System.Int32)">
+            <summary>
+            获取accountId能发起考评申请的所有员工
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityForHRApply(System.String,SEP.HRMIS.Model.EmployeeTypeEnum,System.Int32,System.Int32,System.Boolean,SEP.Model.Accounts.Account)">
+            <summary>
+            为HR获取可申请考核的员工
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetEmployeeFillActivitys(System.Int32)">
+            <summary>
+             通过当前的员工的Id，获取所有待当前员工填写的考评活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetManagerFillActivitys(System.Int32)">
+            <summary>
+            通过当前的主管的Id，获取所有待当前主管填写的考评活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetCeoFillActivitys(System.Int32)">
+            <summary>
+            通过当前的Ceo的Id，获取所有待当前Ceo填写的考评活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetSummarizeCommmentFillActivitys(System.Int32)">
+            <summary>
+            通过当前的总监的Id，获取所有待当前总监填写的考评活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityByCondition(System.String,SEP.HRMIS.Model.AssessCharacterType,SEP.HRMIS.Model.AssessStatus,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            条件查询考核活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAnnualAssessActivityByCondition(System.String,SEP.HRMIS.Model.AssessCharacterType,SEP.HRMIS.Model.AssessStatus,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            条件查询考核活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetContractAssessActivityByCondition(System.String,SEP.HRMIS.Model.AssessCharacterType,SEP.HRMIS.Model.AssessStatus,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.Model.Accounts.Account,System.Int32)">
+            <summary>
+            条件查询考核活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityByAccountId(System.Int32)">
+            <summary>
+            获取EmployeeID员工参加的所有活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityByManagerName(System.String)">
+            <summary>
+            根据主管查找他所有属下的assessActivity
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetAssessActivityHistoryByEmployeeName(System.String)">
+            <summary>
+            查找自己参与过的考评
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ManualAssess(SEP.HRMIS.Model.AssessActivity)">
+            <summary>
+            发起考评
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.InterruptActivity(System.Int32)">
+            <summary>
+            中断考核活动
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ConfirmActivityExcute(System.Int32,System.Int32,System.DateTime,System.DateTime,System.String)">
+            <summary>
+            确认考评
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.FillEmployeeItemsExcute(System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.AssessActivityItem},System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            个人考评项的事务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.FillManagerItemsExcute(System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.AssessActivityItem},System.String,System.String,System.Boolean,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            主管考评项的事务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.FillHRItemsExcute(System.Int32,System.Collections.Generic.List{SEP.HRMIS.Model.AssessActivityItem},System.String,System.Boolean,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            人事考评项的事务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.FillCEOCommentExcute(System.Int32,System.String,System.String,System.Nullable{System.Decimal})">
+            <summary>
+            CEO考评项的事务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.FillSummarizeCommmentExcute(System.Int32,System.String,System.String)">
+            <summary>
+            CEO考评项的事务
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetDiyStepAccount(System.Int32,SEP.HRMIS.Model.DiyProcesss.DiyStep)">
+            <summary>
+            根据自定义流程步骤找出处理人
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportLeaderAssessForm(System.Int32,System.String)">
+            <summary>
+            导出主管考评
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportEmployeeSelfAssessForm(System.Int32,System.String)">
+            <summary>
+            导出个人考评
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.SetEmployeeVisible(System.Int32,System.Boolean)">
+            <summary>
+            设置员工是否可见
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.GetMyAssessActivityByAccountId(System.Int32)">
+            <summary>
+            获得我的绩效考评
+            </summary>
+            <param name="EmployeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportExportNormalForContractAssessForm(System.Int32,System.String)">
+            <summary>
+            导出合同期满评估表
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportEmployeeNormalSummary(System.Int32,System.String)">
+            <summary>
+            导出员工除年终绩效外的个人工作总结表
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportEmployeeAnnualSummary(System.Int32,System.String)">
+            <summary>
+             导出员工年终绩效个人工作总结表
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportAnnualAssessForm(System.Int32,System.String)">
+            <summary>
+            导出年度员工考核统计表(除年终绩效)
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.ExportAnualAssessListExcel(System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.Model.Accounts.Account,System.Int32,SEP.HRMIS.Model.AssessStatus)">
+            <summary>
+            导出员工年终绩效考评
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IAssessActivityFacade.DeleteAssessActivity(System.Int32)">
+            <summary>
+            删除考评活动
+            </summary>
+            <param name="assessActivityID"></param>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IPlanDutyFacade">
+            <summary>
+             排班
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.AddDutyClass(SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel.DutyClass)">
+            <summary>
+            新增班别
+            </summary>
+            <param name="rule"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.UpdateDutyClass(SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel.DutyClass)">
+            <summary>
+            修改班别
+            </summary>
+            <param name="rule"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.DeleteDutyClass(System.Int32)">
+            <summary>
+            删除班别
+            </summary>
+            <param name="dutyClassId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.GetDutyClassByPKID(System.Int32)">
+            <summary>
+            根据PKID获得班别
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.GetDutyClassByCondition(System.Int32,System.String)">
+            <summary>
+            根据条件查询班别
+            </summary>
+            <param name="pkid"></param>
+            <param name="ruleName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.GetPlanDutyTableByPKID(System.Int32)">
+            <summary>
+             通过planDutyTableId得到排班表，和应用该排班表的员工
+            </summary>
+            <param name="planDutyTableId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.AddPlanDuty(SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel.PlanDutyTable)">
+            <summary>
+            新增排班
+            </summary>
+            <returns></returns>
+            <param name="planDutyTable"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.UpdatePlanDuty(SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel.PlanDutyTable)">
+            <summary>
+            修改排班
+            </summary>
+            <returns></returns>
+            <param name="planDutyTable"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.DeletePlanDuty(System.Int32)">
+            <summary>
+            删除排班
+            </summary>
+            <param name="planDutyTableId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.GetPlanDutyTableByCondition(System.String,System.DateTime,System.DateTime,System.String,SEP.Model.Accounts.Account)">
+            <summary>
+            根据条件查询排班
+            </summary>
+            <param name="PlanDutyTableName"></param>
+            <returns></returns>
+            <param name="fromTime"></param>
+            <param name="toTime"></param>
+            <param name="employeeName"></param>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IPlanDutyFacade.GetPlanDutyDetailByAccount(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="AccountID"></param>
+            <param name="dateStart"></param>
+            <param name="dateEnd"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.IFacede.IOverWorkFacade">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.AddOverWork(SEP.HRMIS.Model.OverWork.OverWork,System.Collections.Generic.List{SEP.Model.Accounts.Account})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetOverWorkByOverWorkID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetAllOverWorkByAccountID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.UpdateOverWork(SEP.HRMIS.Model.OverWork.OverWork,System.Collections.Generic.List{SEP.Model.Accounts.Account})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.DeleteOverWorkByPKID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.CalculateOverWorkHour(System.DateTime,System.DateTime,System.Int32,SEP.HRMIS.Model.OverWork.OverWorkType@)">
+            <summary>
+            自动计算小时
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetConfirmOverWorkByNextOperatorID(System.Int32)">
+            <summary>
+            得到审核待审核的单子
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetConfirmHistroy(System.Int32,System.String,System.Nullable{System.Boolean},System.DateTime,System.DateTime)">
+            <summary>
+            审核历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.ApproveWholeOverWork(System.Int32,System.Int32,System.Boolean,System.String)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.CancelAllOverWork(System.Int32,System.String)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.CancelOverWorkItem(System.Int32,System.String,SEP.Model.Accounts.Account)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.ApproveOverWorkItem(System.Int32,System.Int32,System.Boolean,System.String,System.Boolean,System.Int32,System.Decimal)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.ApproveOverWorkItem(System.Int32,System.Int32,System.Boolean,System.String,System.Int32)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetOverWorkFlowList(System.Int32)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.SetCanChangeAdjust(SEP.HRMIS.Model.OverWork.OverWork)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetOverWorkItemByItemID(System.Int32)">
+            <summary> 
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.IFacede.IOverWorkFacade.GetOverWorkByAccountAndRelatedDate(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            为高级日历的数据获取
+            </summary>
+            <param name="accountID"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

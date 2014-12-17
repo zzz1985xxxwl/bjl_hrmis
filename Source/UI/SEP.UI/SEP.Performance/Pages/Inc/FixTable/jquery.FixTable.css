@@ -1,0 +1,87 @@
+﻿.fixGridMainDiv table td,.fixGridMainDiv table th{border:1px solid #bcbcbc;height:28px;vertical-align:middle}
+.fixTableDiv
+{
+    position: relative;
+    margin-top: -1px;
+    border: 1px #bcbcbc solid;
+}
+.fixTableDiv table
+{
+    border-collapse: collapse;
+}
+.fixTableDiv td, .fixTableDiv th
+{
+    vertical-align: middle;
+}
+.fixTableDiv td div, .fixTableDiv th div
+{
+    vertical-align: middle;
+    padding: 2px;
+}
+.fixTableDiv th div
+{
+    text-align: center;
+}
+.fixTableTopDiv th, .fixTableHeadDiv th
+{
+    border: 1px solid #bcbcbc;
+    background-color: #d9ffb5;
+    border-collapse: collapse;
+    vertical-align: middle;
+    text-align: center;
+}
+.fixTableLeftDiv td
+{
+    background-color: #d9ffb5;
+}
+.fixTableTopDiv
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    margin-left: -1px;
+    margin-top: -1px;
+    z-index:11;
+}
+.fixTableLeftDiv
+{
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    overflow:hidden;
+    margin-top: -2px;
+    margin-left: -1px;
+}
+.fixTableHeadDiv
+{
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    margin-left: -2px;
+    margin-top: -1px;
+    text-align: left;
+}
+.fixTableBodyDiv a
+{
+    color: #bcbcbc;
+    cursor: pointer;
+}
+.fixTableBodyDiv tr:hover td,.fixTableBodyDiv tr.on td
+{
+    background-color:#d9ffb5;
+}
+.fixTableBodyDiv
+{
+    position: absolute;
+    overflow: auto;
+    margin-left: -2px;
+    margin-top: -2px;
+    overflow: auto;
+    scrollbar-face-color: #ffffff;
+    scrollbar-highlight-color: #ffffff;
+    scrollbar-shadow-color: #69ad3c;
+    scrollbar-3dlight-color: #69ad3c;
+    scrollbar-arrow-color: #69ad3c;
+    scrollbar-darkshadow-color: #ffffff;
+}

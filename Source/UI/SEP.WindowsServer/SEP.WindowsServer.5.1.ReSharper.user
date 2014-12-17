@@ -1,0 +1,60 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:TLineEventLog.cs" caret="794" fromTop="0" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:ProjectInstaller.cs" caret="0" fromTop="0" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:Program.cs" caret="0" fromTop="0" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:Company.config" caret="503" fromTop="16" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.designer.cs" caret="1201" fromTop="18" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:TLineEventLog.cs" caret="2789" fromTop="20" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:AutoRemindServer.Designer.cs" caret="267" fromTop="10" />
+      <File id="d:杂项文件/f:AutoRemindReimburse.cs/l:D!?svn_work?bjl?trunk?Coding?Source?Bussiness?SEP.HRMIS?SEP.HRMIS.Bll?AutoRemindServer?AutoRemindReimburse.cs" caret="799" fromTop="12" />
+      <File id="d:杂项文件/f:ReimburseDal.cs/l:D!?svn_work?bjl?trunk?Coding?Source?Bussiness?SEP.HRMIS?SEP.HRMIS.SqlServerDal?ReimburseDal.cs" caret="41999" fromTop="62" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:app.config" caret="144" fromTop="3" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:App.config" caret="2094" fromTop="11" />
+      <File id="d:杂项文件/f:MailGateWay.cs/l:D!?svn_work?bjl?trunk?Coding?Source?Bussiness?SEP?SEP.Bll?Mail?MailGateWay.cs" caret="1261" fromTop="14" />
+      <File id="d:杂项文件/f:Transaction.cs/l:D!?svn_work?bjl?trunk?Coding?Source?Bussiness?SEP.HRMIS?SEP.HRMIS.Bll?Transaction.cs" caret="802" fromTop="17" />
+      <File id="d:杂项文件/f:AutoRemindServerFacade.cs/l:D!?svn_work?bjl?trunk?Coding?Source?Bussiness?SEP.HRMIS?SEP.HRMIS.Facade?AutoRemindServerFacade.cs" caret="2207" fromTop="4" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:AutoRemindServer.cs" caret="778" fromTop="0" />
+      <File id="d:杂项文件/f:AutoAssess.cs/l:D!?svn_work?bjl?trunk?Coding?Source?Bussiness?SEP.HRMIS?SEP.HRMIS.Bll?AutoRemindServer?AutoAssess.cs" caret="4866" fromTop="58" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="2647" fromTop="0" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:Program.cs" caret="127" fromTop="4" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:AutoRemindServer.cs" caret="6189" fromTop="5" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:AutoRemindServer.cs" caret="1565" fromTop="20" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:AutoRemindServer.cs" caret="6189" fromTop="10" />
+      <File id="FA27551E-753D-46E1-B9C6-E0DAAB767362/f:App.config" caret="584" fromTop="10" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="1148" fromTop="18" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="745" fromTop="5" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="1471" fromTop="22" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="3101" fromTop="21" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="3357" fromTop="18" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="3651" fromTop="37" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="2515" fromTop="10" />
+      <File id="07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9/f:SystemReadDataServer.cs" caret="2262" fromTop="6" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.6\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@SEP.ReadExternalAttendanceData.EventType">
+      <Item value="Information" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

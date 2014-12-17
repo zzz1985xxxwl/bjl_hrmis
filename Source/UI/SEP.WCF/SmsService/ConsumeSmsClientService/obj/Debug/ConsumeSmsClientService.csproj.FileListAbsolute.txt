@@ -1,0 +1,7 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\bin\Debug\ConsumeSmsClientService.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\bin\Debug\ConsumeSmsClientService.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\bin\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\bin\Debug\SmsDataContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\obj\Debug\ConsumeSmsClientService.csprojResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\obj\Debug\ConsumeSmsClientService.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ConsumeSmsClientService\obj\Debug\ConsumeSmsClientService.pdb

@@ -1,0 +1,14 @@
+body{padding:0;margin:0;}
+table.pool-table{ width:100%; border:1px;table-layout:fixed;*height: 100% !important; *height: 34em; font-size:90%; }
+.sortable-continor{vertical-align: top;}
+.cards-container{height: 500px; padding-bottom:4px;}
+.card-icon {position: relative; display:inline; float:left; background-color:#FFFFFF; border: 1px solid #999999; font-size: 0.85em; cursor: move; margin: 4px; height: 59px; width: 92px; overflow:hidden}
+.card-inner-wrapper {padding: 0.25em 0.4em; height: 7em}
+.card-summary-number {color: #663333; float: right; font-weight: bold; margin: 0 0.1em 0.1em 0.2em}
+.spinner {position: absolute; left: 20px; top: 28px}
+span.group {  margin-bottom:10px; padding-top:10px; padding-bottom: 10px; font-weight: bold; font-size: 95%}
+span.group .lane-card-number { font-weight: normal}
+tr.pool-head {height:30px;}
+tr.pool-head th{background-color:#F1F0EC;}
+tr.sortable-continor td{background-color:#F1F0EC;}
+.dialog-content{ height:200px;width:400px; background-color:#FFFFFF;border:1px solid #000000; }

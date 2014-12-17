@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="宋体" Size="9" />
+  <Class Name="ComService.ServiceModels.Contact">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Contact.cs</FileName>
+      <HashCode>AACAAAAAAAAAABAAAAAAhAgAAgAAAAAIAAAAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Linkmans" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="ComService.ServiceModels.Linkman">
+    <Position X="3" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Contact.cs</FileName>
+      <HashCode>AAACIAAAABABgAAAAABAAAQAAAAAAACAAAAAAAgQAEA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Details" />
+    </ShowAsCollectionAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="ComService.ServiceModels.LinkmanDetail">
+    <Position X="2.75" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>Contact.cs</FileName>
+      <HashCode>ABACAQAAAAAAAAQAAABAAAAAAAAAAAAAAQAgAAAAgAA=</HashCode>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Enum Name="ComService.ServiceModels.InfoType" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Contact.cs</FileName>
+      <HashCode>AAAAAAAAAAACAAAAAAAgAAAAAAAEAAQAAAUCAEEAgAA=</HashCode>
+    </TypeIdentifier>
+  </Enum>
+</ClassDiagram>

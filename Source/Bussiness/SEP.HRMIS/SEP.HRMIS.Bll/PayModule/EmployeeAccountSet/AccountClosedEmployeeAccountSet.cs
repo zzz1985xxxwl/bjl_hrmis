@@ -1,0 +1,113 @@
+//----------------------------------------------------------------
+// Copyright (C) 2000-2008 Shixin Corporation
+// All rights reserved.
+// 文件名: AccountClosedEmployeeAccountSet.cs
+// 创建者: yyb
+// 创建日期: 2008-12-24
+// 概述: 封帐
+// ----------------------------------------------------------------
+
+using System;
+using SEP.HRMIS.DalFactory;
+using SEP.HRMIS.IDal.PayModule;
+using SEP.HRMIS.Model.PayModule;
+
+namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
+{
+    public class AccountClosedEmployeeAccountSet : Transaction
+    {
+        private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
+        private readonly int _EmployeeID;
+        private readonly Model.PayModule.AccountSet _AccountSet;
+        private readonly string _BackAccountsName;
+        private readonly string _Description;
+        private readonly DateTime _SalaryTime;
+        private readonly IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private readonly int _VersionNum;
+        private readonly int _EmployeeSalaryID;
+
+        public AccountClosedEmployeeAccountSet(int salaryId, int employeeID, DateTime dt, Model.PayModule.AccountSet accountSet, string backAcountsName, string description, int versionNum)
+        {
+            _EmployeeSalaryID = salaryId;
+            _EmployeeID = employeeID;
+            _SalaryTime = dt;
+            _Description = description;
+            _AccountSet = accountSet;
+            _BackAccountsName = backAcountsName;
+            _VersionNum = versionNum;
+        }
+
+        public AccountClosedEmployeeAccountSet(int salaryId, int employeeID, DateTime dt, Model.PayModule.AccountSet accountSet, string backAcountsName, string description, int versionNum, IEmployeeSalary mockSalary, IAccountSet mockaccountSet)
+        {
+            _EmployeeSalaryID = salaryId;
+            _EmployeeID = employeeID;
+            _SalaryTime = dt;
+            _Description = description;
+            _AccountSet = accountSet;
+            _BackAccountsName = backAcountsName;
+            _VersionNum = versionNum;
+            _DalEmployeeSalary = mockSalary;
+            _DalAccountSet = mockaccountSet;
+        }
+
+        protected override void Validation()
+        {
+            //判断帐套参数是否为空
+            if (_AccountSet == null)
+            {
+                BllUtility.ThrowException(BllExceptionConst._EmployeeAccountSet_AccountSet_IsNull);
+            }
+            //判断数据库中装套是否存在
+            else if (_DalAccountSet.GetWholeAccountSetByPKID(_AccountSet.AccountSetID) == null)
+            {
+                BllUtility.ThrowException(BllExceptionConst._EmployeeAccountSet_AccountSet_NotExist);
+            }
+            //判断数据库中是否存在
+            EmployeeSalaryHistory history = _DalEmployeeSalary.GetEmployeeSalaryHistoryByPKID(_EmployeeSalaryID);
+            if (history == null)
+            {
+                BllUtility.ThrowException(BllExceptionConst._Employee_Salary_NotExist);
+            }
+              //判断流程是否已封帐
+            else if(history.EmployeeSalaryStatus==EmployeeSalaryStatusEnum.AccountClosed)
+            {
+                BllUtility.ThrowException(BllExceptionConst._Employee_Salary_Closed); 
+            }
+        }
+
+        protected override void ExcuteSelf()
+        {
+            try
+            {
+                _DalEmployeeSalary.UpdateEmployeeSalaryHistory(_EmployeeID, MakeEmployeeSalary());
+            }
+            catch
+            {
+                BllUtility.ThrowException(BllExceptionConst._DbError);
+            }
+        }
+
+        private EmployeeSalaryHistory MakeEmployeeSalary()
+        {
+            EmployeeSalaryHistory salaryHistory = new EmployeeSalaryHistory();
+            salaryHistory.EmployeeAccountSet = _AccountSet;
+            salaryHistory.HistoryId = _EmployeeSalaryID;
+            if (_AccountSet.Items != null)
+            {
+                foreach (AccountSetItem item in _AccountSet.Items)
+                {
+                    if (item.AccountSetPara.FieldAttribute.GetType().Equals(FieldAttributeEnum.CalculateField))
+                    {
+                        //to do caculate
+                    }
+                }
+            }
+            salaryHistory.Description = _Description;
+            salaryHistory.SalaryDateTime = _SalaryTime;
+            salaryHistory.EmployeeSalaryStatus = EmployeeSalaryStatusEnum.AccountClosed;
+            salaryHistory.AccountsBackName = _BackAccountsName;
+            salaryHistory.VersionNumber = _VersionNum;
+            return salaryHistory;
+        }
+    }
+}

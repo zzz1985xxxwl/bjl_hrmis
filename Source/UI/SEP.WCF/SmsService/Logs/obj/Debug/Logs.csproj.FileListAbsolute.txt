@@ -1,0 +1,4 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\Logs\bin\Debug\Logs.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\Logs\bin\Debug\Logs.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\Logs\obj\Debug\Logs.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\Logs\obj\Debug\Logs.pdb

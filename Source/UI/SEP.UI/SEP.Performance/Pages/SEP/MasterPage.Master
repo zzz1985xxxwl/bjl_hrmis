@@ -1,0 +1,96 @@
+<%@ Master Language="C#" AutoEventWireup="true" Codebehind="MasterPage.master.cs"
+    Inherits="SEP.Performance.MasterPage" %>
+<%@ Register Src="../../Views/SEP/Auths/AuthTree.ascx" TagName="AuthTree" TagPrefix="uc1" %>
+<%@ Register Assembly="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI" TagPrefix="asp" %>
+<%@ Import Namespace="SEP.Model.Utility" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>
+        <%=CompanyConfig.COMPANYTITLE%>
+    </title>
+     <link href="../CSS/style.css" rel="stylesheet" type="text/css" />
+    <script language="javascript " type="text/javascript" src="../../Inc/jquery.js"></script>
+    <script language="javascript " type="text/javascript" src="../../Inc/BaseScript.js" charset="gb2312"></script>
+
+</head>
+<body>
+<%--<object id="UsbActiveX" classid="clsid:cb9da3eb-89d4-492c-a9eb-adf638f822ea"  style="display:none;"></object>--%>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
+        </asp:ScriptManager>
+
+<div class="header">
+	<div class="usrinfo">欢迎你  <span class="usrname" ><%Response.Write(LoginUser);%></span><span class="spansetbtn" style="display:none;" ><a href="javascript:ShowEdit();">设置</a></span>
+	<span class="helpbtn"><a href="<%=CompanyConfig.HELPADDRESS%>" target="_blank">帮助</a></span><span class="loginoutbtn" ><a href="../../Login.aspx" target="_parent" >退出系统</a></span></div>
+	<div class="topbt">
+		<div class="topbtright">
+			<ul>
+		        <li id="liESCALADE" runat="server"><a href="../../EShopping/MainPages/EShoppingMain.aspx">EShopping</a></li>
+				<li id="liCRM" runat="server"><a href="../../CRM/MainPages/CRMMain.aspx">CRM</a></li>
+				<li id="liHRMIS" runat="server"><a href="../../HRMIS/MainPages/HRMISMain.aspx">HRMIS</a></li>
+				<li id="liMyCMMI" runat="server"><a href="#">MyCMMI</a></li>
+			</ul>
+		</div>
+		<div class="topbtleft">
+			<ul>
+				<li class="nowli"><a href="../../SEP/IndexPages/Index.aspx">首  页</a></li>
+				<li><a href="../../SEP/BulletinPages/BulletinListForward.aspx">公告栏</a></li>
+				<li><a href="../../SEP/GoalPages/GoalManage.aspx">目标管理</a></li>
+				<li><a href="../../SEP/CompanyRegulationsPages/NewEmployeeGuide.aspx">公司规章</a></li>
+				<li><a href="../../SEP/WorkTaskPages/WorkTaskManage.aspx">工作计划</a></li>
+			</ul>
+	  </div>
+	</div>
+</div>
+<div class="banner sep" >
+	<div class="leftupnosearch" ><img src="../../image/upbt.jpg" align="absmiddle" id="imgHiddenAuthTree" /> <a href="#" id='hiddenAuthTree'>收起侧栏</a></div>
+</div>
+
+  <script type="text/javascript">
+  
+ $(document).ready(function(){
+ if($("#columns").length==0)
+ { 
+   $("#hiddenAuthTree").toggle(function(){ $(".tdAuthTree").hide();$(".placeholder").css("width","100%");$("#hiddenAuthTree").empty().html("显示侧栏");$("#imgHiddenAuthTree").attr("src","../../image/upbtturn.jpg");},function(){$(".tdAuthTree").show();$(".placeholder").css("width","79%");$("#hiddenAuthTree").empty().html("收起侧栏");$("#imgHiddenAuthTree").attr("src","../../image/upbt.jpg");})
+ }
+ else
+ {
+    $(".spansetbtn").show();
+    $("#imgHiddenAuthTree").attr("src","../../image/upbtturn.jpg");
+    $("#hiddenAuthTree").empty().html("显示侧栏");
+    $(".tdAuthTree").hide();
+   $("#hiddenAuthTree").toggle(function(){$(".tdAuthTree").show();$(".placeholder").css("width","79%");$("#hiddenAuthTree").empty().html("收起侧栏");$("#imgHiddenAuthTree").attr("src","../../image/upbt.jpg");},function(){ $(".tdAuthTree").hide();$(".placeholder").css("width","100%");$("#hiddenAuthTree").empty().html("显示侧栏");$("#imgHiddenAuthTree").attr("src","../../image/upbtturn.jpg");})
+ }
+
+ })
+</script>     
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" style="height: 420px;">
+            <tr>
+                <td id="placeholder" align="center" class="placeholder" valign="top" style="height: 420px; width: 79%;" >
+                <div class="mainleft"  >
+                    <asp:ContentPlaceHolder ID="cphCenter" runat="server" EnableViewState="true">
+                    </asp:ContentPlaceHolder>
+                 </div>
+                </td>
+                <td align="left" valign="top" style="height: 297px; width: 20%;padding-top:8px; " class="tdAuthTree"  id="tdAuthTree"  runat="server">
+                    <uc1:AuthTree ID="AuthTree1" runat="server" ></uc1:AuthTree>
+                </td>
+            </tr>
+        </table>
+<div class="footer">
+Copyright ShiXin Enterprise Application Software(Shanghai)Co.,Ltd 2009
+</div>
+    </form>
+</body>
+
+<script language="javascript " type="text/javascript" src="../../Inc/KeepConnectWithServer.js" charset="gb2312"></script>
+<script language="javascript" type="text/javascript" id="初始化" >
+$(function() {
+    KeepConnect("../../GoogleDown.ashx");
+
+});
+</script>    
+</html>

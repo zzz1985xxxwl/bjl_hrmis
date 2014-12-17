@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B7F0C8A-C8BC-4490-95F2-7736AE75DB0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProvideSmsServerServices</RootNamespace>
+    <AssemblyName>ProvideSmsServerServices</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/ProvideSmsServerServices/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoardCast\BoardCastReceivedMessage.cs" />
+    <Compile Include="BoardCast\BoardCastSendFailedMessage.cs" />
+    <Compile Include="BoardCast\ClientBroadcast.cs" />
+    <Compile Include="BoardCast\IBoardCastCommand.cs" />
+    <Compile Include="BoardCast\ICallbackDataGateWay.cs" />
+    <Compile Include="Register\DbRestrictLayer\ClientInformationDbRestrictLayer.cs" />
+    <Compile Include="Register\ForControll\ActiveTheClientInformationProxy.cs" />
+    <Compile Include="Register\ForControll\ActiveTheListenAddressProxy.cs" />
+    <Compile Include="Register\ForControll\ClearBlockMessages.cs" />
+    <Compile Include="Register\ForControll\DisableTheListenAddressProxy.cs" />
+    <Compile Include="Register\ForControll\ActiveTheClientInformation.cs" />
+    <Compile Include="Register\ForControll\ActiveTheListenAddress.cs" />
+    <Compile Include="Register\ForControll\AddActivedClientInformation.cs" />
+    <Compile Include="Register\CallbackDataGateWayImplement.cs" />
+    <Compile Include="Register\CallbackDataGateWayImplement_ForTest.cs" />
+    <Compile Include="Register\ForControll\DescriptClientInformation.cs" />
+    <Compile Include="Register\ForControll\DisableTheClientInformation.cs" />
+    <Compile Include="Register\ForControll\DisableTheClientInformationProxy.cs" />
+    <Compile Include="Register\ForControll\DisableTheListenAddress.cs" />
+    <Compile Include="Register\ForControll\SetListenAddressBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Register\ForControll\UpdateClientInformaitonBase.cs" />
+    <Compile Include="Register\ISingleSmsClientContract.cs" />
+    <Compile Include="Register\ITransaction.cs" />
+    <Compile Include="Register\RegisterClientAddressTransaction.cs" />
+    <Compile Include="Register\SingleSmsClientContractImplement.cs" />
+    <Compile Include="SmsControllerServiceType.cs" />
+    <Compile Include="SmsServerServiceType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsumeSmsClientService\ConsumeSmsClientService.csproj">
+      <Project>{52E2F6E4-9297-41D9-9A94-4AB6267C1BDE}</Project>
+      <Name>ConsumeSmsClientService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logs\Logs.csproj">
+      <Project>{C7FFB4D1-E532-4716-B73C-C581386475B0}</Project>
+      <Name>Logs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MachineDll\MachineDll.csproj">
+      <Project>{4C8B849D-6508-49A1-BBB6-8E7292A32EA8}</Project>
+      <Name>MachineDll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmsControlContract\SmsControlContract.csproj">
+      <Project>{A34873AC-66FA-4EB1-8454-851E2EA161C9}</Project>
+      <Name>SmsControlContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmsDataContract\SmsDataContract.csproj">
+      <Project>{EF1F9D41-C3FE-40F8-A15F-FDBAD7997603}</Project>
+      <Name>SmsDataContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlServerDal\SqlServerDal.csproj">
+      <Project>{B9BF1DA4-14D9-4A53-86F6-6772517E133A}</Project>
+      <Name>SqlServerDal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

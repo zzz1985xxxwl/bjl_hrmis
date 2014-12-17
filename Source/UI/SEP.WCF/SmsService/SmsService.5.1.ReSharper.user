@@ -1,0 +1,34 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="6539DB23-7D92-4D89-BEC8-AD16BF7F9C0C/f:SmsClientService.svc" caret="66" fromTop="0" />
+      <File id="6539DB23-7D92-4D89-BEC8-AD16BF7F9C0C/f:Default.aspx" caret="0" fromTop="0" />
+      <File id="4C8B849D-6508-49A1-BBB6-8E7292A32EA8/f:TheSmsMachine.cs" caret="12533" fromTop="18" />
+      <File id="C7FFB4D1-E532-4716-B73C-C581386475B0/f:GetLogInstance.cs" caret="324" fromTop="12" />
+      <File id="C7FFB4D1-E532-4716-B73C-C581386475B0/f:TLineEventLog.cs" caret="2461" fromTop="16" />
+      <File id="09D034BF-933B-483E-9997-36E705B0A14A/f:MachineControl.aspx" caret="0" fromTop="0" />
+      <File id="09D034BF-933B-483E-9997-36E705B0A14A/f:Web.config" caret="1116" fromTop="15" />
+      <File id="A34873AC-66FA-4EB1-8454-851E2EA161C9/f:ISmsControllerContract.cs" caret="460" fromTop="10" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="09D034BF-933B-483E-9997-36E705B0A14A/f:Web.config" caret="1744" fromTop="17" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.6\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>

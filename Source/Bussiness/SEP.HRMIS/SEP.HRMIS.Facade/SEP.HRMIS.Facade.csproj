@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4AE9EBB-FDC5-40D4-90E3-FC0934D1E578}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.HRMIS.Facade</RootNamespace>
+    <AssemblyName>SEP.HRMIS.Facade</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.HRMIS.Facade/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SEP.HRMIS.Facade.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedCondition, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\AdvancedCondition.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SmsDataContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SmsDataContract.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountAuthFacade.cs" />
+    <Compile Include="AdjustRuleFacade.cs" />
+    <Compile Include="AdvanceSearchFacade.cs" />
+    <Compile Include="ApplyAssessConditionFacade.cs" />
+    <Compile Include="AssessActivityFacade.cs" />
+    <Compile Include="AssessManagementFacade.cs" />
+    <Compile Include="AttendanceInOutRecordFacade.cs" />
+    <Compile Include="AttendanceReadDataFacade.cs" />
+    <Compile Include="AttendanceStatisticFacade.cs" />
+    <Compile Include="AutoRemindServerFacade.cs" />
+    <Compile Include="CompanyInvolveFacade.cs" />
+    <Compile Include="ConfirmMessageFacade.cs" />
+    <Compile Include="ContractTypeFacade.cs" />
+    <Compile Include="CustomerInfoFacade.cs" />
+    <Compile Include="DepartmentHistoryFacade.cs" />
+    <Compile Include="DiyProcessFacade.cs" />
+    <Compile Include="EmployeeAdjustRuleFacade.cs" />
+    <Compile Include="EmployeeAttendanceFacade.cs" />
+    <Compile Include="EmployeeAttendanceStatisticsFacade.cs" />
+    <Compile Include="EmployeeContractFacade.cs" />
+    <Compile Include="EmployeeFacade.cs" />
+    <Compile Include="EmployeeHistoryFacade.cs" />
+    <Compile Include="EmployeeStatisticsFacade.cs" />
+    <Compile Include="EmployeeWelfareFacade.cs" />
+    <Compile Include="FeedBackPaperFacade.cs" />
+    <Compile Include="FileCargoFacade.cs" />
+    <Compile Include="LeaveRequestFacade.cs" />
+    <Compile Include="LeaveRequestTypeFacade.cs" />
+    <Compile Include="NationalityFacade.cs" />
+    <Compile Include="OutApplicationFacade.cs" />
+    <Compile Include="OverWorkFacade.cs" />
+    <Compile Include="PayModule\AccountSetFacade.cs" />
+    <Compile Include="PayModule\EmployeeAccountSetFacade.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatisticsFacade.cs" />
+    <Compile Include="PayModule\GetBindFieldFacade.cs" />
+    <Compile Include="PayModule\TaxFacade.cs" />
+    <Compile Include="PhoneMessageFacade.cs" />
+    <Compile Include="PlanDutyFacade.cs" />
+    <Compile Include="PositionApplicationFacade.cs" />
+    <Compile Include="PositionHistoryFacade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadExternalDataFacade.cs" />
+    <Compile Include="ReimburseFacade.cs" />
+    <Compile Include="SkillFacade.cs" />
+    <Compile Include="SkillTypeFacade.cs" />
+    <Compile Include="SystemErrorFacade.cs" />
+    <Compile Include="TraineeApplicationFacade.cs" />
+    <Compile Include="TrainFacade.cs" />
+    <Compile Include="VacationFacade.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEP.HRMIS.Bll\SEP.HRMIS.Bll.csproj">
+      <Project>{22CBE127-3F41-4020-A613-E90A476B7B9C}</Project>
+      <Name>SEP.HRMIS.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.HRMIS.DalFactory\SEP.HRMIS.DalFactory.csproj">
+      <Project>{EB81BCC2-50EA-467E-87DC-04E737D40179}</Project>
+      <Name>SEP.HRMIS.DalFactory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.HRMIS.IDal\SEP.HRMIS.IDal.csproj">
+      <Project>{9149D4B8-2BCD-42C9-BCB3-A14C796172B6}</Project>
+      <Name>SEP.HRMIS.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.HRMIS.IFacede\SEP.HRMIS.IFacede.csproj">
+      <Project>{0E1621D8-6546-4D69-9591-0D4AC1518461}</Project>
+      <Name>SEP.HRMIS.IFacede</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
+      <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
+      <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
+copy $(TargetDir)$(TargetName).XML ..\..\..\..\..\Build\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,579 @@
+.calendarLoading {
+    position: fixed;
+    top: 44%;
+    left: 50%;
+    width: 190px;
+    margin-left: -120px;
+    border: 1px solid #3C3C3C;
+    padding: 18px 0px 0px 50px;
+    z-index: 3001;
+    height: 32px;
+    color: #498929;
+    vertical-align: middle;
+    background: url( "../image/loading.gif") no-repeat #FFFFFF 150px center;
+}
+
+#prev {
+    background: url(../image/kqleft.png) no-repeat 0 6px;
+    width: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+#next {
+    background: url(../image/kqright.png) no-repeat 0 6px;
+    width: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#nowDate {
+    width: 80px;
+}
+
+#set {
+    background: url(../image/set.gif) no-repeat 0 4px;
+    padding: 5px 7px 0 7px;
+    cursor: pointer;
+    margin: 0 10px 0 10px;
+}
+
+.hovernone a:hover {
+    text-decoration: none;
+}
+
+.popdiv {
+    position: absolute;
+    top: 28px;
+    right: 0;
+    border: 1px solid #69ad3c;
+    width: 170px;
+    background-color: #ffffff;
+    font-size: 13px;
+    z-index: 100;
+}
+
+.popdiv .title {
+    background: url(../image/tittdbg1.jpg) repeat-x;
+    height: 20px;
+    border-bottom: 1px solid #69ad3c;
+    padding: 8px 0 0 25px;
+}
+
+#typeDiv a {
+    cursor: pointer;
+}
+
+#typeDiv a:hover {
+    text-decoration: underline;
+}
+
+.ctapon {
+    float: left;
+    width: 70px;
+    background-color: #b5da71;
+    border: 1px solid #69ad3c;
+    border-bottom: 1px hidden #b5da71;
+    border-bottom-style: hidden;
+    height: 22px;
+    padding-top: 6px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+}
+
+.ctap {
+    float: left;
+    width: 70px;
+    background-color: #edfdce;
+    border: 1px solid #a0e373;
+    border-bottom: 0;
+    height: 21px;
+    padding-top: 6px;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    cursor: pointer;
+}
+
+/*
+ 月视图
+ */
+.hoverline:hover {
+    text-decoration: underline;
+}
+
+.monthCalendar {
+    border-top: 1px solid #69ad3c;
+}
+
+.SXCalendar {
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+}
+
+#hideforwidth {
+    min-width: 370px;
+}
+
+.SXCalendar thead {
+    background: url(../image/tittdbg1.jpg) repeat-x;
+}
+
+.SXCalendar th {
+    height: 28px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+.SXCalendar td {
+    border: 1px solid #69ad3c;
+    text-align: right;
+    width: 14.28%;
+}
+
+.SXCalendar td a:hover {
+    cursor: default;
+    text-decoration: none;
+}
+
+.SXCalendar .thfirst {
+    border-left: 1px solid #69ad3c;
+}
+
+.SXCalendar .th {
+}
+
+.SXCalendar .thlast {
+    border-right: 1px solid #69ad3c;
+}
+
+.SXCalendar .content {
+    height: 61px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    padding-top: 2px;
+}
+
+.SXCalendar .content a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.SXCalendar td .monthDayDiv {
+    overflow: hidden;
+    height: 16px;
+    position: relative;
+}
+
+.SXCalendar td .addItem {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    background: url(../image/addItem.png) no-repeat 12px 11px;
+}
+
+.SXCalendar td .addItemOn {
+    background: url(../image/addItem.png) no-repeat -14px 0;
+}
+
+.addItemDiv {
+    position: absolute;
+    border: 1px solid #69ad3c;
+    width: 70px;
+    height: 80px;
+    z-index: 1000;
+    background-color: #FFFFFF;
+    top: 0;
+    left: 0;
+    padding: 4px;
+    display: none;
+}
+
+.addItemDiv a {
+    margin: 8px 0 8px 8px;
+    display: block;
+}
+
+.SXCalendar td .monthDayDiv a {
+    padding-right: 4px;
+    font-family: "黑体";
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.SXCalendar .content div {
+    font-size: 9pt;
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 2px;
+    color: #000000;
+}
+
+.SXCalendar .monthDayDiv {
+    background-color: #DFFBAB;
+    border-bottom: 1px solid #69ad3c;
+}
+
+.SXCalendar .current-month .monthDayDiv a {
+    color: #294EA3;
+}
+
+.SXCalendar .other-month .monthDayDiv a {
+    color: #999999;
+}
+
+.SXCalendar .today .monthDayDiv {
+    background-color: #ffffe0;
+}
+
+/*
+ 日视图
+ */
+#calendarlist .toDayWeek {
+    background: url(../image/tittdbg1.jpg) repeat-x;
+    text-align: center;
+    height: 23px;
+    padding-top: 5px;
+    border: 1px solid #69ad3c;
+    border-bottom: 0;
+}
+
+.thedaycontainer {
+    height: 493px;
+    overflow-x: hidden;
+    overflow: auto;
+    scrollbar-face-color: #ffffff;
+    scrollbar-highlight-color: #ffffff;
+    scrollbar-shadow-color: #69ad3c;
+    scrollbar-3dlight-color: #69ad3c;
+    scrollbar-arrow-color: #69ad3c;
+    scrollbar-darkshadow-color: #ffffff;
+    border: 1px solid #69ad3c;
+    position: relative;
+}
+
+.theday {
+    position: relative;
+}
+
+.theday .item {
+    position: absolute;
+    opacity: 0.56;
+    filter: alpha(opacity = 56);
+    padding: 0 2px 0 2px;
+    top: 0px;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: bolder;
+    overflow: hidden;
+}
+
+.itemnote {
+    background-color: #CC1A7B;
+    width: 200px;
+}
+
+.oneday {
+    border-bottom: 1px solid #69ad3c;
+    height: 39px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.oneday span {
+    color: #444444;
+    font-family: Futura, Sans-Serif;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.oneday .mr {
+    border-color: #E5E5E5;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    padding-top: 7px;
+    text-align: center;
+    color: #444444;
+    font-size: 13px;
+    background-color: #DFFBAB;
+}
+
+.oneday .mr span {
+    font-Size: 20px;
+}
+
+.oneday .ma {
+    float: left;
+    background-color: #FFFFFF;
+}
+
+.oneday .ma .a {
+    border-bottom: 1px solid #b5da71;
+    height: 19px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.oneday .ma .b {
+    height: 19px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.fontBlackStrong {
+    font-weight: bold;
+    color: #000000;
+}
+
+/*小界面*/
+#closeDetail {
+    float: right;
+    width: 15px;
+    height: 15px;
+    margin: 5px 17px 0 0;
+    background: url(../image/closebt.jpg) no-repeat;
+    cursor: pointer;
+}
+
+.ui-dialog-titlebar {
+    display: none;
+}
+
+.ui-dialog {
+    border: 0;
+}
+
+/*查看他人日历*/
+.calendaron {
+    display: block;
+}
+
+.calendaroff {
+    display: none;
+}
+
+#addother {
+    background: url(../image/addother.jpg) no-repeat 0 3px;
+    padding: 5px 9px 0 7px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#addotherDiv input {
+    border: none;
+    width: 140px;
+}
+
+#addotherDiv .inputdiv {
+    border: 1px solid #bcbcbc;
+    background-color: #ffffff;
+}
+
+#addotherDiv .btnaddanother {
+    padding: 5px 5px 0 5px;
+    background: url("../image/add.gif") no-repeat 0 7px;
+}
+
+#addotherDiv a:hover {
+    text-decoration: none;
+}
+
+.nametablist {
+    height: 518px;
+    font-size: 9pt;
+}
+
+.nametabon {
+    height: 60px;
+    background-color: #b5da71;
+    border: 1px solid #69ad3c;
+    border-right: none;
+    margin-top: -1px;
+    padding: 5px 0 0 6px;
+}
+
+.nametab {
+    height: 60px;
+    background-color: #edfdce;
+    border: 1px solid #69ad3c;
+    border-right: none;
+    margin-top: -1px;
+    padding: 5px 0 0 6px;
+}
+
+#namelist {
+    height: 463px;
+    font-size: 9pt;
+    overflow: hidden;
+    position: relative;
+}
+
+#namelist div {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 18px;
+}
+
+#namelist .self {
+    font-weight: bolder;
+    margin-top: 1px;
+}
+
+#namelist .close {
+    background: url(../image/close1.gif) no-repeat;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    bottom: 4px;
+    left: 6px;
+}
+
+#updownvessel {
+    background-color: #edfdce;
+    border: 1px solid #69ad3c;
+    border-right: none;
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+    width: 24px;
+}
+
+#updownvessel div {
+    height: 12px;
+    width: 23px;
+    cursor: pointer;
+}
+
+.nameup {
+    background: url(../image/updown.jpg) no-repeat;
+}
+
+.nameup:hover {
+    background: url(../image/updown.jpg) no-repeat 0px -12px;
+}
+
+.nameupdisable {
+    background: url(../image/updown.jpg) no-repeat -24px 0;
+}
+
+.nameupdisable:hover {
+    background: url(../image/updown.jpg) no-repeat -24px -12px;
+}
+
+.namedown {
+    background: url(../image/updown.jpg) no-repeat 0 -24px;
+}
+
+.namedown:hover {
+    background: url(../image/updown.jpg) no-repeat 0 -36px;
+}
+
+.namedowndisable {
+    background: url(../image/updown.jpg) no-repeat -24px -24px;
+}
+
+.namedowndisable:hover {
+    background: url(../image/updown.jpg) no-repeat -24px -36px;
+}
+
+/*
+ 便签
+ */
+#noteEdit .edittable6 .dheight {
+    min-height: 270px;
+}
+
+.searchbtn {
+    border: 1px solid #cccccc;
+    background: url(../image/crmsearchbtn.jpg) repeat-x;
+    width: 70px;
+    height: 27px;
+}
+
+.saveNote {
+    width: 30px;
+    background: url(../image/save.png) no-repeat 0 8px;
+    padding-left: 19px;
+    cursor: pointer;
+}
+
+.saveNote:hover {
+    text-decoration: underline;
+}
+
+.closeNote {
+    width: 30px;
+    background: url(../image/close.png) no-repeat 0 10px;
+    padding-left: 15px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.closeNote:hover {
+    text-decoration: underline;
+}
+
+.notesEditDetail .content {
+    width: 430px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    float: left;
+}
+
+.notesEditDetail div {
+    vertical-align: top;
+    line-height: 15px;
+}
+
+.notesEditDetail div a {
+    margin-left: 10px;
+    cursor: pointer;
+    color: #29670A;
+}
+
+.notesEditDetail {
+    margin-bottom: 5px;
+}
+
+#noteEdit .ajax__calendar td {
+    margin: 0;
+    padding: 0;
+}
+
+/*resize*/
+.ui-resizable-s {
+    bottom: -5px;
+    cursor: s-resize;
+    height: 7px;
+    left: 0;
+    width: 100%;
+}
+
+.ui-resizable-handle {
+    display: block;
+    font-size: 0.1px;
+    position: absolute;
+    z-index: 99999;
+}
+
+.ui-resizable {
+    position: relative;
+}

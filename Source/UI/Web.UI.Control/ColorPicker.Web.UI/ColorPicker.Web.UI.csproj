@@ -1,0 +1,84 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{393F0899-6F6C-495C-8217-6AC3A3730A79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ColorPicker.Web.UI</RootNamespace>
+    <AssemblyName>ColorPicker.Web.UI</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColorPicker.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="css\colorpicker.css" />
+    <EmbeddedResource Include="css\layout.css" />
+    <EmbeddedResource Include="images\blank.gif" />
+    <EmbeddedResource Include="images\colorpicker_background.png" />
+    <EmbeddedResource Include="images\colorpicker_hex.png" />
+    <EmbeddedResource Include="images\colorpicker_hsb_b.png" />
+    <EmbeddedResource Include="images\colorpicker_hsb_h.png" />
+    <EmbeddedResource Include="images\colorpicker_hsb_s.png" />
+    <EmbeddedResource Include="images\colorpicker_indic.gif" />
+    <EmbeddedResource Include="images\colorpicker_overlay.png" />
+    <EmbeddedResource Include="images\colorpicker_rgb_b.png" />
+    <EmbeddedResource Include="images\colorpicker_rgb_g.png" />
+    <EmbeddedResource Include="images\colorpicker_rgb_r.png" />
+    <EmbeddedResource Include="images\colorpicker_select.gif" />
+    <EmbeddedResource Include="images\colorpicker_submit.png" />
+    <EmbeddedResource Include="images\custom_background.png" />
+    <EmbeddedResource Include="images\custom_hex.png" />
+    <EmbeddedResource Include="images\custom_hsb_b.png" />
+    <EmbeddedResource Include="images\custom_hsb_h.png" />
+    <EmbeddedResource Include="images\custom_hsb_s.png" />
+    <EmbeddedResource Include="images\custom_indic.gif" />
+    <EmbeddedResource Include="images\custom_rgb_b.png" />
+    <EmbeddedResource Include="images\custom_rgb_g.png" />
+    <EmbeddedResource Include="images\custom_rgb_r.png" />
+    <EmbeddedResource Include="images\custom_submit.png" />
+    <EmbeddedResource Include="images\select.png" />
+    <EmbeddedResource Include="images\select2.png" />
+    <Content Include="images\slider.png" />
+    <EmbeddedResource Include="js\colorpicker.js" />
+    <EmbeddedResource Include="js\jquery.js" />
+    <EmbeddedResource Include="js\layout.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

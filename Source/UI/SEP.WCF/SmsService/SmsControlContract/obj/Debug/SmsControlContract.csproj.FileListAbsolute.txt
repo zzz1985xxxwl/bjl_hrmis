@@ -1,0 +1,7 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\obj\Debug\SmsControlContract.csprojResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\bin\Debug\SmsControlContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\bin\Debug\SmsControlContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\bin\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\bin\Debug\SmsDataContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\obj\Debug\SmsControlContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SmsControlContract\obj\Debug\SmsControlContract.pdb

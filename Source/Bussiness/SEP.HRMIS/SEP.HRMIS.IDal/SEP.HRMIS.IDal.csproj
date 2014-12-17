@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9149D4B8-2BCD-42C9-BCB3-A14C796172B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.HRMIS.IDal</RootNamespace>
+    <AssemblyName>SEP.HRMIS.IDal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.HRMIS.IDal/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SEP.HRMIS.IDal.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IAdjustRest.cs" />
+    <Compile Include="IAdjustRestHistory.cs" />
+    <Compile Include="IAdjustRule.cs" />
+    <Compile Include="IAssessActivity.cs" />
+    <Compile Include="IAssessTemplateItem.cs" />
+    <Compile Include="IAssessTemplatePaper.cs" />
+    <Compile Include="IAssessTemplatePaperBindPosition.cs" />
+    <Compile Include="IAttendanceInAndOutRecord.cs" />
+    <Compile Include="IAttendanceReadRule.cs" />
+    <Compile Include="IAuthDal.cs" />
+    <Compile Include="IBadAttendance.cs" />
+    <Compile Include="IContract.cs" />
+    <Compile Include="IContractBookMark.cs" />
+    <Compile Include="IContractType.cs" />
+    <Compile Include="ICustomerInfoDal.cs" />
+    <Compile Include="IDepartmentHistory.cs" />
+    <Compile Include="IDiyProcessDal.cs" />
+    <Compile Include="IEmployee.cs" />
+    <Compile Include="IEmployeeAdjustRule.cs" />
+    <Compile Include="IEmployeeContractBookMark.cs" />
+    <Compile Include="IEmployeeDiyProcessDal.cs" />
+    <Compile Include="IEmployeeHistory.cs" />
+    <Compile Include="IEmployeeSkill.cs" />
+    <Compile Include="IEmployeeWelfare.cs" />
+    <Compile Include="IEmployeeWelfareHistory.cs" />
+    <Compile Include="IFBItems.cs" />
+    <Compile Include="IFBQuestion.cs" />
+    <Compile Include="IFBQuesType.cs" />
+    <Compile Include="IFeedBackPaper.cs" />
+    <Compile Include="IFileCargo.cs" />
+    <Compile Include="IInAndOutRecordLog.cs" />
+    <Compile Include="ILeaveRequestDal.cs" />
+    <Compile Include="ILeaveRequestFlowDal.cs" />
+    <Compile Include="ILeaveRequestType.cs" />
+    <Compile Include="IMailAccount.cs" />
+    <Compile Include="IOutApplication.cs" />
+    <Compile Include="IOverWork.cs" />
+    <Compile Include="IParameter.cs" />
+    <Compile Include="IPhoneMessage.cs" />
+    <Compile Include="IPlanDutyDal.cs" />
+    <Compile Include="IPositionApplicationDal.cs" />
+    <Compile Include="IPositionHistory.cs" />
+    <Compile Include="IReadDataHistory.cs" />
+    <Compile Include="IReimburse.cs" />
+    <Compile Include="ISkill.cs" />
+    <Compile Include="ISystemError.cs" />
+    <Compile Include="ITrain.cs" />
+    <Compile Include="ITraineeApplication.cs" />
+    <Compile Include="IVacation.cs" />
+    <Compile Include="IWelcomeMail.cs" />
+    <Compile Include="PayModule\IAccountSet.cs" />
+    <Compile Include="PayModule\IEmployeeAccountSet.cs" />
+    <Compile Include="PayModule\IEmployeeSalary.cs" />
+    <Compile Include="PayModule\ITax.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
+      <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
+      <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
+copy $(TargetDir)$(TargetName).XML ..\..\..\..\..\Build\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

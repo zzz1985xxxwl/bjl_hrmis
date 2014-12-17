@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.AutoRemindServer", "SEP.AutoRemindServer\SEP.AutoRemindServer.csproj", "{FA27551E-753D-46E1-B9C6-E0DAAB767362}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.ReadExternalAttendanceData", "SEP.ReadExternalAttendanceData\SEP.ReadExternalAttendanceData.csproj", "{07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupClassLibrary", "SetupClassLibrary\SetupClassLibrary.csproj", "{7C342C3A-B83F-40EB-A348-C897921ECDD1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SEP.Server.SetUp", "SEP.Server.SetUp\SEP.Server.SetUp.vdproj", "{C0255C4A-3D40-4E17-B0E2-7D2FA83A57D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA27551E-753D-46E1-B9C6-E0DAAB767362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA27551E-753D-46E1-B9C6-E0DAAB767362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA27551E-753D-46E1-B9C6-E0DAAB767362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA27551E-753D-46E1-B9C6-E0DAAB767362}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C1CBD5-84A2-42C3-BDBB-1EEE8DC7F7C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C342C3A-B83F-40EB-A348-C897921ECDD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C342C3A-B83F-40EB-A348-C897921ECDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C342C3A-B83F-40EB-A348-C897921ECDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C342C3A-B83F-40EB-A348-C897921ECDD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0255C4A-3D40-4E17-B0E2-7D2FA83A57D6}.Debug|Any CPU.ActiveCfg = Debug
+		{C0255C4A-3D40-4E17-B0E2-7D2FA83A57D6}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

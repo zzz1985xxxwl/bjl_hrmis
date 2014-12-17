@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CollectReleaseExpandDlls</RootNamespace>
+    <AssemblyName>CollectReleaseExpandDlls</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\TransferDatasTest\TransferDatasTest.csproj">
+      <Project>{D0DEEDB9-29C1-4EE6-93DE-FE656561D767}</Project>
+      <Name>TransferDatasTest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TApplicationFilter\TApplicationFilter.csproj">
+      <Project>{CB121A7E-4B9E-4999-A3CA-5B94A06FF959}</Project>
+      <Name>TApplicationFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TDepartmentHistoryFilter\TDepartmentHistoryFilter.csproj">
+      <Project>{710FF485-6662-4964-9B12-04D02F138C93}</Project>
+      <Name>TDepartmentHistoryFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TEmployeeAttendanceFilter\TEmployeeAttendanceFilter.csproj">
+      <Project>{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6}</Project>
+      <Name>TEmployeeAttendanceFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TEmployeeFilter\TEmployeeFilter.csproj">
+      <Project>{9C92658F-8042-44D0-9685-9B259D4227B7}</Project>
+      <Name>TEmployeeFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TEmployeeHistoryFilter\TEmployeeHistoryFilter.csproj">
+      <Project>{16A9FA67-D046-40DA-8284-161FBA6E1E5A}</Project>
+      <Name>TEmployeeHistoryFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TEmployeeInAndOutRecordFilter\TEmployeeInAndOutRecordFilter.csproj">
+      <Project>{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B}</Project>
+      <Name>TEmployeeInAndOutRecordFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TInAndOutRecordLogFilter\TInAndOutRecordLogFilter.csproj">
+      <Project>{CAF93057-C355-4CA6-93C4-1E899B04E237}</Project>
+      <Name>TInAndOutRecordLogFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TLeaveRequestFilter\TLeaveRequestFilter.csproj">
+      <Project>{28AD0C24-A01C-425E-91C9-621C0E803EBF}</Project>
+      <Name>TLeaveRequestFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOutApplicationFilter\TOutApplicationFilter.csproj">
+      <Project>{50EF57F6-206C-45A1-A22E-5AB6C6346104}</Project>
+      <Name>TOutApplicationFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOverWorkFilter\TOverWorkFilter.csproj">
+      <Project>{FC33F742-1468-42AB-A9A0-6E97406F7263}</Project>
+      <Name>TOverWorkFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TPlanDutyDetailFilter\TPlanDutyDetailFilter.csproj">
+      <Project>{760DE02F-6D1A-418F-B512-A82F197C1D2C}</Project>
+      <Name>TPlanDutyDetailFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TPlanDutyTableFilter\TPlanDutyTableFilter.csproj">
+      <Project>{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92}</Project>
+      <Name>TPlanDutyTableFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TReadDataHistoryFilter\TReadDataHistoryFilter.csproj">
+      <Project>{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F}</Project>
+      <Name>TReadDataHistoryFilter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TVacationFilter\TVacationFilter.csproj">
+      <Project>{CC1F74DF-D943-4A16-806D-475B329EBDAF}</Project>
+      <Name>TVacationFilter</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

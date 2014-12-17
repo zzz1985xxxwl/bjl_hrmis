@@ -1,0 +1,79 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56F01766-5F62-40AF-8F50-3FCFB317FBA1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TransferDatas</RootNamespace>
+    <AssemblyName>TransferDatas</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Fundament\CommandRunner.cs" />
+    <Compile Include="Fundament\DiskOperations.cs" />
+    <Compile Include="Fundament\Log\ITransferDataLog.cs" />
+    <Compile Include="Fundament\Log\TransferDataLog.cs" />
+    <Compile Include="Fundament\ConstraintInfo.cs" />
+    <Compile Include="Fundament\Log\TransferDataLogManager.cs" />
+    <Compile Include="Fundament\SqlCommandRunner.cs" />
+    <Compile Include="Interface\IStatusChangeObserver.cs" />
+    <Compile Include="Interface\TableFilterTemplate.cs" />
+    <Compile Include="Models\RunningStatus\BackUpStatus.cs" />
+    <Compile Include="Models\TransferRule\DbTransfer.cs" />
+    <Compile Include="Models\RunningStatus\RestoreStatus.cs" />
+    <Compile Include="Models\RunningStatus\RunningStatus.cs" />
+    <Compile Include="Interface\ITableFilter.cs" />
+    <Compile Include="Models\TransferRule\NullTableFilter.cs" />
+    <Compile Include="Models\TransferRule\RuleConverter.cs" />
+    <Compile Include="Models\TransferRule\RulesPool.cs" />
+    <Compile Include="Models\TransferRule\TableTransfer.cs" />
+    <Compile Include="Models\TransferRule\TransferConfig.cs" />
+    <Compile Include="Models\TransferRule\TransferRule.cs" />
+    <Compile Include="Utility\StaticConfigTable.cs" />
+    <Compile Include="TransferService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TransferConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Log4Net.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

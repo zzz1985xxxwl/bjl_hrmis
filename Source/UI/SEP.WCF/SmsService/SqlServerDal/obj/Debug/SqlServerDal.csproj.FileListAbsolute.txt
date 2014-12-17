@@ -1,0 +1,9 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\bin\Debug\SqlServerDal.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\bin\Debug\SqlServerDal.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\bin\Debug\SmsControlContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\bin\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\bin\Debug\SmsControlContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\bin\Debug\SmsDataContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\obj\Debug\SqlServerDal.csprojResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\obj\Debug\SqlServerDal.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\SqlServerDal\obj\Debug\SqlServerDal.pdb

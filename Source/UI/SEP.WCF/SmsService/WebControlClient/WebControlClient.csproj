@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09D034BF-933B-483E-9997-36E705B0A14A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebControlClient</RootNamespace>
+    <AssemblyName>WebControlClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ShiXin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Libs\ShiXin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientInformationMain.aspx" />
+    <Content Include="CSS\style.css" />
+    <Content Include="image\AbsenterActive.jpg" />
+    <Content Include="image\AbsenterNotActive.jpg" />
+    <Content Include="image\add.jpg" />
+    <Content Include="image\addgray.jpg" />
+    <Content Include="image\AssignAuth.jpg" />
+    <Content Include="image\az.jpg" />
+    <Content Include="image\bj_qx.png" />
+    <Content Include="image\book.jpg" />
+    <Content Include="image\book2.jpg" />
+    <Content Include="image\bottom01.jpg" />
+    <Content Include="image\bottom02.jpg" />
+    <Content Include="image\bottom03.jpg" />
+    <Content Include="image\bottombg.jpg" />
+    <Content Include="image\btbg.jpg" />
+    <Content Include="image\btbg2.jpg" />
+    <Content Include="image\btbg3.jpg" />
+    <Content Include="image\btbg4.jpg" />
+    <Content Include="image\btlongbg3.jpg" />
+    <Content Include="image\button.jpg" />
+    <Content Include="image\ceobt01.jpg" />
+    <Content Include="image\ceobt02.jpg" />
+    <Content Include="image\cg.jpg" />
+    <Content Include="image\closebt.jpg" />
+    <Content Include="image\datacanelgray.gif" />
+    <Content Include="image\datacanelgray.jpg" />
+    <Content Include="image\datadeletegray.gif" />
+    <Content Include="image\datadeletegray.jpg" />
+    <Content Include="image\dataeditgray.gif" />
+    <Content Include="image\dataeditgray.jpg" />
+    <Content Include="image\dataprint.gif" />
+    <Content Include="image\dataprintgray.gif" />
+    <Content Include="image\directorbt01.jpg" />
+    <Content Include="image\directorbt02.jpg" />
+    <Content Include="image\dow.gif" />
+    <Content Include="image\down.gif" />
+    <Content Include="image\EarlyActive.jpg" />
+    <Content Include="image\EarlyNotActive.jpg" />
+    <Content Include="image\edit.jpg" />
+    <Content Include="image\editgray.jpg" />
+    <Content Include="image\EmployeeBasicActive.jpg" />
+    <Content Include="image\EmployeeBasicNotActive.jpg" />
+    <Content Include="image\EmployeeDimissionActive.jpg" />
+    <Content Include="image\EmployeeDimissionNotActive.jpg" />
+    <Content Include="image\EmployeeExperienceActive.jpg" />
+    <Content Include="image\EmployeeExperienceNotActive.jpg" />
+    <Content Include="image\EmployeeFamilyActive.jpg" />
+    <Content Include="image\EmployeeFamilyNotActive.jpg" />
+    <Content Include="image\EmployeeSkillActive.jpg" />
+    <Content Include="image\EmployeeSkillNotActive.jpg" />
+    <Content Include="image\EmployeeVacationActive.jpg" />
+    <Content Include="image\EmployeeVacationNotActive.jpg" />
+    <Content Include="image\EmployeeWelfareActive.jpg" />
+    <Content Include="image\EmployeeWelfareNotActive.jpg" />
+    <Content Include="image\EmployeeWorkActive.jpg" />
+    <Content Include="image\EmployeeWorkNotActive.jpg" />
+    <Content Include="image\help.jpg" />
+    <Content Include="image\house.jpg" />
+    <Content Include="image\hr.swf" />
+    <Content Include="image\hrbt01.jpg" />
+    <Content Include="image\hrbt02.jpg" />
+    <Content Include="image\htj01.jpg" />
+    <Content Include="image\htj02.jpg" />
+    <Content Include="image\icon01.gif" />
+    <Content Include="image\icon01.jpg" />
+    <Content Include="image\icon02.jpg" />
+    <Content Include="image\icon03.jpg" />
+    <Content Include="image\icon04.gif" />
+    <Content Include="image\icon04.jpg" />
+    <Content Include="image\icon05.gif" />
+    <Content Include="image\icon06.gif" />
+    <Content Include="image\icon07.jpg" />
+    <Content Include="image\icon08.gif" />
+    <Content Include="image\icon08.jpg" />
+    <Content Include="image\icon09.jpg" />
+    <Content Include="image\icon_dow.gif" />
+    <Content Include="image\icon_mail.gif" />
+    <Content Include="image\icon_tele.gif" />
+    <Content Include="image\inbg.jpg" />
+    <Content Include="image\infobg.jpg" />
+    <Content Include="image\infobg01.jpg" />
+    <Content Include="image\infobg02.jpg" />
+    <Content Include="image\infobg03.jpg" />
+    <Content Include="image\infobg04.jpg" />
+    <Content Include="image\infobg05.jpg" />
+    <Content Include="image\infobg06.jpg" />
+    <Content Include="image\infobg07.jpg" />
+    <Content Include="image\j01.jpg" />
+    <Content Include="image\j02.jpg" />
+    <Content Include="image\jia.gif" />
+    <Content Include="image\jian.gif" />
+    <Content Include="image\key.jpg" />
+    <Content Include="image\kqleft.png" />
+    <Content Include="image\kqright.png" />
+    <Content Include="image\lastMonth.jpg" />
+    <Content Include="image\LateActive.jpg" />
+    <Content Include="image\LateNotActive.jpg" />
+    <Content Include="image\LeaveRequestActive.jpg" />
+    <Content Include="image\LeaveRequestNotActive.jpg" />
+    <Content Include="image\linebg.jpg" />
+    <Content Include="image\loading.gif" />
+    <Content Include="image\loginimg.jpg" />
+    <Content Include="image\loginimg02.jpg" />
+    <Content Include="image\logo.jpg" />
+    <Content Include="image\logo2.jpg" />
+    <Content Include="image\logo3.jpg" />
+    <Content Include="image\longinb.jpg" />
+    <Content Include="image\managebt01.jpg" />
+    <Content Include="image\managerbt01.jpg" />
+    <Content Include="image\managerbt02.jpg" />
+    <Content Include="image\menuicon.jpg" />
+    <Content Include="image\menupic01.jpg" />
+    <Content Include="image\menupic02.jpg" />
+    <Content Include="image\menupic03.jpg" />
+    <Content Include="image\menupic04.jpg" />
+    <Content Include="image\menupic04gray.jpg" />
+    <Content Include="image\menupic05.jpg" />
+    <Content Include="image\menupic05gray.jpg" />
+    <Content Include="image\menupic06.jpg" />
+    <Content Include="image\menupic06gray.jpg" />
+    <Content Include="image\menupic07.jpg" />
+    <Content Include="image\menupic07gray.jpg" />
+    <Content Include="image\menupic08.jpg" />
+    <Content Include="image\monthnext.jpg" />
+    <Content Include="image\monthprev.jpg" />
+    <Content Include="image\mubiao_03.jpg" />
+    <Content Include="image\new.gif" />
+    <Content Include="image\nextbt.jpg" />
+    <Content Include="image\nextMonth.jpg" />
+    <Content Include="image\organize.jpg" />
+    <Content Include="image\OutWorkActive.jpg" />
+    <Content Include="image\OutWorkNotActive.jpg" />
+    <Content Include="image\OverTimeActive.jpg" />
+    <Content Include="image\OverTimeNotActive.jpg" />
+    <Content Include="image\photo.jpg" />
+    <Content Include="image\prevbt.jpg" />
+    <Content Include="image\propbt07_1.jpg" />
+    <Content Include="image\propbt07_2.jpg" />
+    <Content Include="image\propbtbg.jpg" />
+    <Content Include="image\ps_key.jpg" />
+    <Content Include="image\ReimburseLog.jpg" />
+    <Content Include="image\sb.jpg" />
+    <Content Include="image\selfbt01.jpg" />
+    <Content Include="image\selfbt02.jpg" />
+    <Content Include="image\setbtbg.jpg" />
+    <Content Include="image\setting.jpg" />
+    <Content Include="image\spiral2.swf" />
+    <Content Include="image\tdbg01.jpg" />
+    <Content Include="image\tdbg01_1.jpg" />
+    <Content Include="image\tdbg02.jpg" />
+    <Content Include="image\tdbg03.jpg" />
+    <Content Include="image\tdbg04.jpg" />
+    <Content Include="image\tdbg05.jpg" />
+    <Content Include="image\topbg.jpg" />
+    <Content Include="image\topmenubg.jpg" />
+    <Content Include="image\topmenunextbg.jpg" />
+    <Content Include="image\touxiang.jpg" />
+    <Content Include="image\up.gif" />
+    <Content Include="image\Week1Active.jpg" />
+    <Content Include="image\Week1NotActive.jpg" />
+    <Content Include="image\Week2Active.jpg" />
+    <Content Include="image\Week2NotActive.jpg" />
+    <Content Include="image\Week3Active.jpg" />
+    <Content Include="image\Week3NotActive.jpg" />
+    <Content Include="image\Week4Active.jpg" />
+    <Content Include="image\Week4NotActive.jpg" />
+    <Content Include="image\Week5Active.jpg" />
+    <Content Include="image\Week5NotActive.jpg" />
+    <Content Include="image\Week6Active.jpg" />
+    <Content Include="image\Week6NotActive.jpg" />
+    <Content Include="image\win01.jpg" />
+    <Content Include="image\win02.jpg" />
+    <Content Include="image\win03.jpg" />
+    <Content Include="image\xian.gif" />
+    <Content Include="image\xxx.jpg" />
+    <Content Include="image\ygbg.jpg" />
+    <Content Include="image\ygcen.png" />
+    <Content Include="Inc\BaseScript.js" />
+    <Content Include="Inc\GridViewTree.js" />
+    <Content Include="Inc\JsAjax.js" />
+    <Content Include="Inc\MenuAjax.js" />
+    <Content Include="Inc\rsmenu.js" />
+    <Content Include="Inc\UsbKey.js" />
+    <Content Include="MachineControl.aspx" />
+    <Content Include="MachineControlLogin.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientInformationMain.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ClientInformationMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientInformationMain.aspx.designer.cs">
+      <DependentUpon>ClientInformationMain.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MachineControl.aspx.cs">
+      <DependentUpon>MachineControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MachineControl.aspx.designer.cs">
+      <DependentUpon>MachineControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MachineControlLogin.aspx.cs">
+      <DependentUpon>MachineControlLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MachineControlLogin.aspx.designer.cs">
+      <DependentUpon>MachineControlLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmsControlContract\SmsControlContract.csproj">
+      <Project>{A34873AC-66FA-4EB1-8454-851E2EA161C9}</Project>
+      <Name>SmsControlContract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmsDataContract\SmsDataContract.csproj">
+      <Project>{EF1F9D41-C3FE-40F8-A15F-FDBAD7997603}</Project>
+      <Name>SmsDataContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1753</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

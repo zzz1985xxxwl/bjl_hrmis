@@ -1,0 +1,13 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\MachineDll.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\MachineDll.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\Logs.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\SqlServerDal.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\SmsControlContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\Logs.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\SmsDataContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\SqlServerDal.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\bin\Debug\SmsControlContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\obj\Debug\MachineDll.csprojResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\obj\Debug\MachineDll.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\MachineDll\obj\Debug\MachineDll.pdb

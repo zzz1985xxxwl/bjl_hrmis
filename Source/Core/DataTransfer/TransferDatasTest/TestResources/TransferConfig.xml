@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<!--数据库链接,请使用@DbName@来替代可能的数据库-->
+	<ConnectionString>Integrated Security=SSPI;Initial Catalog=@DbName@;Data Source=localhost</ConnectionString>
+	<!--迁移数据规则："数据库名1:[表名1][表名2]...;数据库名2[表名1][表名2(规则1)]..."-->
+	<!--这些描述的数据表将保留下来并执行覆盖操作,-->
+	<!--若有(规则1)则解释的时候会将次导入导出规则应用在相应的表上，并且不执行默认的覆盖操作-->
+	<TransferRule>
+		<全部数据>Sep_Release1670:[TAccount][TAccountAuth];Hrmis_Release1670:[TLeaveRequest][TLeaveRequestItem][TLeaveRequestFlow]</全部数据>
+		<员工数据>Sep_Release1670:[TAccount][TAccountAuth]</员工数据>
+		<考勤数据>Hrmis_Release1670:[TLeaveRequest][TLeaveRequestItem][TLeaveRequestFlow]</考勤数据>
+		<指定月份的考勤数据>BackUpAs:[TApplication(TApplicationFilter)]</指定月份的考勤数据>
+		<测试全覆盖式数据迁移>TestDb1:[TApplication][TApplicationEmployee][TApplicationFlow][TAbsenceType][TAccountsAuth][TAttendanceReadTime][TAttendanceRull][TAuth][TBackAccounts][TDepartment][TDepartmentHistory][TEmployee][TEmployeeAttendance][TEmployeeHistory][TEmployeeInAndOutRecord][TEmployeeMessageSet][TInAndOutRecordLog][TLeaveRequest][TLeaveRequestFlow][TLeaveType][TParameter][TReadDataHistory][TReimburse][TReimburseFlow][TReimburseItem][TSalaryWeight][TSpecialDate][TVacation];TestDb2:[TAccountAuth][TAuth][TContact][TCustomer][TCustomerOwnerHistory][TCustomerTrackRecord][TGuidParameter][TImportantTrackRecord][TIntentProduct][TOpportunity][TOrder][TOrderProduct][TProduct][TProductFirstType][TProductSecondType]</测试全覆盖式数据迁移>
+		<测试筛选式数据迁移>TestDb1:[TApplication(TApplicationFilter)][TEmployee];TestDb2:[TCustomer]</测试筛选式数据迁移>
+	</TransferRule>
+	<!--规则的版本号，应当在每次对规则的改动之后手工去递增版本号，防止主系统与从系统版本不一致导致数据更新出错-->
+	<TransferRuleVersion>1</TransferRuleVersion>
+	<!--数据处理的临时目录，要保证用户具有读写的权限就可以-->
+	<TempDirectory>C:\DataTemp\</TempDirectory>
+	<!--数据库备份路径，系统的数据库备份会放在该处，用于灾难恢复-->
+	<BackUpDirectory>C:\ShiXinTech\DbBackUp\</BackUpDirectory>
+	<!--系统部署对应的下载路径-->
+	<DownloadFilesDirectory>C:\ShiXinTech\DownloadFiles\</DownloadFilesDirectory>
+</configuration>

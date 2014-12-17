@@ -1,0 +1,2 @@
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PositionGradeTowerTableView.ascx.cs" Inherits="SEP.Performance.Views.EmployeeStatistics.PositionGradeTowerTableView" %>
+<asp:Image ID="imgPositionGradeTower" runat="server" />

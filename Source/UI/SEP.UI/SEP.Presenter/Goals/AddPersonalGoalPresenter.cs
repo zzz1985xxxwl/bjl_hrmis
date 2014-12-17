@@ -1,0 +1,46 @@
+﻿//----------------------------------------------------------------
+// Copyright (C) 2000-2008 Shixin Corporation
+// All rights reserved.
+// 文件名: AddPersonalGoalPresenter.cs
+// 创建者: 王玥琦
+// 创建日期: 2008-06-05
+// 概述: 增加个人目标
+// ----------------------------------------------------------------
+using System;
+using SEP.Model.Accounts;
+using SEP.Model.Goals;
+using SEP.Presenter.IPresenter.IGoals;
+using SEP.IBll;
+
+namespace SEP.Presenter.Goals
+{
+    public class AddPersonalGoalPresenter : AddUpdateGoalPresenter
+    {
+        public EventHandler _CompleteEvent;
+
+        public AddPersonalGoalPresenter(IGoalBaseView view, Account loginUser)
+            : base(view, loginUser)
+        {
+        }
+
+        public void ExecuteEvent(object sender, EventArgs e)
+        {
+            if (Validation() )
+            {
+                PersonalGoal personalGoal =
+                    new PersonalGoal(0,
+                                     _IGoalBaseView.Title, _IGoalBaseView.Content,
+                                     Convert.ToDateTime(_IGoalBaseView.SetTime),LoginUser);
+                try
+                {
+                    BllInstance.GoalBllInstance.CreatePersonalGoal(personalGoal, LoginUser);
+                    _CompleteEvent(this, EventArgs.Empty);
+                }
+                catch (ApplicationException ex)
+                {
+                    _IGoalBaseView.ResultMessage = ex.Message;
+                }
+            }
+        }
+    }
+}

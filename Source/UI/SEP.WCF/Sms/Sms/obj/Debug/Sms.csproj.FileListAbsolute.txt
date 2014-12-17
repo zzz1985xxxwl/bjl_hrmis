@@ -1,0 +1,11 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.dll.config
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.DataAccess.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.Entity.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Framework.Common.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.DataAccess.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\bin\Debug\Sms.Entity.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\obj\Debug\Sms.csprojResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\obj\Debug\Sms.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms\obj\Debug\Sms.pdb

@@ -1,0 +1,239 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferDatas", "TransferDatas\TransferDatas.csproj", "{56F01766-5F62-40AF-8F50-3FCFB317FBA1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AllExpandDll", "AllExpandDll", "{739E624F-5C87-4462-AAA0-85D8626E00FA}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountFilter", "AllExpandDll\AccountFilter\AccountFilter.csproj", "{A1070322-2567-455B-B1AA-C5227A646823}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveRequestItemFilter", "AllExpandDll\LeaveRequestItemFilter\LeaveRequestItemFilter.csproj", "{66353783-E773-4402-860C-184071DD4DE1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TApplicationFilter", "AllExpandDll\TApplicationFilter\TApplicationFilter.csproj", "{CB121A7E-4B9E-4999-A3CA-5B94A06FF959}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferDatasTest", "TransferDatasTest\TransferDatasTest.csproj", "{D0DEEDB9-29C1-4EE6-93DE-FE656561D767}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AJAXEnabledWebApplication1", "AJAXEnabledWebApplication1\AJAXEnabledWebApplication1.csproj", "{5A32DF07-B908-408B-B3FC-095369FB3E73}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOverWorkFilter", "AllExpandDll\TOverWorkFilter\TOverWorkFilter.csproj", "{FC33F742-1468-42AB-A9A0-6E97406F7263}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPlanDutyDetailFilter", "AllExpandDll\TPlanDutyDetailFilter\TPlanDutyDetailFilter.csproj", "{760DE02F-6D1A-418F-B512-A82F197C1D2C}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPlanDutyTableFilter", "AllExpandDll\TPlanDutyTableFilter\TPlanDutyTableFilter.csproj", "{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TReadDataHistoryFilter", "AllExpandDll\TReadDataHistoryFilter\TReadDataHistoryFilter.csproj", "{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVacationFilter", "AllExpandDll\TVacationFilter\TVacationFilter.csproj", "{CC1F74DF-D943-4A16-806D-475B329EBDAF}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectReleaseExpandDlls", "AllExpandDll\CollectReleaseExpandDlls\CollectReleaseExpandDlls.csproj", "{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLeaveRequestFilter", "AllExpandDll\TLeaveRequestFilter\TLeaveRequestFilter.csproj", "{28AD0C24-A01C-425E-91C9-621C0E803EBF}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDepartmentHistoryFilter", "AllExpandDll\TDepartmentHistoryFilter\TDepartmentHistoryFilter.csproj", "{710FF485-6662-4964-9B12-04D02F138C93}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEmployeeAttendanceFilter", "AllExpandDll\TEmployeeAttendanceFilter\TEmployeeAttendanceFilter.csproj", "{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEmployeeHistoryFilter", "AllExpandDll\TEmployeeHistoryFilter\TEmployeeHistoryFilter.csproj", "{16A9FA67-D046-40DA-8284-161FBA6E1E5A}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEmployeeInAndOutRecordFilter", "AllExpandDll\TEmployeeInAndOutRecordFilter\TEmployeeInAndOutRecordFilter.csproj", "{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TInAndOutRecordLogFilter", "AllExpandDll\TInAndOutRecordLogFilter\TInAndOutRecordLogFilter.csproj", "{CAF93057-C355-4CA6-93C4-1E899B04E237}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TOutApplicationFilter", "AllExpandDll\TOutApplicationFilter\TOutApplicationFilter.csproj", "{50EF57F6-206C-45A1-A22E-5AB6C6346104}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TEmployeeFilter", "AllExpandDll\TEmployeeFilter\TEmployeeFilter.csproj", "{9C92658F-8042-44D0-9685-9B259D4227B7}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56F01766-5F62-40AF-8F50-3FCFB317FBA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56F01766-5F62-40AF-8F50-3FCFB317FBA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56F01766-5F62-40AF-8F50-3FCFB317FBA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56F01766-5F62-40AF-8F50-3FCFB317FBA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1070322-2567-455B-B1AA-C5227A646823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1070322-2567-455B-B1AA-C5227A646823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1070322-2567-455B-B1AA-C5227A646823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1070322-2567-455B-B1AA-C5227A646823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66353783-E773-4402-860C-184071DD4DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66353783-E773-4402-860C-184071DD4DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66353783-E773-4402-860C-184071DD4DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66353783-E773-4402-860C-184071DD4DE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB121A7E-4B9E-4999-A3CA-5B94A06FF959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB121A7E-4B9E-4999-A3CA-5B94A06FF959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB121A7E-4B9E-4999-A3CA-5B94A06FF959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB121A7E-4B9E-4999-A3CA-5B94A06FF959}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DEEDB9-29C1-4EE6-93DE-FE656561D767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DEEDB9-29C1-4EE6-93DE-FE656561D767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DEEDB9-29C1-4EE6-93DE-FE656561D767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DEEDB9-29C1-4EE6-93DE-FE656561D767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A32DF07-B908-408B-B3FC-095369FB3E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A32DF07-B908-408B-B3FC-095369FB3E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A32DF07-B908-408B-B3FC-095369FB3E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A32DF07-B908-408B-B3FC-095369FB3E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC33F742-1468-42AB-A9A0-6E97406F7263}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC33F742-1468-42AB-A9A0-6E97406F7263}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC33F742-1468-42AB-A9A0-6E97406F7263}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC33F742-1468-42AB-A9A0-6E97406F7263}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760DE02F-6D1A-418F-B512-A82F197C1D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760DE02F-6D1A-418F-B512-A82F197C1D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760DE02F-6D1A-418F-B512-A82F197C1D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760DE02F-6D1A-418F-B512-A82F197C1D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC1F74DF-D943-4A16-806D-475B329EBDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1F74DF-D943-4A16-806D-475B329EBDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1F74DF-D943-4A16-806D-475B329EBDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1F74DF-D943-4A16-806D-475B329EBDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28AD0C24-A01C-425E-91C9-621C0E803EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28AD0C24-A01C-425E-91C9-621C0E803EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28AD0C24-A01C-425E-91C9-621C0E803EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28AD0C24-A01C-425E-91C9-621C0E803EBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{710FF485-6662-4964-9B12-04D02F138C93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{710FF485-6662-4964-9B12-04D02F138C93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{710FF485-6662-4964-9B12-04D02F138C93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{710FF485-6662-4964-9B12-04D02F138C93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A9FA67-D046-40DA-8284-161FBA6E1E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A9FA67-D046-40DA-8284-161FBA6E1E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A9FA67-D046-40DA-8284-161FBA6E1E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A9FA67-D046-40DA-8284-161FBA6E1E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF93057-C355-4CA6-93C4-1E899B04E237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF93057-C355-4CA6-93C4-1E899B04E237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF93057-C355-4CA6-93C4-1E899B04E237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF93057-C355-4CA6-93C4-1E899B04E237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50EF57F6-206C-45A1-A22E-5AB6C6346104}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50EF57F6-206C-45A1-A22E-5AB6C6346104}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50EF57F6-206C-45A1-A22E-5AB6C6346104}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50EF57F6-206C-45A1-A22E-5AB6C6346104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C92658F-8042-44D0-9685-9B259D4227B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C92658F-8042-44D0-9685-9B259D4227B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C92658F-8042-44D0-9685-9B259D4227B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C92658F-8042-44D0-9685-9B259D4227B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A1070322-2567-455B-B1AA-C5227A646823} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{66353783-E773-4402-860C-184071DD4DE1} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{CB121A7E-4B9E-4999-A3CA-5B94A06FF959} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{FC33F742-1468-42AB-A9A0-6E97406F7263} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{760DE02F-6D1A-418F-B512-A82F197C1D2C} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{5FBDEA4A-6DD0-4C5B-A2A1-9E7029949D92} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{8F5D9C24-7F1D-4F6F-B9BD-82EB67F0C10F} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{CC1F74DF-D943-4A16-806D-475B329EBDAF} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{34D3775D-CAB3-4571-AD8C-0ACD5E2CF259} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{28AD0C24-A01C-425E-91C9-621C0E803EBF} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{710FF485-6662-4964-9B12-04D02F138C93} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{6035A0D7-F2E3-4B29-B00F-0E4CB3D09AD6} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{16A9FA67-D046-40DA-8284-161FBA6E1E5A} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{6BF29E50-1F99-4FA2-B6DE-95DA0BF26A7B} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{CAF93057-C355-4CA6-93C4-1E899B04E237} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{50EF57F6-206C-45A1-A22E-5AB6C6346104} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+		{9C92658F-8042-44D0-9685-9B259D4227B7} = {739E624F-5C87-4462-AAA0-85D8626E00FA}
+	EndGlobalSection
+EndGlobal

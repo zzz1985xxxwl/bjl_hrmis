@@ -1,0 +1,657 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="_InvalidActivityId" xml:space="preserve">
+    <value>无效的绩效考核活动</value>
+  </data>
+  <data name="_InvalidTemplateId" xml:space="preserve">
+    <value>无效的绩效考核表模板</value>
+  </data>
+  <data name="_Employee_Name_Repeat" xml:space="preserve">
+    <value>员工姓名不能重复</value>
+  </data>
+  <data name="_AssessTemplateItem_Title_Exist" xml:space="preserve">
+    <value>绩效考核项已存在</value>
+  </data>
+  <data name="_AssessTemplatePaper_PaperName_Exist" xml:space="preserve">
+    <value>绩效考核表已存在</value>
+  </data>
+  <data name="_AssessTemplatePaper_Not_Exist" xml:space="preserve">
+    <value>绩效考核表不存在</value>
+  </data>
+  <data name="DbError" xml:space="preserve">
+    <value>数据库访问错误</value>
+  </data>
+  <data name="_Exist_Opening_AssessActivity" xml:space="preserve">
+    <value>该员工正在参加同类型的考核活动</value>
+  </data>
+  <data name="_Vacation_Not_Exist" xml:space="preserve">
+    <value>该年假信息不存在</value>
+  </data>
+  <data name="_Appendix_Title_Repeat" xml:space="preserve">
+    <value>附件标题重复</value>
+  </data>
+  <data name="_Bulletin_Title_Repeat" xml:space="preserve">
+    <value>公告标题重复</value>
+  </data>
+  <data name="_Bulletin_Not_Exist" xml:space="preserve">
+    <value>该公告不存在</value>
+  </data>
+  <data name="_CompanyGoal_Title_Repeat" xml:space="preserve">
+    <value>公司目标标题重复</value>
+  </data>
+  <data name="_PersonalGoal_Title_Repeat" xml:space="preserve">
+    <value>个人目标标题重复</value>
+  </data>
+  <data name="_DepartmentGoal_Title_Repeat" xml:space="preserve">
+    <value>团队目标标题重复</value>
+  </data>
+  <data name="_Goal_NotExist" xml:space="preserve">
+    <value>该目标不存在</value>
+  </data>
+  <data name="_CompanyGoal_NotExist" xml:space="preserve">
+    <value>该公司目标不存在</value>
+  </data>
+  <data name="_PersonalGoal_NotExist" xml:space="preserve">
+    <value>该个人目标不存在</value>
+  </data>
+  <data name="_DepartmentGoal_NotExist" xml:space="preserve">
+    <value>该团队目标不存在</value>
+  </data>
+  <data name="_AssessTemplateItem_Not_Exist" xml:space="preserve">
+    <value>绩效考核项不存在</value>
+  </data>
+  <data name="_Email_Body_Null" xml:space="preserve">
+    <value>邮件正文不能为空</value>
+  </data>
+  <data name="_Email_From_Null" xml:space="preserve">
+    <value>发信地址不能为空</value>
+  </data>
+  <data name="_Email_SmtpClient_Null" xml:space="preserve">
+    <value>简单邮件传输协(SMTP) 服务器不能为空</value>
+  </data>
+  <data name="_Email_Subject_Null" xml:space="preserve">
+    <value>邮件标题不能为空</value>
+  </data>
+  <data name="_Email_To_Null" xml:space="preserve">
+    <value>收信地址不能为空</value>
+  </data>
+  <data name="_CharacterAbnormal" xml:space="preserve">
+    <value>非常规考核</value>
+  </data>
+  <data name="_CharacterNormal" xml:space="preserve">
+    <value>合同期周年考核</value>
+  </data>
+  <data name="_CharacterNormalForContract" xml:space="preserve">
+    <value>合同期满考核</value>
+  </data>
+  <data name="_CharacterPracticeI" xml:space="preserve">
+    <value>实习期I考核</value>
+  </data>
+  <data name="_CharacterPracticeII" xml:space="preserve">
+    <value>实习期II考核</value>
+  </data>
+  <data name="_CharacterProbationI" xml:space="preserve">
+    <value>试用期I考核</value>
+  </data>
+  <data name="_CharacterProbationII" xml:space="preserve">
+    <value>试用期II考核</value>
+  </data>
+  <data name="_Email_To_HR_For_Confirming" xml:space="preserve">
+    <value>员工考核已被初始化，等待人力资源部确认</value>
+  </data>
+  <data name="_Accounts_AccountsBack_NotExist" xml:space="preserve">
+    <value>登录名不存在</value>
+  </data>
+  <data name="_Accounts_AccountsBack_Repeat" xml:space="preserve">
+    <value>登录名不能重复</value>
+  </data>
+  <data name="_Accounts_AccountsFront_Password_Wrong" xml:space="preserve">
+    <value>密码错误</value>
+  </data>
+  <data name="_Accounts_AccountsFrontName_Repeat" xml:space="preserve">
+    <value>登录名不能重复</value>
+  </data>
+  <data name="_ConstractType_HasConstract" xml:space="preserve">
+    <value>还有合同属于该类型</value>
+  </data>
+  <data name="_Contract_NotExist" xml:space="preserve">
+    <value>不存在这份合同</value>
+  </data>
+  <data name="_ContractType_Name_NotExist" xml:space="preserve">
+    <value>不存在该合同类型</value>
+  </data>
+  <data name="_ContractType_Name_Repeat" xml:space="preserve">
+    <value>合同类型名称不能重复</value>
+  </data>
+  <data name="_Department_HasEmployee" xml:space="preserve">
+    <value>还有员工属于该部门</value>
+  </data>
+  <data name="_Department_Leader_NotExist" xml:space="preserve">
+    <value>不存在该部门经理</value>
+  </data>
+  <data name="_Department_Name_Repeat" xml:space="preserve">
+    <value>部门名称不能重复</value>
+  </data>
+  <data name="_Department_NotExist" xml:space="preserve">
+    <value>请选择部门</value>
+  </data>
+  <data name="_Department_ParentDepartment_CannotBeNull" xml:space="preserve">
+    <value>上级部门不能为空</value>
+  </data>
+  <data name="_Department_ParentDepartment_NotExist" xml:space="preserve">
+    <value>上级部门不存在</value>
+  </data>
+  <data name="_Department_RootDepartment_CannotBeChanged" xml:space="preserve">
+    <value>根结点的上级部门不能被修改</value>
+  </data>
+  <data name="_Employee_HasLeft" xml:space="preserve">
+    <value>该员工已经离职</value>
+  </data>
+  <data name="_Employee_Name_NotExist" xml:space="preserve">
+    <value>该员工不存在</value>
+  </data>
+  <data name="_Position_HasEmployee" xml:space="preserve">
+    <value>还有属于该职位的员工</value>
+  </data>
+  <data name="_Position_Name_Repeat" xml:space="preserve">
+    <value>职位名称不能重复</value>
+  </data>
+  <data name="_Position_Not_Exist" xml:space="preserve">
+    <value>不存在该职位</value>
+  </data>
+  <data name="_Email_Send_Failure" xml:space="preserve">
+    <value>发送邮件失败</value>
+  </data>
+  <data name="_Activity_Is_Finish" xml:space="preserve">
+    <value>该绩效考核活动已经结束</value>
+  </data>
+  <data name="_Activity_Is_Interrupt" xml:space="preserve">
+    <value>该绩效考核活动已经中断</value>
+  </data>
+  <data name="_InvalidStatus" xml:space="preserve">
+    <value>不正常的流程，请联系人力资源部或系统管理员</value>
+  </data>
+  <data name="FillItemsActivity_InvalidItem" xml:space="preserve">
+    <value>无效的绩效考核项</value>
+  </data>
+  <data name="_InvalidIntention" xml:space="preserve">
+    <value>无效的绩效考核意向</value>
+  </data>
+  <data name="_SmtpClient" xml:space="preserve">
+    <value>61.151.248.133</value>
+  </data>
+  <data name="_OldPassword_Wrong" xml:space="preserve">
+    <value>旧密码不正确</value>
+  </data>
+  <data name="_Accounts_AccountsBack_Password_Wrong" xml:space="preserve">
+    <value>密码错误</value>
+  </data>
+  <data name="_Employee_Vacation_Exist" xml:space="preserve">
+    <value>该员工年假信息已存在</value>
+  </data>
+  <data name="_Bulletin_Title_Null" xml:space="preserve">
+    <value>公告标题不能为空</value>
+  </data>
+  <data name="_Appendix_Title_Null_Or_Big_Then_Fifty" xml:space="preserve">
+    <value>请检查附件标题是否为空或大于50个字</value>
+  </data>
+  <data name="_Appendix_Not_Exist" xml:space="preserve">
+    <value>附件不存在</value>
+  </data>
+  <data name="_Bulletin_Title_Big_Then_Fifty" xml:space="preserve">
+    <value>公告标题不能超过50个字</value>
+  </data>
+  <data name="_Goal_Title_More_Then_Fifty" xml:space="preserve">
+    <value>目标标题不能超过50个字</value>
+  </data>
+  <data name="_Goal_Title_Null" xml:space="preserve">
+    <value>目标标题不能为空</value>
+  </data>
+  <data name="_Department_HasChildren" xml:space="preserve">
+    <value>该部门存在子部门</value>
+  </data>
+  <data name="_AssessTemplateItem_In_AssessTemplatePaper" xml:space="preserve">
+    <value>绩效考核项在绩效考核表中</value>
+  </data>
+  <data name="_LeaveRequestType_HasLeaveRequest" xml:space="preserve">
+    <value>此请假类型已经被使用，不可被修改或删除</value>
+  </data>
+  <data name="_LeaveRequestType_Name_NotExist" xml:space="preserve">
+    <value>不存在该请假类型</value>
+  </data>
+  <data name="_LeaveRequestType_Name_Repeat" xml:space="preserve">
+    <value>请假类型名称不能重复</value>
+  </data>
+  <data name="_SalaryType_HasLeaveRequest" xml:space="preserve">
+    <value>此工资类型已经被使用，不可被修改或删除</value>
+  </data>
+  <data name="_SalaryType_Name_NotExist" xml:space="preserve">
+    <value>不存在该工资类型</value>
+  </data>
+  <data name="_SalaryType_Name_Repeat" xml:space="preserve">
+    <value>工资类型名称不能重复</value>
+  </data>
+  <data name="_LeaveRequest_Not_Exist" xml:space="preserve">
+    <value>该请假单不存在</value>
+  </data>
+  <data name="_Absent_SameDay" xml:space="preserve">
+    <value>该员工在同一天已经有了旷工记录</value>
+  </data>
+  <data name="_Employee_Not_Found" xml:space="preserve">
+    <value>系统中无该员工</value>
+  </data>
+  <data name="_EarlyLeave_SameDay" xml:space="preserve">
+    <value>该员工在同一天已经有了早退记录</value>
+  </data>
+  <data name="_Later_SameDay" xml:space="preserve">
+    <value>该员工在同一天已经有了迟到记录</value>
+  </data>
+  <data name="_Application_Not_Exist" xml:space="preserve">
+    <value>申请表不存在</value>
+  </data>
+  <data name="_Application_Not_UpdateAble" xml:space="preserve">
+    <value>申请表格已被提交，无法修改</value>
+  </data>
+  <data name="_ApplicationFlow_Not_Exist" xml:space="preserve">
+    <value>该审核不存在</value>
+  </data>
+  <data name="_Application_Not_DeleteAble" xml:space="preserve">
+    <value>申请表格已被提交，无法删除</value>
+  </data>
+  <data name="_Application_Not_CancelAble" xml:space="preserve">
+    <value>无法取消申请</value>
+  </data>
+  <data name="_Application_Not_ConfirmAble" xml:space="preserve">
+    <value>无法审核申请</value>
+  </data>
+  <data name="_Attendance_Not_Exist" xml:space="preserve">
+    <value>该记录不存在</value>
+  </data>
+  <data name="_LeaveRequest_CanNot_BeApproved" xml:space="preserve">
+    <value>该请假单不能被审核</value>
+  </data>
+  <data name="_Accounts_AccountsBack_UsbKey_Wrong" xml:space="preserve">
+    <value>错误的UsbKey身份认证</value>
+  </data>
+  <data name="_Email_To_Employee_For_Vacation" xml:space="preserve">
+    <value>一个月后你的年假有效期即将到期</value>
+  </data>
+  <data name="_Email_To_HR_For_Vacation" xml:space="preserve">
+    <value>员工年假即将到期</value>
+  </data>
+  <data name="_Email_To_Employee_For_Confirming_Attendance" xml:space="preserve">
+    <value>请登录系统确认本月的考勤信息</value>
+  </data>
+  <data name="_Reimburse_Has_Interruptted" xml:space="preserve">
+    <value>操作失败，该报销单已被中断</value>
+  </data>
+  <data name="_Reimburse_Not_Exist" xml:space="preserve">
+    <value>该报销单不存在</value>
+  </data>
+  <data name="_Reimburse_Not_Update_Or_Delete" xml:space="preserve">
+    <value>该报销单已进入报销流程，不可修改或删除</value>
+  </data>
+  <data name="_Reimburse_Has_Added" xml:space="preserve">
+    <value>操作失败，该报销单尚未进入报销流程</value>
+  </data>
+  <data name="_Reimburse_Has_Reimbursed" xml:space="preserve">
+    <value>操作失败，该报销单已报销</value>
+  </data>
+  <data name="_AttendanceRule_Name_Repeat" xml:space="preserve">
+    <value>考勤规则名称重复</value>
+  </data>
+  <data name="_AttendanceRule_Not_Exist" xml:space="preserve">
+    <value>考勤规则不存在</value>
+  </data>
+  <data name="_LeaveRequest_Error" xml:space="preserve">
+    <value>请假单信息错误</value>
+  </data>
+  <data name="_XML_Error" xml:space="preserve">
+    <value>xml读取错误，请联系管理员</value>
+  </data>
+  <data name="_AttendanceReadRule_Not_Exist" xml:space="preserve">
+    <value>不存在读取信息</value>
+  </data>
+  <data name="_AttendanceInAndOut_Not_Exist" xml:space="preserve">
+    <value>改进出记录不存在</value>
+  </data>
+  <data name="_Department_HasReimburse" xml:space="preserve">
+    <value>当前部门中已经有报销单记录</value>
+  </data>
+  <data name="_AssetType_HasChild" xml:space="preserve">
+    <value>该资产类型存在子类型</value>
+  </data>
+  <data name="_AssetType_CannotBeNull" xml:space="preserve">
+    <value>资产类型不存在</value>
+  </data>
+  <data name="_AssetType_HasExsit" xml:space="preserve">
+    <value>该资产类型已存在</value>
+  </data>
+  <data name="_AssetType_Repeat" xml:space="preserve">
+    <value>资产类型名称重复</value>
+  </data>
+  <data name="_PositionGrade_HasPositionGrade" xml:space="preserve">
+    <value>此职位层级已经被使用，不可被修改或删除</value>
+  </data>
+  <data name="_PositionGrade_Name_NotExist" xml:space="preserve">
+    <value>不存在该职位层级</value>
+  </data>
+  <data name="_PositionGrade_Name_Repeat" xml:space="preserve">
+    <value>职位层级名称不能重复</value>
+  </data>
+  <data name="_SkillType_HasSkill" xml:space="preserve">
+    <value>还有属于该类型的技能</value>
+  </data>
+  <data name="_SkillType_Name_NotExist" xml:space="preserve">
+    <value>不存在该技能类型</value>
+  </data>
+  <data name="_SkillType_Name_Repeat" xml:space="preserve">
+    <value>技能类型名称不能重复</value>
+  </data>
+  <data name="_Skill_Name_NotExist" xml:space="preserve">
+    <value>不存在该技能</value>
+  </data>
+  <data name="_Skill_Name_Repeat" xml:space="preserve">
+    <value>技能名称不能重复</value>
+  </data>
+  <data name="_TrainCourse_End" xml:space="preserve">
+    <value>操作失败，培训课程已结束</value>
+  </data>
+  <data name="_TrainCourse_NotExist" xml:space="preserve">
+    <value>培训课程不存在</value>
+  </data>
+  <data name="_FBQuesType_Repeat" xml:space="preserve">
+    <value>反馈问题类型不能重复</value>
+  </data>
+  <data name="_TrainFBQuesiton_Repeate" xml:space="preserve">
+    <value>反馈问题不能重复</value>
+  </data>
+  <data name="_TrainCourseNew_Cannot_End" xml:space="preserve">
+    <value>操作失败，该课程不是计划或开始状态</value>
+  </data>
+  <data name="_TrainFBQuesitonType_Hasused" xml:space="preserve">
+    <value>该问题类型已被使用</value>
+  </data>
+  <data name="_Skill_HasEmployeeSkillOrCourse" xml:space="preserve">
+    <value>还有包含该技能的员工技能或者培训课程</value>
+  </data>
+  <data name="_Condinator_Cannot_Find" xml:space="preserve">
+    <value>协调员不是系统中员工</value>
+  </data>
+  <data name="_LeaveRequest_CanNot_BeCancled" xml:space="preserve">
+    <value>该请假单不能被取消</value>
+  </data>
+  <data name="_Application_Exist" xml:space="preserve">
+    <value>内容相同的申请已存在</value>
+  </data>
+  <data name="_LeaveRequest_Exist" xml:space="preserve">
+    <value>内容相同的请假已存在</value>
+  </data>
+  <data name="_Employee_NeedDimissionInformation" xml:space="preserve">
+    <value>离职的员工需要填写离职信息</value>
+  </data>
+  <data name="_AccountSet_CalculateFormula_IsNull" xml:space="preserve">
+    <value>计算公式不可为空</value>
+  </data>
+  <data name="_AccountSet_IsNotExist" xml:space="preserve">
+    <value>帐套不存在</value>
+  </data>
+  <data name="_AccountSetName_IsNull" xml:space="preserve">
+    <value>帐套名称不可为空</value>
+  </data>
+  <data name="_AccountSetName_Repeat" xml:space="preserve">
+    <value>存在重复的帐套名称</value>
+  </data>
+  <data name="_AccountSetPara_IsNotExist" xml:space="preserve">
+    <value>帐套参数不存在</value>
+  </data>
+  <data name="_AccountSetPara_IsNull" xml:space="preserve">
+    <value>帐套参数没有实例化</value>
+  </data>
+  <data name="_AccountSetParaName_BindItem_IsNull" xml:space="preserve">
+    <value>绑定项不可为空</value>
+  </data>
+  <data name="_AccountSetParaName_HasUsed" xml:space="preserve">
+    <value>操作失败，帐套参数已被某个帐套项使用</value>
+  </data>
+  <data name="_AccountSetParaName_IsNull" xml:space="preserve">
+    <value>帐套参数名称不可为空</value>
+  </data>
+  <data name="_AccountSetParaName_Repeat" xml:space="preserve">
+    <value>存在重复的帐套参数名称</value>
+  </data>
+  <data name="_EmployeeAccountSet_AccountSet_IsNull" xml:space="preserve">
+    <value>员工帐套不能为空</value>
+  </data>
+  <data name="_EmployeeAccountSet_BackAccountsName_IsNull" xml:space="preserve">
+    <value>后台账号不能为空</value>
+  </data>
+  <data name="_EmployeeAccountSet_EmployeeID_IsNull" xml:space="preserve">
+    <value>员工编号不能为空</value>
+  </data>
+  <data name="_AccountSet_EmployeeAccountSet_HasUsed" xml:space="preserve">
+    <value>操作失败，该帐套已被使用</value>
+  </data>
+  <data name="_EmployeeAccountSet_AccountSet_NotExist" xml:space="preserve">
+    <value>该帐套不存在</value>
+  </data>
+  <data name="_EmployeeAccountSet_EmployeeAccountSet_NotExist" xml:space="preserve">
+    <value>该员工不存在帐套</value>
+  </data>
+  <data name="_Employee_Salary_Closed" xml:space="preserve">
+    <value>该薪水记录已封帐</value>
+  </data>
+  <data name="_Employee_Salary_Not_Closed" xml:space="preserve">
+    <value>该薪水记录还没有封帐</value>
+  </data>
+  <data name="_Employee_Salary_NotExist" xml:space="preserve">
+    <value>该薪水记录不存在</value>
+  </data>
+  <data name="_AccountSet_UseRepeatPara" xml:space="preserve">
+    <value>帐套中使用了重复的帐套参数</value>
+  </data>
+  <data name="_AccountSetPara_FieldAttribute_IsNull" xml:space="preserve">
+    <value>帐套参数的字段属性没有实例化</value>
+  </data>
+  <data name="_Employee_Salary_Exist" xml:space="preserve">
+    <value>该员工此月工资记录已存在</value>
+  </data>
+  <data name="_TaxBand_BindMin_Repeat" xml:space="preserve">
+    <value>税阶下限重复</value>
+  </data>
+  <data name="_Import_Failed" xml:space="preserve">
+    <value>导入失败</value>
+  </data>
+  <data name="_Upload_Failed" xml:space="preserve">
+    <value>上传失败</value>
+  </data>
+  <data name="_Sheet_Count_NotOne" xml:space="preserve">
+    <value>确保一个工作表</value>
+  </data>
+  <data name="_WithOut_EmployeeName" xml:space="preserve">
+    <value>没有“姓名”列</value>
+  </data>
+  <data name="_CompanyReguAppendix_Directory_Null" xml:space="preserve">
+    <value>附件路径不能为空</value>
+  </data>
+  <data name="_CompanyReguAppendix_FileName_Null" xml:space="preserve">
+    <value>附件标题不能为空</value>
+  </data>
+  <data name="_CompanyRegulations_Title_Null" xml:space="preserve">
+    <value>标题不能为空</value>
+  </data>
+  <data name="_Request_Date_Repeat" xml:space="preserve">
+    <value>该时间段内，已有请假、加班或外出记录</value>
+  </data>
+  <data name="_Request_CostTime_AdjustRestOverAvailableTime" xml:space="preserve">
+    <value>剩余调休不可透支，请假时间不可超出剩余调休小时数</value>
+  </data>
+  <data name="_Request_CostTime_AnnualLeaveOverAvailableTime" xml:space="preserve">
+    <value>剩余年假不可透支，请假时间不可超出剩余年假小时数</value>
+  </data>
+  <data name="_Email_To_HR_For_Contract" xml:space="preserve">
+    <value>员工合同即将到期</value>
+  </data>
+  <data name="_DutyClass_Name_Repeat" xml:space="preserve">
+    <value>班别名词重复</value>
+  </data>
+  <data name="_DutyClass_Not_Exist" xml:space="preserve">
+    <value>该班别不存在</value>
+  </data>
+  <data name="_Reimburse_No_DiyProcess" xml:space="preserve">
+    <value>该账号没有报销流程</value>
+  </data>
+  <data name="_Reimburse_Has_Canceled" xml:space="preserve">
+    <value>操作失败，该报销单已经取消</value>
+  </data>
+  <data name="_Condinator_NoAuth" xml:space="preserve">
+    <value>您没有管理该协调员的权限</value>
+  </data>
+  <data name="_TrainCourseManagement_NoAuth" xml:space="preserve">
+    <value>您没有管理培训课程的权限</value>
+  </data>
+  <data name="_FeedBackPaper_Name_Repeat" xml:space="preserve">
+    <value>该反馈表名称重复</value>
+  </data>
+  <data name="_FeedBackPaper_Not_Exist" xml:space="preserve">
+    <value>该反馈表不存在</value>
+  </data>
+  <data name="_CharacterAnnual" xml:space="preserve">
+    <value>年终考核</value>
+  </data>
+  <data name="_TrainCourse_Interrupt" xml:space="preserve">
+    <value>操作失败，培训课程已中断</value>
+  </data>
+  <data name="_Reimburse_Has_Auditing" xml:space="preserve">
+    <value>操作失败，该报销单已审核通过</value>
+  </data>
+  <data name="_Reimburse_Has_Reimbursing" xml:space="preserve">
+    <value>操作失败，该报销单提交中</value>
+  </data>
+  <data name="_Reimburse_Has_Return" xml:space="preserve">
+    <value>操作失败，该报销单已退回</value>
+  </data>
+  <data name="_Reimburse_Has_WaitAudit" xml:space="preserve">
+    <value>操作失败，该报销单已报销</value>
+  </data>
+  <data name="_AccountSet_BindItem_IsNull" xml:space="preserve">
+    <value>绑定项不可为“无”</value>
+  </data>
+</root>

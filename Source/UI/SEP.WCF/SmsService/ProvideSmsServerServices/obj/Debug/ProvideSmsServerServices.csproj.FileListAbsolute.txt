@@ -1,0 +1,17 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\ProvideSmsServerServices.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\ProvideSmsServerServices.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\ConsumeSmsClientService.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\Logs.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\MachineDll.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\SmsControlContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\SmsDataContract.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\SqlServerDal.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\ConsumeSmsClientService.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\Logs.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\MachineDll.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\SmsControlContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\SmsDataContract.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\bin\Debug\SqlServerDal.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\obj\Debug\ProvideSmsServerServices.csprojResolveAssemblyReference.cache
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\obj\Debug\ProvideSmsServerServices.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\SmsService\ProvideSmsServerServices\obj\Debug\ProvideSmsServerServices.pdb

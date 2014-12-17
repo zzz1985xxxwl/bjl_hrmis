@@ -1,0 +1,4 @@
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.Entity\bin\Debug\Sms.Entity.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.Entity\bin\Debug\Sms.Entity.pdb
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.Entity\obj\Debug\Sms.Entity.dll
+D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.Entity\obj\Debug\Sms.Entity.pdb

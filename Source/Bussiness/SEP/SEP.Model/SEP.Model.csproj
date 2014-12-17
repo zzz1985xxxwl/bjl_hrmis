@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{054CB2F3-C375-425E-8EDF-417EF5BD5F43}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.Model</RootNamespace>
+    <AssemblyName>SEP.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.Model/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Mail.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\Account.cs" />
+    <Compile Include="Accounts\AccountGroup.cs" />
+    <Compile Include="Accounts\Auth.cs" />
+    <Compile Include="Accounts\GradesType.cs" />
+    <Compile Include="Bulletins\Appendix.cs" />
+    <Compile Include="Bulletins\Bulletin.cs" />
+    <Compile Include="Bulletins\BulletinUtility.cs" />
+    <Compile Include="CalendarExt\CalendarADay.cs" />
+    <Compile Include="CalendarExt\CalendarShowType.cs" />
+    <Compile Include="CalendarExt\DayItem.cs" />
+    <Compile Include="CalendarExt\MonthItem.cs" />
+    <Compile Include="Calendar\CalendarType.cs" />
+    <Compile Include="Calendar\DayAttendance.cs" />
+    <Compile Include="CompanyRegulations\CompanyReguAppendix.cs" />
+    <Compile Include="CompanyRegulations\CompanyRegulation.cs" />
+    <Compile Include="Mail\MailType.cs" />
+    <Compile Include="Mail\WelcomeMail.cs" />
+    <Compile Include="Positions\PositionNature.cs" />
+    <Compile Include="Positions\PositionStatus.cs" />
+    <Compile Include="SpecialDates\CalculateDays.cs" />
+    <Compile Include="SpecialDates\SpecialDate.cs" />
+    <Compile Include="Utility\CHS2PinYin.cs" />
+    <Compile Include="Utility\ConstKeys.cs" />
+    <Compile Include="Departments\Department.cs" />
+    <Compile Include="Goals\CompanyGaol.cs" />
+    <Compile Include="Goals\Goal.cs" />
+    <Compile Include="Goals\GoalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Goals\PersonalGoal.cs" />
+    <Compile Include="Goals\TeamGoal.cs" />
+    <Compile Include="Utility\ControlError.cs" />
+    <Compile Include="Utility\SortList.cs" />
+    <Compile Include="Utility\Tools.cs" />
+    <Compile Include="Utility\UtilityEnum.cs" />
+    <Compile Include="Utility\MailConfig.cs" />
+    <Compile Include="Utility\ParameterBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Positions\Position.cs" />
+    <Compile Include="Positions\PositionGrade.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\CompanyConfig.cs" />
+    <Compile Include="WorkTask\WorkTask.cs" />
+    <Compile Include="WorkTask\WorkTaskQA.cs" />
+    <Compile Include="WorkTask\WTPriority.cs" />
+    <Compile Include="WorkTask\WTStatus.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Model.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

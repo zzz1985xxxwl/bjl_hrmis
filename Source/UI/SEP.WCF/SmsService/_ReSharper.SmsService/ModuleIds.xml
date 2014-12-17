@@ -1,0 +1,8 @@
+<Modules>
+  <Module PersistentId="09D034BF-933B-483E-9997-36E705B0A14A" ModuleId="WebControlClient" />
+  <Module PersistentId="6539DB23-7D92-4D89-BEC8-AD16BF7F9C0C" ModuleId="WebDataClient" />
+  <Module PersistentId="4C8B849D-6508-49A1-BBB6-8E7292A32EA8" ModuleId="MachineDll" />
+  <Module PersistentId="EF1F9D41-C3FE-40F8-A15F-FDBAD7997603" ModuleId="SmsDataContract" />
+  <Module PersistentId="C7FFB4D1-E532-4716-B73C-C581386475B0" ModuleId="Logs" />
+  <Module PersistentId="A34873AC-66FA-4EB1-8454-851E2EA161C9" ModuleId="SmsControlContract" />
+</Modules>

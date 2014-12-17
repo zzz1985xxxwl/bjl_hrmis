@@ -1,0 +1,1 @@
+update dbo.TAccountAuth set AccountId=-9 where AccountId=1

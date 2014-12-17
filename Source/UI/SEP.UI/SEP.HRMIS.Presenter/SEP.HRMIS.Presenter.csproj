@@ -1,0 +1,930 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A80AB916-A038-4816-B938-3C747767F1AA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.HRMIS.Presenter</RootNamespace>
+    <AssemblyName>SEP.HRMIS.Presenter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.HRMIS.Presenter/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedCondition, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\AdvancedCondition.dll</HintPath>
+    </Reference>
+    <Reference Include="Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.HRMIS.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.Entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.HRMIS.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.IFacede, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.HRMIS.IFacede.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.Logic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.HRMIS.Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.HRMIS.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.IBll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.IBll.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceContracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ServiceContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ServiceModels.dll</HintPath>
+    </Reference>
+    <Reference Include="ShiXin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ShiXin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdjustRules\AddAdjustRulePresenter.cs" />
+    <Compile Include="AdjustRules\AdjustRuleListPresenter.cs" />
+    <Compile Include="AdjustRules\AdjustRuleUtility.cs" />
+    <Compile Include="AdjustRules\DetailAdjustRulePresenter.cs" />
+    <Compile Include="AdjustRules\UpdateAdjustRulePresenter.cs" />
+    <Compile Include="AdvancedEmployeeStatistics\AdvancedEmployeeStatisticsListPresenter.cs" />
+    <Compile Include="AdvanceSearch\ContractAdvancedSearchListPresenter.cs" />
+    <Compile Include="AdvanceSearch\EmployeeAdvancedSearchListPresenter.cs" />
+    <Compile Include="AssessActivity\AnnualAssessActivityListPresenter.cs" />
+    <Compile Include="AssessActivity\AssessActivityListPresenter.cs" />
+    <Compile Include="AssessActivity\AssessBasicInfoPresenter.cs" />
+    <Compile Include="AssessActivity\CEOFillAssessDetailPresenter.cs" />
+    <Compile Include="AssessActivity\CEOFillAssessPresenter.cs" />
+    <Compile Include="AssessActivity\ConfirmAssessPresenter.cs" />
+    <Compile Include="AssessActivity\ContractAssessActivityListPresenter.cs" />
+    <Compile Include="AssessActivity\FillAssessPresenter.cs" />
+    <Compile Include="AssessActivity\GetConfirmAssessesPresenter.cs" />
+    <Compile Include="AssessActivity\GetCurrentAssessPresenter.cs" />
+    <Compile Include="AssessActivity\GetMyAssessHistoryPresenter.cs" />
+    <Compile Include="AssessActivity\GetUnderlingAsessHistoryPresenter.cs" />
+    <Compile Include="AssessActivity\HRApplyEmployeeAssessPresenter.cs" />
+    <Compile Include="AssessActivity\HRFillAssessDetailPresenter.cs" />
+    <Compile Include="AssessActivity\HRFillAssessPresenter.cs" />
+    <Compile Include="AssessActivity\HRFillingAssessPresenter.cs" />
+    <Compile Include="AssessActivity\HRManualAssessPresenter.cs" />
+    <Compile Include="AssessActivity\ManagerFillAssessDetailPresenter.cs" />
+    <Compile Include="AssessActivity\ManagerFillAssessPresenter.cs" />
+    <Compile Include="AssessActivity\ManagerManualAssessPresenter.cs" />
+    <Compile Include="AssessActivity\ManualAssessDetailPresenter.cs" />
+    <Compile Include="AssessActivity\ManualAssessPresenter.cs" />
+    <Compile Include="AssessActivity\PersonalFillAssessDetailPresenter.cs" />
+    <Compile Include="AssessActivity\PersonalFillAssessPresenter.cs" />
+    <Compile Include="AssessActivity\SummarizeCommmentAssessDetailPresenter.cs" />
+    <Compile Include="AssessActivity\SummarizeCommmentFillAssessPresenter.cs" />
+    <Compile Include="AssessManagement\AddTemplateItemPresenter.cs" />
+    <Compile Include="AssessManagement\ChosePositionPresenter.cs" />
+    <Compile Include="AssessManagement\TemplageItemEditor.cs" />
+    <Compile Include="AssessManagement\TemplageItemPresenterDetail.cs" />
+    <Compile Include="AssessManagement\TemplateItemListPresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperAddPresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperDeletePresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperDetailPresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperListPresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperPresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperUpdatePresenter.cs" />
+    <Compile Include="AssessManagement\TemplatePaperUtility.cs" />
+    <Compile Include="AssessManagement\UpdateTemplateItemPresenter.cs" />
+    <Compile Include="AssessActivity\GetEmployeeForApplyPresenter.cs" />
+    <Compile Include="AssessActivity\ManagerApplyEmployeeAssessPresenter.cs" />
+    <Compile Include="AttendanceStatistics\ApplicationSearchPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\InAndOutLogListPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\InAndOutStatisticsBuildPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\InAndOutStatisticsPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutAddPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutDeletePresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutDetailPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutInfoPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutListPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutUpdatePresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\PersonalInAndOutUtilityPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\SearchEmployeeInAndOutInfoPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceInAndOutStatistics\SearchEmployeeInAndOutListPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceReadData\ReadHistoryListPresenter.cs" />
+    <Compile Include="AttendanceStatistics\AttendanceReadData\SetReadRulePresenter.cs" />
+    <Compile Include="AttendanceStatistics\DayAttendancePresenter.cs" />
+    <Compile Include="AttendanceStatistics\MonthAttendance\MonthAttendancePresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\DutyClassAddPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\DutyClassDetailPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\DutyClassInfoPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\DutyClassListPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\DutyClassUpdatePresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\DutyClassUtility.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\PlanDudyBinder.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\PlanDutyAddPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\PlanDutyDetailPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\PlanDutyListPresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\PlanDutyUpdatePresenter.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\PlanDutyUtility.cs" />
+    <Compile Include="AttendanceStatistics\PlanDutyPresenter\ReplaceDutyClassPresenter.cs" />
+    <Compile Include="Auths\AssignAuthInfoPresenter.cs" />
+    <Compile Include="Auths\AssignHrmisAuthPresenter.cs" />
+    <Compile Include="Auths\DepartmentTreePresenter.cs" />
+    <Compile Include="Auths\HrmisAuthTreePresenter.cs" />
+    <Compile Include="ChoseEmployee\ChoseEmployeePresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManAddPresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManDeletePresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManDetailPresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManInfoPresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManListPresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManUpdatePresenter.cs" />
+    <Compile Include="CompanyLinkMans\CompanyLinkManUtilityPresenter.cs" />
+    <Compile Include="ContractTypePresenter\AddContractTypePresenter.cs" />
+    <Compile Include="ContractTypePresenter\ContractTypeDataBinder.cs" />
+    <Compile Include="ContractTypePresenter\ContractTypeDataCollector.cs" />
+    <Compile Include="ContractTypePresenter\ContractTypeIniter.cs" />
+    <Compile Include="ContractTypePresenter\ContractTypePresenter.cs" />
+    <Compile Include="ContractTypePresenter\ContractTypeVaildater.cs" />
+    <Compile Include="ContractTypePresenter\DeleteContractTypePresenter.cs" />
+    <Compile Include="ContractTypePresenter\DetailContractTypePresenter.cs" />
+    <Compile Include="ContractTypePresenter\ListContractTypePresenter.cs" />
+    <Compile Include="ContractTypePresenter\UpdateContractTypePresenter.cs" />
+    <Compile Include="DepartmentHistory\DepartmentHistoryFrontPresenter.cs" />
+    <Compile Include="DepartmentHistory\DepartmentHistoryListPresenter.cs" />
+    <Compile Include="DepartmentHistory\DepartmentHistoryPresenter.cs" />
+    <Compile Include="DiyProcesses\AddDiyProcessPresenter.cs" />
+    <Compile Include="DiyProcesses\DeteleDiyProcessPresenter.cs" />
+    <Compile Include="DiyProcesses\DiyProcessBasePresenter.cs" />
+    <Compile Include="DiyProcesses\DiyProcessDataBinder.cs" />
+    <Compile Include="DiyProcesses\DiyProcessDataCollector.cs" />
+    <Compile Include="DiyProcesses\DiyProcessDetailPresenter.cs" />
+    <Compile Include="DiyProcesses\DiyProcessEditor.cs" />
+    <Compile Include="DiyProcesses\DiyProcessListPresenter.cs" />
+    <Compile Include="DiyProcesses\DiyProcessUtility.cs" />
+    <Compile Include="DiyProcesses\DiyProcessValidater.cs" />
+    <Compile Include="DiyProcesses\UpdateDiyProcessPresenter.cs" />
+    <Compile Include="EmployeeAdjustRest\DetailEmployeeAdjustRestPresenter.cs" />
+    <Compile Include="EmployeeAdjustRest\EmployeeAdjustRestDataBinder.cs" />
+    <Compile Include="EmployeeAdjustRest\EmployeeAdjustRestListPresenter.cs" />
+    <Compile Include="EmployeeAttendances\AttendanceSearchPresenter.cs" />
+    <Compile Include="EmployeeAttendances\EmployeeAttendancePresenter.cs" />
+    <Compile Include="EmployeeAttendances\EmployeeAttendanceUtilitys.cs" />
+    <Compile Include="EmployeeAttendances\LittleViewPresenter\AddAttendancePresenter.cs" />
+    <Compile Include="EmployeeAttendances\LittleViewPresenter\DeleteAttendancePresenter.cs" />
+    <Compile Include="EmployeeHistory\EmployeeHistoryListPresenter.cs" />
+    <Compile Include="EmployeeHistory\EmployeeHistoryPresenter.cs" />
+    <Compile Include="EmployeeReimburse\AddEmployeeReimbursePresenter.cs" />
+    <Compile Include="EmployeeReimburse\BillingTimeAddPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmployeeReimburse\CustomerNameLikePresenter.cs" />
+    <Compile Include="EmployeeReimburse\DeleteEmployeeReimbursePresenter.cs" />
+    <Compile Include="EmployeeReimburse\DetailEmployeeReimbursePresenter.cs" />
+    <Compile Include="EmployeeReimburse\PrintReimbursePresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseCustomerSearchPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItemEventsHandler.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemAddPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemDataBinder.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemDataCollector.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemDeletePresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemDetailPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemUpdatePresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemValidater.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseItem\ReimburseItemViewIniter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\CommonStatisticsBackPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\CommonStatisticsPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\DepartmentStatisticsBarChartPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\DepartmentStatisticsTablePresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\EmployeeCommonStatisticsBackPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\EmployeeCommonStatisticsPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\EmployeeStatisticsBarChartPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\EmployeeStatisticsConditionBackPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\EmployeeStatisticsConditionPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\EmployeeStatisticsTablePresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\StatisticsConditionBackPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\StatisticsConditionPresenter.cs" />
+    <Compile Include="EmployeeReimburse\ReimburseStatistics\UtilityPresenter.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseAddPresenter.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseAuditingPresenter.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseDeletePresenter.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseDetailPresenter.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseUpdatePresenter.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseUtility.cs" />
+    <Compile Include="EmployeeReimburse\Reimburse\ReimburseValidater.cs" />
+    <Compile Include="EmployeeReimburse\ReimbursingListPresenter.cs" />
+    <Compile Include="EmployeeReimburse\SearchReimburseInfoPresenter.cs" />
+    <Compile Include="EmployeeReimburse\SearchTravelReimbursePresenter.cs" />
+    <Compile Include="EmployeeReimburse\UpdateEmployeeReimbursePresenter.cs" />
+    <Compile Include="EmployeeReimburse\UpdateReimburseCustomerPresenter.cs" />
+    <Compile Include="EmployeeStatistics\AgePieChartPresenter.cs" />
+    <Compile Include="EmployeeStatistics\ComeAndLeaveBarChartPresenter.cs" />
+    <Compile Include="EmployeeStatistics\ComeAndLeaveTablePresenter.cs" />
+    <Compile Include="EmployeeStatistics\CommonStatisticsPresenter.cs" />
+    <Compile Include="EmployeeStatistics\DepartmentDistributionPresenter.cs" />
+    <Compile Include="EmployeeStatistics\EduBgPieChartPresenter.cs" />
+    <Compile Include="EmployeeStatistics\GenderPieChartPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\AgePieChartIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\ComeAndLeaveIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\EduBgPieChartIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\GenderPieChartIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\OtherStatisticsDataIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\PositionGradeTowerTableIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\WorkAgePieChartIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\IndexView\WorkTypePieChartIndexPresenter.cs" />
+    <Compile Include="EmployeeStatistics\LeaveRateLineChartPresenter.cs" />
+    <Compile Include="EmployeeStatistics\OtherStatisticsDataPresenter.cs" />
+    <Compile Include="EmployeeStatistics\PositionGradeTowerTablePresenter.cs" />
+    <Compile Include="EmployeeStatistics\StatisticsConditionPresenter.cs" />
+    <Compile Include="EmployeeStatistics\WorkAgePieChartPresenter.cs" />
+    <Compile Include="EmployeeStatistics\WorkTypePieChartPresenter.cs" />
+    <Compile Include="Employee\ApplyAssessConditionAddPresenter.cs" />
+    <Compile Include="Employee\ApplyAssessConditionBasePresenter.cs" />
+    <Compile Include="Employee\ApplyAssessConditionDeletePresenter.cs" />
+    <Compile Include="Employee\ApplyAssessConditionDetailPresenter.cs" />
+    <Compile Include="Employee\ApplyAssessConditionListInContractPresenter.cs" />
+    <Compile Include="Employee\ApplyAssessConditionUpdatePresenter.cs" />
+    <Compile Include="Employee\EmployeeContractAddPresenter.cs" />
+    <Compile Include="Employee\EmployeeContractBasePresenter.cs" />
+    <Compile Include="Employee\EmployeeContractDeletePresenter.cs" />
+    <Compile Include="Employee\EmployeeContractDetailPresenter.cs" />
+    <Compile Include="Employee\EmployeeContractListPresenter.cs" />
+    <Compile Include="Employee\EmployeeContractsFrontList.cs" />
+    <Compile Include="Employee\EmployeeContractUpdatePresenter.cs" />
+    <Compile Include="Employee\EmployeeListPresenter.cs" />
+    <Compile Include="Employee\SearchContractListPresenter.cs" />
+    <Compile Include="EmployInformation\AddEmployeeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\BackViewEmployeeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\BasicInformation\AddBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\BasicInformation\BasicInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\BasicInformation\BasicInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\BasicInformation\BasicInfoVaildater.cs" />
+    <Compile Include="EmployInformation\BasicInformation\BasicInfoViewIniter.cs" />
+    <Compile Include="EmployInformation\BasicInformation\UpdateBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\BasicInformation\ViewBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\AddDimissionBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\AddUpdateDimissionBasicInfoPresenterBase.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\DimissionBasicInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\DimissionBasicInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\DimissionBasicInfoVaildater.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\DimissionBasicInfoViewIniter.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\UpdateDimissionBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\DimissionInformation\DimissionBasicInfo\ViewDimissionBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IAddEmployeePresenter.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IDataBinder.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IDataCollector.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IUpdateEmployeePresenter.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IVaildater.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IViewEmployeePresenter.cs" />
+    <Compile Include="EmployInformation\EmployeeInformationInterfaces\IViewIniter.cs" />
+    <Compile Include="EmployInformation\EmployeePresenterUtilitys.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\AddFamilyInfoPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\AddUpdateFamilyInfoPresenterBase.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\AddFamilyBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\FamilyBasicInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\FamilyBasicInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\FamilyBasicInfoVaildater.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\FamilyBasicInfoViewIniter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\UpdateFamilyBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyBasicInfo\ViewFamilyBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\AddFamilyMemberPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\DeleteFamilyMemberPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\FamilyMemberDataBinder.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\FamilyMemberDataCollector.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\FamilyMemberVaildater.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\FamilyMemberViewIniter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\FamilyMemberInfo\UpdateFamilyMemberPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\UpdateFamilyInfoPresenter.cs" />
+    <Compile Include="EmployInformation\FamilyInformation\ViewFamilyInfoPresenter.cs" />
+    <Compile Include="EmployInformation\FileCargosInformations\AddFileCargosInfoPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmployInformation\FileCargosInformations\AddFileCargosPresenterBase.cs" />
+    <Compile Include="EmployInformation\FileCargosInformations\FileCargoInfo\AddFileCargoPresenter.cs" />
+    <Compile Include="EmployInformation\FileCargosInformations\FileCargoInfo\DeleteFileCargoPresenter.cs" />
+    <Compile Include="EmployInformation\FileCargosInformations\FileCargoInfo\UpdateFileCargoPresenter.cs" />
+    <Compile Include="EmployInformation\FileCargosInformations\FileCargosListPresenter.cs" />
+    <Compile Include="EmployInformation\FileCargosInformations\UpdateFileCargosInfoPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmployInformation\FileCargosInformations\ViewFileCargosInfoPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmployInformation\FrontViewEmployeeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\IEmployeeBasePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\AddResumeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\AddUpdateResumeInfoPresenterBase.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\EducationExperienceEventsHandler.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeBasicInfo\AddResumeBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeBasicInfo\ResumeBasicInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeBasicInfo\ResumeBasicInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeBasicInfo\ResumeBasicInfoViewIniter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeBasicInfo\UpdateResumeBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeBasicInfo\ViewResumeBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\AddResumeEducationExperiencePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\DeleteResumeEducationExperiencePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\ResumeEducationExperienceDataBinder.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\ResumeEducationExperienceDataCollector.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\ResumeEducationExperienceVaildater.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\ResumeEducationExperienceViewIniter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeEducationInfo\UpdateResumeEducationExperiencePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\AddResumeWorkExperiencePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\DeleteResumeWorkExperiencePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\ResumeWorkExperienceDataBinder.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\ResumeWorkExperienceDataCollector.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\ResumeWorkExperienceVaildater.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\ResumeWorkExperienceViewIniter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ResumeWorkInfo\UpdateResumeWorkExperiencePresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\UpdateResumeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\ViewResumeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\ResumeInformations\WorkExperienceEventHandler.cs" />
+    <Compile Include="EmployInformation\SkillInformation\AddSkillInfoPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\EmployeeSkillPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillBasicInfo\EmployeeSkillListPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillBasicInfo\SkillBasicInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillBasicInfo\SkillBasicInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillBasicInfo\UpdateSkillBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillBasicInfo\ViewSkillBasicInfoPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillInfo\AddEmpSkillPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillInfo\DeleteEmpSkillPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillInfo\EmployeeSkillDataCollector.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillInfo\EmployeeSkillVaildater.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillInfo\EmployeeSkillViewIniter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\SkillInfo\UpdateEmpSkillPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\UpdateSkillInfoPresenter.cs" />
+    <Compile Include="EmployInformation\SkillInformation\ViewSkillInfoPresenter.cs" />
+    <Compile Include="EmployInformation\UpdateEmployeeInfoPresenter.cs" />
+    <Compile Include="EmployInformation\VacationInformation\VacationFrontPresenter.cs" />
+    <Compile Include="EmployInformation\VacationInformation\VocationBackPresenter.cs" />
+    <Compile Include="EmployInformation\ViewEmployeeInfoPresenterBase.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\AddWelfareInfoPresenter.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\UpdateWelfareInfoPresenter.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\ViewWelfareInfoPresenter.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\WelfareInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\WelfareInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\WelfareInfoVaildater.cs" />
+    <Compile Include="EmployInformation\WelfareInformation\WelfareInfoViewIniter.cs" />
+    <Compile Include="EmployInformation\WorkInformation\AddWorkInfoPresenter.cs" />
+    <Compile Include="EmployInformation\WorkInformation\UpdateWorkInfoPresenter.cs" />
+    <Compile Include="EmployInformation\WorkInformation\ViewWorkInfoPresenter.cs" />
+    <Compile Include="EmployInformation\WorkInformation\WorkInfoDataBinder.cs" />
+    <Compile Include="EmployInformation\WorkInformation\WorkInfoDataCollector.cs" />
+    <Compile Include="EmployInformation\WorkInformation\WorkInfoPresenterBase.cs" />
+    <Compile Include="EmployInformation\WorkInformation\WorkInfoVaildater.cs" />
+    <Compile Include="EmployInformation\WorkInformation\WorkInfoViewIniter.cs" />
+    <Compile Include="IndexViewSummaryPresenter.cs" />
+    <Compile Include="IPresenter\IAdjustRule\IAdjustRuleEditView.cs" />
+    <Compile Include="IPresenter\IAdjustRule\IAdjustRuleListView.cs" />
+    <Compile Include="IPresenter\IAdvancedEmployeeStatistics\IAdvancedEmployeeStatisticsListPresenter.cs" />
+    <Compile Include="IPresenter\IAdvanceSearch\IContractAdvanceSearchListView.cs" />
+    <Compile Include="IPresenter\IAdvanceSearch\IEmployeeAdvanceSearchListView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IAssessActivityListView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IAssessActivitySummaryView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IAssessAnswerView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IAssessBasicInfoView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IConfirmAssessView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IGetAssessActivityHistoryView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IGetConfirmAssessesView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IHRFillingAssessView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IManualAssessView.cs" />
+    <Compile Include="IPresenter\IAssessManagement\IAddTemplateItemView.cs" />
+    <Compile Include="IPresenter\IAssessManagement\IChosePostionView.cs" />
+    <Compile Include="IPresenter\IAssessManagement\ITemplateItemListView.cs" />
+    <Compile Include="IPresenter\IAssessManagement\ITemplatePaperInfoView.cs" />
+    <Compile Include="IPresenter\IAssessManagement\ITemplatePaperListView.cs" />
+    <Compile Include="IPresenter\IAssessManagement\ITemplatePaperView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IGetCurrentAssessView.cs" />
+    <Compile Include="IPresenter\IAssessActivity\IGetEmployeeForApplyView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\AttendanceRuleViews\IAttendanceRuleView.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPresenter\IAttendanceStatistics\IApplicationSearchView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IAttendanceInAndOutStatistics\IInAndOutStatisticsBuildView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IAttendanceInAndOutStatistics\IInAndOutStatisticsView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IDayAttendance.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IDayAttendanceWeekView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IMonthAttendanceView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\IDutyClassInfoView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\IDutyClassListView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\IDutyClassView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\IPlanDutyListView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\IReplaceDutyClassView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\ISetPlanDutyInfoView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\IPlanDutyPresenter\ISetPlanDutyView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\ReadDataViews\IReadAttendanceRuleView.cs" />
+    <Compile Include="IPresenter\IAttendanceStatistics\ReadDataViews\IReadHistoryListView.cs" />
+    <Compile Include="IPresenter\IAuth\IAssignAuthDepartmentTree.cs" />
+    <Compile Include="IPresenter\IAuth\IAssignAuthInfoView.cs" />
+    <Compile Include="IPresenter\IAuth\IAssignHrmisAuthView.cs" />
+    <Compile Include="IPresenter\IAuth\IHrmisAuthTreeView.cs" />
+    <Compile Include="IPresenter\IChoseEmployee\IChoseEmployeeView.cs" />
+    <Compile Include="IPresenter\ICompanyLinkMan\ICompanyLinkManInfoView.cs" />
+    <Compile Include="IPresenter\ICompanyLinkMan\ICompanyLinkListView.cs" />
+    <Compile Include="IPresenter\ICompanyLinkMan\ICompnayLinkManView.cs" />
+    <Compile Include="IPresenter\IContractType\IContractType.cs" />
+    <Compile Include="IPresenter\IContractType\IContractTypeInfoView.cs" />
+    <Compile Include="IPresenter\IContractType\IContractTypeList.cs" />
+    <Compile Include="IPresenter\IDepartmentHistory\IDepartmentHistoryInfoView.cs" />
+    <Compile Include="IPresenter\IDepartmentHistory\IDepartmentHistoryListView.cs" />
+    <Compile Include="IPresenter\IDepartment\IDepartmentInfoView.cs" />
+    <Compile Include="IPresenter\IDepartment\IDepartmentListView.cs" />
+    <Compile Include="IPresenter\IDepartment\IDepartmentView.cs" />
+    <Compile Include="IPresenter\IDiyProcess\IDiyProcessListView.cs" />
+    <Compile Include="IPresenter\IDiyProcess\IDiyProcessView.cs" />
+    <Compile Include="IPresenter\IEmployeeAdjustRest\IEmployeeAdjustRestListView.cs" />
+    <Compile Include="IPresenter\IEmployeeAdjustRest\IEmployeeAdjustRestView.cs" />
+    <Compile Include="IPresenter\IEmployeeAttendance\IAttendaceSearchView.cs" />
+    <Compile Include="IPresenter\IEmployeeAttendance\IEmployeeAttendanceView.cs" />
+    <Compile Include="IPresenter\IEmployeeAttendance\IRecordAttendanceView.cs" />
+    <Compile Include="IPresenter\IEmployeeHistory\IEmployeeHistoryListView.cs" />
+    <Compile Include="IPresenter\IEmployeeHistory\IEmployeeHistoryView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\DimissionViews\IDimissionBasicView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\FileCargoViews\IFileCargoInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\FileCargoViews\IFileCargoListView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\FileCargoViews\IFileCargoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\EmployeeSkillView\IEmployeeSkillInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\EmployeeSkillView\IEmployeeSkillView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\EmployeeSkillView\IEmpSkillView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\FaimlyViews\IFamilyBasicInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\FaimlyViews\IFamilyInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\FaimlyViews\IFamilyMemberView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\IBasicInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\IEmployeeInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\ISkillInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\IWelfareInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\IWorkInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\ResumeViews\IResumeBasicInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\ResumeViews\IResumeEducationExperienceView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\ResumeViews\IResumeInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeInformation\ResumeViews\IResumeWorkExperienceView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IBillingTimeDetailView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IEmployeeReimburseView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IPrintReimburseView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IReimburseCustomerSearchView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IReimburseCustomerView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IReimburseItemView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IReimburseView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\IReimbursingListView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ISearchReimburseInfoView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ISearchReimburseView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ISearchTravelReimburseView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\ICommonEmployeeReimburseStatisticsView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\ICommonStatisticsView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IDepartmentStatisticsBarChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IDepartmentStatisticsTableView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IEmployeeCommonStatisticsView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IEmployeeStatisticsBarChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IEmployeeStatisticsConditionView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IEmployeeStatisticsTableView.cs" />
+    <Compile Include="IPresenter\IEmployeeReimburse\ReimburseStatistics\IStatisticsConditionView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IAgePieChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IComeAndLeaveBarChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IComeAndLeaveTableView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\ICommonStatisticsView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IDepartmentDistributionView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IEduBgPieChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IEducationalBackgroundPieChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IGenderPieChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IAgePieChartIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IComeAndLeaveIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IEduBgPieChartIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IEducationalBackgroundPieChartIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IGenderPieChartIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IOtherStatisticsDataIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IPositionGradeTowerTableIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IWorkAgePieChartIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IIndexView\IWorkTypePieChartIndexView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\ILeaveRateLineChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IOtherStatisticsDataView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IPositionGradeTowerTableView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IStatisticsConditionView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IWorkAgePieChartView.cs" />
+    <Compile Include="IPresenter\IEmployeeStatistics\IWorkTypePieChartView.cs" />
+    <Compile Include="IPresenter\IEmployee\IAccountSystemSettingView.cs" />
+    <Compile Include="IPresenter\IEmployee\IAddDimissionInfoView.cs" />
+    <Compile Include="IPresenter\IEmployee\IAddEmployeeView.cs" />
+    <Compile Include="IPresenter\IEmployee\IAddWorkView.cs" />
+    <Compile Include="IPresenter\IEmployee\IApplyAssessConditionView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeCardView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeContractListView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeContractView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeListView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeMessageView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeMyDetailView.cs" />
+    <Compile Include="IPresenter\IEmployee\IEmployeeUpdatePasswordView.cs" />
+    <Compile Include="IPresenter\IEmployee\IFileCargoView.cs" />
+    <Compile Include="IPresenter\IEmployee\ISearchContractListView.cs" />
+    <Compile Include="IPresenter\IEmployee\IWelfareView.cs" />
+    <Compile Include="IPresenter\IFamily\IAddFamilyMemberView.cs" />
+    <Compile Include="IPresenter\IFamily\IAddFamilyView.cs" />
+    <Compile Include="IPresenter\IIndexSummary\IAssessActivitySummaryView.cs" />
+    <Compile Include="IPresenter\IIndexSummary\ILeaveRequestSummaryView.cs" />
+    <Compile Include="IPresenter\IIndexSummary\IOutWorkSummaryView.cs" />
+    <Compile Include="IPresenter\IIndexSummary\IOverWorkSummaryView.cs" />
+    <Compile Include="IPresenter\IIndex\IIndexEditView.cs" />
+    <Compile Include="IPresenter\ILeaveRequestType\ILeaveRequestTypeInfoView.cs" />
+    <Compile Include="IPresenter\ILeaveRequestType\ILeaveRequestTypeListView.cs" />
+    <Compile Include="IPresenter\ILeaveRequestType\ILeaveRequestTypeView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\ICancelLeaveRequestItemView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\ILeaveRequestInfoView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\ILeaveRequestItemHistoryView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\ILeaveRequestOperationView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\IMyLeaveRequestConfirmHistoryListView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\IMyLeaveRequestConfirmListView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\IMyLeaveRequestInfoView.cs" />
+    <Compile Include="IPresenter\ILeaveRequest\IMyLeaveRequestListView.cs" />
+    <Compile Include="IPresenter\INationality\INationalityInfoView.cs" />
+    <Compile Include="IPresenter\INationality\INationalityListView.cs" />
+    <Compile Include="IPresenter\INationality\INationalityView.cs" />
+    <Compile Include="IPresenter\IOutApplication\ICancelOutApplicationItemView.cs" />
+    <Compile Include="IPresenter\IOutApplication\IOperationView.cs" />
+    <Compile Include="IPresenter\IOutApplication\IOutApplicationConfirmHistroyView.cs" />
+    <Compile Include="IPresenter\IOutApplication\IOutApplicationConfirmView.cs" />
+    <Compile Include="IPresenter\IOutApplication\IOutApplicationFlowListView.cs" />
+    <Compile Include="IPresenter\IOutApplication\IOutApplicationSelfListView.cs" />
+    <Compile Include="IPresenter\IOutApplication\IOutApplicationEditView.cs" />
+    <Compile Include="IPresenter\IOverWork\ICancelOverWorkItemView.cs" />
+    <Compile Include="IPresenter\IOverWork\IOverWorkConfirmHistroyView.cs" />
+    <Compile Include="IPresenter\IOverWork\IOverWorkConfirmView.cs" />
+    <Compile Include="IPresenter\IOverWork\IOverWorkEditView.cs" />
+    <Compile Include="IPresenter\IOverWork\IOverWorkFlowListView.cs" />
+    <Compile Include="IPresenter\IOverWork\IOverWorkOperationView.cs" />
+    <Compile Include="IPresenter\IOverWork\IOverWorkSelfListView.cs" />
+    <Compile Include="IPresenter\IParamter\ICustomerInfo\ICustomerInfoAllView.cs" />
+    <Compile Include="IPresenter\IParamter\ICustomerInfo\ICustomerInfoListView.cs" />
+    <Compile Include="IPresenter\IParamter\ICustomerInfo\ICustomerInfoView.cs" />
+    <Compile Include="IPresenter\IParamter\IFBQuesType\IFBQuesTypeInfoView.cs" />
+    <Compile Include="IPresenter\IParamter\IFBQuesType\IFBQuesTypeListView.cs" />
+    <Compile Include="IPresenter\IParamter\IFBQuesType\IFBQuesTypeView.cs" />
+    <Compile Include="IPresenter\IParamter\ISkillType\ISkillTypeInfoView.cs" />
+    <Compile Include="IPresenter\IParamter\ISkillType\ISkillTypeListView.cs" />
+    <Compile Include="IPresenter\IParamter\ISkillType\ISkillTypeView.cs" />
+    <Compile Include="IPresenter\IResume\IEducationExperienceView.cs" />
+    <Compile Include="IPresenter\IResume\IEmployeeResumeView.cs" />
+    <Compile Include="IPresenter\IResume\IWorkExperienceView.cs" />
+    <Compile Include="IPresenter\ISystemError\IAttendanceErrorListPresenter.cs" />
+    <Compile Include="IPresenter\ISystemError\ISystemErrorListPresenter.cs" />
+    <Compile Include="IPresenter\ITrainApplication\IMyTrainApplicationInfoView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\IMyTrainApplicationView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\ISearchTrainApplicationView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\ITrainApplicationConfirmHistoryView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\ITrainApplicationConfirmListView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\ITrainApplicationFlowListView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\ITrainApplicationOperatorView.cs" />
+    <Compile Include="IPresenter\ITrainApplication\ITrainApplicationView.cs" />
+    <Compile Include="IPresenter\ITrain\IFeedBackPaperListView.cs" />
+    <Compile Include="IPresenter\ITrain\IFeedBackPaperView.cs" />
+    <Compile Include="IPresenter\ITrain\ISkillInfoView.cs" />
+    <Compile Include="IPresenter\ITrain\ISkillSearchView.cs" />
+    <Compile Include="IPresenter\ITrain\ISkillView.cs" />
+    <Compile Include="IPresenter\ITrain\ITrainFBQuestionAndItemView.cs" />
+    <Compile Include="IPresenter\ITrain\ITrainFBQuestionList.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\IChooseSkillView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\ICourseView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\IFeedBackBackSearchView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\IFeedBackDetailView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\IFeedBackListView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\IMyFeedBackView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\ITrainCourseBackSearchView.cs" />
+    <Compile Include="IPresenter\ITrain\TrainCourse\ITrainCourseListView.cs" />
+    <Compile Include="IPresenter\IVacation\IVacationBaseListView.cs" />
+    <Compile Include="IPresenter\IVacation\IVacationBaseView.cs" />
+    <Compile Include="IPresenter\IVacation\IVacationInfoListView.cs" />
+    <Compile Include="IPresenter\IVacation\IVacationUsedDetailsView.cs" />
+    <Compile Include="IPresenter\IVacation\IVacationView.cs" />
+    <Compile Include="IView\IAttendanceStatistics\IAttendanceInAndOutStatistics\IInAndOutLogListView.cs" />
+    <Compile Include="IView\IAttendanceStatistics\IAttendanceInAndOutStatistics\IPersonalInAndOutInfoView.cs" />
+    <Compile Include="IView\IAttendanceStatistics\IAttendanceInAndOutStatistics\IPersonalInAndOutListView.cs" />
+    <Compile Include="IView\IAttendanceStatistics\IAttendanceInAndOutStatistics\IPersonalInAndOutView.cs" />
+    <Compile Include="LeaveRequests\ApproveLeaveRequestItemPresenter.cs" />
+    <Compile Include="LeaveRequests\CalculateLeaveRequestPresenter.cs" />
+    <Compile Include="LeaveRequests\CancelLeaveRequestItemPresenter.cs" />
+    <Compile Include="LeaveRequests\DeleteLeaveRequestPresenter.cs" />
+    <Compile Include="LeaveRequests\CancelLeaveRequestPresenter.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestConfirmPresenter.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestDataBinder.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestDataCollector.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestDetailPresenter.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestItemHistoryPresenter.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestPresenterBase.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestUtility.cs" />
+    <Compile Include="LeaveRequests\LeaveRequestValidater.cs" />
+    <Compile Include="LeaveRequests\MyLeaveRequestConfirmHistoryListPresenter.cs" />
+    <Compile Include="LeaveRequests\MyLeaveRequestConfirmListPresenter.cs" />
+    <Compile Include="LeaveRequests\MyLeaveRequestInfoPresenter.cs" />
+    <Compile Include="LeaveRequests\MyLeaveRequestListPresenter.cs" />
+    <Compile Include="LeaveRequests\UpdateLeaveRequestPresenter.cs" />
+    <Compile Include="LeaveRequestTypes\AddLeaveRequestTypePresenter.cs" />
+    <Compile Include="LeaveRequestTypes\DeleteLeaveRequestTypePresenter.cs" />
+    <Compile Include="LeaveRequestTypes\DetailLeaveRequestTypePresenter.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypeDataBinder.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypeDataCollector.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypeIniter.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypeListPresenter.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypePresenter.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypeUtility.cs" />
+    <Compile Include="LeaveRequestTypes\LeaveRequestTypeVaildater.cs" />
+    <Compile Include="LeaveRequestTypes\UpdateLeaveRequestTypePresenter.cs" />
+    <Compile Include="LeaveRequests\AddLeaveRequestPresenter.cs" />
+    <Compile Include="Nationalitys\AddNationalityPresenter.cs" />
+    <Compile Include="Nationalitys\DeleteNationalityPresenter.cs" />
+    <Compile Include="Nationalitys\DetailNationalityPresenter.cs" />
+    <Compile Include="Nationalitys\NationalityDataBinder.cs" />
+    <Compile Include="Nationalitys\NationalityDataCollector.cs" />
+    <Compile Include="Nationalitys\NationalityIniter.cs" />
+    <Compile Include="Nationalitys\NationalityListPresenter.cs" />
+    <Compile Include="Nationalitys\NationalityPresenter.cs" />
+    <Compile Include="Nationalitys\NationalityUtility.cs" />
+    <Compile Include="Nationalitys\NationalityVaildater.cs" />
+    <Compile Include="Nationalitys\UpdateNationalityPresenter.cs" />
+    <Compile Include="OutApplications\AddOutApplicationPresenter.cs" />
+    <Compile Include="OutApplications\CalculateOutHourPresenter.cs" />
+    <Compile Include="OutApplications\CancelOutApplication.cs" />
+    <Compile Include="OutApplications\CancelOutApplicationItemPresenter.cs" />
+    <Compile Include="OutApplications\ConfirmOutApplication.cs" />
+    <Compile Include="OutApplications\ConfrimOutApplicationItemPresenter.cs" />
+    <Compile Include="OutApplications\DetailOutApplicationPresenter.cs" />
+    <Compile Include="OutApplications\OutApplicationConfirmHistroyPresenter.cs" />
+    <Compile Include="OutApplications\OutApplicationConfirmPresenter.cs" />
+    <Compile Include="OutApplications\OutApplicationSelfListPresenter.cs" />
+    <Compile Include="OutApplications\OutApplicationUtility.cs" />
+    <Compile Include="OutApplications\UpdateOutApplicationPresenter.cs" />
+    <Compile Include="OverWorks\AddOverWorkPresenter.cs" />
+    <Compile Include="OverWorks\CalculateOverWorkHourPresenter.cs" />
+    <Compile Include="OverWorks\CancelOverWork.cs" />
+    <Compile Include="OverWorks\CancelOverWorkItemPresenter.cs" />
+    <Compile Include="OverWorks\ConfirmOverWork.cs" />
+    <Compile Include="OverWorks\ConfrimOverWorkItemPresenter.cs" />
+    <Compile Include="OverWorks\DetailOverWorkPresenter.cs" />
+    <Compile Include="OverWorks\OverWorkConfirmHistroyPresenter.cs" />
+    <Compile Include="OverWorks\OverWorkConfirmPresenter.cs" />
+    <Compile Include="OverWorks\OverWorkSelfListPresenter.cs" />
+    <Compile Include="OverWorks\OverWorkUtility.cs" />
+    <Compile Include="OverWorks\UpdateOverWorkPresenter.cs" />
+    <Compile Include="Parameter\CustomerInfos\AddCustomerInfoPresenter.cs" />
+    <Compile Include="Parameter\CustomerInfos\CustomerInfoListPresenter.cs" />
+    <Compile Include="Parameter\CustomerInfos\CustomerInfoPresenter.cs" />
+    <Compile Include="Parameter\CustomerInfos\DeleteCustomerInfoPresenter.cs" />
+    <Compile Include="Parameter\CustomerInfos\UpdateCustomerInfoPresenter.cs" />
+    <Compile Include="Parameter\FBQuesType\FBQuesTypeDetailPresenter\AddFBQuesTypeDetailPresenter.cs" />
+    <Compile Include="Parameter\FBQuesType\FBQuesTypeDetailPresenter\DeleteFBQuesTypeDetailPresenter.cs" />
+    <Compile Include="Parameter\FBQuesType\FBQuesTypeDetailPresenter\DetailFBQuesTypeDetailPresenter.cs" />
+    <Compile Include="Parameter\FBQuesType\FBQuesTypeDetailPresenter\UpdateFBQuesTypeDetailPresenter.cs" />
+    <Compile Include="Parameter\FBQuesType\FBQuesTypeListPresenter.cs" />
+    <Compile Include="Parameter\FBQuesType\FBQuesTypepresenter.cs" />
+    <Compile Include="Parameter\SkillType\AddSkillTypePresenter.cs" />
+    <Compile Include="Parameter\SkillType\DeleteSkillTypePresenter.cs" />
+    <Compile Include="Parameter\SkillType\SkillTypeListPresenter.cs" />
+    <Compile Include="Parameter\SkillType\SkillTypePresenter.cs" />
+    <Compile Include="Parameter\SkillType\UpdateSkillTypePresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\AccountSetParaDataBinder.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\AccountSetParaIniter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\AccountSetParaListPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\AccountSetParaPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\AccountSetParaUtility.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\AccountSetParaVaildater.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\CreateAccountSetParaPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\DeleteAccountSetParaPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\DetailAccountSetParaPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSetPara\UpdateAccountSetParaPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\AccountSetDataBinder.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\AccountSetItemEditor.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\AccountSetListPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\AccountSetUtility.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\AccountSetValidater.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\CreateAccountSetPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\DeleteAccountSetPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\DetailAccountSetPresenter.cs" />
+    <Compile Include="PayModule\AccountSet\AccountSet\UpdateAccountSetPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\AdjustHistoryDetailPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\AdjustHistoryListPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\DECEmployeeSalaryPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\EmployeeAccountSetUtility.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\EmployeeSalaryHistoryDetailPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\EmployeeSalaryHistoryListPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\HandleEmployeeSalaryEventPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\SetEmployeeAccountSetListPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\SetEmployeeAccountSetPresenter.cs" />
+    <Compile Include="PayModule\EmployeeAccountSet\SetEmployeeSalaryConditionPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\AverageStatisticsBarChartPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\AverageStatisticsTablePresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\CommonStatisticsPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\IndexView\AverageStatisticsIndexPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\IndexView\TimeSpanStatisticsGroupByDeptIndexPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\StatisticsConditionPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\TimeSpanStatisticsGroupByDeptLineChartPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\AverageStatistics\TimeSpanStatisticsGroupByDeptTablePresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\CommonStatisticsPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\DepartmentStatisticsBarChartPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\DepartmentStatisticsTablePresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\IndexView\DepartmentStatisticsIndexPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\IndexView\PositionStatisticsIndexPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\IndexView\TimeSpanStatisticsGroupByParaIndexPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\PositionStatisticsBarChartPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\PositionStatisticsTablePresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\StatisticsConditionPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\TimeSpanStatisticsGroupByParaLineChartPresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\SummaryStatistics\TimeSpanStatisticsGroupByParaTablePresenter.cs" />
+    <Compile Include="PayModule\EmployeeSalaryStatistics\UtilityPresenter.cs" />
+    <Compile Include="PayModule\EmployeeWelfares\EmployeeWelfareSearchListPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IAccountSet\IAccountSetParaListView.cs" />
+    <Compile Include="PayModule\IPresenter\IAccountSet\IAccountSetParaView.cs" />
+    <Compile Include="PayModule\IPresenter\IAccountSet\IAccountSet\IAccountSetListView.cs" />
+    <Compile Include="PayModule\IPresenter\IAccountSet\IAccountSet\IAccountSetView.cs" />
+    <Compile Include="PayModule\IPresenter\IAccountSet\IManageAccountSetParaView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\IAdjustHistoryDetailPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\IAdjustHistoryListPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\IDECEmployeeSalaryView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\IEmployeeSalaryHistoryDetailPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\IEmployeeSalaryHistoryListPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\ISetEmployeeAccountSetListPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\ISetEmployeeAccountSetPresenter.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeAccountSet\ISetEmployeeSalaryConditionView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\IAverageStatisticsBarChartView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\IAverageStatisticsTableView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\ICommonStatisticsView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\IndexView\IAverageStatisticsIndexView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\IndexView\ITimeSpanStatisticsGroupByDeptIndexView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\IStatisticsConditionView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\ITimeSpanStatisticsGroupByDeptLineChartView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\IAverageStatistics\ITimeSpanStatisticsGroupByDeptTableView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ICommonEmployeeSalaryStatisticsView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\ICommonStatisticsView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IDepartmentStatisticsBarChartView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IDepartmentStatisticsTableView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IndexView\IDepartmentStatisticsIndexView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IndexView\IPositionStatisticsIndexView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IndexView\ITimeSpanStatisticsGroupByParaIndexView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IPositionStatisticsBarChartView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IPositionStatisticsTableView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\IStatisticsConditionView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\ITimeSpanStatisticsGroupByParaLineChartView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeSalaryStatistics\ISummaryStatistics\ITimeSpanStatisticsGroupByParaTableView.cs" />
+    <Compile Include="PayModule\IPresenter\IEmployeeWelfares\IEmployeeWelfareListView.cs" />
+    <Compile Include="PayModule\IPresenter\ITax\IEditTaxBandView.cs" />
+    <Compile Include="PayModule\IPresenter\ITax\IIndividualIncomeTaxView.cs" />
+    <Compile Include="PayModule\Tax\AddTaxBandPresenter.cs" />
+    <Compile Include="PayModule\Tax\EditTaxBandBase.cs" />
+    <Compile Include="PayModule\Tax\IndividualIncomeTaxPresenter.cs" />
+    <Compile Include="PayModule\Tax\TaxValidition.cs" />
+    <Compile Include="PayModule\Tax\UpdateTaxBandPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemErrors\AttendanceErrorListPresenter.cs" />
+    <Compile Include="SystemErrors\DiyProcessErrorListPresenter.cs" />
+    <Compile Include="SystemErrors\DoorCardErrorListPresenter.cs" />
+    <Compile Include="SystemErrors\DutyCalssErrorListPresenter.cs" />
+    <Compile Include="SystemErrors\ErrorListBasePresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationApprovePresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationDataCollecter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationFlowListPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationInfoPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationOperationPresenter.cs" />
+    <Compile Include="TrainApplication\MyTrainApplicationPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationAddPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationConfirmHistoryPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationConfirmListPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationDetailPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationSearchPresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationUpdatePresenter.cs" />
+    <Compile Include="TrainApplication\TrainApplicationUtilityPresenter.cs" />
+    <Compile Include="Train\FeedBackPapers\FeedBackPaperAddPresenter.cs" />
+    <Compile Include="Train\FeedBackPapers\FeedBackPaperDeletePresenter.cs" />
+    <Compile Include="Train\FeedBackPapers\FeedBackPaperDetailPresenter.cs" />
+    <Compile Include="Train\FeedBackPapers\FeedBackPaperListPresenter.cs" />
+    <Compile Include="Train\FeedBackPapers\FeedBackPaperUpdatePresenter.cs" />
+    <Compile Include="Train\FeedBackPapers\FeedBackQuestionEditor.cs" />
+    <Compile Include="Train\Skill\AddSkillPresenter.cs" />
+    <Compile Include="Train\Skill\DeleteSkillPresenter.cs" />
+    <Compile Include="Train\Skill\ListSkillPresenter.cs" />
+    <Compile Include="Train\Skill\SkillPresenter.cs" />
+    <Compile Include="Train\Skill\SkillUtility.cs" />
+    <Compile Include="Train\Skill\UpdateSkillPresenter.cs" />
+    <Compile Include="Train\TrainCourse\AddCoursePresenter.cs" />
+    <Compile Include="Train\TrainCourse\ChooseSkillPresenter.cs" />
+    <Compile Include="Train\TrainCourse\CourseDataBinder.cs" />
+    <Compile Include="Train\TrainCourse\CourseDetailPresenter.cs" />
+    <Compile Include="Train\TrainCourse\CourseFeedBackListPresenter.cs" />
+    <Compile Include="Train\TrainCourse\CourseFeedBackSearchIniter.cs" />
+    <Compile Include="Train\TrainCourse\CourseFeedBackValidate.cs" />
+    <Compile Include="Train\TrainCourse\CourseInfoViewIniter.cs" />
+    <Compile Include="Train\TrainCourse\CourseUtility.cs" />
+    <Compile Include="Train\TrainCourse\CourseValidation.cs" />
+    <Compile Include="Train\TrainCourse\CouserDataCollecter.cs" />
+    <Compile Include="Train\TrainCourse\FeedBackBackSearchPresenter.cs" />
+    <Compile Include="Train\TrainCourse\FeedBackDetailPresenter.cs" />
+    <Compile Include="Train\TrainCourse\FillFeedBackPresenter.cs" />
+    <Compile Include="Train\TrainCourse\MyFeedBackPresenter.cs" />
+    <Compile Include="Train\TrainCourse\TrainCourseBackSearchPresenter.cs" />
+    <Compile Include="Train\TrainCourse\TrainCourseListPresenter.cs" />
+    <Compile Include="Train\TrainCourse\UpdateCoursePresenter.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\DeleteTrainFBQuesAndItemPresenter.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\DetailTrainFBQuesAndItemPresenter.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\TrainFBQuesAndItemEditor.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\AddTrainFBQuesAndItemPresenter.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\TrainFBQuesAndItemUtility.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\TrainFBQuesAndItemValidater.cs" />
+    <Compile Include="Train\TrainFBQuesAndItem\UpdateTrainFBQuesAndItemPresenter.cs" />
+    <Compile Include="Train\TrainFBQuestionListPrenseter.cs" />
+    <Compile Include="Vacation\ShowVacationPresenter.cs" />
+    <Compile Include="Vacation\VacationBasePresenter.cs" />
+    <Compile Include="Vacation\VacationInfoListPresenter.cs" />
+    <Compile Include="Vacation\VacationListPresenter.cs" />
+    <Compile Include="Vacation\VacationUsedDetailsPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEP.Presenter.Core\SEP.Presenter.Core.csproj">
+      <Project>{887CF941-DED9-47C0-8E75-3316CA014459}</Project>
+      <Name>SEP.Presenter.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.Presenter\SEP.Presenter.csproj">
+      <Project>{CCA51A7B-FE7A-4DF8-9CC3-6E8AA8916FEB}</Project>
+      <Name>SEP.Presenter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

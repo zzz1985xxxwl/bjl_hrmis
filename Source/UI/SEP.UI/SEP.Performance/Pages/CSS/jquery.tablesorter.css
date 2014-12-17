@@ -1,0 +1,10 @@
+.sortheader {
+	background: url(../image/small.gif) no-repeat 2px center;	
+    padding-left:10px;
+}
+.sortheaderSortUp {
+	background: url(../image/small_asc.gif) no-repeat 2px center;
+}
+.sortheaderSortDown {
+	background: url(../image/small_desc.gif) no-repeat 2px center;
+}

@@ -1,0 +1,38 @@
+更新技能 accountID：128
+数量：1
+技能名称：英语
+time：2013-05-27 2:08:47 PM
+==============================================================
+更新技能 accountID：128
+数量：1
+技能名称：英语
+time：2013-05-27 2:09:20 PM
+==============================================================
+更新技能 accountID：128
+技能：[{"EmpSkillID":1209,"Skill":{"SkillID":5,"SkillName":"英语","SkillType":{"ParameterID":8,"Name":"语言类","Description":"","HashCode":37254397}},"SkillLevel":0,"SkillLevelType":null,"Score":0,"Remark":"test","HashCode":1209}]
+time：2013-05-27 2:12:47 PM
+==============================================================
+更新技能 accountID：382
+技能：[]
+time：2013-05-27 2:14:46 PM
+==============================================================
+更新技能 accountID：382
+技能：[{"EmpSkillID":1210,"Skill":{"SkillID":7,"SkillName":"MBA（工商管理）","SkillType":{"ParameterID":10,"Name":"管理类","Description":"","HashCode":27429503}},"SkillLevel":0,"SkillLevelType":{"Id":0,"Name":"已培训过"},"Score":0,"Remark":"发","HashCode":1210}]
+time：2013-05-27 2:15:07 PM
+==============================================================
+更新技能 accountID：169
+技能：[{"EmpSkillID":1211,"Skill":{"SkillID":5,"SkillName":"英语","SkillType":{"ParameterID":8,"Name":"语言类","Description":"","HashCode":60922082}},"SkillLevel":0,"SkillLevelType":{"Id":0,"Name":"已培训过"},"Score":0,"Remark":"2","HashCode":1211}]
+time：2013-05-27 2:52:08 PM
+==============================================================
+更新技能 accountID：169
+技能：[]
+time：2013-05-27 3:02:32 PM
+==============================================================
+更新技能 accountID：169
+技能：[{"EmpSkillID":1212,"Skill":{"SkillID":5,"SkillName":"英语","SkillType":{"ParameterID":8,"Name":"语言类","Description":"","HashCode":65978780}},"SkillLevel":0,"SkillLevelType":{"Id":0,"Name":"已培训过"},"Score":0,"Remark":"","HashCode":1212}]
+time：2013-05-27 3:05:14 PM
+==============================================================
+更新技能 accountID：169
+技能：[]
+time：2013-05-27 3:14:45 PM
+==============================================================

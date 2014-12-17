@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D132897B-2732-4190-B50C-85D67594DDA8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.HRMIS.Model</RootNamespace>
+    <AssemblyName>SEP.HRMIS.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.HRMIS.Model/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SEP.HRMIS.Model.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedCondition, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\AdvancedCondition.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Calculator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Evaluant.Calculator.dll</HintPath>
+    </Reference>
+    <Reference Include="Evaluant.Calculator.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\Evaluant.Calculator.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="ShiXin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ShiXin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountAuth\Powers.cs" />
+    <Compile Include="Adjusts\AdjustRule.cs" />
+    <Compile Include="AdvanceSearch\ContractFieldPara.cs" />
+    <Compile Include="AdvanceSearch\EmployeeFieldPara.cs" />
+    <Compile Include="AdvanceSearch\Utility.cs" />
+    <Compile Include="AssessFlow\ApplyAssessCondition.cs" />
+    <Compile Include="AssessFlow\AssessActivity.cs" />
+    <Compile Include="AssessFlow\AssessActivityItem.cs" />
+    <Compile Include="AssessFlow\AssessActivityItemType.cs" />
+    <Compile Include="AssessFlow\AssessActivityPaper.cs" />
+    <Compile Include="AssessFlow\AssessActivityUtility.cs" />
+    <Compile Include="AssessFlow\AssessCharacterType.cs" />
+    <Compile Include="AssessFlow\AssessStatus.cs" />
+    <Compile Include="AssessFlow\HRItem.cs" />
+    <Compile Include="AssessFlow\ManagerItem.cs" />
+    <Compile Include="AssessFlow\PersonalItem.cs" />
+    <Compile Include="AssessFlow\SubmitInfo.cs" />
+    <Compile Include="AssessFlow\SubmitInfoType.cs" />
+    <Compile Include="AssessManagement\AssessBindItemEnum.cs" />
+    <Compile Include="AssessManagement\AssessTemplateItem.cs" />
+    <Compile Include="AssessManagement\AssessTemplatePaper.cs" />
+    <Compile Include="AssessManagement\AssessUtility.cs" />
+    <Compile Include="Contract\Contract.cs" />
+    <Compile Include="Contract\ContractBookMark.cs" />
+    <Compile Include="Contract\ContractCollection.cs" />
+    <Compile Include="Contract\ContractStringValue.cs" />
+    <Compile Include="Contract\EmployeeContractBookMark.cs" />
+    <Compile Include="Department\DepartmentEnum.cs" />
+    <Compile Include="Department\DepartmentHistory.cs" />
+    <Compile Include="DiyProcesss\DiyProcess.cs" />
+    <Compile Include="DiyProcesss\DiyStep.cs" />
+    <Compile Include="DiyProcesss\OperatorType.cs" />
+    <Compile Include="DiyProcesss\ProcessType.cs" />
+    <Compile Include="EmployeeAdjustRest\AdjustRest.cs" />
+    <Compile Include="EmployeeAdjustRest\AdjustRestHistory.cs" />
+    <Compile Include="EmployeeAdjustRest\AdjustRestUtility.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceInAndOutRecord\AttendanceInAndOutRecord.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceInAndOutRecord\AttendanceInAndOutRecordLog.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceInAndOutRecord\AttendanceInAndOutStatistics.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceStatistics\DayAttendanceWeek.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceStatistics\EmployeeAttendance.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceStatistics\EmployeeWithAttendanceList.cs" />
+    <Compile Include="EmployeeAttendance\AttendanceStatistics\MonthAttendance.cs" />
+    <Compile Include="EmployeeAttendance\Attendance\AbsentAttendance.cs" />
+    <Compile Include="EmployeeAttendance\Attendance\AttendanceBase.cs" />
+    <Compile Include="EmployeeAttendance\Attendance\EarlyLeaveAttendance.cs" />
+    <Compile Include="EmployeeAttendance\Attendance\IAttendanceAffectTime.cs" />
+    <Compile Include="EmployeeAttendance\Attendance\LaterAttendance.cs" />
+    <Compile Include="EmployeeAttendance\PlanDutyModel\DutyClass.cs" />
+    <Compile Include="EmployeeAttendance\PlanDutyModel\DutyClassReplace.cs" />
+    <Compile Include="EmployeeAttendance\PlanDutyModel\PlanDutyDetail.cs" />
+    <Compile Include="EmployeeAttendance\PlanDutyModel\PlanDutyTable.cs" />
+    <Compile Include="EmployeeAttendance\ReadData\AttendanceReadRule.cs" />
+    <Compile Include="EmployeeAttendance\ReadData\DataFromAccess.cs" />
+    <Compile Include="EmployeeAttendance\ReadData\ReadDataHistory.cs" />
+    <Compile Include="EmployeeStatistics\EmployeeComeAndLeave.cs" />
+    <Compile Include="EmployeeStatistics\EmployeeOtherStatistics.cs" />
+    <Compile Include="EmployeeStatistics\EmployeeStatistics.cs" />
+    <Compile Include="EmployeeWelfare\EmployeeAccumulationFund.cs" />
+    <Compile Include="EmployeeWelfare\EmployeeSocialSecurity.cs" />
+    <Compile Include="EmployeeWelfare\EmployeeWelfare.cs" />
+    <Compile Include="EmployeeWelfare\EmployeeWelfareHistory.cs" />
+    <Compile Include="EmployeeWelfare\SocialSecurityTypeEnum.cs" />
+    <Compile Include="Employee\DimissionInfo.cs" />
+    <Compile Include="Employee\Education.cs" />
+    <Compile Include="Employee\EducationExperience.cs" />
+    <Compile Include="Employee\Employee.cs" />
+    <Compile Include="Employee\EmployeeCollection.cs" />
+    <Compile Include="Employee\EmployeeComparer.cs" />
+    <Compile Include="Employee\EmployeeDetails.cs" />
+    <Compile Include="Employee\EmployeeHistory.cs" />
+    <Compile Include="Employee\EmployeeSkill.cs" />
+    <Compile Include="Employee\EmployeeStringValue.cs" />
+    <Compile Include="Employee\EmployeeUtility.cs" />
+    <Compile Include="Employee\Experience.cs" />
+    <Compile Include="Employee\Family.cs" />
+    <Compile Include="Employee\FamilyMember.cs" />
+    <Compile Include="Employee\FileCargo.cs" />
+    <Compile Include="Employee\IDCard.cs" />
+    <Compile Include="Employee\MaritalStatus.cs" />
+    <Compile Include="Employee\Nationality.cs" />
+    <Compile Include="Employee\PrincipalShip.cs" />
+    <Compile Include="Employee\RegisteredPermanentResidence.cs" />
+    <Compile Include="Employee\ResidencePermit.cs" />
+    <Compile Include="Employee\SocWorkAgeAndVacationList.cs" />
+    <Compile Include="Employee\Vacation.cs" />
+    <Compile Include="Employee\Work.cs" />
+    <Compile Include="Employee\WorkExperience.cs" />
+    <Compile Include="Enum\AdjustRestHistoryTypeEnum.cs" />
+    <Compile Include="Enum\ApplicationTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\AssessTemplateItemType.cs" />
+    <Compile Include="Enum\AttendanceTypeEmnu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\DimissionReasonType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\EducationalBackground.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\EmployeeTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\EmployeeTypeUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\FileCargoName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\Gender.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\GoalType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\InOutStatusEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ItemClassficationEmnu.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\LeaveRequestTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\OperateType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\OutInRecordOperateStatusEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\OutInTimeConditionEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ParameterBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ParameterTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ReimburseCategoriesEnum.cs" />
+    <Compile Include="HrmisUtility.cs" />
+    <Compile Include="OutApplication\OutType.cs" />
+    <Compile Include="PayModule\AnnualBonusForeignTaxFunction.cs" />
+    <Compile Include="PayModule\BindItemValue.cs" />
+    <Compile Include="PayModule\BindItemValueCollection.cs" />
+    <Compile Include="PayModule\DoubleSalaryFunction.cs" />
+    <Compile Include="PayModule\ForeignTaxFunction.cs" />
+    <Compile Include="PayModule\IsSalaryEndDateMonthEquelFunction.cs" />
+    <Compile Include="PhoneMessage\PhoneMessageEnumType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhoneMessage\PhoneMessageStatus.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\PoliticalAffiliation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\PositionEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ReadDataResultType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ReimburseStatusEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\ReimburseTypeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\SendEmailRuleType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\SkillLevelEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\SkillLevelType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Enum\WorkType.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mail\MailAccount.cs" />
+    <Compile Include="Mail\MailConfiguration.cs" />
+    <Compile Include="Mail\WelcomeMail.cs" />
+    <Compile Include="Others\DayRule.cs" />
+    <Compile Include="Others\DoubleDateTime.cs" />
+    <Compile Include="Others\ExceptionStrings.cs" />
+    <Compile Include="Others\ModelUtility.cs" />
+    <Compile Include="Others\MoneyChange.cs" />
+    <Compile Include="Others\SortBase.cs" />
+    <Compile Include="Others\SortList.cs" />
+    <Compile Include="Others\TimeSegment.cs" />
+    <Compile Include="Contract\ContractType.cs" />
+    <Compile Include="Others\Parameter.cs" />
+    <Compile Include="OutApplication\OutApplicationFlow.cs" />
+    <Compile Include="OutApplication\OutApplicationUtility.cs" />
+    <Compile Include="OverWork\OverWork.cs" />
+    <Compile Include="OverWork\OverWorkFlow.cs" />
+    <Compile Include="OverWork\OverWorkItem.cs" />
+    <Compile Include="OverWork\OverWorkType.cs" />
+    <Compile Include="OverWork\OverWorkUtility.cs" />
+    <Compile Include="PayModule\AccountSet.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\AccountSetItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\AccountSetPara.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\AdjustSalaryHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\AnnualBonusTaxFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\BindItemEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\EmployeeAccountSetStatistics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\EmployeeSalary.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\EmployeeSalaryAverageStatistics.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\EmployeeSalaryHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\EmployeeSalaryStatisticsItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\EmployeeSalaryStatusEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\FieldAttributeEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\IndividualIncomeTax.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\MantissaRoundEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\ParameterBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\TaxBand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\TaxFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PayModule\TurnExpressionItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PhoneMessage\PhoneMessage.cs" />
+    <Compile Include="PhoneMessage\PhoneMessageType.cs" />
+    <Compile Include="PositionApp\AppType.cs" />
+    <Compile Include="PositionApp\PositionApplication.cs" />
+    <Compile Include="PositionApp\PositionApplicationFlow.cs" />
+    <Compile Include="PositionGradeStatistics.cs" />
+    <Compile Include="Position\PositionHistory.cs" />
+    <Compile Include="OutApplication\OutApplicationItem.cs" />
+    <Compile Include="OutApplication\OutApplication.cs" />
+    <Compile Include="Reimburse\CustomerInfo.cs" />
+    <Compile Include="Reimburse\EmployeeReimburseStatistics.cs" />
+    <Compile Include="Reimburse\EmployeeReimburseStatisticsItem.cs" />
+    <Compile Include="Reimburse\Reimburse.cs" />
+    <Compile Include="Reimburse\ReimburseFlow.cs" />
+    <Compile Include="Reimburse\ReimburseItem.cs" />
+    <Compile Include="Reimburse\ReimburseTotal.cs" />
+    <Compile Include="Request\LeaveRequest.cs" />
+    <Compile Include="Request\LeaveRequestFlow.cs" />
+    <Compile Include="Request\LeaveRequestItem.cs" />
+    <Compile Include="Request\LeaveRequestType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\Request.cs" />
+    <Compile Include="Request\RequestStatus.cs" />
+    <Compile Include="Request\RequestUtility.cs" />
+    <Compile Include="Skill\Skill.cs" />
+    <Compile Include="Skill\SkillType.cs" />
+    <Compile Include="SystemError\ErrorStatus.cs" />
+    <Compile Include="SystemError\ErrorType.cs" />
+    <Compile Include="SystemError\SysErrorUtility.cs" />
+    <Compile Include="SystemError\SystemError.cs" />
+    <Compile Include="PayModule\TaxWithPointFunction.cs" />
+    <Compile Include="TraineeApplications\TraineeApplication.cs" />
+    <Compile Include="TraineeApplications\TraineeApplicationFlow.cs" />
+    <Compile Include="TraineeApplications\TraineeApplicationStatus.cs" />
+    <Compile Include="TraineeApplications\TraineeApplicationUtility.cs" />
+    <Compile Include="Train\Course.cs" />
+    <Compile Include="Train\FBPaperItem.cs" />
+    <Compile Include="Train\FeedBackQuestionType.cs" />
+    <Compile Include="Train\FeedBackPaper.cs" />
+    <Compile Include="Train\TraineeFBItem.cs" />
+    <Compile Include="Train\TrainEmployeeFB.cs" />
+    <Compile Include="Train\TrainFBItem.cs" />
+    <Compile Include="Train\TrainFBQuestion.cs" />
+    <Compile Include="Train\TrainFBQuesType.cs" />
+    <Compile Include="Train\TrainFBResult.cs" />
+    <Compile Include="Train\TrainScopeEnum.cs" />
+    <Compile Include="Train\TrainScopeType.cs" />
+    <Compile Include="Train\TrainStatusEnum.cs" />
+    <Compile Include="Train\TrainStatusType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AssessFlow\ClassDiagramAssess.cd" />
+    <None Include="DiyProcesss\ClassDiagram1.cd" />
+    <None Include="Request\LeaveRequest.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
+copy $(TargetDir)$(TargetName).XML ..\..\..\..\..\Build\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

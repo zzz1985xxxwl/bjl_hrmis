@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<configSections>
+		<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net" />
+	</configSections>
+	<log4net>
+		<root>
+		</root>
+		<logger name="transferDataLog" additivity="false">
+			<level value="INFO" />
+			<appender-ref ref="tdAppender" />
+		</logger>
+		<logger name="transferDataLog.Errors">
+			<level value="ERROR" />
+			<appender-ref ref="tdErrorsAppender" />
+		</logger>
+		<appender name="tdAppender" type="log4net.Appender.FileAppender" >
+			<param name="File" value="log4TransferData.txt" />
+			<param name="AppendToFile" value="true" />
+			<layout type="log4net.Layout.PatternLayout">
+				<param name="Header" value="&#13;&#10;[Header]&#13;&#10;"/>
+				<param name="Footer" value="&#13;&#10;[Footer]&#13;&#10;"/>
+				<param name="ConversionPattern" value="%d %-5p %n %m"/>
+			</layout>
+		</appender>
+		<appender name="tdErrorsAppender" type="log4net.Appender.FileAppender" >
+			<param name="File" value="log4TransferData_Errors.txt" />
+			<param name="AppendToFile" value="true" />
+			<layout type="log4net.Layout.PatternLayout">
+				<param name="Header" value="&#13;&#10;[Header]&#13;&#10;"/>
+				<param name="Footer" value="&#13;&#10;[Footer]&#13;&#10;"/>
+				<param name="ConversionPattern" value="%d %-5p %n %m"/>
+			</layout>
+		</appender>
+	</log4net>
+	<!--数据库链接,请使用@DbName@来替代可能的数据库-->
+	<ConnectionString>User Id=sa;Password=123qweasd;Initial Catalog=@DbName@;Data Source=localhost</ConnectionString>
+	<!--迁移数据规则："数据库名1:[表名1][表名2]...;数据库名2[表名1][表名2(规则1)]..."-->
+	<!--这些描述的数据表将保留下来并执行覆盖操作,-->
+	<!--若有(规则1)则解释的时候会将自定义的导入导出规则应用在相应的表上，并且不执行默认的覆盖操作-->
+	<TransferRule>
+		<覆盖式考勤数据同步>Sep:[TAccount][TDepartment][TPosition][TPositionGrade][TSpecialDate];Hrmis:[TAdjustRest][TAttendanceReadTime][TDepartmentHistory][TDutyClass][TEmployee(TEmployeeFilter)][TEmployeeAttendance][TEmployeeHistory][TEmployeeInAndOutRecord][TInAndOutRecordLog][TLeaveRequest][TLeaveRequestFlow][TLeaveRequestItem][TLeaveRequestType][TOutApplication][TOutApplicationFlow][TOutApplicationItem][TOverWork][TOverWorkFlow][TOverWorkItem][TParameter][TPlanDuty][TPlanDutyDetail][TPlanDutyTable][TPositionHistory][TReadDataHistory][TVacation]</覆盖式考勤数据同步>
+		<筛选式考勤数据同步>Sep:[TAccount][TDepartment][TPosition][TPositionGrade][TSpecialDate];Hrmis:[TAdjustRest][TAttendanceReadTime][TDepartmentHistory(TDepartmentHistoryFilter)][TDutyClass][TEmployee(TEmployeeFilter)][TEmployeeAttendance(TEmployeeAttendanceFilter)][TEmployeeHistory(TEmployeeHistoryFilter)][TEmployeeInAndOutRecord(TEmployeeInAndOutRecordFilter)][TInAndOutRecordLog(TInAndOutRecordLogFilter)][TLeaveRequest(TLeaveRequestFilter)][TLeaveRequestType][TOutApplication(TOutApplicationFilter)][TOverWork(TOverWorkFilter)][TParameter][TPlanDuty][TPlanDutyDetail(TPlanDutyDetailFilter)][TPlanDutyTable(TPlanDutyTableFilter)][TReadDataHistory(TReadDataHistoryFilter)][TVacation(TVacationFilter)]</筛选式考勤数据同步>
+	</TransferRule>
+	<!--数据处理的临时目录，要保证ASP.NET用户具有读写的权限-->
+	<TempDirectory>C:\DataTemp\</TempDirectory>
+	<!--数据库备份路径，系统的数据库备份会放在该处，用于灾难恢复，要保证ASP.NET用户具有读写的权限-->
+	<BackUpDirectory>C:\ShiXinTech\DbBackUp\</BackUpDirectory>
+</configuration>

@@ -1,0 +1,13 @@
+﻿Installing assembly 'D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Release - Copy\SEP.AutoRemindServer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Release - Copy\SEP.AutoRemindServer.InstallLog
+   assemblypath = D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Release - Copy\SEP.AutoRemindServer.exe
+Installing service SEP Auto Remind Server...
+Service SEP Auto Remind Server has been successfully installed.
+Creating EventLog source SEP Auto Remind Server in log Application...
+Committing assembly 'D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Release - Copy\SEP.AutoRemindServer.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Release - Copy\SEP.AutoRemindServer.InstallLog
+   assemblypath = D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Release - Copy\SEP.AutoRemindServer.exe

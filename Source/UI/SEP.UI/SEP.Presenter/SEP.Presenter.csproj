@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CCA51A7B-FE7A-4DF8-9CC3-6E8AA8916FEB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.Presenter</RootNamespace>
+    <AssemblyName>SEP.Presenter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.Presenter/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IBizLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\IBizLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.IFacede">
+      <HintPath>..\..\..\Libs\SEP.HRMIS.IFacede.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.HRMIS.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.HRMIS.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.IBll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.IBll.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.Notes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Notes.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceContracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ServiceContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceContracts.Impls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ServiceContracts.Impls.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ServiceModels.dll</HintPath>
+    </Reference>
+    <Reference Include="ShiXin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ShiXin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="SmsDataContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SmsDataContract.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounts\ChangePasswordPresenter.cs" />
+    <Compile Include="Accounts\EmployeeNameLikePresenter.cs" />
+    <Compile Include="Accounts\LoginPresenter.cs" />
+    <Compile Include="Accounts\PersonalConfigPresenter.cs" />
+    <Compile Include="AllDelegates.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Auths\AssignAuthInfoPresenter.cs" />
+    <Compile Include="Auths\AssignAuthPresenter.cs" />
+    <Compile Include="Auths\AuthTreePresenter.cs" />
+    <Compile Include="Auths\DepartmentTreePresenter.cs" />
+    <Compile Include="Bulletins\AddBulletinPresenter.cs" />
+    <Compile Include="Bulletins\BulletinShowDetailPresenter.cs" />
+    <Compile Include="Bulletins\ListBulletinBackPresenter.cs" />
+    <Compile Include="Bulletins\ListBulletinForwardPresenter.cs" />
+    <Compile Include="Bulletins\SendMailForBulletinPresenter.cs" />
+    <Compile Include="Bulletins\UpdateBulletinPresenter.cs" />
+    <Compile Include="CalendarExt\CalendarADayList.cs" />
+    <Compile Include="CalendarExt\CalendarExtUIFacade.cs" />
+    <Compile Include="CalendarExt\Holiday.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\AttendanceBasesToCalendarADays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\AttendanceInAndOutRecordsToCalendarADays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\LeaveRequestsToCalendarADays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\OutApplicationsToCalendarADays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\OverWorksToCalendarADays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\PlanDutyDetailsToCalendarADays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\SpecialDatesToHolidays.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\Utility.cs" />
+    <Compile Include="CalendarExt\TurnToUIModel\WorkTasksToCalendarADays.cs" />
+    <Compile Include="Calendars\MyDayAttendancePresenter.cs" />
+    <Compile Include="Calendars\ShowCalendarDetailPresenter.cs" />
+    <Compile Include="Calendars\ShowDetailViewPresenter.cs" />
+    <Compile Include="CompanyRegulations\CompanyRegulationPresenter.cs" />
+    <Compile Include="CompanyRegulations\CompanyRegulationBackPresenter.cs" />
+    <Compile Include="Config\SepDataManage.cs" />
+    <Compile Include="Contacts\ContactPresenter.cs" />
+    <Compile Include="Departments\AddDepartmentPresenter.cs" />
+    <Compile Include="Departments\DeleteDepartmentPresenter.cs" />
+    <Compile Include="Departments\DeparmentCacheClearPresenter.cs" />
+    <Compile Include="Departments\DepartmentDataBinder.cs" />
+    <Compile Include="Departments\DepartmentDataCollector.cs" />
+    <Compile Include="Departments\DepartmentIniter.cs" />
+    <Compile Include="Departments\DepartmentListPresenter.cs" />
+    <Compile Include="Departments\DepartmentPresenter.cs" />
+    <Compile Include="Departments\DepartmentShowListPresenter.cs" />
+    <Compile Include="Departments\DepartmentUtility.cs" />
+    <Compile Include="Departments\DepartmentVaildater.cs" />
+    <Compile Include="Departments\DetailDepartmentPresenter.cs" />
+    <Compile Include="Departments\UpdateDepartmentPresenter.cs" />
+    <Compile Include="Employees\CreateEmployeePresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Employees\EmployeeDataBind.cs" />
+    <Compile Include="Employees\EmployeeDataCollector.cs" />
+    <Compile Include="Employees\EmployeeDatagridListPresenter.cs" />
+    <Compile Include="Employees\EmployeePresenterUtility.cs" />
+    <Compile Include="Employees\EmployeeValidater.cs" />
+    <Compile Include="Employees\EmployeeViewIniter.cs" />
+    <Compile Include="Employees\UpdateEmployeePresenter.cs" />
+    <Compile Include="Goals\AddCompanyGoalPresenter.cs" />
+    <Compile Include="Goals\AddPersonalGoalPresenter.cs" />
+    <Compile Include="Goals\AddTeamGoalPresenter.cs" />
+    <Compile Include="Goals\AddUpdateGoalPresenter.cs" />
+    <Compile Include="Goals\AllLastGoalPresenter.cs" />
+    <Compile Include="Goals\BaseDeleteGoalPresenter.cs" />
+    <Compile Include="Goals\CompanyGoalListPresenter.cs" />
+    <Compile Include="Goals\DetailCompanyGoalPresenter.cs" />
+    <Compile Include="Goals\DetailPersonalGoalPresenter.cs" />
+    <Compile Include="Goals\DetailTeamGoalPresenter.cs" />
+    <Compile Include="Goals\LastCompanyGoalPresenter.cs" />
+    <Compile Include="Goals\PersonalGoalListPresenter.cs" />
+    <Compile Include="Goals\ShowCompanyGoalPresenter.cs" />
+    <Compile Include="Goals\ShowPersonalGoalPresenter.cs" />
+    <Compile Include="Goals\ShowTeamGoalPresenter.cs" />
+    <Compile Include="Goals\TeamGoalListPresenter.cs" />
+    <Compile Include="Goals\UpdateCompanyGoalPresenter.cs" />
+    <Compile Include="Goals\UpdatePersonalGoalPresenter.cs" />
+    <Compile Include="Goals\UpdateTeamGoalPresenter.cs" />
+    <Compile Include="Indexs\IndexItem.cs" />
+    <Compile Include="IPresenter\IAccounts\IAssignAuthDepartmentTree.cs" />
+    <Compile Include="IPresenter\IAccounts\IAssignAuthInfoView.cs" />
+    <Compile Include="IPresenter\IAccounts\IChooseAccountView.cs" />
+    <Compile Include="IPresenter\IAccounts\IPersonalConfigView.cs" />
+    <Compile Include="IPresenter\IAccounts\IChangePasswordView.cs" />
+    <Compile Include="IPresenter\IAuths\IAuthTreeView.cs" />
+    <Compile Include="IPresenter\ICalendar\IMyDayAttendance.cs" />
+    <Compile Include="IPresenter\ICalendar\IShowCalendarDetail.cs" />
+    <Compile Include="IPresenter\ICalendar\IShowDetailView.cs" />
+    <Compile Include="IPresenter\ICalendar\IShowDetailViewAttendance.cs" />
+    <Compile Include="IPresenter\IContact\IEmployeeContact.cs" />
+    <Compile Include="IPresenter\IContact\IEmployeeContactDetailView.cs" />
+    <Compile Include="IPresenter\IContact\IEmployeeContactListInfoView.cs" />
+    <Compile Include="IPresenter\IContact\IEmployeeContactListView.cs" />
+    <Compile Include="IPresenter\IContact\IEmployeeContactSearchView.cs" />
+    <Compile Include="IPresenter\IContact\IEmployeeContactView.cs" />
+    <Compile Include="IPresenter\IDataBinder.cs" />
+    <Compile Include="IPresenter\IDataCollector.cs" />
+    <Compile Include="IPresenter\IDepartments\IDepartmentHistoryInfoView.cs" />
+    <Compile Include="IPresenter\IDepartments\IDepartmentHistoryListView.cs" />
+    <Compile Include="IPresenter\IDepartments\IDepartmentInfoView.cs" />
+    <Compile Include="IPresenter\IDepartments\IDepartmentListView.cs" />
+    <Compile Include="IPresenter\IDepartments\IDepartmentView.cs" />
+    <Compile Include="IPresenter\IEmployees\IEmployeeDatagridListPresenter.cs" />
+    <Compile Include="IPresenter\IEmployees\IEmployeeDetailPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPresenter\IGoals\IGoalAllLastView.cs" />
+    <Compile Include="IPresenter\IGoals\IGoalBaseListView.cs" />
+    <Compile Include="IPresenter\IGoals\IGoalBaseView.cs" />
+    <Compile Include="IPresenter\IGoals\IGoalLastCompanyView.cs" />
+    <Compile Include="IPresenter\IPositions\IPositionGradeView.cs" />
+    <Compile Include="IPresenter\IPositions\IPositionInfoView.cs" />
+    <Compile Include="IPresenter\IPositions\IPositionListView.cs" />
+    <Compile Include="IPresenter\IPositions\IPositionView.cs" />
+    <Compile Include="IPresenter\ISpecialDate\ISpecialDateEditView.cs" />
+    <Compile Include="IPresenter\ISpecialDate\ISpecialDateInfoView.cs" />
+    <Compile Include="IPresenter\ISpecialDate\ISpecialDateView.cs" />
+    <Compile Include="IPresenter\IVaildater.cs" />
+    <Compile Include="IPresenter\IViewIniter.cs" />
+    <Compile Include="Indexs\IndexEditPresenter.cs" />
+    <Compile Include="IPresenter\IAccounts\IAssignAuthView.cs" />
+    <Compile Include="IPresenter\IAccounts\ILoginView.cs" />
+    <Compile Include="IPresenter\IBulletins\IBulletinShowDetailView.cs" />
+    <Compile Include="IPresenter\IBulletins\IEditBulletinView.cs" />
+    <Compile Include="IPresenter\IBulletins\IListBulletinBackView.cs" />
+    <Compile Include="IPresenter\IBulletins\IListBulletinForwardView.cs" />
+    <Compile Include="IPresenter\IBulletins\ISendMailForBulletinView.cs" />
+    <Compile Include="IPresenter\ICompanyRegulations\ICompanyRegulation.cs" />
+    <Compile Include="IPresenter\ICompanyRegulations\IEditCompanyRegulationView.cs" />
+    <Compile Include="IPresenter\IIndexs\IIndexEditView.cs" />
+    <Compile Include="IPresenter\IMasterPage.cs" />
+    <Compile Include="IPresenter\IWelcomeMail\IWelcomeMailView.cs" />
+    <Compile Include="MasterPagePresenter.cs" />
+    <Compile Include="NotesUIFacade\NotesUIF.cs" />
+    <Compile Include="Positions\AddPositionPresenter.cs" />
+    <Compile Include="Positions\DeletePositionPresenter.cs" />
+    <Compile Include="Positions\DetailPositionPresenter.cs" />
+    <Compile Include="Positions\PositionDataBinder.cs" />
+    <Compile Include="Positions\PositionDataCollector.cs" />
+    <Compile Include="Positions\PositionGradeDataBinder.cs" />
+    <Compile Include="Positions\PositionGradeEditor.cs" />
+    <Compile Include="Positions\PositionGradePresenter.cs" />
+    <Compile Include="Positions\PositionIniter.cs" />
+    <Compile Include="Positions\PositionListPresenter.cs" />
+    <Compile Include="Positions\PositionPresenter.cs" />
+    <Compile Include="Positions\PositionVaildater.cs" />
+    <Compile Include="Positions\UpdatePositionPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmsService\SmsClientServicesType.cs" />
+    <Compile Include="SpecialDates\EditSpecialDatePresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpecialDates\SepcialDataValidate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpecialDates\SepcialDateAddPresenter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpecialDates\SpecialDataInit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SpecialDates\SpecialDateAllPresenter.cs" />
+    <Compile Include="WelcomeMails\WelcomeMailPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEP.Presenter.Core\SEP.Presenter.Core.csproj">
+      <Project>{887CF941-DED9-47C0-8E75-3316CA014459}</Project>
+      <Name>SEP.Presenter.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

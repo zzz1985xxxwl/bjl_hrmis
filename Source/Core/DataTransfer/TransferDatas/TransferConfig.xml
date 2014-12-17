@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<!--数据库链接,请使用@DbName@来替代可能的数据库-->
+	<ConnectionString>User Id=sa;Password=123qweasd;Initial Catalog=@DbName@;Data Source=localhost</ConnectionString>
+	<!--迁移数据规则："数据库名1:[表名1][表名2]...;数据库名2[表名1][表名2(规则1)]..."-->
+	<!--这些描述的数据表将保留下来并执行覆盖操作,-->
+	<!--若有(规则1)则解释的时候会将次导入导出规则应用在相应的表上，并且不执行默认的覆盖操作-->
+	<TransferRule>
+		<全部数据>Sep_Release1670:[TAccount][TAccountAuth];Hrmis_Release1670:[TLeaveRequest][TLeaveRequestItem][TLeaveRequestFlow]</全部数据>
+		<员工数据>Sep_Release1670:[TAccount][TAccountAuth]</员工数据>
+		<考勤数据>Hrmis_Release1670:[TLeaveRequest][TLeaveRequestItem][TLeaveRequestFlow]</考勤数据>
+		<指定月份的考勤数据>Hrmis_Release1670:[TLeaveRequest(LeaveRequestFilter)][TLeaveRequestItem(TLeaveRequestItemFilter)][TLeaveRequestFlow(TLeaveRequestFlowFilter)]</指定月份的考勤数据>
+	</TransferRule>
+	<!--数据处理的临时目录，要保证用户具有读写的权限就可以-->
+	<TempDirectory>C:\DataTemp\</TempDirectory>
+	<!--数据库备份路径，系统的数据库备份会放在该处，用于灾难恢复-->
+	<BackUpDirectory>C:\ShiXinTech\DbBackUp\</BackUpDirectory>
+</configuration>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ABECB284-B369-45F4-AE05-AF886F19501D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SEP.HRMIS.SqlServerDal</RootNamespace>
+    <AssemblyName>SEP.HRMIS.SqlServerDal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/SEP.HRMIS.SqlServerDal/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\SEP.HRMIS.SqlServerDal.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Framework.Common">
+      <HintPath>..\..\..\Libs\Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="ShiXin.Security, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Libs\ShiXin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdjustRestDal.cs" />
+    <Compile Include="AdjustRestHistoryDal.cs" />
+    <Compile Include="AdjustRuleDal.cs" />
+    <Compile Include="AssessActivityDal.cs" />
+    <Compile Include="AssessTemplatePaperBindPositionDal.cs" />
+    <Compile Include="CustomerInfoDal.cs" />
+    <Compile Include="DiyProcessDal.cs" />
+    <Compile Include="EmployeeAdjustRuleDal.cs" />
+    <Compile Include="EmployeeDiyProcessDal.cs" />
+    <Compile Include="FBQuestionDal.cs" />
+    <Compile Include="FeedBackPaperDal.cs" />
+    <Compile Include="FileCargoDal.cs" />
+    <Compile Include="OutApplicationDal.cs" />
+    <Compile Include="AssessTemplateItemDal.cs" />
+    <Compile Include="AssessTemplatePaperDal.cs" />
+    <Compile Include="AttendanceInAndOutRecordDal.cs" />
+    <Compile Include="AttendanceInAndOutRecordLogDal.cs" />
+    <Compile Include="AttendanceReadRuleDal.cs" />
+    <Compile Include="AuthDal.cs" />
+    <Compile Include="BadAttendanceDal.cs" />
+    <Compile Include="ContractBookMarkDal.cs" />
+    <Compile Include="ContractDal.cs" />
+    <Compile Include="ContractTypeDal.cs" />
+    <Compile Include="DalUtility.cs" />
+    <Compile Include="DbEnums.cs" />
+    <Compile Include="DepartmentHistoryDal.cs.cs" />
+    <Compile Include="EmployeeContractBookMarkDal.cs" />
+    <Compile Include="EmployeeDal.cs" />
+    <Compile Include="EmployeeHistoryDal.cs" />
+    <Compile Include="EmployeeSkillDal.cs" />
+    <Compile Include="EmployeeWelfareDal.cs" />
+    <Compile Include="EmployeeWelfareHistoryDal.cs" />
+    <Compile Include="LeaveRequestDal.cs" />
+    <Compile Include="LeaveRequestFlowDal.cs" />
+    <Compile Include="LeaveRequestTypeDal.cs" />
+    <Compile Include="MailAccountDal.cs" />
+    <Compile Include="OverWorkDal.cs" />
+    <Compile Include="ParameterDal.cs" />
+    <Compile Include="PayModule\AccountSetDal.cs" />
+    <Compile Include="PayModule\EmployeeAccountSetDal.cs" />
+    <Compile Include="PayModule\EmployeeSalaryDal.cs" />
+    <Compile Include="PayModule\TaxDal.cs" />
+    <Compile Include="PhoneMessageDal.cs" />
+    <Compile Include="PlanDutyDal.cs" />
+    <Compile Include="PositionApplicationDal.cs" />
+    <Compile Include="PositionHistoryDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadDataHistoryDal.cs" />
+    <Compile Include="ReimburseDal.cs" />
+    <Compile Include="SkillDal.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="SystemErrorDal.cs" />
+    <Compile Include="TrainDal.cs" />
+    <Compile Include="TraineeApplicationDal.cs" />
+    <Compile Include="VacationDal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SEP.HRMIS.IDal\SEP.HRMIS.IDal.csproj">
+      <Project>{9149D4B8-2BCD-42C9-BCB3-A14C796172B6}</Project>
+      <Name>SEP.HRMIS.IDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
+      <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
+      <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
+copy $(TargetDir)$(TargetName).XML ..\..\..\..\..\Build\</PostBuildEvent>
+  </PropertyGroup>
+</Project>

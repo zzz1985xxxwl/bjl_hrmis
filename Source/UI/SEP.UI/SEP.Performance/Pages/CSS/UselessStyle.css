@@ -1,0 +1,767 @@
+/*
+.alertinfo{
+	width:620px;height:320px;background:#e6efc2;border:1px solid #69ad3c;
+}
+.alertclose{float:right;padding:10px 10px 0px 0px;}
+.titicon{
+	background:url(../images/titileicon.jpg) 12px 6px no-repeat #e6efc2;color:#284d08;padding-left:45px;line-height:34px;font-size:14px;
+}
+.alertbg{
+	clear:both;padding:20px;line-height:20px;margin:0px 10px 10px 10px;border:1px solid #69ad3c;height:200px;background:url(../image/alertbg.jpg) #ffffff no-repeat right bottom;
+}
+.btlist{
+	margin:0px 10px;
+}
+.btdiv{
+	float:left;
+}
+*/
+
+/*
+.salarytable
+{
+	border-collapse: collapse;
+}
+.salarytd1
+{
+	background: url(../image/salarybg.jpg) repeat-x;
+	height: 76px;
+	text-align: center;
+	color: #3f68a6;
+}
+.salarytd2
+{
+	background: #c0d8f0;
+	line-height: 26px;
+	text-align: center;
+	color: #3f68a6;
+}
+.salarybtbg0
+{
+	margin: 0px auto;
+	color: #15428b;
+}
+.salarybtbg
+{
+	margin: 0px auto;
+	background: url(../../image/salarybtbg.jpg) repeat-x;
+}
+.salarybtbg0 a
+{
+	color: #15428b;
+}
+.salarybtbg a
+{
+	color: #15428b;
+}
+*/
+/*
+#header{
+	background:url(../image/logo.jpg) no-repeat #313439;padding-left:300px;height:79px;color:#ffffff;
+}
+#header a{
+	color:#ffffff;
+}
+#header #usrinfo{
+	padding-top:7px;padding-right:10%;text-align:right;height:45px;
+}
+#header #usrinfo .usrname{
+	color:#89cb43;font-family:arial;
+}
+#header #topbt{
+	height:27px;
+}
+#header #topbt #topbtleft{
+	float:left;margin:0px 0px 0px 4%;
+}
+#header #topbt #topbtleft .nowli{
+	background:none;
+}
+#header #topbt #topbtleft .nowli a{
+	color:#6ab242;
+}
+#header #topbt #topbtright{
+	float:right;margin-right:5%;
+}
+#header #topbt #topbtright .nowli{
+	height:27px;
+}
+#header #topbt li{
+	float:left;width:76px;line-height:22px;text-align:center;margin-right:5px;background:#498929;font-family:arial;
+}
+#banner{
+	clear:both;height:125px;
+}
+#banner a{
+	color:#ffffff;
+}
+	#searchform{
+		text-align:right;padding:20px 10% 30px 0px;
+	}
+	#searchform .select1{
+		height:22px;line-height:22px;width:100px;
+	}
+	#searchform .input1{
+		height:20px;border:1px solid #3b751e;line-height:20px;
+	}
+#leftup{
+		text-align:right;padding:25px 4% 0px 0px;
+	}
+#main{
+	margin:8px 0px 12px 0px;
+}
+#mainleft{
+	float:left;width:80%;background:url(../image/leftbg.jpg) repeat-x;
+}
+	.lefttabtit{
+		background:url(../image/linebg.jpg) repeat-x bottom;height:25px;
+	}
+	.lefttabtit li{
+		float:left;padding:0px 20px;line-height:24px;cursor:pointer;
+	}
+	.lefttabtit .nowdiv{
+		border:1px solid #bcbcbc;background:#ffffff;color:#c53e00;line-heihgt:26px;border-bottom:none;
+	}
+	.lefttab{
+		clear:both;border:1px solid #bcbcbc;background:#ffffff;border-top:none;padding:12px 8px;
+	}
+		.lefttabcontit{
+			border-bottom:1px solid #e6e6e6;background:url(../image/titileicon2.jpg) no-repeat bottom left;line-height:24px;padding-left:20px;
+		}
+		.lefttablecon input{
+			border:1px solid #bcbcbc;line-height:18px;height:18px;
+		}
+
+	.leftablebt{
+		margin:8px;padding:10px;
+	}
+.GrayBordtable{
+	margin:8px;border:1px solid #bcbcbc;padding:8px;
+}
+.GrayBordtable td{
+	padding:5px;
+}
+.GrayBordtable input{
+	border:1px solid #bcbcbc;line-height:18px;height:18px;
+}
+	.td2{
+		background:#f8f8f8;
+	}
+	.td3{
+		background:#d9ffb5;
+	}
+	#listtable{
+		margin:8px;border:1px solid #69ad3c;
+	}
+	#listtable td{
+		padding:8px;color:#313439;
+	}
+	#listtable .tdtit{
+		background:url(../image/tittdbg.jpg) repeat-x;line-height:12px;
+	}
+	.lablebor{
+		margin:8px;border:1px solid #bcbcbc;
+	}
+	.lablebor .labletit{
+		background:url(../image/tittdbg.jpg) repeat-x;line-height:28px;padding-left:20px;font-size:14px;font-weight:bold;
+	}
+	.lablebor .labletit .labletitright{
+		float:right;padding:5px 10px 0px 0px;
+	}
+	.lablebor .labletable td{
+		padding:6px;
+	}
+
+	.datetable{
+		padding:0px;
+	}	
+#mainright{
+	float:left;width:20%;background:#498929;padding:8px 0px 8px 0px;
+}
+.divclear{
+	clear:both;min-height:0px;
+}
+.topbg
+{
+	background: url(../image/topbg.jpg) no-repeat;
+}
+.fontgreen{
+	color:#284d08;
+}
+*/
+.topuser
+{
+	float: right;
+	padding-right: 30px;
+	line-height: 30px;
+	width: 300px;
+	text-align: right;
+	color: #FFFFFF;
+}
+.topuser a
+{
+	color: #FFFFFF;
+}
+.quit
+{
+	float: right;
+	background: #3c943d;
+	width: 70px;
+	height: 30px;
+	text-align: center;
+	margin-left: 5px;
+}
+.topmanual
+{
+	color: #f3f3f3;
+	float: left;
+	margin-right: 5px;
+	width: 105px;
+	height: 30px;
+	background: #80d175;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+}
+
+.topmanualchildtable
+{
+	float: left;
+	color: #ffffff;
+	font-weight: normal;
+	vertical-align: middle;
+	background: #034225;
+	width: 100%;
+	height: 30px;
+}
+.topmanualchilddiv
+{
+	display: none;
+}
+.topmanualchilddiv a
+{
+	font-weight: normal;
+	color: #f3f3f3;
+}
+.divhidden
+{
+	float: left;
+	margin-right: 5px;
+	width: 105px;
+	height: 30px;
+	background: #55b949;
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+}
+.divhidden div
+{
+	display: none;
+}
+
+
+#SetEmployeeSalary1_checkboxlist
+{
+	padding: 5px;
+}
+#SetEmployeeSalary1_checkboxlist li
+{
+	float: left;
+	width: 100px;
+	padding: 3px 0px;
+}
+
+.topparentdivlinkover a
+{
+	color: #f3f3f3;
+	text-decoration: none;
+	font-weight: bold;
+}
+.topparentdivlinkout a
+{
+	color: #000000;
+}
+
+#mainmenu
+{
+	margin: 9px auto 0px auto;
+	width: 711px;
+	text-align: center;
+}
+#mainmenu .nowbtbg
+{
+	background: url(../image/topmenubg.jpg) no-repeat;
+	width: 119px;
+	height: 33px;
+	line-height: 33px;
+}
+#mainmenu .nowbtbg a
+{
+	color: #FFFFFF;
+}
+#mainmenu li
+{
+	float: left;
+	margin-right: 5px;
+	width: 105px;
+	height: 30px;
+	background: #80d175;
+	font-size: 14px;
+	line-height: 30px;
+}
+
+.childmenu
+{
+	background: #034225;
+	height: 30px;
+	width: 711px;
+	line-height: 30px;
+}
+.childmenu a
+{
+	color: #FFFFFF;
+}
+.childmenu li
+{
+	float: left;
+	margin-right: 20px;
+	width: 70px;
+}
+
+#bottomtable td
+{
+	color: #b3b1b2;
+}
+#bottomtable a
+{
+	color: #b3b1b2;
+}
+
+.mubiao a
+{
+	color: #FFFFFF;
+	text-decoration: none;
+	margin-left: 10px;
+}
+.mubiao a:hover
+{
+	text-decoration: underline;
+}
+.hetong1
+{
+	color: #c41313;
+}
+
+.sc_line
+{
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 22px;
+	padding-right: 15px;
+}
+.bgtop_bb
+{
+	border-bottom: 5px solid #64c858;
+}
+.bg_leftt
+{
+	background-color: #e3f2f9;
+	border-right: 1px solid #a6d0e8;
+}
+.bg_tblack
+{
+	background-color: #fef7da;
+	border-bottom: 1px solid #ffea9e;
+	border-top: 1px solid #ffea9e;
+}
+.bg_tblack2
+{
+	border-bottom: 1px solid #64c858;
+	padding: 10px 0px 10px 10px;
+	font-size: 13px;
+	font-weight: bold;
+}
+.bg_tblack3
+{
+	border-bottom: 1px solid #64c858;
+}
+.htshu_t
+{
+	background-color: #64C858;
+	border: 1px solid #459d39;
+}
+.htshu_f
+{
+	font-size: 14px;
+	color: #FFFFFF;
+	margin-left: 15px;
+}
+.htshu_t2
+{
+	background-color: #FEF7DA;
+	border: 1px solid #FFE89E;
+}
+.htshu_f2
+{
+	font-size: 14px;
+	color: #000000;
+	margin-left: 15px;
+}
+.htshu_t3
+{
+	background-color: #E3F2F9;
+	border: 1px solid #A6D0E8;
+}
+#htshu img
+{
+	border: 0px;
+}
+
+.shu_top
+{
+	font-size: 12px;
+	font-weight: bold;
+	padding: 3px 0px 3px 10px;
+}
+.shu_top2
+{
+	padding: 3px 0px 3px 24px;
+	background-color: #fef7da;
+	border: 1px solid #ffea9e;
+}
+.shu_top3
+{
+	padding: 3px 0px 3px 25px;
+}
+.shu_top4
+{
+	padding: 3px 0px 3px 40px;
+}
+.shu_top5
+{
+	padding: 3px 0px 3px 55px;
+}
+#bj_qx
+{
+	background: url(../image/bj_qx.png) no-repeat;
+	width: 304px;
+	height: 1122px;
+}
+.weekredfont
+{
+	color: #cd0000;
+}
+.kqtab IMG {
+	BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.kqtab A {
+	TEXT-DECORATION: none
+}
+.kqlink01 {
+	DISPLAY: block; BACKGROUND: url(../image/tabkq01.jpg) no-repeat; WIDTH: 145px; PADDING-TOP: 6px; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.kqlink02 {
+	DISPLAY: block; BACKGROUND: url(../image/tabkq02.jpg) no-repeat; WIDTH: 145px; COLOR: #818080; PADDING-TOP: 6px; HEIGHT: 19px; TEXT-ALIGN: center
+}
+.kpspan {
+	MARGIN: 0px 12px; COLOR: #000000
+}
+.topsetting
+{
+	height: 28px;
+	margin: 8px auto;
+	width: 98%;
+	padding: 8px 0px 0px 0px;
+	background: url(../image/linebg.jpg) repeat-x bottom;
+}
+.fontBlack14b
+{
+	font-size: 14px;
+	color: #FFFFFF;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.mainbtbg
+{
+	float: left;
+	height: 28px;
+	width: 88px;
+	margin-left: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 28px;
+	background: url(../image/setbtbg.jpg) no-repeat;
+	text-align: center;
+}
+.mainsetbt
+{
+	float: left;
+	line-height: 20px;
+	width: 60px;
+	text-align: center;
+	margin: 2px 0px 0px 10px;
+	background: #b4dcfb;
+	border: 1px solid #84bfeb;
+}
+
+.clcell
+{
+	text-align: center;
+	border: 1px solid #4fa0df;
+}
+
+.contactLetter
+{
+	cursor: hand;
+	border: 0px;
+	margin: 5px 0px 0px 1px;
+	width: 20px;
+	height: 19px;
+	line-height: 17px;
+	text-align: center;
+	font-family: arial;
+	background: url(../image/phonebg1.jpg) no-repeat;
+}
+
+.contactLetterBtn
+{
+	cursor: hand;
+	border: 0px;
+	background: url(../image/phonebt.jpg) no-repeat;
+	width: 50px;
+	height: 19px;
+	line-height: 17px;
+	font-size: 12px;
+}
+
+
+.qx_input
+{
+	margin-right: 3px;
+}
+.linetable_4
+{
+	border-collapse: collapse;
+	border: 1px solid #4fa0df;
+	margin-top: 6px;
+}
+.bg_img01
+{
+	padding: 5px 5px 0px 0px;
+}
+.wrap
+{
+	overflow:auto;
+	SCROLLBAR-BASE-COLOR: #ffeaff;
+	position:relative;
+	width:100%;
+	height: 350px;
+	SCROLLBAR-FACE-COLOR: #BED8EB;
+	SCROLLBAR-SHADOW-COLOR: #DDF8FF;
+	SCROLLBAR-HIGHLIGHT-COLOR: #92C0D1;
+	SCROLLBAR-3DLIGHT-COLOR: #DDF8FF;
+	SCROLLBAR-DARKSHADOW-COLOR: #92C0D1;
+	SCROLLBAR-TRACK-COLOR: #BED8EB;
+	SCROLLBAR-ARROW-COLOR: #92C0D1;
+}
+.wrap TD.locked
+{
+	font-size: 14px;
+	left: expression(document.getElementById("ctl00_cphCenter_SetEmployeeSalary1_divdatagrid" ).scrollLeft-2);
+	cursor: default;
+	color: black;
+	position: relative;
+	background-color: white;
+	text-align: center;
+}
+.wrap TH.locked
+{
+	font-size: 14px;
+	left: expression(document.getElementById("ctl00_cphCenter_SetEmployeeSalary1_divdatagrid" ).scrollLeft-2);
+	cursor: default;
+	color: black;
+	position: relative;
+	background-color: white;
+	text-align: center;
+}
+.wrap TH
+{
+	font-weight: bold;
+	font-size: 12px;
+	z-index: 8;
+	cursor: default;
+	color: white;
+	position: relative; 
+	TOP:expression(document.getElementById("ctl00_cphCenter_SetEmployeeSalary1_divdatagrid").scrollTop-2);
+	BACKGROUND-COLOR:#4aa0ed;
+	TEXT-ALIGN:center
+}
+.wrap TH.locked
+{
+	z-index: 99;
+}
+.wrap .yellowbg
+{
+	background: #fd3333;
+}
+.wrap .redbg
+{
+	background: #56BA4A;
+}
+
+#telephone
+{
+	padding: 4px;
+}
+#telephone #teletabs
+{
+	height: 31px;
+	background: url(../image/phonebg4.jpg) repeat-x;
+}
+#telephone #teletabs .teletab1
+{
+	float: left;
+	height: 23px;
+	padding-top: 8px;
+	background: url(../image/phonebg3.jpg) no-repeat;
+	width: 106px;
+	margin: 0px 5px 0px 0px;
+}
+#telephone #teletabs .teletab2
+{
+	float: left;
+	height: 20px;
+	padding-top: 6px;
+	border: 1px solid #4fa0df;
+	background: #e3f2f9;
+	width: 96px;
+	margin: 0px 5px 0px 0px;
+	cursor: hand;
+}
+#telephone #teleborder
+{
+	border: 1px solid #4fa0df;
+}
+#telephone #teleborder #telesort
+{
+	text-align: left;
+	padding-left: 5px;
+}
+#telephone #teleborder #telesort li
+{
+	float: left;
+	margin: 5px 0px 0px 5px;
+	width: 19px;
+	height: 18px;
+	line-height: 17px;
+	text-align: center;
+	font-family: arial;
+	background: url(../image/phonebg1.jpg) no-repeat;
+}
+#telephone #teleborder #telesort .bg2
+{
+	background: url(../image/phonebt.jpg) no-repeat;
+	width: 50px;
+	line-height: 18px;
+	cursor: hand;
+}
+#telephone #teleborder #telesort .pinkli
+{
+	background: url(../image/phonebg2.jpg) no-repeat;
+}
+#telephone #teleborder #telesort .pinkli a
+{
+	color: #bf1b19;
+}
+#telephone #teleborder #teletable
+{
+	height: 170px;
+}
+#telephone #teleborder #teletable .teleinput
+{
+	border: 1px solid #4fa0df;
+	line-height: 14px;
+	height: 14px;
+	font-size: 12px;
+}
+#telephone #teleborder #teletable .teleinputbt
+{
+	background: url(../image/phonebt.jpg) no-repeat;
+	width: 50px;
+	height: 18px;
+	font-size: 12px;
+	line-height: 18px;
+	border: none;
+}
+#telephone #teleborder #teletable #telelist li
+{
+	float: left;
+	background: url(../image/phone03.gif) no-repeat;
+	width: 83px;
+	padding-left: 20px;
+	margin: 10px 0px 2px 10px;
+	text-align: left;
+}
+#telephone #teleborder #teletable #telepage
+{
+	clear: both;
+	padding: 5px 20px;
+}
+#telephone #teleborder #teletable #telepage .pagesbg
+{
+	background: url(../image/phonebt.jpg) no-repeat;
+	width: 50px;
+	line-height: 18px;
+	float: right;
+	margin-right: 10px;
+}
+
+
+/* tweb modal dialog styles ajax*/
+.modalPanelTitle td
+{
+	padding: 3px;
+	font-weight: bold;
+	font-size: 0.9em;
+	background-image: url(image/window_titlebg.gif);
+	cursor: pointer;
+	color: black;
+	font-family: Verdana;
+	width: 100%;
+	height: 30px;
+	background-color: #6f90dc;
+}
+
+.modalPanel
+{
+	z-index: 500;
+	width: 500px;
+	border: solid 1px #275473;
+	position: absolute;
+	border-collapse: collapse;
+	background-color: #f0faff;
+}
+
+.modalPanel td
+{
+	vertical-align: top;
+}
+
+.titleIcon
+{
+	padding-right: 20px;
+}
+.inputbtLast
+{
+	width: 27px;
+	height: 28px;
+	background: url(../image/lastMonth.jpg) no-repeat;
+	border: none;
+}
+.inputbtNext
+{
+	width: 27px;
+	height: 28px;
+	background: url(../image/nextMonth.jpg) no-repeat;
+	border: none;
+}

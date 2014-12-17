@@ -1,0 +1,1 @@
+InstallUtil SEP.AutoRemindServer.exe -u
