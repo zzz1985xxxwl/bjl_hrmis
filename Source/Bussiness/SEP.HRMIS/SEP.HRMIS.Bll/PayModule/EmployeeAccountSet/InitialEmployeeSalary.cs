@@ -22,14 +22,16 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         private readonly string _Description;
         private readonly DateTime _SalaryTime;
         private readonly int _CompanyId;
+        private readonly int _DepartmentId;
 
-        public InitialEmployeeSalary(DateTime dt, string backAcountsName, string description, int companyId)
+        public InitialEmployeeSalary(DateTime dt, string backAcountsName, string description, int companyId,int departmentId)
         {
             //_SalaryTime = Convert.ToDateTime(dt.Year+"-"+dt.Month);
             _SalaryTime = dt;
             _Description = description;
             _BackAccountsName = backAcountsName;
             _CompanyId = companyId;
+            _DepartmentId = departmentId;
         }
 
         protected override void Validation()
@@ -40,7 +42,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         {
 
             //获取所有员工
-            List<Employee> employeeList = _GetEmployee.GetEmployeeWithCurrentMonthDimissionEmployee(_SalaryTime, _CompanyId);
+            List<Employee> employeeList = _GetEmployee.GetEmployeeWithCurrentMonthDimissionEmployee(_SalaryTime, _CompanyId,_DepartmentId);
 
             foreach (Employee employee in employeeList)
             {

@@ -82,6 +82,7 @@ where EmployeeName like @EmployeeName
                                                                                           int employeeType,
                                                                                           int positionID,
                                                                                           int? gradesID,
+                                                                                          int? companyID,
                                                                                           List<int> departmentID,
                                                                                           List<int> canOperateDepartmentList,
                                                                                           int employeeStatus, List<int> notInEmployeeType)
@@ -91,17 +92,23 @@ where EmployeeName like @EmployeeName
                 dataOperator.CommandText =
                     string.Format(
                         @"
-select a.PKID,b.EmployeeName,b.MobileNum as MobileNum,a.CompanyID,d.PKID as DepartmentID,d.DepartmentName as DepartmentName,e.PKID as PositionID,e.PositionName,a.AccountID,a.ComeDate,a.LeaveDate,a.EmployeeType,c.DepartmentName as CompanyName 
+select a.PKID,b.EmployeeName,b.MobileNum as MobileNum,a.CompanyID,d.PKID as DepartmentID
+,d.DepartmentName as DepartmentName,e.PKID as PositionID,e.PositionName,a.AccountID
+,a.ComeDate,a.LeaveDate,a.EmployeeType,c.DepartmentName as CompanyName 
+,a.CompanyID
 from TEmployee as a with(nolock)
 inner join {0}.dbo.TAccount as b with(nolock) on a.AccountID=b.PKID
 inner join {0}.dbo.TDepartment as c with(nolock) on a.CompanyID=c.PKID
 inner join {0}.dbo.TDepartment as d with(nolock) on b.DepartmentId=d.PKID
 inner join {0}.dbo.TPosition as e with(nolock) on e.PKID=b.PositionId
-where EmployeeName like @EmployeeName
+where 1=1 
 ",
                         SqlHelper.SEPDBName);
-
-                dataOperator.SetParameter("@EmployeeName", "%" + employeeName + "%", SqlDbType.NVarChar, 50);
+                if (!string.IsNullOrEmpty(employeeName))
+                {
+                    dataOperator.CommandText += " and EmployeeName like @EmployeeName";
+                    dataOperator.SetParameter("@EmployeeName", "%" + employeeName + "%", SqlDbType.NVarChar, 50);
+                }
                 if (canOperateDepartmentList != null && canOperateDepartmentList.Count > 0)
                 {
                     dataOperator.CommandText += " and DepartmentId in (" + string.Join(",", canOperateDepartmentList) + ")";
@@ -110,17 +117,22 @@ where EmployeeName like @EmployeeName
                 {
                     dataOperator.CommandText += " and DepartmentId in (" + string.Join(",", departmentID) + ")";
                 }
-                if (positionID != 0 && positionID != -1)
+                if (positionID > 0)
                 {
                     dataOperator.CommandText += " and PositionId=@PositionId";
                     dataOperator.SetParameter("@PositionId", positionID, SqlDbType.Int);
+                }
+                if (companyID != null && companyID > 0)
+                {
+                    dataOperator.CommandText += " and a.CompanyId=@CompanyId";
+                    dataOperator.SetParameter("@CompanyId", companyID, SqlDbType.Int);
                 }
                 if (employeeType >= 0)
                 {
                     dataOperator.CommandText += " and EmployeeType=@EmployeeType";
                     dataOperator.SetParameter("@EmployeeType", employeeType, SqlDbType.Int);
                 }
-                if (notInEmployeeType != null && notInEmployeeType.Count>0)
+                if (notInEmployeeType != null && notInEmployeeType.Count > 0)
                 {
                     dataOperator.CommandText += " and EmployeeType not in (" + string.Join(",", notInEmployeeType) + ")";
                 }

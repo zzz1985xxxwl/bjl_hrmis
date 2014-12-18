@@ -159,7 +159,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         {
             if (_EmployeeSalaryList == null || _EmployeeSalaryList.Count == 0)
             {
-                new InitialEmployeeSalary(_SalaryTime, _BackAccountsName, string.Empty, _CompanyId).Excute();
+                new InitialEmployeeSalary(_SalaryTime, _BackAccountsName, string.Empty, _CompanyId,-1).Excute();
                 _EmployeeSalaryList =
                     _IGetEmployeeAccountSet.GetEmployeeSalaryByCondition(string.Empty, _SalaryTime, -1, -1, -1,
                                                                          EmployeeTypeEnum.All,_CompanyId);

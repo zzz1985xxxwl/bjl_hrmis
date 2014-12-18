@@ -316,7 +316,7 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
             {
                 _IEmployeeAccountSetFacade.InitialEmployeeSalaryFacade(
                     Convert.ToDateTime(_Context.Request.Params["SalaryTime"]), _LoginUser.Name,
-                    string.Empty, Convert.ToInt32(_Context.Request.Params["CompanyId"]));
+                    string.Empty, Convert.ToInt32(_Context.Request.Params["CompanyId"]), Convert.ToInt32(_Context.Request.Params["DepartmentId"]));
             }
             catch (Exception ex)
             {
@@ -633,7 +633,7 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
                     _IEmployeeAccountSetFacade.CloseEmployeeSalaryFacade(
                         Convert.ToDateTime(_Context.Request.Params["SalaryTime"]),
                         _LoginUser.Name,
-                        string.Empty, Convert.ToInt32(_Context.Request.Params["CompanyId"]),
+                        string.Empty, Convert.ToInt32(_Context.Request.Params["CompanyId"]), Convert.ToInt32(_Context.Request.Params["DepartmentId"]),
                         Convert.ToBoolean(_Context.Request.Params["IsSendEmail"]));
                 if (!string.IsNullOrEmpty(errorname))
                 {
@@ -655,7 +655,7 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
             {
                 _IEmployeeAccountSetFacade.ReopenEmployeeSalaryFacade(Convert.ToDateTime(_Context.Request.Params["SalaryTime"]),
                         _LoginUser.Name,
-                        string.Empty, Convert.ToInt32(_Context.Request.Params["CompanyId"]));
+                        string.Empty, Convert.ToInt32(_Context.Request.Params["CompanyId"]), Convert.ToInt32(_Context.Request.Params["DepartmentId"]));
             }
             catch (Exception ex)
             {

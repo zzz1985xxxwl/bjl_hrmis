@@ -259,7 +259,7 @@ namespace SEP.Performance.Views.EmployeeInformation.WorkInformation
                     WorkGV.DataBind();
                     DownLoadStatusDisplay();
                     Result.Visible = true;
-                    Result.Style["display"] = "block";
+                    Result.Style["display"] = "";
                 }
                 else
                 {

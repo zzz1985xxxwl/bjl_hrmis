@@ -158,9 +158,11 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
             List<EmployeeSalary> employeeSalaryList =
                 _DalEmployeeSalary.GetEmployeeSalaryByCondition(tempcurrDate, accountSetId);
 
-            List<Employee> employeeList =
-                _GetEmployee.GetEmployeeBasicInfoByBasicCondition(name, employeeType, positionId, departmentId,
-                                                                  true, -1);
+            List<Employee> employeeList = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(name, employeeType,
+                positionId, null, departmentId, companyId, true, null, null, -1, null);
+            //_GetEmployee.GetEmployeeBasicInfoByBasicCondition(name, employeeType, positionId, departmentId,
+            //                                                  true, -1);
+
             List<EmployeeSalary> retEmployeeSalary = new List<EmployeeSalary>();
             for (int i = 0; i < employeeSalaryList.Count; i++)
             {

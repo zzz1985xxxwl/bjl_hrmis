@@ -143,7 +143,8 @@ function btnInitial_Click() {
         {
             type: "Initial",
             "SalaryTime": SalaryTime,
-            "CompanyId": $("#cphCenter_SetEmployeeSalary1_hfCompanyID").val()
+            "CompanyId": $("#cphCenter_SetEmployeeSalary1_hfCompanyID").val(),
+            "DepartmentId": $("#cphCenter_SetEmployeeSalary1_listDepartment").val()
         },
         success: function(ans) {
             if (ans.error && ans.error.length > 0) {
@@ -523,7 +524,8 @@ var com =
                 type: "Close",
                 "SalaryTime": SalaryTime,
                 "CompanyId": $("#cphCenter_SetEmployeeSalary1_hfCompanyID").val(),
-                "IsSendEmail": $("#cbIsSendEmail").attr("checked")
+                "IsSendEmail": $("#cbIsSendEmail").attr("checked"),
+                "DepartmentId": $("#cphCenter_SetEmployeeSalary1_listDepartment").val()
             },
             success: function(ans) {
                 if (ans.error && ans.error.length > 0) {
@@ -546,7 +548,8 @@ var com =
             {
                 type: "Reopen",
                 "SalaryTime": SalaryTime,
-                "CompanyId": $("#cphCenter_SetEmployeeSalary1_hfCompanyID").val()
+                "CompanyId": $("#cphCenter_SetEmployeeSalary1_hfCompanyID").val(),
+                "DepartmentId": $("#cphCenter_SetEmployeeSalary1_listDepartment").val()
             },
             success: function(ans) {
                 if (ans.error && ans.error.length > 0) {

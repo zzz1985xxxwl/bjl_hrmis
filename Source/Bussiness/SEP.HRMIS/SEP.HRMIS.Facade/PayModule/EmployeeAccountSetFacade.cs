@@ -47,9 +47,9 @@ namespace SEP.HRMIS.Facade.PayModule
         /// <param name="backAcountsName">操作人</param>
         /// <param name="description">描述</param>
         /// <param name="companyId">公司</param>
-        public void InitialEmployeeSalaryFacade(DateTime dt, string backAcountsName, string description, int companyId)
+        public void InitialEmployeeSalaryFacade(DateTime dt, string backAcountsName, string description, int companyId,int departmentId)
         {
-            InitialEmployeeSalary initial = new InitialEmployeeSalary(dt, backAcountsName, description, companyId);
+            InitialEmployeeSalary initial = new InitialEmployeeSalary(dt, backAcountsName, description, companyId, departmentId);
             initial.Excute();
         }
 
@@ -61,10 +61,10 @@ namespace SEP.HRMIS.Facade.PayModule
         /// <param name="description">描述</param>
         /// <param name="companyId">公司</param>
         /// <param name="isSendEmail"></param>
-        public string CloseEmployeeSalaryFacade(DateTime dt, string backAcountsName, string description, int companyId, bool isSendEmail)
+        public string CloseEmployeeSalaryFacade(DateTime dt, string backAcountsName, string description, int companyId,int departmentId, bool isSendEmail)
         {
             CloseEmployeeSalary close =
-                new CloseEmployeeSalary(dt, backAcountsName, description, companyId, isSendEmail);
+                new CloseEmployeeSalary(dt, backAcountsName, description, companyId,departmentId, isSendEmail);
             close.Excute();
             return close.NameMessge;
         }
@@ -96,9 +96,9 @@ namespace SEP.HRMIS.Facade.PayModule
         /// <param name="backAcountsName">操作人</param>
         /// <param name="description">描述</param>
         /// <param name="companyId">公司</param>
-        public void ReopenEmployeeSalaryFacade(DateTime dt, string backAcountsName, string description, int companyId)
+        public void ReopenEmployeeSalaryFacade(DateTime dt, string backAcountsName, string description, int companyId,int departmentId)
         {
-            ReopenEmployeeSalary reopen = new ReopenEmployeeSalary(dt, backAcountsName, description, companyId);
+            ReopenEmployeeSalary reopen = new ReopenEmployeeSalary(dt, backAcountsName, description, companyId, departmentId);
             reopen.Excute();
         }
 

@@ -61,7 +61,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
                     if (_EmployeeSalaryList.Count == 0)
                     {
                         _IEmployeeAccountSetFacade.InitialEmployeeSalaryFacade(salaryStartTime, _ItsView.BackAccountName,
-                                                      string.Empty,_ItsView.CompanyId);
+                                                      string.Empty,_ItsView.CompanyId,-1);
                     }
 
                     GoToSetEmployeeSalaryPage(null, null);

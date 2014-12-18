@@ -94,7 +94,7 @@ namespace SEP.HRMIS.Bll
                 }
             }
             Employee employeeskill = _dalEmployeeSkill.GetEmployeeSkillByAccountID(accountID, "", -1, SkillLevelEnum.All);
-            if(employeeskill!=null)
+            if (employeeskill != null)
             {
                 employee.EmployeeSkills = employeeskill.EmployeeSkills;
             }
@@ -479,20 +479,19 @@ namespace SEP.HRMIS.Bll
         /// <param name="currentMonth"></param>
         /// <param name="companyId"></param>
         /// <returns></returns>
-        public List<Employee> GetEmployeeWithCurrentMonthDimissionEmployee(DateTime currentMonth, int companyId)
+        public List<Employee> GetEmployeeWithCurrentMonthDimissionEmployee(DateTime currentMonth, int companyId, int departmentID = -1)
         {
             List<Employee> employeeListForReturn = new List<Employee>();
-            List<Employee> temp = _dalEmployee.GetEmployeeBasicInfoByCompanyID(companyId);
+            List<Employee> temp = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(null, EmployeeTypeEnum.All, -1, null, departmentID, companyId, true, null, null, -1, null);
             foreach (Employee employee in temp)
             {
-                Employee employeetemp = GetEmployeeByAccountID(employee.Account.Id);
-                if (employeetemp == null || employeetemp.EmployeeDetails == null ||
-                    employeetemp.EmployeeDetails.Work == null)
+                //Employee employeetemp = GetEmployeeByAccountID(employee.Account.Id);
+                if (employee.EmployeeDetails.Work == null)
                     continue;
                 //加入本月之前入职的员工
-                if (employeetemp.IsOnDutyByDateTime(currentMonth, new HrmisUtility().EndMonthByYearMonth(currentMonth)))
+                if (employee.IsOnDutyByDateTime(currentMonth, new HrmisUtility().EndMonthByYearMonth(currentMonth)))
                 {
-                    employeeListForReturn.Add(employeetemp);
+                    employeeListForReturn.Add(employee);
                 }
             }
             return employeeListForReturn;

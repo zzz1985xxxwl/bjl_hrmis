@@ -9,53 +9,51 @@
 
 using System;
 using System.Collections.Generic;
+using System.Transactions;
 using SEP.HRMIS.DalFactory;
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.PayModule;
-using System.Transactions;
-using Transaction=SEP.HRMIS.Bll.Transaction;
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
-    ///<summary>
-    ///</summary>
+    /// <summary>
+    /// </summary>
     public class ReopenEmployeeSalary : Transaction
     {
+        private readonly string _BackAccountsName;
+        private readonly int _CompanyId;
         private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
         private readonly GetEmployee _GetEmployee = new GetEmployee();
-        private readonly string _BackAccountsName;
-        private readonly string _Description;
         private readonly DateTime _SalaryTime;
         private List<Employee> _EmployeeList;
         private List<EmployeeSalary> _EmployeeSalaryList;
-        private readonly int _CompanyId;
+        private int _DepartmentId;
 
-        ///<summary>
-        ///</summary>
-        ///<param name="dt"></param>
-        ///<param name="backAcountsName"></param>
-        ///<param name="description"></param>
-        ///<param name="companyId"></param>
-        public ReopenEmployeeSalary(DateTime dt, string backAcountsName, string description, int companyId)
+        /// <summary>
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="backAcountsName"></param>
+        /// <param name="description"></param>
+        /// <param name="companyId"></param>
+        public ReopenEmployeeSalary(DateTime dt, string backAcountsName, string description, int companyId, int departmentId)
         {
             //_SalaryTime = Convert.ToDateTime(dt.Year + "-" + dt.Month);
             _SalaryTime = dt;
-            _Description = description;
             _BackAccountsName = backAcountsName;
             _CompanyId = companyId;
+            _DepartmentId = departmentId;
         }
 
-        ///<summary>
-        ///</summary>
-        ///<param name="dt"></param>
-        ///<param name="backAcountsName"></param>
-        ///<param name="description"></param>
-        ///<param name="mockSalary"></param>
+        /// <summary>
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="backAcountsName"></param>
+        /// <param name="description"></param>
+        /// <param name="mockSalary"></param>
         public ReopenEmployeeSalary(DateTime dt, string backAcountsName, string description, IEmployeeSalary mockSalary)
         {
             _SalaryTime = dt;
-            _Description = description;
             _BackAccountsName = backAcountsName;
             _DalEmployeeSalary = mockSalary;
         }
@@ -64,7 +62,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         {
             _EmployeeSalaryList = new List<EmployeeSalary>();
             //获取所有员工
-            _EmployeeList = _GetEmployee.GetEmployeeWithCurrentMonthDimissionEmployee(_SalaryTime, _CompanyId);
+            _EmployeeList = _GetEmployee.GetEmployeeWithCurrentMonthDimissionEmployee(_SalaryTime, _CompanyId, _DepartmentId);
             foreach (Employee employee in _EmployeeList)
             {
                 EmployeeSalaryHistory salaryHistory =
@@ -79,18 +77,17 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
                 {
                     BllUtility.ThrowException(BllExceptionConst._Employee_Salary_Not_Closed);
                 }
-                EmployeeSalary employeeSalary = new EmployeeSalary(employee.Account.Id);
+                var employeeSalary = new EmployeeSalary(employee.Account.Id);
                 employeeSalary.Employee = employee;
                 employeeSalary.EmployeeSalaryHistoryList = new List<EmployeeSalaryHistory>();
                 employeeSalary.EmployeeSalaryHistoryList.Add(salaryHistory);
                 _EmployeeSalaryList.Add(employeeSalary);
-
             }
         }
 
         protected override void ExcuteSelf()
         {
-            using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+            using (var ts = new TransactionScope(TransactionScopeOption.Required))
             {
                 foreach (EmployeeSalary employeeSalary in _EmployeeSalaryList)
                 {
@@ -100,8 +97,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
                         EmployeeSalaryStatusEnum.AccountReopened;
                     employeeSalary.EmployeeSalaryHistoryList[0].AccountsBackName = _BackAccountsName;
                     _DalEmployeeSalary.UpdateEmployeeSalaryHistory(employeeSalary.Employee.Account.Id,
-                                                                   employeeSalary.EmployeeSalaryHistoryList[0]);
-
+                        employeeSalary.EmployeeSalaryHistoryList[0]);
                 }
                 ts.Complete();
             }

@@ -182,13 +182,16 @@
                                 cellspacing="0">
                                 <tr>
                                     <td height="10" align="center">
-                                        <table width="98%" class="linetable" cellpadding="0" cellspacing="0">
-                                            <br />
-                                            <span class="font14px">社保调整历史</span>
+                                        <table width="98%" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="text-align: left;">
+                                                    <span class="font14px">社保调整历史</span>
+                                                </td>
+                                            </tr>
                                             <tr>
                                                 <td width="100%">
-                                                    <asp:GridView ID="gvWelfareHistory" Width="100%" runat="server" AutoGenerateColumns="False"
-                                                        AllowPaging="True" OnPageIndexChanging="gvWelfareHistory_PageIndexChanging" BorderStyle="None"
+                                                    <asp:GridView ID="gvWelfareHistory" Width="100%" runat="server" AutoGenerateColumns="False" CssClass="linetable"
+                                                        AllowPaging="True" OnPageIndexChanging="gvWelfareHistory_PageIndexChanging" 
                                                         GridLines="None" OnRowDataBound="gvWelfareHistory_RowDataBound">
                                                         <HeaderStyle Height="28px" CssClass="headerstyleblue" />
                                                         <RowStyle Height="28px" CssClass="GridViewRowLink" />
@@ -199,31 +202,31 @@
                                                                     <asp:Button ID="btnHiddenPostButton" CommandArgument='<%# Eval("EmployeeWelfareHistoryID") %>'
                                                                         CommandName="HiddenPostButtonCommand" runat="server" Text="" Style="display: none;" />
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="2%" />
+                                                                <ItemStyle />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="社保种类">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.SocialSecurity.Type.Name")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle  />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="社保基数">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.SocialSecurity.Base")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="生效年月">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.SocialSecurity.EffectiveYearMonth", "{0:yyyy-MM}")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle Width="6%" />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="公积金帐号">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.AccumulationFund.Account")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle  />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="公积金基数">
                                                                 <ItemTemplate>
@@ -235,49 +238,49 @@
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.AccumulationFund.EffectiveYearMonth", "{0:yyyy-MM}")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="9%" />
+                                                                <ItemStyle />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="补充公积金帐号">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.AccumulationFund.SupplyAccount")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="9%" />
+                                                                <ItemStyle  />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="补充公积金基数">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.AccumulationFund.SupplyBase")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="9%" />
+                                                                <ItemStyle />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="养老缴费基数">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.SocialSecurity.YangLaoBase")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle  />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="失业缴费基数">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.SocialSecurity.ShiYeBase")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle  />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="医疗缴费基数">
                                                                 <ItemTemplate>
                                                                     <%#Eval("EmployeeWelfare.SocialSecurity.YiLiaoBase")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="8%" />
+                                                                <ItemStyle />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="操作人">
                                                                 <ItemTemplate>
                                                                     <%#Eval("AccountsBackName")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="9%" />
+                                                                <ItemStyle />
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="操作时间">
                                                                 <ItemTemplate>
                                                                     <%#Eval("OperationTime")%></a>
                                                                 </ItemTemplate>
-                                                                <ItemStyle Width="12%" />
+                                                                <ItemStyle  />
                                                             </asp:TemplateField>
                                                         </Columns>
                                                         <PagerTemplate>
