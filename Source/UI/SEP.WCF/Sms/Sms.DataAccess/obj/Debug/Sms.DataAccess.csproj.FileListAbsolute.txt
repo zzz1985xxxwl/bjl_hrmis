@@ -1,8 +1,0 @@
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\bin\Debug\Sms.DataAccess.dll
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\bin\Debug\Sms.DataAccess.pdb
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\bin\Debug\Framework.Common.dll
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\bin\Debug\Sms.Entity.dll
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\bin\Debug\Sms.Entity.pdb
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\obj\Debug\Sms.DataAccess.csprojResolveAssemblyReference.cache
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\obj\Debug\Sms.DataAccess.dll
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WCF\Sms\Sms.DataAccess\obj\Debug\Sms.DataAccess.pdb
