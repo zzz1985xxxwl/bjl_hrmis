@@ -52,6 +52,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\Libs\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ServiceModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -63,12 +66,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ReadDataFromAccessService\ReadDataFromAccessService.csproj">
-      <Project>{147137E5-3391-4B01-81F5-9CE762D2945D}</Project>
-      <Name>ReadDataFromAccessService</Name>
-    </ProjectReference>
+    <Compile Include="TestRead.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -89,6 +87,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\ReadDataAccessModel.csproj">
+      <Project>{F44A11B3-26C0-4533-A763-C30916F59279}</Project>
+      <Name>ReadDataAccessModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReadDataFromAccessService\ReadDataFromAccessService.csproj">
+      <Project>{147137E5-3391-4B01-81F5-9CE762D2945D}</Project>
+      <Name>ReadDataFromAccessService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

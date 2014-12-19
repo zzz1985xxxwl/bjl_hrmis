@@ -14,11 +14,11 @@ namespace ReadDataFromAccessClient
 
             //---------------------------·½Ê½Ò»
 
-            using (ReadDataClient proxy = new ReadDataClient("BasicHttpBinding_IReadData"))
+            using (ReadDataClient proxy = new ReadDataClient())
             {
                 //proxy.Open();
                 //DataFromAccess[] obj = proxy.ReadRecords(Convert.ToDateTime("2009-6-14"));
-                DataFromAccess[] obj = proxy.ReadRecordsWithReadTime(Convert.ToDateTime("2009-6-14"), Convert.ToDateTime("2009-6-19"));
+                DataFromAccess[] obj = proxy.ReadRecords(Convert.ToDateTime("2014-12-10 13:07:27"));
                 Console.WriteLine(obj.Length.ToString());
                 Console.WriteLine(obj[0].CardNo);
                 Console.WriteLine(obj[0].InOrOut);
