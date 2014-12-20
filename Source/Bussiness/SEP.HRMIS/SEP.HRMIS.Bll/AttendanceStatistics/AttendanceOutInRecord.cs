@@ -20,6 +20,7 @@ using SEP.HRMIS.Bll.OutApplications;
 using SEP.HRMIS.Bll.OverWorks;
 using SEP.Model.Utility;
 using SEP.Model.Calendar;
+using SEP.HRMIS.Logic;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
 {
@@ -56,19 +57,27 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         /// <summary>
         /// 
         /// </summary>
-        public List<Employee> GetAttendanceOutInRecordByCondition(string employeeName, int? gradesId,int departmentID,
+        public List<Employee> GetAttendanceOutInRecordByCondition(string employeeName, int? gradesId, int departmentID,
             DateTime from, DateTime to, OutInTimeConditionEnum outInTimeCondition)
         {
             List<Employee> retEmployeeList = new List<Employee>();
 
-            List<Account> accountList = _IAccountBll.GetAccountByBaseCondition(employeeName, departmentID, -1, gradesId, true, null);
+            //List<Account> accountList = _IAccountBll.GetAccountByBaseCondition(employeeName, departmentID, -1, gradesId, true, null);
+            //if (departmentID == -1)
+            //{
+            //    accountList = Tools.RemoteUnAuthAccount(accountList, AuthType.HRMIS, _LoginUser, HrmisPowers.A503);
+            //}
+
+            //_GetEmployee = new GetEmployee();
+
+            //List<Employee> EmployeeList = _GetEmployee.GetEmployeeAttendenceInfoByAccountList(accountList, EmployeeTypeEnum.All, -1);
+            int? powerID = null;
             if (departmentID == -1)
             {
-                accountList = Tools.RemoteUnAuthAccount(accountList, AuthType.HRMIS, _LoginUser, HrmisPowers.A503);
+                powerID = HrmisPowers.A503;
             }
-
-            _GetEmployee = new GetEmployee();
-            List<Employee> EmployeeList = _GetEmployee.GetEmployeeAttendenceInfoByAccountList(accountList, EmployeeTypeEnum.All, -1);
+            var EmployeeList = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(employeeName, EmployeeTypeEnum.All, -1, gradesId,
+                 departmentID, null, true, powerID, _LoginUser.Id, -1, null);
 
             for (int i = 0; i < EmployeeList.Count; i++)
             {
@@ -77,11 +86,11 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
                     continue;
                 }
                 //获取排班信息
-                EmployeeList[i].EmployeeAttendance.PlanDutyDetailList = 
+                EmployeeList[i].EmployeeAttendance.PlanDutyDetailList =
                     DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(
                     EmployeeList[i].Account.Id, from, to);
                 //如果员工没有排班信息
-                if (EmployeeList[i].EmployeeAttendance.PlanDutyDetailList == null 
+                if (EmployeeList[i].EmployeeAttendance.PlanDutyDetailList == null
                     || EmployeeList[i].EmployeeAttendance.PlanDutyDetailList.Count == 0)
                 {
                     continue;
