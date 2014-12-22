@@ -153,7 +153,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
-copy $(TargetDir)$(TargetName).XML ..\..\..\..\..\Build\</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
