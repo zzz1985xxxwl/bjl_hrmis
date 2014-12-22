@@ -19,7 +19,7 @@ namespace SEP.HRMIS.Logic
             int employeeStatus)
         {
             List<int> departmentids = DepartmentLogic.GetDepartmentids(departmentID, recursionDepartment);
-            return EmployeeDA.GetEmployeeBasicInfoByBasicConditionWithCompanyAge(employeeName, (int) employeeType,
+            return EmployeeDA.GetEmployeeBasicInfoByBasicConditionWithCompanyAge(employeeName, (int)employeeType,
                 positionID, gradesID, CompanyAgeFrom,
                 CompanyAgeTo, departmentids,
                 employeeStatus);
@@ -35,11 +35,11 @@ namespace SEP.HRMIS.Logic
             int? powerID, int? accountID,
             int employeeStatus, List<int> notInEmployeeType)
         {
-            return EmployeeDA.GetEmployeeBasicInfoByBasicCondition(employeeName, (int) employeeType,
+            return EmployeeDA.GetEmployeeBasicInfoByBasicCondition(employeeName, (int)employeeType,
                 positionID, gradesID, null,
                 DepartmentLogic.GetDepartmentids(departmentID, recursionDepartment),
                 powerID == null ? null : AccountAuthDA.GetAccountAuthDepartment(accountID.Value, powerID.Value),
-                employeeStatus, notInEmployeeType);
+                employeeStatus, notInEmployeeType, null);
         }
 
         public static List<Employee> GetEmployeeBasicInfoByBasicConditionRetModel(string employeeName,
@@ -50,13 +50,13 @@ namespace SEP.HRMIS.Logic
             int? companyID,
             bool recursionDepartment,
             int? powerID, int? accountID,
-            int employeeStatus, List<int> notInEmployeeType)
+            int employeeStatus, List<int> notInEmployeeType, bool? hasPlanDuty = null)
         {
-            List<EmployeeEntity> list = EmployeeDA.GetEmployeeBasicInfoByBasicCondition(employeeName, (int) employeeType,
+            List<EmployeeEntity> list = EmployeeDA.GetEmployeeBasicInfoByBasicCondition(employeeName, (int)employeeType,
                 positionID, gradesID, companyID,
                 DepartmentLogic.GetDepartmentids(departmentID, recursionDepartment),
                 powerID == null ? null : AccountAuthDA.GetAccountAuthDepartment(accountID.Value, powerID.Value),
-                employeeStatus, notInEmployeeType);
+                employeeStatus, notInEmployeeType, hasPlanDuty);
             var employeeList = new List<Employee>();
             foreach (EmployeeEntity employeeEntity in list)
             {

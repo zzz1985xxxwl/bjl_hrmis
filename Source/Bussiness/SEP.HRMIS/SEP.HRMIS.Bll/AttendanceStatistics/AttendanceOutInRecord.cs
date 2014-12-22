@@ -58,7 +58,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         /// <summary>
         /// 
         /// </summary>
-        public List<Employee> GetAttendanceOutInRecordByCondition(string employeeName, int? gradesId,int departmentID,
+        public List<Employee> GetAttendanceOutInRecordByCondition(string employeeName, int? gradesId, int departmentID,
             DateTime from, DateTime to, OutInTimeConditionEnum outInTimeCondition)
         {
             List<Employee> retEmployeeList = new List<Employee>();
@@ -78,7 +78,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
             }
             var EmployeeList = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(employeeName,
                 EmployeeTypeEnum.All, -1, gradesId, departmentID, null, true, powerID, _LoginUser.Id, -1,
-                new List<int>() { (int)EmployeeTypeEnum.BorrowedEmployee });
+                new List<int>() { (int)EmployeeTypeEnum.BorrowedEmployee }, true);
 
             for (int i = 0; i < EmployeeList.Count; i++)
             {
@@ -86,16 +86,16 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
                 {
                     continue;
                 }
-                //获取排班信息
-                EmployeeList[i].EmployeeAttendance.PlanDutyDetailList = 
-                    new PlanDutyDal().GetPlanDutyDetailByAccount(
-                    EmployeeList[i].Account.Id, from, to);
-                //如果员工没有排班信息
-                if (EmployeeList[i].EmployeeAttendance.PlanDutyDetailList == null 
-                    || EmployeeList[i].EmployeeAttendance.PlanDutyDetailList.Count == 0)
-                {
-                    continue;
-                }
+                ////获取排班信息
+                //EmployeeList[i].EmployeeAttendance.PlanDutyDetailList =
+                //    new PlanDutyDal().GetPlanDutyDetailByAccount(
+                //    EmployeeList[i].Account.Id, from, to);
+                ////如果员工没有排班信息
+                //if (EmployeeList[i].EmployeeAttendance.PlanDutyDetailList == null
+                //    || EmployeeList[i].EmployeeAttendance.PlanDutyDetailList.Count == 0)
+                //{
+                //    continue;
+                //}
 
                 DateTime employeeFromDate = DateTime.Compare(EmployeeList[i].EmployeeDetails.Work.ComeDate, from) > 0
                                                 ? EmployeeList[i].EmployeeDetails.Work.ComeDate
@@ -146,7 +146,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
 
                 //统计考勤
                 EmployeeList[i].EmployeeAttendance.InAndOutStatistics(employeeFromDate);
-                if (EmployeeList[i].EmployeeAttendance.IsOutInTimeCondition(outInTimeCondition))
+                if (EmployeeList[i].EmployeeAttendance.IsOutInTimeCondition(outInTimeCondition,true))
                 {
                     retEmployeeList.Add(EmployeeList[i]);
                 }

@@ -9,15 +9,15 @@ namespace SEP.HRMIS.DataAccess
     public class EmployeeDA
     {
         public static List<EmployeeEntity> GetEmployeeBasicInfoByBasicConditionWithCompanyAge(string employeeName,
-                                                                                              int employeeType,
-                                                                                              int positionID,
-                                                                                              int? gradesID,
-                                                                                              int? companyAgeFrom,
-                                                                                              int? companyAgeTo,
-                                                                                              List<int> departmentID,
-                                                                                              int employeeStatus)
+            int employeeType,
+            int positionID,
+            int? gradesID,
+            int? companyAgeFrom,
+            int? companyAgeTo,
+            List<int> departmentID,
+            int employeeStatus)
         {
-            using (DataOperator dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
+            using (var dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
             {
                 dataOperator.CommandText =
                     string.Format(
@@ -53,13 +53,13 @@ where EmployeeName like @EmployeeName
                 }
                 if (companyAgeFrom != null)
                 {
-                    var from = DateTime.Now.Date.AddDays(-companyAgeFrom.GetValueOrDefault());
+                    DateTime from = DateTime.Now.Date.AddDays(-companyAgeFrom.GetValueOrDefault());
                     dataOperator.CommandText += " and ComeDate<=@ComeDateFrom";
                     dataOperator.SetParameter("@ComeDateFrom", from, SqlDbType.DateTime);
                 }
                 if (companyAgeTo != null)
                 {
-                    var to = DateTime.Now.Date.AddDays(-companyAgeTo.GetValueOrDefault());
+                    DateTime to = DateTime.Now.Date.AddDays(-companyAgeTo.GetValueOrDefault());
                     dataOperator.CommandText += " and ComeDate>=@ComeDateTo";
                     dataOperator.SetParameter("@ComeDateTo", to, SqlDbType.DateTime);
                 }
@@ -69,7 +69,7 @@ where EmployeeName like @EmployeeName
                     dataOperator.CommandText +=
                         " and ComeDate<=getdate() and (LeaveDate is null or LeaveDate > getdate())";
                 }
-                //离职
+                    //离职
                 else if (employeeStatus == 1)
                 {
                     dataOperator.CommandText += " and LeaveDate<getdate()";
@@ -79,15 +79,15 @@ where EmployeeName like @EmployeeName
         }
 
         public static List<EmployeeEntity> GetEmployeeBasicInfoByBasicCondition(string employeeName,
-                                                                                          int employeeType,
-                                                                                          int positionID,
-                                                                                          int? gradesID,
-                                                                                          int? companyID,
-                                                                                          List<int> departmentID,
-                                                                                          List<int> canOperateDepartmentList,
-                                                                                          int employeeStatus, List<int> notInEmployeeType)
+            int employeeType,
+            int positionID,
+            int? gradesID,
+            int? companyID,
+            List<int> departmentID,
+            List<int> canOperateDepartmentList,
+            int employeeStatus, List<int> notInEmployeeType, bool? hasPlanDuty)
         {
-            using (DataOperator dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
+            using (var dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
             {
                 dataOperator.CommandText =
                     string.Format(
@@ -111,7 +111,8 @@ where 1=1
                 }
                 if (canOperateDepartmentList != null && canOperateDepartmentList.Count > 0)
                 {
-                    dataOperator.CommandText += " and DepartmentId in (" + string.Join(",", canOperateDepartmentList) + ")";
+                    dataOperator.CommandText += " and DepartmentId in (" + string.Join(",", canOperateDepartmentList) +
+                                                ")";
                 }
                 if (departmentID != null && departmentID.Count > 0)
                 {
@@ -147,14 +148,17 @@ where 1=1
                     dataOperator.CommandText +=
                         " and ComeDate<=getdate() and (LeaveDate is null or LeaveDate > getdate())";
                 }
-                //离职
+                    //离职
                 else if (employeeStatus == 1)
                 {
                     dataOperator.CommandText += " and LeaveDate<getdate()";
                 }
+                if (hasPlanDuty == true)
+                {
+                    dataOperator.CommandText += " and b.PKID in (select AccountID from TPlanDuty)";
+                }
                 return dataOperator.ExecuteEntityList<EmployeeEntity>();
             }
         }
-
     }
 }
