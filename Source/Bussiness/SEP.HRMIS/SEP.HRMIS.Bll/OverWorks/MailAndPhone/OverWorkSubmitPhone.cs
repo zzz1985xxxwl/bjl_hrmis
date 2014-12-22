@@ -9,11 +9,12 @@
 
 using System.Text;
 using SEP.HRMIS.Bll.RequestPhoneMessages.ConfirmMessages;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.PhoneMessage;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -25,7 +26,7 @@ namespace SEP.HRMIS.Bll.OverWorks.MailAndPhone
     /// </summary>
     public class OverWorkSubmitPhone
     {
-        private static readonly IOverWork _OverWorkDal = DalFactory.DataAccess.CreateOverWork();
+        private static readonly IOverWork _OverWorkDal = new OverWorkDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly OverWork _OverWork;
         private readonly OverWorkDiyProcessUtility _OverWorkDiyProcessUtility = new OverWorkDiyProcessUtility();

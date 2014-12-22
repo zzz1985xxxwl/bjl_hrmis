@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.Bll.DiyProcesses;
 using SEP.HRMIS.Bll.PositionApplications.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.PositionApp;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.PositionApplications
 {
     public class UpdatePositionApplication : Transaction
     {
-        private readonly IPositionApplicationDal _PositionApplicationDal = DalFactory.DataAccess.CreatePositionApplication();
-        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private readonly IPositionApplicationDal _PositionApplicationDal = new PositionApplicationDal();
+        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
         private readonly PositionApplication _PositionApplication;
         private readonly bool _IfSubmit;
         private readonly PositionApplication _OldPositionApplication;

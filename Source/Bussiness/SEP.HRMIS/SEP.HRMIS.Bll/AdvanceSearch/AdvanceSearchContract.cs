@@ -5,6 +5,7 @@ using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.AdvanceSearch;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.AdvanceSearch
@@ -14,7 +15,7 @@ namespace SEP.HRMIS.Bll.AdvanceSearch
     /// </summary>
     public class AdvanceSearchContract
     {
-        private static readonly IContract _dalContract = DalFactory.DataAccess.CreateContract();
+        private static readonly IContract _dalContract = new ContractDal();
         private static readonly GetEmployee _GetEmployee = new GetEmployee();
         private readonly Account _OperationAccount;
 

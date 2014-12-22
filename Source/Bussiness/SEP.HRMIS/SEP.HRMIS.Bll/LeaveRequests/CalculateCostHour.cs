@@ -9,10 +9,11 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.SpecialDates;
 using SEP.Model.Calendar;
@@ -25,7 +26,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class CalculateCostHour
     {
-        private readonly ILeaveRequestType _LeaveRequestTypeDal = DalFactory.DataAccess.CreateLeaveRequestType();
+        private readonly ILeaveRequestType _LeaveRequestTypeDal = new LeaveRequestTypeDal();
         private readonly DateTime _From;
         private readonly DateTime _To;
         private readonly RequestStatus _RequestStatus;
@@ -36,7 +37,7 @@ namespace SEP.HRMIS.Bll
         private decimal _OneDayMaxHour = 8;
         private bool _IncludeLegalHoliday;
         private bool _IncludeRestDay;
-        private readonly IPlanDutyDal _PlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _PlanDutyDal = new PlanDutyDal();
         private List<PlanDutyDetail> _PlanDutyDetailList;
         private DateTime _MorningStart;
         private DateTime _MorningEnd;

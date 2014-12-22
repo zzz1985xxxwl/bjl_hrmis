@@ -10,12 +10,13 @@ using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class EditVacation 
     {
-        private static IVacation _Dal = DalFactory.DataAccess.CreateVacation();
+        private static IVacation _Dal = new VacationDal();
         private readonly List<Model.Vacation> _VacationList;
         private readonly Employee _Employee;
 

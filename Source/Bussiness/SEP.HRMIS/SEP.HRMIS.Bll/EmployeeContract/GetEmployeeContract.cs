@@ -4,6 +4,7 @@ using SEP.HRMIS.IDal;
 using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -18,14 +19,14 @@ namespace SEP.HRMIS.Bll.EmployeeContract
     public class GetEmployeeContract
     {
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
-        private static IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static IContract _dalContract = DalFactory.DataAccess.CreateContract();
-        private static IContractBookMark _dalContractBookMark = DalFactory.DataAccess.CreateContractBookMark();
-        private static IEmployeeContractBookMark _dalEmployeeContractBookMark = DalFactory.DataAccess.CreateEmployeeContractBookMark();
+        private static IEmployee _dalEmployee = new EmployeeDal();
+        private static IContract _dalContract = new ContractDal();
+        private static IContractBookMark _dalContractBookMark = new ContractBookMarkDal();
+        private static IEmployeeContractBookMark _dalEmployeeContractBookMark = new EmployeeContractBookMarkDal();
 
-        private static IEmployeeSkill _dalEmployeeSkill = DalFactory.DataAccess.CreateEmployeeSkill();
+        private static IEmployeeSkill _dalEmployeeSkill = new EmployeeSkillDal();
         private static IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
-        private static IEmployeeAdjustRule _EmployeeAdjustRuleDal = DalFactory.DataAccess.CreateEmployeeAdjustRule();
+        private static IEmployeeAdjustRule _EmployeeAdjustRuleDal = new EmployeeAdjustRuleDal();
 
         /// <summary>
         /// 获取员工合同信息构造函数

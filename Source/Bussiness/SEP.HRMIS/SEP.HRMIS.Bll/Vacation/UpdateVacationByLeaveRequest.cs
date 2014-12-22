@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.LeaveRequests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll
     {
         private readonly LeaveRequestItem _LeaveRequestItem;
         private readonly LeaveRequest _LeaveRequest;
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
         /// <summary>
         /// 构造函数 根据请假单的状态添加/扣除年假记录
         /// </summary>

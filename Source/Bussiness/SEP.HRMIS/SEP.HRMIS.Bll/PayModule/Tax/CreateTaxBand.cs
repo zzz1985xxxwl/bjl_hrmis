@@ -8,14 +8,15 @@
 // ----------------------------------------------------------------
 
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.Tax
 {
     public class CreateTaxBand : Transaction
     {
-        private readonly ITax _TaxDal = PayModuleDataAccess.CreateTax();
+        private readonly ITax _TaxDal = new TaxDal();
         private int _TaxBandID;
         private readonly decimal _BandMin;
         private readonly decimal _TaxRate;

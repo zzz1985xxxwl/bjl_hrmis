@@ -9,13 +9,14 @@
 
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.EmployeeAdjustRules;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Adjusts;
 using SEP.HRMIS.Model.EmployeeAdjustRest;
 using SEP.HRMIS.Model.Enum;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.EmployeeAdjustRest
 {
@@ -26,8 +27,8 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRest
     {
         private readonly OverWorkItem _OverWorkItem;
         private readonly int _AccountID;
-        private readonly IAdjustRest _IAdjustRest = DalFactory.DataAccess.CreateAdjustRest();
-        private readonly IAdjustRestHistory _IAdjustRestHistory = DalFactory.DataAccess.CreateAdjustRestHistory();
+        private readonly IAdjustRest _IAdjustRest = new AdjustRestDal();
+        private readonly IAdjustRestHistory _IAdjustRestHistory = new AdjustRestHistoryDal();
         private readonly AdjustRule _AdjustRule;
         private decimal _ChangeHour = 0;
 

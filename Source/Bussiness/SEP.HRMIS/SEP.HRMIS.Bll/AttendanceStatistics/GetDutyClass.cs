@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
 {
     public class GetDutyClass
     {
-        private readonly IPlanDutyDal _DalRull = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _DalRull = new PlanDutyDal();
 
         public List<DutyClass> GetDutyClassByCondition(int id, string ruleName)
         {

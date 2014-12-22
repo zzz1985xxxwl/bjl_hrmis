@@ -6,11 +6,12 @@
 // 创建日期: 2008-05-19
 // 概述: 对手工提交评估的业务描述
 // ----------------------------------------------------------------
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AssessFlow;
 using SEP.HRMIS.Model.DiyProcesss;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll.Goals;
 using SEP.IBll;
 using System;
@@ -25,12 +26,12 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static IAssessActivity _Dal = DalFactory.DataAccess.AssessActivityDal;
+        private static IAssessActivity _Dal = new AssessActivityDal();
         private static IGoalBll _IGoal = BllInstance.GoalBllInstance;
-        private static IEmployee _IEmployee = DalFactory.DataAccess.CreateEmployee();
+        private static IEmployee _IEmployee = new EmployeeDal();
         private readonly IActiveFlow _IActiveFlow = new ActiveFlow();
         private readonly Model.AssessActivity _AssessActivity;
-        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
 
         /// <summary>
         /// ManualAsses的构造函数

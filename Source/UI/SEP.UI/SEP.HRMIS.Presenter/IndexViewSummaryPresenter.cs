@@ -11,7 +11,7 @@ namespace SEP.HRMIS.Presenter
         private readonly ILeaveRequestFacade _ILeaveRequestFacade = InstanceFactory.CreateLeaveRequestFacade();
         private readonly IOutApplicationFacade _OutApplicationFacade = InstanceFactory.CreateOutApplicationFacade();
         private readonly IOverWorkFacade _OverWorkFacade = InstanceFactory.CreateOverWorkFacade();
-        private readonly IAssessActivityFacade _AssessActivityFacade = InstanceFactory.AssessActivityFacade;
+        private readonly IAssessActivityFacade _AssessActivityFacade = InstanceFactory.AssessActivityFacade();
         private readonly ITraineeApplicationFacade _ITrainFacade = InstanceFactory.CreateTraineeApplicationFacade();
         public int GetLeaveRequestConfirmCount(Account loginUser)
         {
@@ -49,12 +49,12 @@ namespace SEP.HRMIS.Presenter
             for (int i = list.Count - 1; i >= 0; i--)
             {
                 Account operAccount =
-                    InstanceFactory.AssessActivityFacade.GetDiyStepAccount(list[i].ItsEmployee.Account.Id,
+                    InstanceFactory.AssessActivityFacade().GetDiyStepAccount(list[i].ItsEmployee.Account.Id,
                                                                            list[i].DiyProcess.DiySteps[
                                                                                list[i].NextStepIndex]);
                 if (operAccount == null)
                 {
-                    InstanceFactory.AssessActivityFacade.InterruptActivity(list[i].AssessActivityID);
+                    InstanceFactory.AssessActivityFacade().InterruptActivity(list[i].AssessActivityID);
                     list.RemoveAt(i);
                 }
                 else if (operAccount.Id != loginUser.Id)

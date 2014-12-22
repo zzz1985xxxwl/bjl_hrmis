@@ -1,8 +1,9 @@
 using SEP.HRMIS.Bll.RequestPhoneMessages.ConfirmMessages;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.PhoneMessage;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.SMS;
@@ -15,7 +16,7 @@ namespace SEP.HRMIS.Bll.LeaveRequests.MailAndPhone
     /// </summary>
     public class LeaveRequestOverPhone
     {
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly LeaveRequest _LeaveRequest;
         private readonly ISendSMSBll _Sms = BllInstance.SendSMSBllInstance;

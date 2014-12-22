@@ -7,6 +7,7 @@ using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.AdvanceSearch;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -24,14 +25,14 @@ namespace SEP.HRMIS.Bll.AdvanceSearch
     public class AdvanceSearchEmployee
     {
         private static readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
-        private static readonly IDiyProcessDal _IDiyProcessDal = DalFactory.DataAccess.CreateDiyProcessDal();
-        private static readonly IEmployeeDiyProcessDal _IEmployeeDiyProcessDal = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
-        private static readonly IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static readonly IEmployeeSkill _dalEmployeeSkill = DalFactory.DataAccess.CreateEmployeeSkill();
+        private static readonly IDiyProcessDal _IDiyProcessDal = new DiyProcessDal();
+        private static readonly IEmployeeDiyProcessDal _IEmployeeDiyProcessDal = new EmployeeDiyProcessDal();
+        private static readonly IEmployee _dalEmployee = new EmployeeDal();
+        private static readonly IEmployeeSkill _dalEmployeeSkill = new EmployeeSkillDal();
         private static readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
         private static readonly IPositionBll _IPositionBll = BllInstance.PositionBllInstance;
-        private static readonly IEmployeeWelfare _IEmployeeWelfare = DalFactory.DataAccess.CreateEmployeeWelfare();
-        private static readonly IEmployeeWelfareHistory _IEmployeeWelfareHistory = DalFactory.DataAccess.CreateEmployeeWelfareHistory();
+        private static readonly IEmployeeWelfare _IEmployeeWelfare = new EmployeeWelfareDal();
+        private static readonly IEmployeeWelfareHistory _IEmployeeWelfareHistory = new EmployeeWelfareHistoryDal();
         private readonly Account _OperationAccount;
         private readonly List<SearchField> _SearchFieldList;
         private List<SearchField> _EmployeeBasicInfoSearchFieldList;

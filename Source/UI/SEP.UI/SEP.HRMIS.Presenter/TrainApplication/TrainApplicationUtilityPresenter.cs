@@ -15,7 +15,7 @@ namespace SEP.HRMIS.Presenter.TrainApplication
     {
         private readonly ITrainApplicationView _ItsView;
         private readonly ITraineeApplicationFacade _ITrainFacade = InstanceFactory.CreateTraineeApplicationFacade();
-        private readonly IGetBindFieldFacade _IGetBindFieldFacade = PayModuleInstanceFactory.CreateGetBindFieldFacade();
+        private readonly IGetBindFieldFacade _IGetBindFieldFacade = InstanceFactory.CreateGetBindFieldFacade();
         public const string AddPageTitle = "–¬‘ˆ≈‡—µ…Í«Î";
         public const string AddOperationType = "Add";
 

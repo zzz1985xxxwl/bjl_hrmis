@@ -1,6 +1,7 @@
 using System;
 using System.Configuration;
 using System.Transactions;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.IBll;
 using SEP.IBll.Departments;
@@ -63,7 +64,7 @@ namespace SEP.Presenter.Departments
                     if (CompanyConfig.HasHrmisSystem)
                     {
                         IDepartmentHistoryFacade hrmisDepartmentHistoryFacade =
-                            InstanceFactory.CreateDepartmentHistoryFacade();
+                            new DepartmentHistoryFacade();
                         hrmisDepartmentHistoryFacade.AddDepartmentHistory(_LoginUser);
                     }
                     ts.Complete();

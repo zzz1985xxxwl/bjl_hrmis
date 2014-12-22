@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
@@ -10,8 +11,8 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     ///</summary>
     public class CreateAttendanceFromClocking
     {
-        private static readonly IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static readonly IAttendanceInAndOutRecord _DalRecord = DalFactory.DataAccess.CreateAttendanceInAndOutRecord();
+        private static readonly IEmployee _DalEmployee = new EmployeeDal();
+        private static readonly IAttendanceInAndOutRecord _DalRecord = new AttendanceInAndOutRecordDal();
         
         ///<summary>
         ///</summary>
@@ -51,7 +52,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
                         _DalEmployee.GetEmployeeBasicInfoByAccountID(AllEmployeeList[i].Account.Id).EmployeeAttendance.
                             DoorCardNo;
                     AllEmployeeList[i].EmployeeAttendance.PlanDutyDetailList =
-                        DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(
+                        new PlanDutyDal().GetPlanDutyDetailByAccount(
                             AllEmployeeList[i].Account.Id,
                             Convert.ToDateTime(tempDate.ToShortDateString() + " 00:00:00"),
                             Convert.ToDateTime(tempDate.ToShortDateString() + " 23:59:59"));

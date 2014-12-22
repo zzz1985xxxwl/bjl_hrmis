@@ -10,10 +10,11 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.PayModule.Tax;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
@@ -21,14 +22,14 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
     ///</summary>
     public class CreateEmployeeSalary : Transaction
     {
-        private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
-        private readonly IEmployeeAccountSet _DalEmployeeAccountSet = PayModuleDataAccess.CreateEmployeeAccountSet();
+        private readonly IEmployeeSalary _DalEmployeeSalary = new EmployeeSalaryDal();
+        private readonly IEmployeeAccountSet _DalEmployeeAccountSet =new EmployeeAccountSetDal();
         private readonly int _EmployeeID;
         private EmployeeSalary _AccountSet;
         private readonly string _BackAccountsName;
         private readonly string _Description;
         private readonly DateTime _SalaryTime;
-        private readonly IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private readonly IAccountSet _DalAccountSet = new AccountSetDal();
         private readonly GetBindField _GetBindField=new GetBindField();
         private readonly GetTax _GetTax=new GetTax();
 

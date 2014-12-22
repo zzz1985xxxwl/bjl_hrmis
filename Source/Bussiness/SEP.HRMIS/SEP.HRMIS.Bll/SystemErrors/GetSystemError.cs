@@ -8,11 +8,12 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.SystemError;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Utility;
 
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.SystemErrors
     /// </summary>
     public class GetSystemError
     {
-        private readonly ISystemError _ISystemError = DalFactory.DataAccess.CreateSystemError();
+        private readonly ISystemError _ISystemError = new SystemErrorDal();
         private readonly GetEmployee _GetEmployee = new GetEmployee();
         private readonly Account _LoginUser;
 

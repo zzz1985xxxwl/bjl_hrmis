@@ -5,6 +5,7 @@ using System.Collections;
 using System.Web.UI;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model.TraineeApplications;
+using SEP.HRMIS.Presenter;
 using SEP.Model.Accounts;
 using ShiXin.Security;
 

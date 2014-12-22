@@ -9,9 +9,10 @@
 
 using System;
 using System.Configuration;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.PhoneMessage;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.SMS;
@@ -33,7 +34,7 @@ namespace SEP.HRMIS.Bll.RequestPhoneMessages.ConfirmMessages
         private readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private const double _DefaultTimeSpan = 24;
         //静态变量
-        private static readonly IPhoneMessage _PhoneMessageDal = DalFactory.DataAccess.CreatePhoneMessage();
+        private static readonly IPhoneMessage _PhoneMessageDal = new PhoneMessageDal();
 
         private readonly HandleConfirm _HandelConfirm = new HandleConfirm();
         private readonly string _Format = "，回复1代表同意，0代表不同意 空格后写备注";

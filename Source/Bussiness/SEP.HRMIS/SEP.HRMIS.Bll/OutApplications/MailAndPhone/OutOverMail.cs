@@ -10,10 +10,11 @@ using System.Collections.Generic;
 using System.Text;
 using Mail.Model;
 using SEP.HRMIS.Bll.DiyProcesses;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -26,7 +27,7 @@ namespace SEP.HRMIS.Bll.OutApplications.MailAndPhone
     /// </summary>
     public class OutOverMail
     {
-        private static readonly IOutApplication _OutApplicationDal = DalFactory.DataAccess.CreateOutApplication();
+        private static readonly IOutApplication _OutApplicationDal = new OutApplicationDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private static readonly IMailGateWay _MailGateWay = BllInstance.MailGateWayBllInstance;
         private readonly OutApplication _OutApplication;

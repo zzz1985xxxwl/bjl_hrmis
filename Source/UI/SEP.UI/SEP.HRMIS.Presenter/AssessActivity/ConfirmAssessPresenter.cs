@@ -22,7 +22,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
     public class ConfirmAssessPresenter : BasePresenter
     {
         private readonly IConfirmAssessView _View;
-        private readonly IAssessActivityFacade _AssessActivityFacade = InstanceFactory.AssessActivityFacade;
+        private readonly IAssessActivityFacade _AssessActivityFacade = InstanceFactory.AssessActivityFacade();
         private readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly IAssessManagementFacade _AssessManagementFacade =
             InstanceFactory.CreateAssessManagementFacade();
@@ -134,7 +134,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
 
             try
             {
-                InstanceFactory.AssessActivityFacade.ConfirmActivityExcute(assessActivityID, _View.AssessTempletPaperID,
+                InstanceFactory.AssessActivityFacade().ConfirmActivityExcute(assessActivityID, _View.AssessTempletPaperID,
                                                                            Convert.ToDateTime(
                                                                                _View.ManagerExpectedFinish),
                                                                            Convert.ToDateTime(_View.PersonalExpectedTime),

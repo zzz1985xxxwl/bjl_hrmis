@@ -9,10 +9,11 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.LeaveRequests
 {
@@ -21,7 +22,7 @@ namespace SEP.HRMIS.Bll.LeaveRequests
     /// </summary>
     public class AddVacationByLeaveReuqest
     {
-        private static readonly IVacation _VacationDal = DalFactory.DataAccess.CreateVacation();
+        private static readonly IVacation _VacationDal = new VacationDal();
         private readonly List<LeaveRequestItem> _LeaveRequestItems;
 
         /// <summary>

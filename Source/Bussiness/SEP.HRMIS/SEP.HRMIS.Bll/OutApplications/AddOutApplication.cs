@@ -13,11 +13,12 @@ using SEP.HRMIS.Bll.EmployeeAdjustRest;
 using SEP.HRMIS.Bll.EmployeeAdjustRules;
 using SEP.HRMIS.Bll.OutApplications.MailAndPhone;
 using SEP.HRMIS.Bll.Requests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.OutApplications
@@ -30,7 +31,7 @@ namespace SEP.HRMIS.Bll.OutApplications
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static IOutApplication _OutApplicationDal = DalFactory.DataAccess.CreateOutApplication();
+        private static IOutApplication _OutApplicationDal = new OutApplicationDal();
 
         private readonly OutApplication _OutApplication;
         private readonly OutDiyProcessUtility _OutDiyProcessUtility = new OutDiyProcessUtility();

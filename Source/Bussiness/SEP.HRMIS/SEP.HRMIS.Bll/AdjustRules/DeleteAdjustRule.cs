@@ -7,9 +7,10 @@
 // Resume: 
 // ----------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AdjustRules
 {
@@ -18,8 +19,8 @@ namespace SEP.HRMIS.Bll.AdjustRules
     /// </summary>
     public class DeleteAdjustRule : Transaction
     {
-        private static IAdjustRule _AdjustRuleDal = DalFactory.DataAccess.CreateAdjustRule();
-        private static IEmployeeAdjustRule _EmployeeAdjustRuleDal = DalFactory.DataAccess.CreateEmployeeAdjustRule();
+        private static IAdjustRule _AdjustRuleDal = new AdjustRuleDal();
+        private static IEmployeeAdjustRule _EmployeeAdjustRuleDal = new EmployeeAdjustRuleDal();
         private readonly int _AdjustRuleID;
 
         /// <summary>

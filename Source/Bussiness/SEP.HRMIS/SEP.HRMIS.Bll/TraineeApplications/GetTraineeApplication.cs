@@ -1,11 +1,12 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.TraineeApplications;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll.TraineeApplications
     public class GetTraineeApplication
     {
 
-        private static readonly ITraineeApplication _DalTraineeApplication = DalFactory.DataAccess.CreateTraineeApplication();
+        private static readonly ITraineeApplication _DalTraineeApplication = new TraineeApplicationDal();
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
 

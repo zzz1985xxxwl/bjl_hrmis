@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.SystemError;
+using SEP.HRMIS.Presenter;
 using SEP.Model.Accounts;
 
 namespace SEP.Performance.Views.HRMIS.SystemErrors.EmployeeContractErrorListAjax

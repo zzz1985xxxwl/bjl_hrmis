@@ -1,6 +1,7 @@
 using SEP.HRMIS.Bll;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.LeaveRequests
 {
@@ -9,7 +10,7 @@ namespace SEP.HRMIS.Bll.LeaveRequests
     /// </summary>
     public class DeleteLeaveRequest : Transaction
     {
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
         private readonly int _LeaveRequestID;
 
         /// <summary>

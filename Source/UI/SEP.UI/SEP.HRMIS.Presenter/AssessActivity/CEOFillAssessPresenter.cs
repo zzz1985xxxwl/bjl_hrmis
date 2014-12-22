@@ -57,7 +57,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
             {
                 try
                 {
-                    InstanceFactory.AssessActivityFacade.FillCEOCommentExcute(_AssessActivity.AssessActivityID,
+                    InstanceFactory.AssessActivityFacade().FillCEOCommentExcute(_AssessActivity.AssessActivityID,
                                                                               _View.Comment, LoginUser.Name, ConvertToDecaiml(_View.SalaryChange));
                     ToGetCurrentAssessPage(this, null);
                 }

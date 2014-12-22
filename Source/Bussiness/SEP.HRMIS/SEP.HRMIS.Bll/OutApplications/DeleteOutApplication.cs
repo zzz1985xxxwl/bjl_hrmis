@@ -8,9 +8,10 @@
 // ---------------------------------------------------------------
 
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.OutApplications
 {
@@ -19,7 +20,7 @@ namespace SEP.HRMIS.Bll.OutApplications
     /// </summary>
     public class DeleteOutApplication : Transaction
     {
-        private static readonly IOutApplication _OutApplicationDal = DalFactory.DataAccess.CreateOutApplication();
+        private static readonly IOutApplication _OutApplicationDal = new OutApplicationDal();
         private readonly int _ApplicationID;
 
         /// <summary>

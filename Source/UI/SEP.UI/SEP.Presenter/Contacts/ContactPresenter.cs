@@ -3,16 +3,16 @@ using ComService.ServiceModels;
 using ComService.ServiceContracts;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using SEP.HRMIS.Facade;
 using SEP.Presenter.IPresenter.IContact;
 using SEP.Model.Utility;
-using SEP.HRMIS.IFacede;
 
 namespace SEP.Presenter.Contacts
 {
     public class ContactPresenter : IDisposable
     {
         private static readonly IContactServices _contactService;
-        private  readonly IEmployeeFacade _IEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
+        private  readonly EmployeeFacade _IEmployeeFacade = new EmployeeFacade();
         private  int _CompanyId;
         static ContactPresenter()
         {

@@ -54,7 +54,7 @@ namespace SEP.HRMIS.Presenter
              record.OperateStatus = OutInRecordOperateStatusEnum.AddByOperator;
              try
              {
-                 InstanceFactory.AttendanceInOutRecordFacade.InsertAttendanceInOutRecord(
+                 InstanceFactory.AttendanceInOutRecordFacade().InsertAttendanceInOutRecord(
                      Convert.ToInt32(_View.EmployeeId), record, CompleteLogData(record), LoginUser);
                  _View.ActionSuccess = true;
              }

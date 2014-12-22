@@ -10,14 +10,15 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class GetContractType 
     {
-        private static IContractType _dalContractType = DalFactory.DataAccess.CreateContractType();
-        private static IContract _dalContract = DalFactory.DataAccess.CreateContract();
-        private static IContractBookMark _dalContractBookMark = DalFactory.DataAccess.CreateContractBookMark();
+        private static IContractType _dalContractType = new ContractTypeDal();
+        private static IContract _dalContract = new ContractDal();
+        private static IContractBookMark _dalContractBookMark = new ContractBookMarkDal();
 
         public GetContractType()
         {

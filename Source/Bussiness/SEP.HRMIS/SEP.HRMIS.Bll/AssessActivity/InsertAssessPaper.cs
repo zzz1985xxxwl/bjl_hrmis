@@ -9,10 +9,11 @@
 
 using System.Collections.Generic;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Positions;
 using SEP.Model.Positions;
@@ -23,10 +24,10 @@ namespace SEP.HRMIS.Bll.AssessActivity
     ///</summary>
     public class InsertAssessPaper : Transaction
     {
-        private static IAssessTemplatePaper _IAssessTemplatePaper = DalFactory.DataAccess.CreateAssessTemplatePaper();
+        private static IAssessTemplatePaper _IAssessTemplatePaper = new AssessTemplatePaperDal();
 
         private static IAssessTemplatePaperBindPosition _IAssessTemplatePaperBindPosition =
-            DalFactory.DataAccess.CreateAssessTemplatePaperBindPosition();
+            new AssessTemplatePaperBindPositionDal();
 
         private static IPositionBll _IPostionBll = BllInstance.PositionBllInstance;
         private readonly AssessTemplatePaper _Paper;

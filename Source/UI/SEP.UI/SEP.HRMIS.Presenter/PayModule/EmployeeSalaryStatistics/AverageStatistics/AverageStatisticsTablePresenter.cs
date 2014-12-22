@@ -29,7 +29,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeSalaryStatistics.AverageStatisti
         {
             if (_IAverageStatisticsTableView.gvAverageStatisticsTableSource == null)
             {
-                IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =PayModuleInstanceFactory.CreateEmployeeSalaryStatisticsFacade();
+                IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =InstanceFactory.CreateEmployeeSalaryStatisticsFacade();
                 List<EmployeeSalaryAverageStatistics> employeeSalaryAverageStatistics =
                     _IEmployeeSalaryStatisticsFacade.AverageStatistics(
                         Convert.ToDateTime(_IStatisticsConditionView.FromDate),

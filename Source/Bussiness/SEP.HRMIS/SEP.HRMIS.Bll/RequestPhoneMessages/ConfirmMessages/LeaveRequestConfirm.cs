@@ -9,10 +9,11 @@
 
 using System.Text;
 using SEP.HRMIS.Bll.LeaveRequests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.PhoneMessage;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll.SMS;
 using SmsDataContract;
 
@@ -23,7 +24,7 @@ namespace SEP.HRMIS.Bll.RequestPhoneMessages.ConfirmMessages
     /// </summary>
     public class LeaveRequestConfirm : BasicConfirm
     {
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
         /// <summary>
         /// 
         /// </summary>

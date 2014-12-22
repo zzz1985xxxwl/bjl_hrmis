@@ -14,6 +14,7 @@ using System.IO;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -33,7 +34,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         private int count;
 
         private readonly GetEmployee getEmployee = new GetEmployee();
-        private readonly IAttendanceInAndOutRecord attendanceInAndOutRecordDal = DalFactory.DataAccess.CreateAttendanceInAndOutRecord();
+        private readonly IAttendanceInAndOutRecord attendanceInAndOutRecordDal = new AttendanceInAndOutRecordDal();
         private IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
 
         ///<summary>

@@ -2,6 +2,7 @@ using System.Text;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.DiyProcesss;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
 using SEP.Model.Accounts;
@@ -17,10 +18,10 @@ namespace SEP.HRMIS.Bll.DiyProcesses
     ///</summary>
     public class GetDiyProcess
     {
-        private static IDiyProcessDal _DiyProcessDal = DalFactory.DataAccess.CreateDiyProcessDal();
+        private static IDiyProcessDal _DiyProcessDal = new DiyProcessDal();
      
         private static IEmployeeDiyProcessDal _DiyEmployeeProcessDal =
-            DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+            new EmployeeDiyProcessDal();
 
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;

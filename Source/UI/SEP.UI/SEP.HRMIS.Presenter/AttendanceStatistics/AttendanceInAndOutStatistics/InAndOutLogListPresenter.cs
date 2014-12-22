@@ -68,7 +68,7 @@ namespace SEP.HRMIS.Presenter
             try
             {
                 _View.InAndOutLogs =
-                    InstanceFactory.AttendanceInOutRecordFacade.GetInAndOutLogByCondition(_View.EmployeeName,
+                    InstanceFactory.AttendanceInOutRecordFacade().GetInAndOutLogByCondition(_View.EmployeeName,
                                                                                           _View.DepartmentId,
                                                                                           _OperatTimeFrom,
                                                                                           _OperatTimeTo,

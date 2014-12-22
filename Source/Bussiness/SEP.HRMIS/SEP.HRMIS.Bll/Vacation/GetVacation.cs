@@ -8,11 +8,12 @@
 // ----------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class GetVacation
     {
-        private readonly IVacation _dal = DalFactory.DataAccess.CreateVacation();
+        private readonly IVacation _dal = new VacationDal();
         private readonly GetEmployee GetEmployee = new GetEmployee();
 
         /// <summary>

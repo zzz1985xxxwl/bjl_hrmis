@@ -9,9 +9,10 @@
 
 using System.Collections.Generic;
 using System.Text;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.LeaveRequestTypes
 {
@@ -20,7 +21,7 @@ namespace SEP.HRMIS.Bll.LeaveRequestTypes
     /// </summary>
     public class GetLeaveRequestType
     {
-        private static readonly ILeaveRequestType _LeaveRequestTypeDal = DalFactory.DataAccess.CreateLeaveRequestType();
+        private static readonly ILeaveRequestType _LeaveRequestTypeDal = new LeaveRequestTypeDal();
 
         /// <summary>
         /// 

@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll
     {
         private DateTime _Date;
         private static GetEmployee getEmployee;
-        private static IVacation _VacationDal = DalFactory.DataAccess.CreateVacation();
+        private static IVacation _VacationDal = new VacationDal();
         private readonly int _CreateAnnualHolidayDay;
         private readonly int _CreateAnnualHolidayMonth;
         private readonly int _AnnualHolidayLow;

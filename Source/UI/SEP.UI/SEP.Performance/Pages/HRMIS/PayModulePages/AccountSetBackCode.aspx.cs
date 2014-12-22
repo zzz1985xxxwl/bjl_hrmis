@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SEP.HRMIS.IFacede.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.Presenter;
 using SEP.Model.Utility;
 
 namespace SEP.Performance.Pages.HRMIS.PayModulePages
@@ -48,7 +49,7 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
         public string SearchLikeName(string key)
         {
             string result = String.Empty;
-            IAccountSetFacade IAccountSetFacade = PayModuleInstanceFactory.CreateAccountSetFacade();
+            IAccountSetFacade IAccountSetFacade = InstanceFactory.CreateAccountSetFacade();
             List<AccountSetPara> allAccountSetParas =
                 IAccountSetFacade.GetAccountSetParaByCondition("", FieldAttributeEnum.AllFieldAttribute,
                                                                MantissaRoundEnum.AllMantissaRound,

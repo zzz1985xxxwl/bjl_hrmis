@@ -10,10 +10,11 @@
 using System;
 using System.Collections.Generic;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
@@ -23,7 +24,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
     {
         private readonly string _BackAccountsName;
         private readonly int _CompanyId;
-        private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
+        private readonly IEmployeeSalary _DalEmployeeSalary = new EmployeeSalaryDal();
         private readonly GetEmployee _GetEmployee = new GetEmployee();
         private readonly DateTime _SalaryTime;
         private List<Employee> _EmployeeList;

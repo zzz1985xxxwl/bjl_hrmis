@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.Attendance;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -30,8 +31,8 @@ namespace SEP.HRMIS.Bll
 
         public IAccountBll _IAccountBll;
 
-        protected static IEmployee _EmployeeDal = DalFactory.DataAccess.CreateEmployee();
-        protected static IBadAttendance _AttendanceDal = DalFactory.DataAccess.CreateBadAttendanceDal();
+        protected static IEmployee _EmployeeDal = new EmployeeDal();
+        protected static IBadAttendance _AttendanceDal = new BadAttendanceDal();
 
         //protected abstract void ValidationSelf();
         //需要应用模板的类去判断，这个类型是否是与自己的实体类相同的类型

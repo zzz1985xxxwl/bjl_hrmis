@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Departments;
 
 namespace SEP.HRMIS.Bll
@@ -19,7 +20,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class GetDepartmentHistory
     {
-        private readonly IDepartmentHistory _DalDepartmentHistory = DalFactory.DataAccess.CreateDepartmentHistory();
+        private readonly IDepartmentHistory _DalDepartmentHistory = new DepartmentHistoryDal();
         /// <summary>
         /// 获取部门历史构造函数
         /// </summary>

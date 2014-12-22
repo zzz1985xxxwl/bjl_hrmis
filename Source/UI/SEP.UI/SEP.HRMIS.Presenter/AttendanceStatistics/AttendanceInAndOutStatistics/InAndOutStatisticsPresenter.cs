@@ -25,8 +25,7 @@ namespace SEP.HRMIS.Presenter.AttendanceStatistics.AttendanceInAndOutStatistics
         private readonly IInAndOutStatisticsView _ItsView;
         private readonly IAttendanceReadDataFacade _IAttendanceReadDataFacade = InstanceFactory.CreateAttendanceReadDataFacade();
 
-        private readonly IAttendanceInOutRecordFacade _IAttendanceInOutRecordFacade =
-            InstanceFactory.AttendanceInOutRecordFacade;
+        private readonly IAttendanceInOutRecordFacade _IAttendanceInOutRecordFacade = InstanceFactory.AttendanceInOutRecordFacade();
 
         private readonly IBll.Accounts.IAccountBll _IGetEmployee = BllInstance.AccountBllInstance;
         //public delegate void _SendMail(string employeeID,string employeeName, string inTime ,

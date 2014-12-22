@@ -13,6 +13,7 @@ using SEP.HRMIS.Entity;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -29,11 +30,11 @@ namespace SEP.HRMIS.Bll
     public class GetEmployee
     {
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
-        private static IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static IEmployeeSkill _dalEmployeeSkill = DalFactory.DataAccess.CreateEmployeeSkill();
+        private static IEmployee _dalEmployee = new EmployeeDal();
+        private static IEmployeeSkill _dalEmployeeSkill = new EmployeeSkillDal();
         private static IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
         private static IPositionBll _IPositionBll = BllInstance.PositionBllInstance;
-        private static IEmployeeAdjustRule _EmployeeAdjustRuleDal = DalFactory.DataAccess.CreateEmployeeAdjustRule();
+        private static IEmployeeAdjustRule _EmployeeAdjustRuleDal = new EmployeeAdjustRuleDal();
         /// <summary>
         /// 获取员工信息方法构造函数
         /// </summary>

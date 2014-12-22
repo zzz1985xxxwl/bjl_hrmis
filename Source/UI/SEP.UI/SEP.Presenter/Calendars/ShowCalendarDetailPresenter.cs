@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord;
 using SEP.IBll;
@@ -21,10 +22,10 @@ namespace SEP.Presenter.Calendars
     {
         public IShowCalendarDetail _IShowCalendarDetail;
         public IEmployeeAttendanceStatisticsFacade _IEmployeeAttendanceStatisticsFacade
-            = InstanceFactory.CreateEmployeeAttendanceStatisticsFacade();
+            = new EmployeeAttendanceStatisticsFacade();
 
         private readonly IAttendanceInOutRecordFacade _IAttendanceInOutRecordFacade =
-            InstanceFactory.AttendanceInOutRecordFacade;
+            new AttendanceInOutRecordFacade();
             
         //public ICalendarEventFacade _ICalendarEventFacade =
         //    FacadeInstance.CreateCalendarEventFacade();
@@ -74,7 +75,7 @@ namespace SEP.Presenter.Calendars
                 string inTime = e == Convert.ToDateTime("2999-12-31") ? "нч" : e.ToString();
                 string outTime = l == Convert.ToDateTime("1900-1-1") ? "нч" : l.ToString();
 
-                IAttendanceReadDataFacade _IAttendanceReadDataFacade = InstanceFactory.CreateAttendanceReadDataFacade();
+                IAttendanceReadDataFacade _IAttendanceReadDataFacade = new AttendanceReadDataFacade();
                 _IAttendanceReadDataFacade.AttendanceSendEmailToEmployee(employeeName, inTime, outTime, status,
                                                        new DateTime(_Date.Year, _Date.Month, _Date.Day, 0, 0, 0).ToString(), new DateTime(_Date.Year, _Date.Month, _Date.Day, 23, 59, 59).ToString(), to, cc, _LoginUser);
 

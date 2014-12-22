@@ -9,12 +9,14 @@
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.Bll.Train;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class DeleteTrainFBQuestion : Transaction
     {
-        private static IFBQuestion _DalFBQuestion = DalFactory.DataAccess.CreateFBQues();
+        private static IFBQuestion _DalFBQuestion = new FBQuestionDal();
         private readonly TrainFBQuestion _TrainFBQuesiton;
 
 

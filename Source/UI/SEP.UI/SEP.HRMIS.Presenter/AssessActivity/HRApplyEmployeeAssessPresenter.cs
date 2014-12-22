@@ -22,7 +22,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         {
             EmployeeTypeEnum employeetype = EmployeeTypeUtility.GetEmployeeTypeByID(Convert.ToInt32(_View.EmployeeType));
             _View.Employees =
-                InstanceFactory.AssessActivityFacade.GetAssessActivityForHRApply(_View.EmployeeName, employeetype, _View.PositionId, _View.DepartmentId, _View.RecursionDepartment, LoginUser);
+                InstanceFactory.AssessActivityFacade().GetAssessActivityForHRApply(_View.EmployeeName, employeetype, _View.PositionId, _View.DepartmentId, _View.RecursionDepartment, LoginUser);
 
         }
 

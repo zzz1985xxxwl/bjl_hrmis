@@ -10,6 +10,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.ReadData;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
@@ -18,8 +19,8 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     ///</summary>
     public class ReadDataInfo
     {
-        private readonly IAttendanceReadRule _DalReadRule = DalFactory.DataAccess.CreateAttendanceReadRule();
-        private readonly IReadDataHistory _DalReadHistory = DalFactory.DataAccess.CreateAttendanceReadHistory();
+        private readonly IAttendanceReadRule _DalReadRule = new AttendanceReadRuleDal();
+        private readonly IReadDataHistory _DalReadHistory = new ReadDataHistoryDal();
         private readonly Account _LoginUser;
 
         public ReadDataInfo(Account loginUser)

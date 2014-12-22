@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Positions;
 using SEP.IBll;
@@ -26,9 +27,9 @@ namespace SEP.HRMIS.Bll
     public class GetEmployeeStatistics 
     {
         private static GetEmployeeHistory _GetEmployeeHistory = new GetEmployeeHistory();
-        private static IPositionHistory _DalPositionHistory = DalFactory.DataAccess.CreatePositionHistory();
-        private static IVacation _DalVacation = DalFactory.DataAccess.CreateVacation();
-        private static IEmployeeWelfareHistory _DalEmployeeWelfareHistroy = DalFactory.DataAccess.CreateEmployeeWelfareHistory();
+        private static IPositionHistory _DalPositionHistory = new PositionHistoryDal();
+        private static IVacation _DalVacation = new VacationDal();
+        private static IEmployeeWelfareHistory _DalEmployeeWelfareHistroy = new EmployeeWelfareHistoryDal();
         private IPositionBll _IPositionBll = BllInstance.PositionBllInstance;
         private List<Employee> _Employeesource;
         private DateTime _Date;

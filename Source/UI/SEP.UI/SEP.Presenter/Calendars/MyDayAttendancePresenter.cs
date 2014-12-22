@@ -6,14 +6,15 @@
 // 创建日期: 2008-08-11
 // 概述: 日期
 // ----------------------------------------------------------------
+
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
-using SEP.IBll;
 using SEP.Model.Accounts;
 using SEP.Model.Calendar;
 using SEP.Model.Utility;
@@ -23,25 +24,25 @@ namespace SEP.Presenter.Calendars
 {
     public class MyDayAttendancePresenter
     {
-        public IMyDayAttendance _IMyDayAttendance;
-        public IEmployeeAttendanceStatisticsFacade _IEmployeeAttendanceStatisticsFacade
-            = InstanceFactory.CreateEmployeeAttendanceStatisticsFacade();
-        //public ICalendarEventFacade _ICalendarEventFacade =
-        //    FacadeInstance.CreateCalendarEventFacade();
-        
-        private int _EmployeeID;
         private static DateTime _Form;
         private static DateTime _To;
         private readonly Account _Account;
-        private Employee _Employee;
         private readonly Account _LoginUser = HttpContext.Current.Session["LoginInfo"] as Account;
+        private Employee _Employee;
+        private int _EmployeeID;
+
+        public IEmployeeAttendanceStatisticsFacade _IEmployeeAttendanceStatisticsFacade
+            = new EmployeeAttendanceStatisticsFacade();
+
+        public IMyDayAttendance _IMyDayAttendance;
+
         public MyDayAttendancePresenter(IMyDayAttendance view, Account account)
         {
             _Account = account;
             _IMyDayAttendance = view;
         }
 
-        public void InitPresenter(bool isPostBack ,DateTime currentMonth)
+        public void InitPresenter(bool isPostBack, DateTime currentMonth)
         {
             //_IMyDayAttendance.CalendarStatusSet = currentMonth;
             if (!isPostBack)
@@ -49,6 +50,7 @@ namespace SEP.Presenter.Calendars
                 ExecuteSearchEvent(currentMonth);
             }
         }
+
         public void ExecuteSearchEvent(DateTime currentDate)
         {
             if (Validation())
@@ -56,13 +58,14 @@ namespace SEP.Presenter.Calendars
                 GetViewCalendar(currentDate);
             }
         }
+
         public void GetViewCalendar(DateTime currentDate)
         {
-            DateTime dttempDate = new DateTime(currentDate.Year, currentDate.Month, 1);
+            var dttempDate = new DateTime(currentDate.Year, currentDate.Month, 1);
             _Form = dttempDate.AddDays(-14); //月头
             _To = dttempDate.AddMonths(1).AddDays(13); //月末
-            
-            DataTable dt = new DataTable();
+
+            var dt = new DataTable();
             dt.Columns.Add("Id", Type.GetType("System.Int32"));
             dt.Columns.Add("EventStartDate", Type.GetType("System.DateTime"));
             dt.Columns.Add("EventEndDate", Type.GetType("System.DateTime"));
@@ -75,7 +78,6 @@ namespace SEP.Presenter.Calendars
 
             if (CompanyConfig.HasHrmisSystem && _LoginUser.IsHRAccount)
             {
-                
                 List<PlanDutyDetail> planDutyDetailList =
                     _IEmployeeAttendanceStatisticsFacade.GetPlanDutyDetailByAccount(_EmployeeID, _Form, _To);
                 if (planDutyDetailList.Count > 0)
@@ -88,7 +90,7 @@ namespace SEP.Presenter.Calendars
 
                 dt = GetHRMISEvents(_Employee, dt, idCount);
             }
-            if (CompanyConfig.HasCRMSystem&&_LoginUser.IsCRMAccount)
+            if (CompanyConfig.HasCRMSystem && _LoginUser.IsCRMAccount)
             {
                 //List<DayAttendance> crmDayAttendanceList =
                 //    _ICalendarEventFacade.GetCalendarByEmployee(_EmployeeID, _Form, _To);
@@ -102,7 +104,7 @@ namespace SEP.Presenter.Calendars
         public bool Validation()
         {
             _IMyDayAttendance.ResultMessage = "";
-            bool validation=true;
+            bool validation = true;
 
             if (!int.TryParse(_IMyDayAttendance.EmployeeID, out _EmployeeID))
             {
@@ -128,26 +130,28 @@ namespace SEP.Presenter.Calendars
             }
             return dt;
         }
+
         private static DataTable GetHRMISEvents(Employee employee, DataTable dt, int idCount)
         {
             List<DayAttendance> calendarList = employee.EmployeeAttendance.DayAttendanceList;
-            
-            for (int i = 0;i< calendarList.Count; i++)
+
+            for (int i = 0; i < calendarList.Count; i++)
             {
                 DataRow dr = dt.NewRow();
                 dr["Id"] = idCount++;
                 dr["EventStartDate"] = calendarList[i].Date;
                 dr["EventEndDate"] = calendarList[i].Date;
-                if (calendarList[i].CalendarType == CalendarType.Late || 
-                    calendarList[i].CalendarType == CalendarType.LeaveEarly)//如果迟到或早退,显示分钟
+                if (calendarList[i].CalendarType == CalendarType.Late ||
+                    calendarList[i].CalendarType == CalendarType.LeaveEarly) //如果迟到或早退,显示分钟
                 {
                     dr["EventHeader"] = calendarList[i].TypeName + calendarList[i].Minites + "Min";
                 }
                 else
                 {
                     //dr["EventHeader"] = calendarList[i].TypeName + calendarList[i].Days*8 + "小时";
-                    dr["EventHeader"] = calendarList[i].TypeName + 
-                        Convert.ToSingle(decimal.Round(Convert.ToDecimal(calendarList[i].Hours), 2))+ "H";
+                    dr["EventHeader"] = calendarList[i].TypeName +
+                                        Convert.ToSingle(decimal.Round(Convert.ToDecimal(calendarList[i].Hours), 2)) +
+                                        "H";
                 }
                 dr["EventDescription"] = calendarList[i].Reason;
                 dr["EventForeColor"] = "Green";

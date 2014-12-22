@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.DataAccess;
+using SEP.HRMIS.SqlServerDal;
 using HRMISModel = SEP.HRMIS.Model;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll.Reimburse
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static IReimburse _DalReimburse = DalFactory.DataAccess.CreateReimburse();
+        private static IReimburse _DalReimburse = new ReimburseDal();
         private readonly List<HRMISModel.Reimburse> _ReimburseID;
         private readonly int _EmployeeID;
         private readonly Employee _Operator;

@@ -4,6 +4,7 @@ using Mail.Model;
 using SEP.HRMIS.Bll.DiyProcesses;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll.AutoRemindServer
     public class AutoRemindVacation : Transaction
     {
         private GetDiyProcess _GetDiyProcess = new GetDiyProcess();
-        private static IVacation _Dal = DalFactory.DataAccess.CreateVacation();
+        private static IVacation _Dal = new VacationDal();
         private static GetEmployee _GetEmployee = new GetEmployee();
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private static IMailGateWay _IMailGateWay = BllInstance.MailGateWayBllInstance;

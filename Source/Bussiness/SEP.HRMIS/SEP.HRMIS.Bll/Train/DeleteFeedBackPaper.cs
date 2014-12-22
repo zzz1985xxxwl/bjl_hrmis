@@ -8,6 +8,8 @@
 // ----------------------------------------------------------------
 using System.Transactions;
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Train
 {
@@ -15,7 +17,7 @@ namespace SEP.HRMIS.Bll.Train
     ///</summary>
     public class DeleteFeedBackPaper : Transaction
     {
-        private static IFeedBackPaper _IFeedBackPaper = DalFactory.DataAccess.CreateFeedBackPaper();
+        private static IFeedBackPaper _IFeedBackPaper = new FeedBackPaperDal();
         private readonly int _PaperID;
 
         /// <summary>

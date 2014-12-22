@@ -10,9 +10,10 @@
 using System;
 using System.Transactions;
 using SEP.HRMIS.Bll.EmployeeAdjustRules;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -25,13 +26,13 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class AddEmployee : Transaction
     {
-        private static IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static IEmployeeHistory _DalEmployeeHistory = DalFactory.DataAccess.CreateEmployeeHistory();
-        private static IEmployeeWelfareHistory _DalEmployeeWelfareHistory = DalFactory.DataAccess.CreateEmployeeWelfareHistory();
-        private static IEmployeeWelfare _DalEmployeeWelfare = DalFactory.DataAccess.CreateEmployeeWelfare();
+        private static IEmployee _DalEmployee = new EmployeeDal();
+        private static IEmployeeHistory _DalEmployeeHistory = new EmployeeHistoryDal();
+        private static IEmployeeWelfareHistory _DalEmployeeWelfareHistory = new EmployeeWelfareHistoryDal();
+        private static IEmployeeWelfare _DalEmployeeWelfare = new EmployeeWelfareDal();
         private static IAccountBll _IAccountBll;
         private static IDepartmentBll _IDepartmentBll;
-        private static IEmployeeSkill _DalEmployeeSkill = DalFactory.DataAccess.CreateEmployeeSkill();
+        private static IEmployeeSkill _DalEmployeeSkill = new EmployeeSkillDal();
         private readonly Account _Operatoraccount;
 
         protected readonly Employee _Employee;

@@ -13,6 +13,7 @@ using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Calendar;
 
@@ -25,8 +26,8 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     /// </summary>
     public class DeleteAttendanceInOutRecord :Transaction
     {
-        private static IAttendanceInAndOutRecord _IRecord = DalFactory.DataAccess.CreateAttendanceInAndOutRecord();
-        //private static IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
+        private static IAttendanceInAndOutRecord _IRecord = new AttendanceInAndOutRecordDal();
+        //private static IEmployee _DalEmployee = new Employee();
 
         private readonly int _EmployeeId;
         private readonly int _RecordId;
@@ -90,7 +91,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
             _Employee.EmployeeAttendance.DayAttendanceList = new List<DayAttendance>();
             //º”‘ÿ≈≈∞‡–≈œ¢
             _Employee.EmployeeAttendance.PlanDutyDetailList =
-DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(_Employee.Account.Id,
+new PlanDutyDal().GetPlanDutyDetailByAccount(_Employee.Account.Id,
                                                                  _TheDate, _TheDate);
 
         }

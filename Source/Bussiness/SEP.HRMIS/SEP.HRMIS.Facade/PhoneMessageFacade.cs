@@ -7,12 +7,9 @@
 // Resume:
 // ----------------------------------------------------------------
 
-using System.Collections.Generic;
-using SEP.HRMIS.Bll.RequestPhoneMessages;
-using SEP.HRMIS.DalFactory;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.IFacede;
-using SEP.HRMIS.Model.PhoneMessage;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Facade
 {
@@ -20,7 +17,7 @@ namespace SEP.HRMIS.Facade
     /// </summary>
     public class PhoneMessageFacade : IPhoneMessageFacade
     {
-        private static readonly IPhoneMessage _PhoneMessageDal =DataAccess.CreatePhoneMessage();
+        private static readonly IPhoneMessage _PhoneMessageDal = new PhoneMessageDal();
         //public List<PhoneMessage> GetPhoneMessageByCondition(string name, PhoneMessageStatus status)
         //{
         //   return new GetPhoneMessage().GetPhoneMessageByCondition(name, status);

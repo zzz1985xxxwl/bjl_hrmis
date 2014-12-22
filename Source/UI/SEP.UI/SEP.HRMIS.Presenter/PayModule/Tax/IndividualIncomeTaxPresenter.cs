@@ -18,7 +18,7 @@ namespace SEP.HRMIS.Presenter.PayModule.Tax
     public class IndividualIncomeTaxPresenter
     {
         private readonly IIndividualIncomeTaxView _View;
-        private readonly ITaxFacade _ITax = PayModuleInstanceFactory.CreateTaxFacade();
+        private readonly ITaxFacade _ITax = InstanceFactory.CreateTaxFacade();
 
         public IndividualIncomeTaxPresenter(IIndividualIncomeTaxView view, bool isPostBack)
         {

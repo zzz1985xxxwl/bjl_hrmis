@@ -10,12 +10,13 @@
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class DeleteTrainCourse : Transaction
     {
-        private static ITrain _DalTrain = DalFactory.DataAccess.CreateTrain();
+        private static ITrain _DalTrain = new TrainDal();
         private readonly int _CourseId;
 
         public DeleteTrainCourse(int courseId)

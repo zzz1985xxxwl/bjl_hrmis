@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Transactions;
 using System.Web.UI.WebControls;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model;
 using SEP.Model.Utility;
@@ -64,7 +65,7 @@ namespace SEP.Presenter.Positions
         {
             if(MasterPagePresenter.HasHrmisSystem)
             {
-                IEmployeeFacade iEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
+                IEmployeeFacade iEmployeeFacade = new EmployeeFacade();
                 List<Employee> employeeList = iEmployeeFacade.GetAllEmployeeBasicInfoWithOutLoadAccount();
                 foreach (Employee employee in employeeList)
                 {
@@ -93,7 +94,7 @@ namespace SEP.Presenter.Positions
                     if (CompanyConfig.HasHrmisSystem)
                     {
                         IPositionHistoryFacade hrmisPositionHistoryFacade =
-                            InstanceFactory.CreatePositionHistoryFacade();
+                            new PositionHistoryFacade();
                         hrmisPositionHistoryFacade.AddPositionHistoryFacade(_LoginUser);
                     }
                     ts.Complete();

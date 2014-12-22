@@ -29,7 +29,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeSalaryStatistics.SummaryStatisti
         {
             if (_ITimeSpanStatisticsGroupByParaTableView.gvTimeSpanStatisticsGroupByParaSource == null)
             {
-                IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =PayModuleInstanceFactory.CreateEmployeeSalaryStatisticsFacade();
+                IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =InstanceFactory.CreateEmployeeSalaryStatisticsFacade();
                 List<Model.PayModule.EmployeeSalaryStatistics> employeeSalaryStatistics =
                     _IEmployeeSalaryStatisticsFacade.TimeSpanStatisticsGroupByParameter(
                         Convert.ToDateTime(_IStatisticsConditionView.FromDate),

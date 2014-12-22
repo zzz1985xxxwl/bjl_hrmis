@@ -7,6 +7,7 @@
 // ¸ÅÊö: É¾³ýÒ»Ìõ¿¼ÇÚ¼ÇÂ¼
 // ----------------------------------------------------------------
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll
@@ -16,7 +17,7 @@ namespace SEP.HRMIS.Bll
         private readonly int _AttendanceId;
         private readonly Account _LoginUser;
 
-        protected static IBadAttendance _AttendanceDal = DalFactory.DataAccess.CreateBadAttendanceDal();
+        protected static IBadAttendance _AttendanceDal = new BadAttendanceDal();
 
         public DeleteBadAttendance(int attendanceId, Account loginUser)
         {

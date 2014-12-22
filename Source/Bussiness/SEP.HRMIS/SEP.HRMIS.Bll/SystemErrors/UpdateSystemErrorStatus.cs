@@ -7,9 +7,10 @@
 // Resume:
 // ----------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.SystemError;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.SystemErrors
 {
@@ -18,7 +19,7 @@ namespace SEP.HRMIS.Bll.SystemErrors
     public class UpdateSystemErrorStatus : Transaction
     {
         private readonly SystemError _SystemError;
-        private readonly ISystemError _ISystemError = DalFactory.DataAccess.CreateSystemError();
+        private readonly ISystemError _ISystemError = new SystemErrorDal();
 
         /// <summary>
         /// 

@@ -16,6 +16,7 @@ using SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Model.EmployeeAttendance.ReadData;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.IBll;
 namespace SEP.HRMIS.Bll.AttendanceStatistics
@@ -24,11 +25,11 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     ///</summary>
     public class ReadDataFromAccess
     {
-        private static IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private readonly IAttendanceReadRule _DalReadRule = DalFactory.DataAccess.CreateAttendanceReadRule();
-        private static IAttendanceInAndOutRecord _DalRecord = DalFactory.DataAccess.CreateAttendanceInAndOutRecord();
-        private readonly IReadDataHistory _DalHistory = DalFactory.DataAccess.CreateAttendanceReadHistory();
-        //private static IAttendanceRule _DalAttendanceRule = DalFactory.DataAccess.CreateAttendanceRule();
+        private static IEmployee _DalEmployee = new EmployeeDal();
+        private readonly IAttendanceReadRule _DalReadRule = new AttendanceReadRuleDal();
+        private static IAttendanceInAndOutRecord _DalRecord = new AttendanceInAndOutRecordDal();
+        private readonly IReadDataHistory _DalHistory = new ReadDataHistoryDal();
+        //private static IAttendanceRule _DalAttendanceRule = new AttendanceRule();
         private IBll.Accounts.IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private List<Employee> EmployeeList;
         private List<Employee> NewEmployeeList;
@@ -209,7 +210,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
                     _DalEmployee.GetEmployeeBasicInfoByAccountID(EmployeeList[i].Account.Id).EmployeeAttendance.
                         DoorCardNo;
                 EmployeeList[i].EmployeeAttendance.PlanDutyDetailList =
-                    DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(EmployeeList[i].Account.Id,
+                    new PlanDutyDal().GetPlanDutyDetailByAccount(EmployeeList[i].Account.Id,
                                                                                          _SearchFrom, _SearchTo);
                 EmployeeList[i].EmployeeAttendance.AttendanceInAndOutRecordList =new List<AttendanceInAndOutRecord>();
                     
@@ -473,7 +474,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
                     _DalEmployee.GetEmployeeBasicInfoByAccountID(EmployeeList[i].Account.Id).EmployeeAttendance.
                         DoorCardNo;
                 EmployeeList[i].EmployeeAttendance.PlanDutyDetailList =
-                    DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(EmployeeList[i].Account.Id,
+                    new PlanDutyDal().GetPlanDutyDetailByAccount(EmployeeList[i].Account.Id,
                                                                                          _SearchFrom, _SearchTo);
                 EmployeeList[i].EmployeeAttendance.AttendanceInAndOutRecordList = new List<AttendanceInAndOutRecord>();
 

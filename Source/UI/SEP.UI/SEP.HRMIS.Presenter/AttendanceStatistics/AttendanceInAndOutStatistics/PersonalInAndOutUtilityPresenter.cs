@@ -86,7 +86,7 @@ namespace SEP.HRMIS.Presenter
                 _View.Message = "初始化错误";
                 return false;
             }
-            Employee employee = InstanceFactory.AttendanceInOutRecordFacade.GetEmployeeInAndOutRecordByEmployeeId(employId, LoginUser);
+            Employee employee = InstanceFactory.AttendanceInOutRecordFacade().GetEmployeeInAndOutRecordByEmployeeId(employId, LoginUser);
             _View.DoorCardNo = employee.EmployeeAttendance.DoorCardNo;
             AttendanceInAndOutRecord record = employee.EmployeeAttendance.FindInAndOutRecordByRecordId(id);
             if (record != null)
@@ -111,7 +111,7 @@ namespace SEP.HRMIS.Presenter
                 _View.Message = "员工Id不存在";
                 return false;
             }
-            Employee employee = InstanceFactory.AttendanceInOutRecordFacade.GetEmployeeInAndOutRecordByEmployeeId(accountId, LoginUser);
+            Employee employee = InstanceFactory.AttendanceInOutRecordFacade().GetEmployeeInAndOutRecordByEmployeeId(accountId, LoginUser);
             _View.DoorCardNo = employee.EmployeeAttendance.DoorCardNo;
 
             if (string.IsNullOrEmpty(_View.DoorCardNo))

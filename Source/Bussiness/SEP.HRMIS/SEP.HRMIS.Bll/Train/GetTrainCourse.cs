@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -21,7 +22,7 @@ namespace SEP.HRMIS.Bll
 {
     public class GetTrainCourse
     {
-        private static readonly ITrain _dalTrain = DalFactory.DataAccess.CreateTrain();
+        private static readonly ITrain _dalTrain = new TrainDal();
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private int _EmployeeId;
 

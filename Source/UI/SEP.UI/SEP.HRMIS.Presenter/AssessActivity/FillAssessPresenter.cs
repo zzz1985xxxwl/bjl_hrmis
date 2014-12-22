@@ -55,7 +55,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 return;
             }
 
-            _AssessActivity = InstanceFactory.AssessActivityFacade.GetAssessActivityByAssessActivityID(assessActivityID);
+            _AssessActivity = InstanceFactory.AssessActivityFacade().GetAssessActivityByAssessActivityID(assessActivityID);
             if (_AssessActivity.AssessCharacterType == AssessCharacterType.ProbationII)
             {
                 _View.SalaryName = "转正后工资&nbsp;<span class=\"redstar\">*</span>";

@@ -1,4 +1,5 @@
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
 {
@@ -7,7 +8,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     /// </summary>
     public class DeleteDutyClass : Transaction
     {
-        private readonly IPlanDutyDal _DalRull = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _DalRull = new PlanDutyDal();
         private readonly int _DutyClassID;
         /// <summary>
         /// 修改班别，构造函数

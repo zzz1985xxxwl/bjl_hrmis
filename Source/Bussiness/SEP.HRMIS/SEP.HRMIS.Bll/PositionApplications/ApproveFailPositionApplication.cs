@@ -1,10 +1,11 @@
 using System;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.PositionApp;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.PositionApplications
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll.PositionApplications
         private readonly RequestStatus _RequestStatus;
         private PositionApplication _PositionApplication;
 
-        private readonly IPositionApplicationDal _PositionApplicationDal = DalFactory.DataAccess.CreatePositionApplication();
+        private readonly IPositionApplicationDal _PositionApplicationDal = new PositionApplicationDal();
         
         /// <summary>
         /// 因为流程中断，审批不通过整张请假单

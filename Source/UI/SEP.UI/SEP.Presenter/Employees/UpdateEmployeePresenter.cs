@@ -1,5 +1,6 @@
 using System;
 using System.Transactions;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model;
 using SEP.IBll;
@@ -59,7 +60,7 @@ namespace SEP.Presenter.Employees
                 {
                     BllInstance.AccountBllInstance.UpdateAccount(account, LoginUser);
 
-                    IEmployeeFacade hrmisEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
+                    IEmployeeFacade hrmisEmployeeFacade = new EmployeeFacade();
                     Employee currEmployee = hrmisEmployeeFacade.GetEmployeeByAccountID(account.Id);
                     if (currEmployee != null)
                     {

@@ -9,12 +9,13 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class GetSkill 
     {
-         private static ISkill _dalSkill = DalFactory.DataAccess.CreateSkill();
+        private static ISkill _dalSkill = new SkillDal();
 
         public GetSkill()
         {

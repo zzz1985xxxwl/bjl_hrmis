@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 
 
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll
 
     public class InsertInAndOutRecordLog:Transaction
     {
-        private readonly IInAndOutRecordLog _DalLog = DalFactory.DataAccess.CreateInAndOutRecordLog();
+        private readonly IInAndOutRecordLog _DalLog = new AttendanceInAndOutRecordLogDal();
         private readonly AttendanceInAndOutRecordLog _Log;
         private readonly Account _LoginUser;
 

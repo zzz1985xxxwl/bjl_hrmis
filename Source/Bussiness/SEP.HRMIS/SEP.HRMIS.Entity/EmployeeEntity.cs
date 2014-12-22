@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 using SEP.Model.Positions;
@@ -514,6 +515,10 @@ namespace SEP.HRMIS.Entity
                              new Department(e.CompanyID,
                                             e.CompanyName)
                      }
+                 },
+                 EmployeeAttendance = new EmployeeAttendance
+                 {
+                     DoorCardNo = e.DoorCardNo
                  }
              };
         }

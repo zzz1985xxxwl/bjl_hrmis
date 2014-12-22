@@ -8,7 +8,7 @@
 // ----------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.Entity;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Logic;
@@ -18,6 +18,7 @@ using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 
@@ -27,10 +28,10 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     ///</summary>
     public class ApplicationSearch 
     {
-        private readonly IPlanDutyDal _DalRull = DalFactory.DataAccess.CreatePlanDutyDal();
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
-        private readonly IOutApplication _DalOutApplication = DalFactory.DataAccess.CreateOutApplication();
-        private readonly IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
+        private readonly IPlanDutyDal _DalRull = new PlanDutyDal();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
+        private readonly IOutApplication _DalOutApplication = new OutApplicationDal();
+        private readonly IOverWork _DalOverWork = new OverWorkDal();
        
         ///<summary>
         ///</summary>

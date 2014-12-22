@@ -5,6 +5,7 @@ using SEP.HRMIS.Bll.AttendanceStatistics;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Mail;
 
@@ -16,7 +17,7 @@ namespace SEP.HRMIS.Bll.AutoRemindServer
     public class AutoRemindEmployeeConfirmAttendance : Transaction
     {
         private GetEmployee _GetEmployee = new GetEmployee();
-        private IPlanDutyDal _IPlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private IPlanDutyDal _IPlanDutyDal = new PlanDutyDal();
         private static IMailGateWay _IMailGateWay = BllInstance.MailGateWayBllInstance;
         private DateTime _CurrDate;
         /// <summary>

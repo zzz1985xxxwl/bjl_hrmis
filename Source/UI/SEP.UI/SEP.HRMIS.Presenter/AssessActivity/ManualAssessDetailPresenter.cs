@@ -29,7 +29,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
             {
                 _View.AssessCharacterTypes = AssessActivityUtility.GetCharacterTypeEnum();
                 _View.ddlCharacterEnabled = false;
-                _View.AssessActivityToManual = InstanceFactory.AssessActivityFacade.GetAssessActivityByAssessActivityID(_AssessActivityID);
+                _View.AssessActivityToManual = InstanceFactory.AssessActivityFacade().GetAssessActivityByAssessActivityID(_AssessActivityID);
                 _View.FormReadonly = true;
             }
         }

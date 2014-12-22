@@ -8,9 +8,10 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.EmployeeAdjustRest
 {
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRest
         private readonly int _AccountID;
         private readonly LeaveRequestItem _LeaveRequestItem;
         private readonly int _LeaveRequestID;
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
         /// <summary>
         /// 
         /// </summary>

@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 using SEP.Model.Positions;
@@ -17,9 +18,9 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
     /// </summary>
     public class GetEmployeeAccountSet
     {
-        private readonly IEmployeeAccountSet _DalEmployeeAccountSet = PayModuleDataAccess.CreateEmployeeAccountSet();
+        private readonly IEmployeeAccountSet _DalEmployeeAccountSet = new EmployeeAccountSetDal();
         private GetEmployee _GetEmployee = new GetEmployee();
-        private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
+        private readonly IEmployeeSalary _DalEmployeeSalary = new EmployeeSalaryDal();
         /// <summary>
         /// ¹¹Ôìº¯Êý
         /// </summary>

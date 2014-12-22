@@ -9,6 +9,7 @@
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 
 namespace SEP.HRMIS.Bll.AssessActivity
@@ -20,7 +21,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
     {
         private readonly int _ActivityId;
         public readonly string _CurrentEmployeeName;
-        private static IAssessActivity _IAssessActivity = DalFactory.DataAccess.AssessActivityDal;
+        private static IAssessActivity _IAssessActivity = new AssessActivityDal();
         private IActiveFlow _IActiveFlow = new ActiveFlow();
 
         protected Model.AssessActivity _itsAssessActivity;

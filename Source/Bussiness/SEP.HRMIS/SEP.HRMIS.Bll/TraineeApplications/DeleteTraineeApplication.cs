@@ -1,6 +1,7 @@
 using System;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.TraineeApplications;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.TraineeApplications
 {
@@ -9,7 +10,7 @@ namespace SEP.HRMIS.Bll.TraineeApplications
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static ITraineeApplication _DalTraineeApplication = DalFactory.DataAccess.CreateTraineeApplication();
+        private static ITraineeApplication _DalTraineeApplication = new TraineeApplicationDal();
 
         private readonly int _TraineeApplicationID;
 

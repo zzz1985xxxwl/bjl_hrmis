@@ -1,5 +1,6 @@
 using System;
 using System.Transactions;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.IBll;
 using SEP.IBll.Departments;
@@ -63,13 +64,13 @@ namespace SEP.Presenter.Departments
                             )
                         {
                             IDepartmentHistoryFacade hrmisDepartmentHistoryFacade =
-                                InstanceFactory.CreateDepartmentHistoryFacade();
+                                new DepartmentHistoryFacade();
                             hrmisDepartmentHistoryFacade.AddDepartmentHistory(_LoginUser);
                         }
                         if (theOldObject.Name != theObject.Name || theOldObject.Address != theObject.Address || theOldObject.Phone != theObject.Phone || theOldObject.Fax != theObject.Fax || theOldObject.FoundationTime != theObject.FoundationTime || theOldObject.Others != theObject.Others)
                         {
                             IEmployeeHistoryFacade hrmisEmployeeHistoryFacade =
-                                InstanceFactory.CreateEmployeeHistoryFacade();
+                                new EmployeeHistoryFacade();
                             hrmisEmployeeHistoryFacade.AddEmployeeHistoryByDepartment(theObject, _LoginUser);
                         }
                     }

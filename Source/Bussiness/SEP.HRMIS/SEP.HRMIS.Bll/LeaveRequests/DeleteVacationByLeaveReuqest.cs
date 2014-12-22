@@ -10,10 +10,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Calendar;
 
 namespace SEP.HRMIS.Bll.LeaveRequests
@@ -23,8 +24,8 @@ namespace SEP.HRMIS.Bll.LeaveRequests
     /// </summary>
     public class DeleteVacationByLeaveReuqest
     {
-        private static IVacation _VacationDal = DalFactory.DataAccess.CreateVacation();
-        private static readonly ILeaveRequestDal _LeaveRequestDal = DalFactory.DataAccess.CreateLeaveRequest();
+        private static IVacation _VacationDal = new VacationDal();
+        private static readonly ILeaveRequestDal _LeaveRequestDal = new LeaveRequestDal();
         private Vacation _LastVacation;
         private Vacation _SecondLastVacation;
         private int _AccountID;

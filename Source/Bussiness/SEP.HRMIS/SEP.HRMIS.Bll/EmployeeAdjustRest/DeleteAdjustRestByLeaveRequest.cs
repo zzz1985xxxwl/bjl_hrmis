@@ -9,12 +9,13 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAdjustRest;
 using SEP.HRMIS.Model.Enum;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Calendar;
 
 namespace SEP.HRMIS.Bll.EmployeeAdjustRest
@@ -27,9 +28,9 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRest
         private readonly int _AccountID;
         private readonly LeaveRequestItem _LeaveRequestItem;
         private readonly int _LeaveRequestID;
-        private readonly IAdjustRest _IAdjustRest = DalFactory.DataAccess.CreateAdjustRest();
-        private readonly IAdjustRestHistory _IAdjustRestHistory = DalFactory.DataAccess.CreateAdjustRestHistory();
-        private static readonly ILeaveRequestDal _LeaveRequestDal = DalFactory.DataAccess.CreateLeaveRequest();
+        private readonly IAdjustRest _IAdjustRest = new AdjustRestDal();
+        private readonly IAdjustRestHistory _IAdjustRestHistory = new AdjustRestHistoryDal();
+        private static readonly ILeaveRequestDal _LeaveRequestDal = new LeaveRequestDal();
         private List<AdjustRest> _AdjustRestDay = new List<AdjustRest>();
 
         /// <summary>

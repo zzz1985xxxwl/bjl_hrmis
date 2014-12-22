@@ -10,10 +10,11 @@
 using System.Collections.Generic;
 using System.Text;
 using Mail.Model;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -26,7 +27,7 @@ namespace SEP.HRMIS.Bll.OverWorks.MailAndPhone
     /// </summary>
     public class OverWorkSubmitMail
     {
-        private static readonly IOverWork _OverWorkDal = DalFactory.DataAccess.CreateOverWork();
+        private static readonly IOverWork _OverWorkDal = new OverWorkDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private static readonly IMailGateWay _MailGateWay = BllInstance.MailGateWayBllInstance;
         private readonly OverWork _OverWork;

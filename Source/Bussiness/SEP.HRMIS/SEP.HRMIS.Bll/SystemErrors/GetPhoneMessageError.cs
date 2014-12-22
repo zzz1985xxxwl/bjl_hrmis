@@ -8,11 +8,12 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.PhoneMessage;
 using SEP.HRMIS.Model.SystemError;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -26,7 +27,7 @@ namespace SEP.HRMIS.Bll.SystemErrors
     {
         private List<SystemError> _SystemErrorList;
         private readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
-        private static readonly IPhoneMessage _PhoneMessageDal = DalFactory.DataAccess.CreatePhoneMessage();
+        private static readonly IPhoneMessage _PhoneMessageDal = new PhoneMessageDal();
         private readonly GetEmployee _GetEmployee = new GetEmployee();
         private string _Name;
         private PhoneMessageStatus _Status;

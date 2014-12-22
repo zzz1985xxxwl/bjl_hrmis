@@ -9,9 +9,11 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -28,8 +30,8 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     /// </summary>
     public class AttendanceOutInRecord
     {
-        private readonly IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private readonly IAttendanceInAndOutRecord _dalAttendanceInAndOutRecord = DalFactory.DataAccess.CreateAttendanceInAndOutRecord();
+        private readonly IEmployee _dalEmployee = new EmployeeDal();
+        private readonly IAttendanceInAndOutRecord _dalAttendanceInAndOutRecord = new AttendanceInAndOutRecordDal();
         private readonly IAccountBll _IAccountBll;
         private GetEmployee _GetEmployee;
         private readonly Account _LoginUser;
@@ -61,14 +63,22 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         {
             List<Employee> retEmployeeList = new List<Employee>();
 
-            List<Account> accountList = _IAccountBll.GetAccountByBaseCondition(employeeName, departmentID, -1, gradesId, true, null);
+            //List<Account> accountList = _IAccountBll.GetAccountByBaseCondition(employeeName, departmentID, -1, gradesId, true, null);
+            //if (departmentID == -1)
+            //{
+            //    accountList = Tools.RemoteUnAuthAccount(accountList, AuthType.HRMIS, _LoginUser, HrmisPowers.A503);
+            //}
+
+            //_GetEmployee = new GetEmployee();
+            //List<Employee> EmployeeList = _GetEmployee.GetEmployeeAttendenceInfoByAccountList(accountList, EmployeeTypeEnum.All, -1);
+            int? powerID = null;
             if (departmentID == -1)
             {
-                accountList = Tools.RemoteUnAuthAccount(accountList, AuthType.HRMIS, _LoginUser, HrmisPowers.A503);
+                powerID = HrmisPowers.A503;
             }
-
-            _GetEmployee = new GetEmployee();
-            List<Employee> EmployeeList = _GetEmployee.GetEmployeeAttendenceInfoByAccountList(accountList, EmployeeTypeEnum.All, -1);
+            var EmployeeList = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(employeeName,
+                EmployeeTypeEnum.All, -1, gradesId, departmentID, null, true, powerID, _LoginUser.Id, -1,
+                new List<int>() { (int)EmployeeTypeEnum.BorrowedEmployee });
 
             for (int i = 0; i < EmployeeList.Count; i++)
             {
@@ -78,7 +88,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
                 }
                 //获取排班信息
                 EmployeeList[i].EmployeeAttendance.PlanDutyDetailList = 
-                    DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(
+                    new PlanDutyDal().GetPlanDutyDetailByAccount(
                     EmployeeList[i].Account.Id, from, to);
                 //如果员工没有排班信息
                 if (EmployeeList[i].EmployeeAttendance.PlanDutyDetailList == null 

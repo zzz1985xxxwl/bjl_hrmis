@@ -13,10 +13,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll
@@ -26,7 +27,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class ImportEmployeeWelfare : Transaction
     {
-        private readonly IEmployeeWelfare _DalEmployeeWelfare = DalFactory.DataAccess.CreateEmployeeWelfare();
+        private readonly IEmployeeWelfare _DalEmployeeWelfare = new EmployeeWelfareDal();
         private readonly string _FilePath;
         private const string _NameColumn = "ÐÕÃû";
         private readonly Account _Operator;

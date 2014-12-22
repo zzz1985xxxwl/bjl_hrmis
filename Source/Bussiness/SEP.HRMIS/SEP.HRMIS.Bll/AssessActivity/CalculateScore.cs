@@ -15,6 +15,7 @@ using System;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AssessFlow;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
@@ -23,7 +24,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
     /// </summary>
     public class CalculateScore:ICalculateScore
     {
-        protected static IAssessActivity _IAssessActivity = DalFactory.DataAccess.AssessActivityDal;
+        protected static IAssessActivity _IAssessActivity = new AssessActivityDal();
         #region ICalculateScore ≥…‘±
         /// <summary>
         /// 

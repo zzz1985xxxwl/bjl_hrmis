@@ -9,10 +9,11 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Model.OutApplication;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.Model.Calendar;
 using SEP.Model.SpecialDates;
@@ -25,7 +26,7 @@ namespace SEP.HRMIS.Bll.OutApplications
     public class CalculateOutCityHourDesType
     {
         private CalculateDays _CalculateDays;
-        private readonly IPlanDutyDal _PlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _PlanDutyDal = new PlanDutyDal();
         private List<PlanDutyDetail> _PlanDutyDetailList;
 
 

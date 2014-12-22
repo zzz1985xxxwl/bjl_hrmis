@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 using System.Transactions;
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -16,9 +17,9 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class DeleteContractType : Transaction
     {
-        private static IContractType _DalContractType = DalFactory.DataAccess.CreateContractType();
-        private static IContractBookMark _ContractBookMark = DalFactory.DataAccess.CreateContractBookMark();
-        private static IContract _DalContract = DalFactory.DataAccess.CreateContract();
+        private static IContractType _DalContractType = new ContractTypeDal();
+        private static IContractBookMark _ContractBookMark = new ContractBookMarkDal();
+        private static IContract _DalContract = new ContractDal();
         private readonly int _ContractTypeId;
         /// <summary>
         /// 删除合同类型

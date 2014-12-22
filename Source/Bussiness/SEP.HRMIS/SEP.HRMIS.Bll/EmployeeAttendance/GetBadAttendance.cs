@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.Attendance;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.Model.Accounts;
@@ -22,8 +23,8 @@ namespace SEP.HRMIS.Bll
 {
     public class GetBadAttendance
     {
-        //private static readonly IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
-        public static IBadAttendance _AttendanceDal = DalFactory.DataAccess.CreateBadAttendanceDal();
+        //private static readonly IEmployee _dalEmployee = new Employee();
+        public static IBadAttendance _AttendanceDal = new BadAttendanceDal();
         private static IBll.Accounts.IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly Account _LoginUser;
 

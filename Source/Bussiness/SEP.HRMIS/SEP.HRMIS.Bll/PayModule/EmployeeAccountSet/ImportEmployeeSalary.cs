@@ -11,10 +11,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
     public class ImportEmployeeSalary : Transaction
     {
         private readonly GetEmployeeAccountSet _IGetEmployeeAccountSet = new GetEmployeeAccountSet();
-        private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
+        private readonly IEmployeeSalary _DalEmployeeSalary = new EmployeeSalaryDal();
         private readonly string _FilePath;
         private readonly string _BackAccountsName;
         private const string _NameColumn = "Ô±¹¤ÐÕÃû";

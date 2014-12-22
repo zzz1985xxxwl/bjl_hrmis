@@ -9,13 +9,15 @@
 using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
     public class ManagerPaperItem : Transaction
     {
-        private static IAssessTemplatePaper _IAssessTemplatePaper = DalFactory.DataAccess.CreateAssessTemplatePaper();
-        private static IAssessTemplateItem _IItem = DalFactory.DataAccess.CreateAssessTemplateItem();
+        private static IAssessTemplatePaper _IAssessTemplatePaper = new AssessTemplatePaperDal();
+        private static IAssessTemplateItem _IItem = new AssessTemplateItemDal();
         private readonly int _AssessPaperID;
         private readonly List<int> _AssessTemplateItemsId;
 

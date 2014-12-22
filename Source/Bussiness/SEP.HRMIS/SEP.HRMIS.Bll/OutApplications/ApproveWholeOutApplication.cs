@@ -9,11 +9,12 @@
 
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.OutApplications.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -29,7 +30,7 @@ namespace SEP.HRMIS.Bll.OutApplications
         private readonly bool _IsAgree;
         private readonly string _Remark;
         private OutApplication _OutApplication;
-        private readonly IOutApplication _DalOutApplication = DalFactory.DataAccess.CreateOutApplication();
+        private readonly IOutApplication _DalOutApplication = new OutApplicationDal();
         private readonly IAccountBll _DalAccountBll = BllInstance.AccountBllInstance;
         private readonly OutDiyProcessUtility _OutDiyProcess = new OutDiyProcessUtility();
 

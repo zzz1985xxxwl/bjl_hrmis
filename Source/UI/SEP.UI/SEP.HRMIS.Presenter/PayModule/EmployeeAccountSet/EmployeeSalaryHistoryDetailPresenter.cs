@@ -11,7 +11,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
     {
         private IEmployeeSalaryHistoryDetailPresenter _ItsView;
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-    PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+    InstanceFactory.CreateEmployeeAccountSetFacade();
 
         private readonly IEmployeeFacade _IEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
 

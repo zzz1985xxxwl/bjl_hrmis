@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -18,8 +19,8 @@ namespace SEP.HRMIS.Bll
     ///</summary>
     public class FinishTrainCourse : Transaction
     {
-        private static ITrain _DalTrain = DalFactory.DataAccess.CreateTrain();
-        private static IEmployeeSkill _DalEmployeeSkill = DalFactory.DataAccess.CreateEmployeeSkill();
+        private static ITrain _DalTrain = new TrainDal();
+        private static IEmployeeSkill _DalEmployeeSkill = new EmployeeSkillDal();
         private readonly int _CourseId;
         private Course _Course;
         private int _SkillId;

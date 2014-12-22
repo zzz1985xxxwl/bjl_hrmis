@@ -10,6 +10,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 
 namespace SEP.HRMIS.Bll.AssessActivity
@@ -24,7 +25,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         protected AssessStatus _AssessStatus;
         protected SubmitInfo _SubmitInfo = new SubmitInfo();
 
-        protected static IAssessActivity _IAssessActivity = DalFactory.DataAccess.AssessActivityDal;
+        protected static IAssessActivity _IAssessActivity = new AssessActivityDal();
 
         public Model.AssessActivity _ItsAssessActivity;
 

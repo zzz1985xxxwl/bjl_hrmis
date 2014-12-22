@@ -13,6 +13,7 @@ using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -24,10 +25,10 @@ namespace SEP.HRMIS.Bll
     ///</summary>
     public class AddTrainCourse:Transaction
     {
-        private static ITrain _DalTrain = DalFactory.DataAccess.CreateTrain();
-        //private static IFBQuestion _DalFBQues = DalFactory.DataAccess.CreateFBQues();
-        private static IFeedBackPaper _IFeedBackPaper = DalFactory.DataAccess.CreateFeedBackPaper();
-        protected static IEmployee _EmployeeDal = DalFactory.DataAccess.CreateEmployee();
+        private static ITrain _DalTrain = new TrainDal();
+        //private static IFBQuestion _DalFBQues = new FBQues();
+        private static IFeedBackPaper _IFeedBackPaper = new FeedBackPaperDal();
+        protected static IEmployee _EmployeeDal = new EmployeeDal();
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly Course _Course;
         private readonly List<Skill> _Skills;

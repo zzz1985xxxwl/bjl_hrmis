@@ -8,13 +8,14 @@
 // ----------------------------------------------------------------
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
     public class UpdateAssessItem : Transaction
     {
-        private static IAssessTemplateItem _IAssessTemplateItem = DalFactory.DataAccess.CreateAssessTemplateItem();
+        private static IAssessTemplateItem _IAssessTemplateItem = new AssessTemplateItemDal();
         private readonly AssessTemplateItem _Item;
 
         /// <summary>

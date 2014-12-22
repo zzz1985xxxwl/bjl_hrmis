@@ -9,12 +9,13 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Requests
 {
@@ -22,9 +23,9 @@ namespace SEP.HRMIS.Bll.Requests
     /// </summary>
     public class ValidateRequestItemRepeat
     {
-        private static IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
-        private static IOutApplication _DalOutApplication = DalFactory.DataAccess.CreateOutApplication();
-        private static ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
+        private static IOverWork _DalOverWork = new OverWorkDal();
+        private static IOutApplication _DalOutApplication = new OutApplicationDal();
+        private static ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
         private readonly Request _Request;
         private readonly bool _IsAdd;
         private readonly bool _IsOverWorkJoinToCheck;

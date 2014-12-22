@@ -3,6 +3,7 @@ using System.Text;
 using Mail.Model;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.Model.Accounts;
 
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         private readonly bool _IfEmployeeVisible;
         private Model.AssessActivity _AssessActivity;
 
-        private readonly IAssessActivity _IAssessActivity = DalFactory.DataAccess.AssessActivityDal;
+        private readonly IAssessActivity _IAssessActivity = new AssessActivityDal();
 
         /// <summary>
         /// 

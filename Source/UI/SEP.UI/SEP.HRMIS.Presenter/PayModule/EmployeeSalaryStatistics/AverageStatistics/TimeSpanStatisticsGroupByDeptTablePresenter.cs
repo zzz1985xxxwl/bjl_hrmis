@@ -28,7 +28,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeSalaryStatistics.AverageStatisti
         {
             if (_ITimeSpanStatisticsGroupByDeptTableView.gvTimeSpanStatisticsGroupByDeptSource == null)
             {
-                IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =PayModuleInstanceFactory.CreateEmployeeSalaryStatisticsFacade();
+                IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =InstanceFactory.CreateEmployeeSalaryStatisticsFacade();
                 List<Model.PayModule.EmployeeSalaryStatistics> employeeSalaryStatistics =
                     _IEmployeeSalaryStatisticsFacade.TimeSpanStatisticsGroupByDepartment(
                         Convert.ToDateTime(_IStatisticsConditionView.FromDate),

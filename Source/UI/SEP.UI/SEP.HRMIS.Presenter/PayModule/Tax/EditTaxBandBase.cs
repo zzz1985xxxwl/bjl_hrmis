@@ -15,7 +15,7 @@ namespace SEP.HRMIS.Presenter.PayModule.Tax
     public class EditTaxBandBase
     {
         protected IEditTaxBandView _IEditTaxBandView;
-        protected ITaxFacade _ITax = PayModuleInstanceFactory.CreateTaxFacade();
+        protected ITaxFacade _ITax = InstanceFactory.CreateTaxFacade();
 
         public delegate void EditCompleted(bool hasError);
 

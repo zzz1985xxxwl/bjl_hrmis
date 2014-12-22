@@ -1,6 +1,7 @@
 using System.IO;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.FileCargos
 {
@@ -10,7 +11,7 @@ namespace SEP.HRMIS.Bll.FileCargos
     public class UpdateFileCargo : Transaction
     {
         private readonly FileCargo _FileCargo;
-        private static readonly IFileCargo _FileCargoDal = DalFactory.DataAccess.CreateFileCargo();
+        private static readonly IFileCargo _FileCargoDal = new FileCargoDal();
         /// <summary>
         /// 
         /// </summary>

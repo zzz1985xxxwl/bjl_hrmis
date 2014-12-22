@@ -1,10 +1,11 @@
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.PositionApp;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -15,7 +16,7 @@ namespace SEP.HRMIS.Bll.PositionApplications
 {
     public class GetPositionApplication
     {
-        private readonly IPositionApplicationDal _PositionApplicationDal = DalFactory.DataAccess.CreatePositionApplication();
+        private readonly IPositionApplicationDal _PositionApplicationDal =new PositionApplicationDal();
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
 

@@ -95,22 +95,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\PlanDutyCalendar.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="SEP.HRMIS.Entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.Entity.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.IFacede, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.IFacede.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.Logic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.Logic.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.Model.dll</HintPath>
-    </Reference>
     <Reference Include="SEP.IBll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\SEP.IBll.dll</HintPath>
@@ -4646,6 +4630,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Entity\SEP.HRMIS.Entity.csproj">
+      <Project>{C871BAE6-8FA7-413F-8CD9-D150401FAF50}</Project>
+      <Name>SEP.HRMIS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.IFacede\SEP.HRMIS.IFacede.csproj">
+      <Project>{0E1621D8-6546-4D69-9591-0D4AC1518461}</Project>
+      <Name>SEP.HRMIS.IFacede</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Logic\SEP.HRMIS.Logic.csproj">
+      <Project>{80228CF5-D488-4C24-8D9D-B4FCA3561DD7}</Project>
+      <Name>SEP.HRMIS.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
+      <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
+      <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SEP.HRMIS.Presenter\SEP.HRMIS.Presenter.csproj">
       <Project>{A80AB916-A038-4816-B938-3C747767F1AA}</Project>
       <Name>SEP.HRMIS.Presenter</Name>
@@ -5348,7 +5348,9 @@
     <Content Include="Views\SEP\CompanyRegulations\EditCompanyRegulationsView.ascx" />
     <Content Include="Views\Progressing.ascx" />
     <Content Include="Views\ProgressingJs.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Controls\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />

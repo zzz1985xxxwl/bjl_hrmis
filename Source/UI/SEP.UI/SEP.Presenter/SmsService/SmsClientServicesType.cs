@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.IBll.SMS;
 using SmsDataContract;
@@ -16,7 +17,7 @@ namespace SEP.Presenter.SmsService
 {
     public class SmsClientServicesType : ISmsClientContract
     {
-        private readonly IConfirmMessageFacade _ConfirmMesageFacade = InstanceFactory.CreateConfirmMessageFacade();
+        private readonly IConfirmMessageFacade _ConfirmMesageFacade = new ConfirmMessageFacade();
         /// <summary>
         /// 客户端是否有效
         /// </summary>

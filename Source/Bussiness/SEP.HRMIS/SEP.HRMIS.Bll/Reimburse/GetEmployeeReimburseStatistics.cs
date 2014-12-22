@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 using SEP.Model.Utility;
@@ -16,7 +17,7 @@ namespace SEP.HRMIS.Bll.Reimburse
     {
         private readonly GetEmployeeHistory _GetEmployeeHistory = new GetEmployeeHistory();
         private readonly GetDepartmentHistory _GetDepartmentHistory = new GetDepartmentHistory();
-        private static readonly IReimburse _DalReimburse = DalFactory.DataAccess.CreateReimburse();
+        private static readonly IReimburse _DalReimburse = new ReimburseDal();
 
         #region DepartmentStatistics
 

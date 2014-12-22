@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Positions;
 using SEP.Model.Accounts;
@@ -17,8 +18,8 @@ namespace SEP.HRMIS.Bll
     {
         private readonly Account _OperatorAccount;
         private readonly Position _Position;
-        private IPositionHistory _DalPositionHistory = DalFactory.DataAccess.CreatePositionHistory();
-        private IEmployeeHistory _DalEmployeeHistory = DalFactory.DataAccess.CreateEmployeeHistory();
+        private IPositionHistory _DalPositionHistory = new PositionHistoryDal();
+        private IEmployeeHistory _DalEmployeeHistory = new EmployeeHistoryDal();
         private GetEmployee _GetEmployee = new GetEmployee();
         private IPositionBll _IPositionBll = BllInstance.PositionBllInstance;
         private readonly DateTime _DtNow = DateTime.Now;

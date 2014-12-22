@@ -9,11 +9,12 @@
 
 using System.Text;
 using SEP.HRMIS.Bll.RequestPhoneMessages.ConfirmMessages;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.PhoneMessage;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -25,7 +26,7 @@ namespace SEP.HRMIS.Bll.OutApplications.MailAndPhone
     /// </summary>
     public class OutSubmitPhone
     {
-        private static readonly IOutApplication _OutApplicationDal = DalFactory.DataAccess.CreateOutApplication();
+        private static readonly IOutApplication _OutApplicationDal = new OutApplicationDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly OutApplication _OutApplication;
         private readonly OutDiyProcessUtility _OutDiyProcessUtility = new OutDiyProcessUtility();

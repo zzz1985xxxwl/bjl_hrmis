@@ -9,10 +9,11 @@
 
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.Requests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.OutApplication;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.OutApplications
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.OutApplications
     /// </summary>
     public class OutDiyProcessUtility
     {
-        private readonly IEmployeeDiyProcessDal _EmployeeDiyProcessDal = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private readonly IEmployeeDiyProcessDal _EmployeeDiyProcessDal = new EmployeeDiyProcessDal();
         private readonly RequestFindOperator _RequestFindOperator = new RequestFindOperator();
 
        /// <summary>

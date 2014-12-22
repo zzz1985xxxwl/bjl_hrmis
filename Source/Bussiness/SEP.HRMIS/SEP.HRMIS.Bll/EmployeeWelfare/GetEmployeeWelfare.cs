@@ -8,9 +8,10 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -20,9 +21,9 @@ namespace SEP.HRMIS.Bll
     public class GetEmployeeWelfare
     {
         private static IEmployeeWelfareHistory _EmployeeWelfareHistoryDal =
-            DalFactory.DataAccess.CreateEmployeeWelfareHistory();
+            new EmployeeWelfareHistoryDal();
 
-        private static IEmployeeWelfare _EmployeeWelfareDal = DalFactory.DataAccess.CreateEmployeeWelfare();
+        private static IEmployeeWelfare _EmployeeWelfareDal = new EmployeeWelfareDal();
         /// <summary>
         /// ¹¹Ôìº¯Êý
         /// </summary>

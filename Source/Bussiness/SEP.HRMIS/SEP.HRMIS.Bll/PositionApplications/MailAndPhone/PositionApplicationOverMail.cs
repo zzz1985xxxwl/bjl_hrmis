@@ -1,12 +1,13 @@
 using System.Text;
 using Mail.Model;
 using SEP.HRMIS.Bll.DiyProcesses;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.PositionApp;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll.PositionApplications.MailAndPhone
     {
         private readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly IMailGateWay _MailGateWay = BllInstance.MailGateWayBllInstance;
-        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
         private readonly PositionApplication _PositionApplication;
         private readonly DiyStep _CurrentStep;
 

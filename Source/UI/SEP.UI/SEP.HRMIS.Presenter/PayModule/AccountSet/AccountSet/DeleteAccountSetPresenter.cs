@@ -17,7 +17,7 @@ namespace SEP.HRMIS.Presenter.PayModule.AccountSet.AccountSet
     public class DeleteAccountSetPresenter
     {
         private IAccountSetView _IAccountSetView;
-        private readonly IAccountSetFacade _IAccountSetFacade = PayModuleInstanceFactory.CreateAccountSetFacade();
+        private readonly IAccountSetFacade _IAccountSetFacade = InstanceFactory.CreateAccountSetFacade();
         private int _AccountSetID;
         public DeleteAccountSetPresenter(int accountSetID, IAccountSetView iAccountSetView)
         {

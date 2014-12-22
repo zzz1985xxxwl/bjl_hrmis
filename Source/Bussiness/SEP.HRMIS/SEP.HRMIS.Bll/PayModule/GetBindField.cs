@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.AssessActivity;
 using SEP.HRMIS.Bll.AttendanceStatistics;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.SpecialDates;
 using SEP.Model.SpecialDates;
@@ -29,7 +30,7 @@ namespace SEP.HRMIS.Bll.PayModule
         private GetEmployeeAttendanceStatistics _GetEmployeeAttendanceStatistics = new GetEmployeeAttendanceStatistics();
         private GetEmployeeWelfare _GetEmployeeWelfare = new GetEmployeeWelfare();
         private ISpecialDateBll _ISpecialDateBll = BllInstance.SpecialDateBllInstance;
-        private readonly IPlanDutyDal _PlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _PlanDutyDal = new PlanDutyDal();
         /// <summary>
         /// ¹¹Ôìº¯Êý
         /// </summary>

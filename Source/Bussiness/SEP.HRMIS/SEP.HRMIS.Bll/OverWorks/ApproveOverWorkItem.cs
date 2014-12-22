@@ -11,11 +11,12 @@ using System;
 using System.Transactions;
 using SEP.HRMIS.Bll.EmployeeAdjustRest;
 using SEP.HRMIS.Bll.OverWorks.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -33,7 +34,7 @@ namespace SEP.HRMIS.Bll.OverWorks
         private readonly bool _IsAgree;
         private readonly string _Remark;
         private OverWorkItem _OverWorkItem;
-        private readonly IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
+        private readonly IOverWork  _OverWorkDal = new OverWorkDal();
         private readonly IAccountBll _DalAccountBll = BllInstance.AccountBllInstance;
         private readonly OverWorkDiyProcessUtility _overWorkProcess = new OverWorkDiyProcessUtility();
         private readonly bool _IsAdjust;
@@ -44,7 +45,7 @@ namespace SEP.HRMIS.Bll.OverWorks
         public ApproveOverWorkItem(int itemID, int accountID, bool isAgree, string remark, bool isAdjust, int OverWorkID,decimal adjustHour)
         {
             _Account = _DalAccountBll.GetAccountById(accountID);
-            _OverWork = _DalOverWork.GetOverWorkByOverWorkID(OverWorkID);
+            _OverWork = _OverWorkDal.GetOverWorkByOverWorkID(OverWorkID);
             _ItemID = itemID;
             _Remark = remark;
             _IsAgree = isAgree;
@@ -57,8 +58,8 @@ namespace SEP.HRMIS.Bll.OverWorks
         public ApproveOverWorkItem(int itemID, int accountID, bool isAgree, string remark , int OverWorkID)
         {
             _Account = _DalAccountBll.GetAccountById(accountID);
-            _OverWorkItem = _DalOverWork.GetOverWorkItemByItemID(itemID);
-            _OverWork = _DalOverWork.GetOverWorkByOverWorkID(OverWorkID);
+            _OverWorkItem = _OverWorkDal.GetOverWorkItemByItemID(itemID);
+            _OverWork = _OverWorkDal.GetOverWorkByOverWorkID(OverWorkID);
             _ItemID = itemID;
             _Remark = remark;
             _IsAgree = isAgree;
@@ -71,8 +72,8 @@ namespace SEP.HRMIS.Bll.OverWorks
         public ApproveOverWorkItem(int itemID, int accountID, bool isAgree, string remark)
         {
             _Account = _DalAccountBll.GetAccountById(accountID);
-            _OverWorkItem = _DalOverWork.GetOverWorkItemByItemID(itemID);
-            _OverWork = _DalOverWork.GetOverWorkByOverWorkID(_OverWorkItem.OverWorkID);
+            _OverWorkItem = _OverWorkDal.GetOverWorkItemByItemID(itemID);
+            _OverWork = _OverWorkDal.GetOverWorkByOverWorkID(_OverWorkItem.OverWorkID);
             _ItemID = itemID;
             _Remark = remark;
             _IsAgree = isAgree;
@@ -88,7 +89,7 @@ namespace SEP.HRMIS.Bll.OverWorks
 
         protected override void Validation()
         {
-            _OverWorkItem = _DalOverWork.GetOverWorkItemByItemID(_ItemID);
+            _OverWorkItem = _OverWorkDal.GetOverWorkItemByItemID(_ItemID);
             if (_OverWorkItem == null)
             {
                 HrmisUtility.ThrowException(HrmisUtility._OverWorkItem_Not_Exit);
@@ -102,7 +103,7 @@ namespace SEP.HRMIS.Bll.OverWorks
             bool valide = false;
             try
             {
-                valide = ApproveOneItem(_OverWorkItem, _IsAgree, _Account, _OverWork, _Remark, _DalOverWork,
+                valide = ApproveOneItem(_OverWorkItem, _IsAgree, _Account, _OverWork, _Remark, _OverWorkDal,
                                         _overWorkProcess, _IsAdjust, true,_AdjustHour, out nextOperator);
             }
             catch

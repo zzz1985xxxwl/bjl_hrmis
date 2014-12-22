@@ -7,14 +7,15 @@
 // ¸ÅÊö: É¾³ýÕÊÌ×²ÎÊý
 // ----------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
     public class DeleteAccountSetPara: Transaction
     {
-        private static IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private static IAccountSet _DalAccountSet = new AccountSetDal();
         private int _AccountSetParaID;
         public DeleteAccountSetPara(int accountSetParaID)
         {

@@ -6,10 +6,11 @@
 // Date:  2009-05-26
 // Resume:
 // ---------------------------------------------------------------
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.SMS;
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.OverWorks.MailAndPhone
     /// </summary>
     public class OverWorkOverPhone
     {
-        private static readonly IOverWork _OverWorkDal = DalFactory.DataAccess.CreateOverWork();
+        private static readonly IOverWork _OverWorkDal = new OverWorkDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly OverWork _OverWork;
         private readonly OverWorkItem _OverWorkItem;

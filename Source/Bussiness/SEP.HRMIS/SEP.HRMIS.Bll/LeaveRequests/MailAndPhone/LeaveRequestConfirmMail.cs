@@ -1,8 +1,9 @@
 using System.Text;
 using Mail.Model;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -15,7 +16,7 @@ namespace SEP.HRMIS.Bll.LeaveRequests.MailAndPhone
     /// </summary>
     public class LeaveRequestConfirmMail
     {
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
         private readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly IMailGateWay _MailGateWay = BllInstance.MailGateWayBllInstance;
         private readonly LeaveRequest _LeaveRequest;

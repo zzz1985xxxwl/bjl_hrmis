@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.Attendance;
@@ -47,7 +48,7 @@ namespace SEP.Presenter.CalendarExt
                     _AttendanceInAndOutRecordList = new List<AttendanceInAndOutRecord>();
                 } 
                 _AttendanceInAndOutRecordList = _AttendanceInAndOutRecordList ??
-                                                InstanceFactory.AttendanceInOutRecordFacade.
+                                                new AttendanceInOutRecordFacade().
                                                     GetSelfAttendanceInAndOutRecordByCondition(_AccountID,
                                                                                                _HrmisSystemStart,
                                                                                                _HrmisSystemEnd);
@@ -65,7 +66,7 @@ namespace SEP.Presenter.CalendarExt
                     _PlanDutyDetailList = new List<PlanDutyDetail>();
                 }
                 _PlanDutyDetailList = _PlanDutyDetailList ??
-                        InstanceFactory.CreatePlanDutyFacade().GetPlanDutyDetailByAccount(_AccountID,
+                        new PlanDutyFacade().GetPlanDutyDetailByAccount(_AccountID,
                                                                                           _HrmisSystemStart, _HrmisSystemEnd);
                 return _PlanDutyDetailList;
             }
@@ -81,7 +82,7 @@ namespace SEP.Presenter.CalendarExt
                     _AttendanceBaseList = new List<AttendanceBase>();
                 }
                 _AttendanceBaseList = _AttendanceBaseList ??
-                  InstanceFactory.CreateEmployeeAttendanceFacade().GetAbsentAttendanceByAccountAndRelatedDate(_AccountID,
+                  new EmployeeAttendanceFacade().GetAbsentAttendanceByAccountAndRelatedDate(_AccountID,
                                                                                     _HrmisSystemStart, _HrmisSystemEnd);
                 return _AttendanceBaseList;
 
@@ -98,7 +99,7 @@ namespace SEP.Presenter.CalendarExt
                     _LeaveRequestList = new List<LeaveRequest>();
                 }
                 _LeaveRequestList = _LeaveRequestList ??
-                 InstanceFactory.CreateLeaveRequestFacade().GetLeaveRequestByAccountAndRelatedDate(_AccountID,
+                 new LeaveRequestFacade().GetLeaveRequestByAccountAndRelatedDate(_AccountID,
                                                                                     _HrmisSystemStart, _HrmisSystemEnd);
                 return _LeaveRequestList;
 
@@ -116,7 +117,7 @@ namespace SEP.Presenter.CalendarExt
                     _OverWorkList = new List<OverWork>();
                 }
                 _OverWorkList = _OverWorkList ??
-                 InstanceFactory.CreateOverWorkFacade().GetOverWorkByAccountAndRelatedDate(_AccountID,
+                 new OverWorkFacade().GetOverWorkByAccountAndRelatedDate(_AccountID,
                                                                                     _HrmisSystemStart, _HrmisSystemEnd);
                 return _OverWorkList;
 
@@ -133,7 +134,7 @@ namespace SEP.Presenter.CalendarExt
                     _OutApplicationList = new List<OutApplication>();
                 }
                 _OutApplicationList = _OutApplicationList ??
-                 InstanceFactory.CreateOutApplicationFacade().GetOutApplicationByAccountAndRelatedDate(_AccountID,
+                 new OutApplicationFacade().GetOutApplicationByAccountAndRelatedDate(_AccountID,
                                                                                     _HrmisSystemStart, _HrmisSystemEnd);
                 return _OutApplicationList;
 
@@ -160,7 +161,7 @@ namespace SEP.Presenter.CalendarExt
                     _Employee = new Employee();
                 }
                 _Employee = _Employee ??
-                            InstanceFactory.CreateEmployeeFacade().GetEmployeeBasicInfoByAccountID(_AccountID);
+                            new EmployeeFacade().GetEmployeeBasicInfoByAccountID(_AccountID);
                 return _Employee;
 
             }

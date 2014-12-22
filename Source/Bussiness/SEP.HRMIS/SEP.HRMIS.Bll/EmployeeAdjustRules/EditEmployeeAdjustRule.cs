@@ -1,6 +1,7 @@
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Adjusts;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.EmployeeAdjustRules
 {
@@ -9,7 +10,7 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRules
     /// </summary>
     public class EditEmployeeAdjustRule : Transaction
     {
-        private readonly IEmployeeAdjustRule _EmployeeAdjustRuleDal = DalFactory.DataAccess.CreateEmployeeAdjustRule();
+        private readonly IEmployeeAdjustRule _EmployeeAdjustRuleDal = new EmployeeAdjustRuleDal();
         private readonly AdjustRule _AdjustRule;
         private readonly int _AccountID;
 

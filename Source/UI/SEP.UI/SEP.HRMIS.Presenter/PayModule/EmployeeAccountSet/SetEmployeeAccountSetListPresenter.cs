@@ -20,7 +20,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
         private readonly IPositionBll _Position = BllInstance.PositionBllInstance;
 
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-            PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+            InstanceFactory.CreateEmployeeAccountSetFacade();
         private readonly ISetEmployeeAccountSetListPresenter _ItsView;
         private List<EmployeeSalary> _EmployeeSalaryList;
         private readonly Account _LoginUser;

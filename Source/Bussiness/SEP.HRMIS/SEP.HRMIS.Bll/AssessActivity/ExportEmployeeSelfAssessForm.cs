@@ -14,6 +14,7 @@ using Microsoft.Office.Interop.Word;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AssessFlow;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Departments;
 
@@ -25,7 +26,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
     public class ExportEmployeeSelfAssessForm
     {
         private readonly string _EmployeeExportLocation = ConfigurationManager.AppSettings["EmployeeExportLocation"];
-        private static readonly IAssessActivity _DalAssessActivity = DalFactory.DataAccess.AssessActivityDal;
+        private static readonly IAssessActivity _DalAssessActivity = new AssessActivityDal();
         private Model.AssessActivity _AssessActivity;
         private readonly string _EmployeeTemplateLocation;
         private int _ItemCount;

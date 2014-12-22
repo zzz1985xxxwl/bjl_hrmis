@@ -17,7 +17,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeSalaryStatistics.AverageStatisti
     public class StatisticsConditionPresenter
     {
         private readonly Account _Operator;
-        public IAccountSetFacade _IAccountSetFacade = PayModuleInstanceFactory.CreateAccountSetFacade();
+        public IAccountSetFacade _IAccountSetFacade = InstanceFactory.CreateAccountSetFacade();
         public readonly PayModuleIPresenter.IStatisticsConditionView _IStatisticsConditionView;
         public IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
         public ICompanyInvolveFacade _ICompanyInvolveFacade = InstanceFactory.CreateCompanyInvolveFacade();

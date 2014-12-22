@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.DiyProcesss;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -9,7 +10,7 @@ namespace SEP.HRMIS.Bll
     ///</summary>
     public class SaveEmployeeDiyProcess:Transaction
     {
-        private static readonly IEmployeeDiyProcessDal _DiyProcessDal = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private static readonly IEmployeeDiyProcessDal _DiyProcessDal = new EmployeeDiyProcessDal();
         private readonly int _AccountId;
         private readonly List<DiyProcess> _diyProcesses;
 

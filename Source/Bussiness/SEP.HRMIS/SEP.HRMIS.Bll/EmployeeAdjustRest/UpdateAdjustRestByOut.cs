@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.EmployeeAdjustRules;
 using SEP.HRMIS.Bll.OutApplications;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Adjusts;
 using SEP.HRMIS.Model.EmployeeAdjustRest;
@@ -19,6 +19,7 @@ using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Model.Enum;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.Model.Calendar;
 using SEP.Model.SpecialDates;
@@ -32,8 +33,8 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRest
     {
         private readonly OutApplicationItem _OutApplicationItem;
         private readonly int _AccountID;
-        private readonly IAdjustRest _IAdjustRest = DalFactory.DataAccess.CreateAdjustRest();
-        private readonly IAdjustRestHistory _IAdjustRestHistory = DalFactory.DataAccess.CreateAdjustRestHistory();
+        private readonly IAdjustRest _IAdjustRest = new AdjustRestDal();
+        private readonly IAdjustRestHistory _IAdjustRestHistory = new AdjustRestHistoryDal();
         private readonly AdjustRule _AdjustRule;
         private decimal _ChangeHour = 0;
 
@@ -184,7 +185,7 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRest
             DateTime to = _OutApplicationItem.ToDate;
             CalculateDays _CalculateDays = new CalculateDays(BllInstance.SpecialDateBllInstance.GetAllSpecialDate(null));
             List<PlanDutyDetail> _PlanDutyDetailList =
-                DalFactory.DataAccess.CreatePlanDutyDal().GetPlanDutyDetailByAccount(_AccountID, from, to);
+                new PlanDutyDal().GetPlanDutyDetailByAccount(_AccountID, from, to);
 
             CalculateOutCityHour calculateOutCityHour = new CalculateOutCityHour(from, to, _AccountID);
             calculateOutCityHour.Excute();

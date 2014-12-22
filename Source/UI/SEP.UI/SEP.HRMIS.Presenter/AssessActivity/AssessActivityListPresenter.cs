@@ -69,7 +69,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                     AssessCharacterType assessCharacterType = (AssessCharacterType) Convert.ToInt32(_View.CharacterType);
                     AssessStatus assessStatus = (AssessStatus) Convert.ToInt32(_View.StatusType);
                     _View.AssessActivitysToList =
-                        InstanceFactory.AssessActivityFacade.GetAssessActivityByCondition(_View.EmployeeName,
+                        InstanceFactory.AssessActivityFacade().GetAssessActivityByCondition(_View.EmployeeName,
                                                                                           assessCharacterType,
                                                                                           assessStatus,
                                                                                           dtHRSubmitTimeFrom,
@@ -99,7 +99,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         {
             try
             {
-                InstanceFactory.AssessActivityFacade.InterruptActivity(Convert.ToInt32(_View.AssessActivityId));
+                InstanceFactory.AssessActivityFacade().InterruptActivity(Convert.ToInt32(_View.AssessActivityId));
                 BindAssessActivity(null, null);
             }
             catch (Exception ex)
@@ -117,7 +117,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 {
                     ifVisible = true;
                 }
-                InstanceFactory.AssessActivityFacade.SetEmployeeVisible(Convert.ToInt32(id), ifVisible);
+                InstanceFactory.AssessActivityFacade().SetEmployeeVisible(Convert.ToInt32(id), ifVisible);
                 BindAssessActivity(null, null);
             }
             catch (Exception ex)
@@ -177,14 +177,14 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         public string ExportLeaderEvent(string employeeTemplateLocation)
         {
             return
-                InstanceFactory.AssessActivityFacade.ExportLeaderAssessForm(Convert.ToInt32(_View.AssessActivityId),
+                InstanceFactory.AssessActivityFacade().ExportLeaderAssessForm(Convert.ToInt32(_View.AssessActivityId),
                                                                             employeeTemplateLocation);
         }
 
         public string ExportSelfEvent(string employeeTemplateLocation)
         {
             return
-                InstanceFactory.AssessActivityFacade.ExportEmployeeSelfAssessForm(
+                InstanceFactory.AssessActivityFacade().ExportEmployeeSelfAssessForm(
                     Convert.ToInt32(_View.AssessActivityId), employeeTemplateLocation);
         }
 
@@ -192,18 +192,18 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         public static string ExportEmployeeSummaryEvent(string employeeTemplateLocationAnnual,string employeeTemplateLocationNormal,int id)
         {
             Model.AssessActivity assess =
-               InstanceFactory.AssessActivityFacade.GetAssessActivityByAssessActivityID(
+               InstanceFactory.AssessActivityFacade().GetAssessActivityByAssessActivityID(
                    id);
             if (assess.AssessCharacterType == AssessCharacterType.Annual)
             {
                 return
-                    InstanceFactory.AssessActivityFacade.ExportEmployeeAnnualSummary(
+                    InstanceFactory.AssessActivityFacade().ExportEmployeeAnnualSummary(
                         id, employeeTemplateLocationAnnual);
             }
             else
             {
                 return
-                    InstanceFactory.AssessActivityFacade.ExportEmployeeNormalSummary(
+                    InstanceFactory.AssessActivityFacade().ExportEmployeeNormalSummary(
                         id, employeeTemplateLocationNormal);
             }
         }
@@ -211,18 +211,18 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         public static string ExportAssessFormEvent(string employeeTemplateLocationAnnual, string employeeTemplateLocationNormal, int id)
         {
             Model.AssessActivity assess =
-                InstanceFactory.AssessActivityFacade.GetAssessActivityByAssessActivityID(
+                InstanceFactory.AssessActivityFacade().GetAssessActivityByAssessActivityID(
                     id);
             if (assess.AssessCharacterType == AssessCharacterType.Annual)
             {
                 return
-                    InstanceFactory.AssessActivityFacade.ExportAnnualAssessForm(
+                    InstanceFactory.AssessActivityFacade().ExportAnnualAssessForm(
                         id, employeeTemplateLocationAnnual);
             }
             else
             {
                 return
-                    InstanceFactory.AssessActivityFacade.ExportExportNormalForContractAssessForm(
+                    InstanceFactory.AssessActivityFacade().ExportExportNormalForContractAssessForm(
                         id, employeeTemplateLocationNormal);
             }
         }
@@ -242,7 +242,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 dtScopeTo = DateTime.TryParse(_View.ScopeTimeTo, out dttemp) ? dttemp : dtScopeTo;
                 AssessStatus assessStatus = (AssessStatus)Convert.ToInt32(_View.StatusType);
                 return
-                    InstanceFactory.AssessActivityFacade.ExportAnualAssessListExcel(employeeTemplateLocation,
+                    InstanceFactory.AssessActivityFacade().ExportAnualAssessListExcel(employeeTemplateLocation,
                                                                                     _View.EmployeeName,
                                                                                     dtHRSubmitTimeFrom, dtHRSubmitTimeTo,
                                                                                     _View.FinishStatus, dtScopeFrom,
@@ -259,7 +259,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         {
             try
             {
-                InstanceFactory.AssessActivityFacade.DeleteAssessActivity(Convert.ToInt32(id));
+                InstanceFactory.AssessActivityFacade().DeleteAssessActivity(Convert.ToInt32(id));
                 BindAssessActivity(null, null);
             }
             catch (Exception ex)

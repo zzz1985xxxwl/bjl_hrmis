@@ -1,11 +1,12 @@
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class GetTrainFBQuesType 
     {
-        private static readonly IParameter _dalParameter = DalFactory.DataAccess.CreateParameter();
+        private static readonly IParameter _dalParameter = new ParameterDal();
 
         public TrainFBQuesType GetTrainFBQuesTypeByPKID(int pkid)
         {

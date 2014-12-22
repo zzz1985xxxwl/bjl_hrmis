@@ -1,7 +1,8 @@
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.DiyProcesses
 {
@@ -10,7 +11,7 @@ namespace SEP.HRMIS.Bll.DiyProcesses
     /// </summary>
     public class UpdateDiyProcess : Transaction
     {
-        private readonly IDiyProcessDal _IDiyProcessDal = DalFactory.DataAccess.CreateDiyProcessDal();
+        private readonly IDiyProcessDal _IDiyProcessDal = new DiyProcessDal();
 
         private readonly DiyProcess _DiyProcess;
 
