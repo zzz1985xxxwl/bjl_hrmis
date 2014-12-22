@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
 {
@@ -10,7 +11,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     /// </summary>
     public class DeletePlanDuty : Transaction
     {
-        private readonly IPlanDutyDal _DalRull = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _DalRull = new PlanDutyDal();
         private readonly int _PlanDutyTableId;
         /// <summary>
         /// 修改班别，构造函数

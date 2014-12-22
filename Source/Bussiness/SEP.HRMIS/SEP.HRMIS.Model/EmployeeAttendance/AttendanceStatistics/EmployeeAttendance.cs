@@ -365,8 +365,8 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
             }
             InAndOutStatistics(date);
             //目前认为进或出仅有一个为空的情况就是数据有误
-            
-            string absentString="";
+
+            string absentString = "";
 
             bool isIncludeOutInTime;
             if (bool.TryParse(CompanyConfig.ATTENDANCEISNORMALISINCLUDEOUTINTIME, out isIncludeOutInTime)
@@ -489,7 +489,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
 
             switch (typeID)
             {
-                case (int) LeaveRequestTypeEnum.ChanJia:
+                case (int)LeaveRequestTypeEnum.ChanJia:
                     _MonthAttendance.HoursofOnDutyMaternityLeave += hours;
                     break;
                 default:
@@ -501,7 +501,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         {
             foreach (LeaveRequestStatistics item in _MonthAttendance.LeaveRequestStatisticsList)
             {
-                if(dayAttendance.TypeID == item.LeaveRequestType.LeaveRequestTypeID)
+                if (dayAttendance.TypeID == item.LeaveRequestType.LeaveRequestTypeID)
                 {
                     item.Hours += dayAttendance.Hours;
                     return;
@@ -519,39 +519,39 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         {
             switch (typeID)
             {
-                case (int) LeaveRequestTypeEnum.ShiJia:
+                case (int)LeaveRequestTypeEnum.ShiJia:
                     _MonthAttendance.HoursofPersonalReasonLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.AnnualLeave:
+                case (int)LeaveRequestTypeEnum.AnnualLeave:
                     _MonthAttendance.HoursofLunarPeriodLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.BingJia:
+                case (int)LeaveRequestTypeEnum.BingJia:
                     _MonthAttendance.HoursofSickLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.AdjustRest:
+                case (int)LeaveRequestTypeEnum.AdjustRest:
                     _MonthAttendance.HoursofAdjustRestLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.ChanQianJia:
+                case (int)LeaveRequestTypeEnum.ChanQianJia:
                     _MonthAttendance.HoursofPrenatalLeave += hours;
                     _MonthAttendance.HoursofOtherLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.BuRuJia:
+                case (int)LeaveRequestTypeEnum.BuRuJia:
                     _MonthAttendance.HoursofBreastFeedLeave += hours;
                     _MonthAttendance.HoursofOtherLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.ChanJia:
+                case (int)LeaveRequestTypeEnum.ChanJia:
                     _MonthAttendance.HoursofMaternityLeave += hours;
                     _MonthAttendance.HoursofOtherLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.SangJia:
+                case (int)LeaveRequestTypeEnum.SangJia:
                     _MonthAttendance.HoursofBereavementLeave += hours;
                     _MonthAttendance.HoursofOtherLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.HunJia:
+                case (int)LeaveRequestTypeEnum.HunJia:
                     _MonthAttendance.HoursofMarriageLeave += hours;
                     _MonthAttendance.HoursofOtherLeave += hours;
                     break;
-                case (int) LeaveRequestTypeEnum.HuLiJia:
+                case (int)LeaveRequestTypeEnum.HuLiJia:
                     _MonthAttendance.HoursofCareLeave += hours;
                     _MonthAttendance.HoursofOtherLeave += hours;
                     break;
@@ -626,7 +626,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
                     continue;
                 }
                 OutType ot = OutType.GetOutTypeByName(_DayAttendanceList[i].TypeName);
-                if(ot.ID==OutType.OutCity.ID)
+                if (ot.ID == OutType.OutCity.ID)
                 {
                     _MonthAttendance.HoursofOutCity += _DayAttendanceList[i].Hours;
                 }
@@ -713,10 +713,10 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         /// </summary>
         /// <param name="outInTimeCondition"></param>
         /// <returns></returns>
-        public bool IsOutInTimeCondition(OutInTimeConditionEnum outInTimeCondition)
+        public bool IsOutInTimeCondition(OutInTimeConditionEnum outInTimeCondition, bool? ignorePlanDuty = null)
         {
             //没有考勤规则的员工不需要判断
-            if (_PlanDutyDetailList == null || _PlanDutyDetailList.Count == 0)
+            if (ignorePlanDuty != true && (_PlanDutyDetailList == null || _PlanDutyDetailList.Count == 0))
             {
                 return false;
             }
@@ -845,18 +845,18 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         public decimal FindLeaveRequestAndOutHours(DateTime date, out List<DateTime[]> dateTimeList)
         {
             decimal leaveRequestAndOutHours = 0;
-            dateTimeList=new List<DateTime[]>();
+            dateTimeList = new List<DateTime[]>();
             if (_DayAttendanceList != null && _DayAttendanceList.Count > 0)
             {
                 for (int i = 0; i < _DayAttendanceList.Count; i++)
                 {
                     //如果这一天有请假或外出,且已审核通过
-                    if (_DayAttendanceList[i].Date.Date.Equals(date.Date) && 
+                    if (_DayAttendanceList[i].Date.Date.Equals(date.Date) &&
                         !_DayAttendanceList[i].TypeName.Contains("(") &&
                         (_DayAttendanceList[i].CalendarType == CalendarType.Leave ||
                         _DayAttendanceList[i].CalendarType == CalendarType.Out))
                     {
-                        DateTime[] dt=new DateTime[2];
+                        DateTime[] dt = new DateTime[2];
                         dt[0] = _DayAttendanceList[i].FromTime;
                         dt[1] = _DayAttendanceList[i].ToTime;
                         dateTimeList.Add(dt);
@@ -973,7 +973,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
                             //早退
                             break;
                         case CalendarType.Absent:
-                            totalMinutes = totalMinutes + dayAttendance.Hours*60;
+                            totalMinutes = totalMinutes + dayAttendance.Hours * 60;
                             //旷工
                             break;
                         default:
@@ -1016,10 +1016,10 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         ///<returns></returns>
         ///<param name="from"></param>
         ///<param name="to"></param>
-        public List<DateTime[]> AdjustTime(List<DateTime[]> dateTimeList,DateTime from,DateTime to)
+        public List<DateTime[]> AdjustTime(List<DateTime[]> dateTimeList, DateTime from, DateTime to)
         {
             List<DateTime[]> timeList = new List<DateTime[]>();
-            for (int i=0;i<dateTimeList.Count;i++)
+            for (int i = 0; i < dateTimeList.Count; i++)
             {
                 if (dateTimeList[i][0] < from)
                 {
@@ -1058,19 +1058,19 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         public int CalculateTimeSpanMinutes(DateTime dtfrom, DateTime dtto, DateTime from, DateTime to)
         {
             int timeSpanMinutes;
-            TimeSpan ts ;
+            TimeSpan ts;
             TimeSpan ts1;
             if (dtfrom < from)
             {
                 if (dtto <= from)
                 {
                     ts = dtto - dtfrom;
-                    timeSpanMinutes = ts.Minutes + ts.Hours*60;
+                    timeSpanMinutes = ts.Minutes + ts.Hours * 60;
                 }
                 else if (dtto > from && dtto <= to)
                 {
                     ts = from - dtfrom;
-                    timeSpanMinutes =ts.Minutes  + ts.Hours*60;
+                    timeSpanMinutes = ts.Minutes + ts.Hours * 60;
                 }
                 else
                 {
@@ -1079,7 +1079,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
                     timeSpanMinutes = ts.Minutes + ts.Hours * 60 + ts1.Minutes + ts1.Hours * 60;
                 }
             }
-            else if (dtfrom >= from && dtfrom<=to)
+            else if (dtfrom >= from && dtfrom <= to)
             {
                 if (dtto <= to)
                 {
@@ -1121,18 +1121,18 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         ///<param name="dateTimeList"></param>
         ///<param name="from"></param>
         ///<param name="to"></param>
-        public int TotalTime(List<DateTime[]> dateTimeList,  DateTime from, DateTime to)
+        public int TotalTime(List<DateTime[]> dateTimeList, DateTime from, DateTime to)
         {
             int totalTime = 0;
             if (dateTimeList.Count > 0)
             {
                 //排序
                 dateTimeList = SortDateTime(dateTimeList);
-                List<DateTime[]> tempDateTimeList=new List<DateTime[]>();
+                List<DateTime[]> tempDateTimeList = new List<DateTime[]>();
                 foreach (DateTime[] times in dateTimeList)
                 {
                     DateTime[] dt = new DateTime[2];
-                    dt[0] = times[0]; 
+                    dt[0] = times[0];
                     dt[1] = times[1];
                     tempDateTimeList.Add(dt);
                 }
@@ -1161,212 +1161,212 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
         }
 
 
-    //    /// <summary>
-    //    /// 前提:有特殊时间:统计某一天迟到早退旷工情况,
-    //    /// 如果进出时间有一个有空,进入晚于离开，或当天为休息日则返回false;
-    //    /// 如果统计时间小于8小时，且时间段有重叠则返回false;
-    //    /// 否则返回true
-    //    /// </summary>
-    //    /// <param name="employee"></param>
-    //    /// <param name="date"></param>
-    //    public bool StatisticLateAndEarly(Employee employee, DateTime date)
-    //    {
-    //        int employeeID = employee.Account.Id;
-    //        #region 查看这一天员工是否进入公司
-    //        if (DateTime.Compare(employee.EmployeeDetails.Work.ComeDate, date) > 0)
-    //        {
-    //            return false;
-    //        }
-    //        #endregion
-    //        #region 查看这一天员工是否离开公司
-    //        if (employee.EmployeeType == EmployeeTypeEnum.DimissionEmployee &&
-    //            employee.EmployeeDetails.Work.DimissionInfo != null &&
-    //            DateTime.Compare(employee.EmployeeDetails.Work.DimissionInfo.DimissionDate, date) < 0)
-    //        {
-    //            return false;
-    //        }
-    //        #endregion
-    //        #region 如果是休息日
-    //        if (_PlanDutyDetailList == null || _PlanDutyDetailList.Count == 0)
-    //        {
-    //            return false;
-    //        }
-    //        _Date = date;
-    //        PlanDutyDetail planDutyDetail = _PlanDutyDetailList.Find(FindThePlanDutyDetail);
-    //        if (planDutyDetail == null || planDutyDetail.PlanDutyClass == null)
-    //        {
-    //            return false;
-    //        }
-    //        //如果休息
-    //        if (planDutyDetail.PlanDutyClass.DutyClassID == -1)
-    //        {
-    //            return false;
-    //        }
-    //        #endregion
-    //        InAndOutStatistics(date);
-    //        if (_AttendanceInAndOutStatistics == null)
-    //        {
-    //            return false;
-    //        }
-    //        bool inTimeIsNull = _AttendanceInAndOutStatistics.InTime.Equals(Convert.ToDateTime("2999-12-31"));
-    //        bool outTimeIsNull = _AttendanceInAndOutStatistics.OutTime.Equals(Convert.ToDateTime("1900-1-1"));
+        //    /// <summary>
+        //    /// 前提:有特殊时间:统计某一天迟到早退旷工情况,
+        //    /// 如果进出时间有一个有空,进入晚于离开，或当天为休息日则返回false;
+        //    /// 如果统计时间小于8小时，且时间段有重叠则返回false;
+        //    /// 否则返回true
+        //    /// </summary>
+        //    /// <param name="employee"></param>
+        //    /// <param name="date"></param>
+        //    public bool StatisticLateAndEarly(Employee employee, DateTime date)
+        //    {
+        //        int employeeID = employee.Account.Id;
+        //        #region 查看这一天员工是否进入公司
+        //        if (DateTime.Compare(employee.EmployeeDetails.Work.ComeDate, date) > 0)
+        //        {
+        //            return false;
+        //        }
+        //        #endregion
+        //        #region 查看这一天员工是否离开公司
+        //        if (employee.EmployeeType == EmployeeTypeEnum.DimissionEmployee &&
+        //            employee.EmployeeDetails.Work.DimissionInfo != null &&
+        //            DateTime.Compare(employee.EmployeeDetails.Work.DimissionInfo.DimissionDate, date) < 0)
+        //        {
+        //            return false;
+        //        }
+        //        #endregion
+        //        #region 如果是休息日
+        //        if (_PlanDutyDetailList == null || _PlanDutyDetailList.Count == 0)
+        //        {
+        //            return false;
+        //        }
+        //        _Date = date;
+        //        PlanDutyDetail planDutyDetail = _PlanDutyDetailList.Find(FindThePlanDutyDetail);
+        //        if (planDutyDetail == null || planDutyDetail.PlanDutyClass == null)
+        //        {
+        //            return false;
+        //        }
+        //        //如果休息
+        //        if (planDutyDetail.PlanDutyClass.DutyClassID == -1)
+        //        {
+        //            return false;
+        //        }
+        //        #endregion
+        //        InAndOutStatistics(date);
+        //        if (_AttendanceInAndOutStatistics == null)
+        //        {
+        //            return false;
+        //        }
+        //        bool inTimeIsNull = _AttendanceInAndOutStatistics.InTime.Equals(Convert.ToDateTime("2999-12-31"));
+        //        bool outTimeIsNull = _AttendanceInAndOutStatistics.OutTime.Equals(Convert.ToDateTime("1900-1-1"));
 
-    //        #region 如果进出时间有一个有空则返回false
-    //        if (!inTimeIsNull == outTimeIsNull)
-    //        {
-    //            return false;
-    //        }
-    //        AbsentAttendance absentAttendance;
-    //        #endregion
-    //        List<DateTime[]> dateTimeList;
-    //        decimal leaveRequestAndOutHours = FindLeaveRequestAndOutHours(date, out dateTimeList);
+        //        #region 如果进出时间有一个有空则返回false
+        //        if (!inTimeIsNull == outTimeIsNull)
+        //        {
+        //            return false;
+        //        }
+        //        AbsentAttendance absentAttendance;
+        //        #endregion
+        //        List<DateTime[]> dateTimeList;
+        //        decimal leaveRequestAndOutHours = FindLeaveRequestAndOutHours(date, out dateTimeList);
 
-    //        #region 如果进出都为空
+        //        #region 如果进出都为空
 
-    //        if (inTimeIsNull && outTimeIsNull)
-    //        {
-    //            decimal affectDays;
-    //            if (leaveRequestAndOutHours < 4)
-    //            {
-    //                affectDays = 1;
-    //            }
-    //            else if (leaveRequestAndOutHours >= 4 && leaveRequestAndOutHours < 8)
-    //            {
-    //                affectDays = (decimal)0.5;
-    //            }
-    //            else
-    //            {
-    //                return true;
-    //            }
-    //            absentAttendance = new AbsentAttendance(employeeID, date, affectDays);
-    //            _AttendanceBaseStatisticList.Add(absentAttendance);
-    //            return true;
-    //        }
-    //        #endregion
-    //        #region 如果进入晚于离开
-    //        if (DateTime.Compare(_AttendanceInAndOutStatistics.InTime, _AttendanceInAndOutStatistics.OutTime) >= 0)
-    //        {
-    //            return false;
-    //        }
-    //        #endregion
+        //        if (inTimeIsNull && outTimeIsNull)
+        //        {
+        //            decimal affectDays;
+        //            if (leaveRequestAndOutHours < 4)
+        //            {
+        //                affectDays = 1;
+        //            }
+        //            else if (leaveRequestAndOutHours >= 4 && leaveRequestAndOutHours < 8)
+        //            {
+        //                affectDays = (decimal)0.5;
+        //            }
+        //            else
+        //            {
+        //                return true;
+        //            }
+        //            absentAttendance = new AbsentAttendance(employeeID, date, affectDays);
+        //            _AttendanceBaseStatisticList.Add(absentAttendance);
+        //            return true;
+        //        }
+        //        #endregion
+        //        #region 如果进入晚于离开
+        //        if (DateTime.Compare(_AttendanceInAndOutStatistics.InTime, _AttendanceInAndOutStatistics.OutTime) >= 0)
+        //        {
+        //            return false;
+        //        }
+        //        #endregion
 
-    //        List<DateTime[]> inOutdateTimeList = new List<DateTime[]>();
-    //        DateTime[] dt = new DateTime[2];
-    //        dt[0] = _AttendanceInAndOutStatistics.InTime;
-    //        dt[1] = _AttendanceInAndOutStatistics.OutTime;
-    //        inOutdateTimeList.Add(dt);
-    //        dateTimeList.Add(dt);
+        //        List<DateTime[]> inOutdateTimeList = new List<DateTime[]>();
+        //        DateTime[] dt = new DateTime[2];
+        //        dt[0] = _AttendanceInAndOutStatistics.InTime;
+        //        dt[1] = _AttendanceInAndOutStatistics.OutTime;
+        //        inOutdateTimeList.Add(dt);
+        //        dateTimeList.Add(dt);
 
-    //        DateTime firstStartFromTime = planDutyDetail.PlanDutyClass.FirstStartFromTime;
-    //        DateTime firstStartToTime = planDutyDetail.PlanDutyClass.FirstStartToTime;
-    //        DateTime firstEndTime = planDutyDetail.PlanDutyClass.FirstEndTime;
-    //        DateTime secondStartTime = planDutyDetail.PlanDutyClass.SecondStartTime;
-    //        firstStartFromTime = new DateTime(date.Year, date.Month, date.Day,
-    //firstStartFromTime.Hour, firstStartFromTime.Minute, firstStartFromTime.Second);
-    //        firstStartToTime = new DateTime(date.Year, date.Month, date.Day,
-    //firstStartToTime.Hour, firstStartToTime.Minute, firstStartToTime.Second);
-    //        firstEndTime = new DateTime(date.Year, date.Month, date.Day,
-    //            firstEndTime.Hour, firstEndTime.Minute, firstEndTime.Second);
-    //        secondStartTime = new DateTime(date.Year, date.Month, date.Day,
-    //            secondStartTime.Hour, secondStartTime.Minute, secondStartTime.Second);
+        //        DateTime firstStartFromTime = planDutyDetail.PlanDutyClass.FirstStartFromTime;
+        //        DateTime firstStartToTime = planDutyDetail.PlanDutyClass.FirstStartToTime;
+        //        DateTime firstEndTime = planDutyDetail.PlanDutyClass.FirstEndTime;
+        //        DateTime secondStartTime = planDutyDetail.PlanDutyClass.SecondStartTime;
+        //        firstStartFromTime = new DateTime(date.Year, date.Month, date.Day,
+        //firstStartFromTime.Hour, firstStartFromTime.Minute, firstStartFromTime.Second);
+        //        firstStartToTime = new DateTime(date.Year, date.Month, date.Day,
+        //firstStartToTime.Hour, firstStartToTime.Minute, firstStartToTime.Second);
+        //        firstEndTime = new DateTime(date.Year, date.Month, date.Day,
+        //            firstEndTime.Hour, firstEndTime.Minute, firstEndTime.Second);
+        //        secondStartTime = new DateTime(date.Year, date.Month, date.Day,
+        //            secondStartTime.Hour, secondStartTime.Minute, secondStartTime.Second);
 
-    //        DateTime from = firstStartFromTime;
-    //        TimeSpan noonBreak = planDutyDetail.PlanDutyClass.SecondStartTime -
-    //                             planDutyDetail.PlanDutyClass.FirstEndTime;
-    //        DateTime to = firstStartToTime.AddHours(8).Add(noonBreak);
-    //        //早于最早上班时间，晚于最晚上班时间的时间段都去掉
-    //        dateTimeList = AdjustTime(dateTimeList, from, to);
+        //        DateTime from = firstStartFromTime;
+        //        TimeSpan noonBreak = planDutyDetail.PlanDutyClass.SecondStartTime -
+        //                             planDutyDetail.PlanDutyClass.FirstEndTime;
+        //        DateTime to = firstStartToTime.AddHours(8).Add(noonBreak);
+        //        //早于最早上班时间，晚于最晚上班时间的时间段都去掉
+        //        dateTimeList = AdjustTime(dateTimeList, from, to);
 
-    //        decimal totalTime = TotalTime(dateTimeList, firstEndTime, secondStartTime);
-    //        //对个时间段进行整合，返回值表示是否有重合，totalTime表示去除中午午休时间的总共时间
-    //        bool isIntegrate = IsIntegrateTime(dateTimeList);
+        //        decimal totalTime = TotalTime(dateTimeList, firstEndTime, secondStartTime);
+        //        //对个时间段进行整合，返回值表示是否有重合，totalTime表示去除中午午休时间的总共时间
+        //        bool isIntegrate = IsIntegrateTime(dateTimeList);
 
-    //        decimal inOutTotalTime = TotalTime(inOutdateTimeList, firstEndTime, secondStartTime);
+        //        decimal inOutTotalTime = TotalTime(inOutdateTimeList, firstEndTime, secondStartTime);
 
-    //        if (!isIntegrate && inOutTotalTime + leaveRequestAndOutHours * 60 >= 480 &&
-    //            dateTimeList[0][0] <= firstStartToTime)
-    //        {
-    //            return true;
-    //        }
-    //        decimal absent = 0;
-    //        LaterAttendance laterAttendance = null;
-    //        EarlyLeaveAttendance earlyLeaveAttendance = null;
+        //        if (!isIntegrate && inOutTotalTime + leaveRequestAndOutHours * 60 >= 480 &&
+        //            dateTimeList[0][0] <= firstStartToTime)
+        //        {
+        //            return true;
+        //        }
+        //        decimal absent = 0;
+        //        LaterAttendance laterAttendance = null;
+        //        EarlyLeaveAttendance earlyLeaveAttendance = null;
 
-    //        int maxAbsent = planDutyDetail.PlanDutyClass.AbsentEarlyLeaveTime;
-    //        //大于8属于正常上班
-    //        if (totalTime < 480)
-    //        {
-    //            if (isIntegrate)
-    //            {
-    //                return false;
-    //            }
-    //            else
-    //            {
-    //                #region 0{旷工1天}4-maxAbsent{旷工0.5天。。}4{旷工0.5天}8-maxAbsent{。。}8
+        //        int maxAbsent = planDutyDetail.PlanDutyClass.AbsentEarlyLeaveTime;
+        //        //大于8属于正常上班
+        //        if (totalTime < 480)
+        //        {
+        //            if (isIntegrate)
+        //            {
+        //                return false;
+        //            }
+        //            else
+        //            {
+        //                #region 0{旷工1天}4-maxAbsent{旷工0.5天。。}4{旷工0.5天}8-maxAbsent{。。}8
 
-    //                if (totalTime < 240 - maxAbsent)
-    //                {
-    //                    absent = 1;
-    //                }
-    //                else if (totalTime >= 240 && totalTime < 480 - maxAbsent)
-    //                {
-    //                    absent = (decimal)0.5;
-    //                }
-    //                else
-    //                {
-    //                    decimal spanTime;
-    //                    if (totalTime < 240)
-    //                    {
-    //                        absent = (decimal)0.5;
-    //                        spanTime = 240 - totalTime;
-    //                    }
-    //                    else
-    //                    {
-    //                        spanTime = 480 - totalTime;
-    //                    }
-    //                    TimeSpan inMorningSpan = dateTimeList[0][0] - firstStartToTime;
-    //                    int inMorningSpanTime = inMorningSpan.Hours * 60 + inMorningSpan.Minutes;
+        //                if (totalTime < 240 - maxAbsent)
+        //                {
+        //                    absent = 1;
+        //                }
+        //                else if (totalTime >= 240 && totalTime < 480 - maxAbsent)
+        //                {
+        //                    absent = (decimal)0.5;
+        //                }
+        //                else
+        //                {
+        //                    decimal spanTime;
+        //                    if (totalTime < 240)
+        //                    {
+        //                        absent = (decimal)0.5;
+        //                        spanTime = 240 - totalTime;
+        //                    }
+        //                    else
+        //                    {
+        //                        spanTime = 480 - totalTime;
+        //                    }
+        //                    TimeSpan inMorningSpan = dateTimeList[0][0] - firstStartToTime;
+        //                    int inMorningSpanTime = inMorningSpan.Hours * 60 + inMorningSpan.Minutes;
 
-    //                    if (inMorningSpanTime > planDutyDetail.PlanDutyClass.LateTime &&
-    //                        inMorningSpanTime <= planDutyDetail.PlanDutyClass.AbsentLateTime)
-    //                    {
-    //                        laterAttendance = new LaterAttendance(employeeID, date, inMorningSpanTime);
-    //                        if (spanTime > inMorningSpanTime)
-    //                        {
-    //                            if ((int)(spanTime) - inMorningSpanTime > planDutyDetail.PlanDutyClass.EarlyLeaveTime)
-    //                            {
-    //                                earlyLeaveAttendance =
-    //                                    new EarlyLeaveAttendance(employeeID, date, (int)(spanTime) - inMorningSpanTime);
-    //                            }
-    //                        }
-    //                    }
-    //                    else
-    //                    {
-    //                        if ((int)(spanTime) > planDutyDetail.PlanDutyClass.EarlyLeaveTime)
-    //                        {
-    //                            earlyLeaveAttendance = new EarlyLeaveAttendance(employeeID, date, (int)(spanTime));
-    //                        }
-    //                    }
-    //                }
-    //                if (absent > 0)
-    //                {
-    //                    absentAttendance = new AbsentAttendance(employeeID, date, absent);
-    //                    _AttendanceBaseStatisticList.Add(absentAttendance);
-    //                }
-    //                if (earlyLeaveAttendance != null)
-    //                {
-    //                    _AttendanceBaseStatisticList.Add(earlyLeaveAttendance);
-    //                }
-    //                if (laterAttendance != null)
-    //                {
-    //                    _AttendanceBaseStatisticList.Add(laterAttendance);
-    //                }
+        //                    if (inMorningSpanTime > planDutyDetail.PlanDutyClass.LateTime &&
+        //                        inMorningSpanTime <= planDutyDetail.PlanDutyClass.AbsentLateTime)
+        //                    {
+        //                        laterAttendance = new LaterAttendance(employeeID, date, inMorningSpanTime);
+        //                        if (spanTime > inMorningSpanTime)
+        //                        {
+        //                            if ((int)(spanTime) - inMorningSpanTime > planDutyDetail.PlanDutyClass.EarlyLeaveTime)
+        //                            {
+        //                                earlyLeaveAttendance =
+        //                                    new EarlyLeaveAttendance(employeeID, date, (int)(spanTime) - inMorningSpanTime);
+        //                            }
+        //                        }
+        //                    }
+        //                    else
+        //                    {
+        //                        if ((int)(spanTime) > planDutyDetail.PlanDutyClass.EarlyLeaveTime)
+        //                        {
+        //                            earlyLeaveAttendance = new EarlyLeaveAttendance(employeeID, date, (int)(spanTime));
+        //                        }
+        //                    }
+        //                }
+        //                if (absent > 0)
+        //                {
+        //                    absentAttendance = new AbsentAttendance(employeeID, date, absent);
+        //                    _AttendanceBaseStatisticList.Add(absentAttendance);
+        //                }
+        //                if (earlyLeaveAttendance != null)
+        //                {
+        //                    _AttendanceBaseStatisticList.Add(earlyLeaveAttendance);
+        //                }
+        //                if (laterAttendance != null)
+        //                {
+        //                    _AttendanceBaseStatisticList.Add(laterAttendance);
+        //                }
 
-    //                #endregion
-    //            }
-    //        }
-    //        return true;
-    //    }
+        //                #endregion
+        //            }
+        //        }
+        //        return true;
+        //    }
 
         #endregion
 
@@ -1421,7 +1421,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
                 //dateTimeOutLeaveList.AddRange(dateTimeOutList);
                 //dateTimeOutLeaveList.AddRange(dateTimeLeaveList);
 
-                List<DateTime[]> dateTimeList =new List<DateTime[]>();
+                List<DateTime[]> dateTimeList = new List<DateTime[]>();
                 //如果进出都不为空
                 if (!_AttendanceInAndOutStatistics.InTime.Equals(Convert.ToDateTime("2999-12-31")) &&
                     !_AttendanceInAndOutStatistics.OutTime.Equals(Convert.ToDateTime("1900-1-1")))
@@ -1464,7 +1464,7 @@ namespace SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics
 
                 //早于最早上班时间，晚于最晚上班时间的时间段都去掉
                 dateTimeList = AdjustTime(dateTimeList, from, to);
-                dateTimeOutLeaveList= AdjustTime(dateTimeOutLeaveList, from, to);
+                dateTimeOutLeaveList = AdjustTime(dateTimeOutLeaveList, from, to);
                 decimal totalTime = TotalTime(dateTimeOutLeaveList, firstEndTime, secondStartTime);
                 decimal totalInOutTime = TotalTime(dateTimeList, firstEndTime, secondStartTime);
 

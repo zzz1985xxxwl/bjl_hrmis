@@ -10,12 +10,13 @@
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class AddCourseFeedBack:Transaction
     {
-         private static ITrain _DalTrain = DalFactory.DataAccess.CreateTrain();
+        private static ITrain _DalTrain = new TrainDal();
         private Course _Course;
         private readonly int _CourseId;
         private readonly TrainEmployeeFB _TrainEmployeeFb;

@@ -9,6 +9,7 @@
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -17,10 +18,10 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class UpdateEmployeeContract : Transaction
     {
-        private static IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static IContract _DalContract = DalFactory.DataAccess.CreateContract();
-        private static IContractType _DalContractType = DalFactory.DataAccess.CreateContractType();
-        private static IEmployeeContractBookMark _DalEmployeeContractBookMark = DalFactory.DataAccess.CreateEmployeeContractBookMark();
+        private static IEmployee _DalEmployee = new EmployeeDal();
+        private static IContract _DalContract = new ContractDal();
+        private static IContractType _DalContractType = new ContractTypeDal();
+        private static IEmployeeContractBookMark _DalEmployeeContractBookMark = new EmployeeContractBookMarkDal();
         private readonly Employee _Employee;
         private readonly Contract _Contract;
         /// <summary>

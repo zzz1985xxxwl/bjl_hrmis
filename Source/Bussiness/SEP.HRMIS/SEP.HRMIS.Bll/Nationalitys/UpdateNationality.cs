@@ -1,5 +1,6 @@
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Nationalitys
 {
@@ -8,8 +9,8 @@ namespace SEP.HRMIS.Bll.Nationalitys
     /// </summary>
     public class UpdateNationality : Transaction
     {
-        private readonly IParameter _IParameter = DalFactory.DataAccess.CreateParameter();
-        private readonly IEmployee _IEmployee = DalFactory.DataAccess.CreateEmployee();
+        private readonly IParameter _IParameter = new ParameterDal();
+        private readonly IEmployee _IEmployee = new EmployeeDal();
         private readonly Nationality _Nationality;
 
         /// <summary>

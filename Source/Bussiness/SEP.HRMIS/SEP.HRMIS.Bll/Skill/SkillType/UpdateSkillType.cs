@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -15,7 +16,7 @@ namespace SEP.HRMIS.Bll
     ///</summary>
     public class UpdateSkillType : Transaction
     {
-         private static IParameter _DalSkillType = DalFactory.DataAccess.CreateParameter();
+         private static IParameter _DalSkillType = new ParameterDal();
         private readonly SkillType _SkillType;
         /// <summary>
         /// 新增技能类型构造函数

@@ -8,10 +8,11 @@
 // ---------------------------------------------------------------
 
 using SEP.HRMIS.Bll.OverWorks.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OverWork;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.OverWorks
 {
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.OverWorks
         private readonly int _OverWorkID;
         private readonly string _Remark;
         private OverWork _OverWork;
-        private readonly IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
+        private readonly IOverWork  _OverWorkDal = new OverWorkDal();
         private readonly OverWorkDiyProcessUtility _OverWorkDiyProcessUtility = new OverWorkDiyProcessUtility();
 
         /// <summary>
@@ -35,7 +36,7 @@ namespace SEP.HRMIS.Bll.OverWorks
 
         protected override void Validation()
         {
-            _OverWork = _DalOverWork.GetOverWorkByOverWorkID(_OverWorkID);
+            _OverWork = _OverWorkDal.GetOverWorkByOverWorkID(_OverWorkID);
             if (_OverWork == null)
             {
                 HrmisUtility.ThrowException(HrmisUtility._OverWork_Not_Exit);
@@ -50,7 +51,7 @@ namespace SEP.HRMIS.Bll.OverWorks
                 foreach (OverWorkItem item in _OverWork.Item)
                 {
                     bool valide = CancelOverWorkItem.CancelOneItem(item, _OverWork.Account, _Remark,
-                                                                   _DalOverWork, _OverWorkDiyProcessUtility);
+                                                                   _OverWorkDal, _OverWorkDiyProcessUtility);
                     if (valide)
                     {
                         new OverWorkMailAndPhoneDelegate().CancelOperation(_OverWorkID, item.ItemID);

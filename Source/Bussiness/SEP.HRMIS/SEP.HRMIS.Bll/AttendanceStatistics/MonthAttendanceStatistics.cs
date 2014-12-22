@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.Bll.AttendanceStatistics;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll
@@ -12,8 +13,8 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class MonthAttendanceStatistics
     {
-        //private static readonly IAdjustRest _dalAdjustRest = DalFactory.DataAccess.CreateAdjustRest();
-        private static readonly IVacation _dalVacation = DalFactory.DataAccess.CreateVacation();
+        //private static readonly IAdjustRest _dalAdjustRest = new AdjustRest();
+        private static readonly IVacation _dalVacation = new VacationDal();
         private readonly GetAdjustRest _GetAdjustRest=new GetAdjustRest();
         /// <summary>
         /// 计算员工的考勤情况

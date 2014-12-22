@@ -12,9 +12,9 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
         private readonly ISetEmployeeAccountSetPresenter _ItsView;
 
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-            PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+            InstanceFactory.CreateEmployeeAccountSetFacade();
 
-        private readonly IAccountSetFacade _IAccountSetFacade = PayModuleInstanceFactory.CreateAccountSetFacade();
+        private readonly IAccountSetFacade _IAccountSetFacade = InstanceFactory.CreateAccountSetFacade();
 
         private readonly IEmployeeFacade _IEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
         

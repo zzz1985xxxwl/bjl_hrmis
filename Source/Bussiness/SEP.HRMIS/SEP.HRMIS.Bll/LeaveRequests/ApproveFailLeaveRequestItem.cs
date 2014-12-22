@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.Bll.EmployeeAdjustRest;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.LeaveRequests
@@ -22,8 +23,8 @@ namespace SEP.HRMIS.Bll.LeaveRequests
         private readonly RequestStatus _RequestStatus;
         private LeaveRequest _LeaveRequest;
 
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
 
         /// <summary>
         /// 因为流程中断，审批不通过整张请假单

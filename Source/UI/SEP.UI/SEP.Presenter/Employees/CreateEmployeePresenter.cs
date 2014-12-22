@@ -1,5 +1,6 @@
 using System;
 using System.Transactions;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.IBll;
 using SEP.Model.Accounts;
@@ -58,7 +59,7 @@ namespace SEP.Presenter.Employees
                     if (CompanyConfig.HasHrmisSystem && account.IsHRAccount)
                     {
                         IEmployeeFacade hrmisEmployeeFacade =
-                            InstanceFactory.CreateEmployeeFacade();
+                            new EmployeeFacade();
                         hrmisEmployeeFacade.InitEmployeeProxy(account.Id, LoginUser);
                     }
                     ts.Complete();

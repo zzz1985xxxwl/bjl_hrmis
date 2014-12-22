@@ -30,7 +30,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeSalaryStatistics.SummaryStatisti
             if (_IDepartmentStatisticsTableView.gvDepartmentStatisticsTableSource == null)
             {
                 IEmployeeSalaryStatisticsFacade _IEmployeeSalaryStatisticsFacade =
-                    PayModuleInstanceFactory.CreateEmployeeSalaryStatisticsFacade();
+                    InstanceFactory.CreateEmployeeSalaryStatisticsFacade();
                 List<Model.PayModule.EmployeeSalaryStatistics> employeeSalaryStatistics =
                     _IEmployeeSalaryStatisticsFacade.DepartmentStatistics(
                         Convert.ToDateTime(_IStatisticsConditionView.FromDate),

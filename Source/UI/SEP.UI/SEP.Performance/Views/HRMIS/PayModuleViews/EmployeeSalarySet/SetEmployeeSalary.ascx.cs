@@ -7,6 +7,7 @@ using SEP.HRMIS.IFacede.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.Presenter;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 using SEP.Model.Positions;
@@ -32,7 +33,7 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews
 
         private void InitAccountSetSource()
         {
-            IAccountSetFacade _IAccountSetFacade =PayModuleInstanceFactory.CreateAccountSetFacade();
+            IAccountSetFacade _IAccountSetFacade =InstanceFactory.CreateAccountSetFacade();
             List<AccountSet> AccountSetSource = _IAccountSetFacade.GetAccountSetByCondition(string.Empty);
             listAccountSet.Items.Clear();
             ListItem itemAll = new ListItem(string.Empty, "-1", true);

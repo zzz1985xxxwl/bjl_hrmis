@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 
@@ -13,9 +14,9 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class GetEmployeeHistory
     {
-        private readonly IEmployeeHistory _dalEmployeeHistory = DalFactory.DataAccess.CreateEmployeeHistory();
+        private readonly IEmployeeHistory _dalEmployeeHistory = new EmployeeHistoryDal();
         private GetDepartmentHistory _GetDepartmentHistory = new GetDepartmentHistory();
-        private IPositionHistory _IPositionHistory = DalFactory.DataAccess.CreatePositionHistory();
+        private IPositionHistory _IPositionHistory = new PositionHistoryDal();
         /// <summary>
         /// ¹¹Ôìº¯Êý
         /// </summary>

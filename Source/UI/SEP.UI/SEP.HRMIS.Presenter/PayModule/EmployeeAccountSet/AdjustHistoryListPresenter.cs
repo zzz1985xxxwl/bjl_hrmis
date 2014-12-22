@@ -14,7 +14,7 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
         private readonly IAdjustHistoryListPresenter _View;
 
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-            PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+            InstanceFactory.CreateEmployeeAccountSetFacade();
 
         private readonly IEmployeeFacade _IEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
 

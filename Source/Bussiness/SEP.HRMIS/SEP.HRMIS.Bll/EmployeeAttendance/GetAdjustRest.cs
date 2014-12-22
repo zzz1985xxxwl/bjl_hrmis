@@ -9,12 +9,13 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.LeaveRequests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAdjustRest;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -32,9 +33,9 @@ namespace SEP.HRMIS.Bll
         private GetAdjustRestHistory _GetAdjustRestHistory = new GetAdjustRestHistory();
         private GetEmployee _GetEmployee = new GetEmployee();
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
-        private IAdjustRest _IAdjustRestDal = DalFactory.DataAccess.CreateAdjustRest();
-        private ILeaveRequestDal _ILeaveRequestDal = DalFactory.DataAccess.CreateLeaveRequest();
-        private ILeaveRequestFlowDal _ILeaveRequestFlowDal = DalFactory.DataAccess.CreateLeaveRequestFlow();
+        private IAdjustRest _IAdjustRestDal = new AdjustRestDal();
+        private ILeaveRequestDal _ILeaveRequestDal = new LeaveRequestDal();
+        private ILeaveRequestFlowDal _ILeaveRequestFlowDal = new LeaveRequestFlowDal();
 
         #region ≤‚ ‘
 

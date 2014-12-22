@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class AddEmployeeHistoryByDepartment : Transaction
     {
-        private readonly IEmployeeHistory _DalEmployeeHistory = DalFactory.DataAccess.CreateEmployeeHistory();
+        private readonly IEmployeeHistory _DalEmployeeHistory = new EmployeeHistoryDal();
         private GetEmployee _GetEmployee = new GetEmployee();
         private readonly Account _OperatorAccount;
         private readonly Department _Department;

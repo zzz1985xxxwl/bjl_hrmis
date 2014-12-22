@@ -9,10 +9,11 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceInAndOutRecord;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -36,7 +37,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         {
             _LoginUser = loginUser;
             _IAccountBll = BllInstance.AccountBllInstance;
-            _DalLog = DalFactory.DataAccess.CreateInAndOutRecordLog();
+            _DalLog = new AttendanceInAndOutRecordLogDal();
         }
 
         ///<summary>

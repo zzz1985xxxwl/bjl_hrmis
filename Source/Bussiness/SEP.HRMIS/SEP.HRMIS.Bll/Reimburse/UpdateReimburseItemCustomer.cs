@@ -7,7 +7,8 @@
 // 概述: 更新报销item的客户信息
 // ----------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
+using SEP.HRMIS.SqlServerDal;
 using HRMISModel = SEP.HRMIS.Model;
 using SEP.HRMIS.IDal;
 
@@ -18,7 +19,7 @@ namespace SEP.HRMIS.Bll.Reimburse
     ///</summary>
     public class UpdateReimburseItemCustomer: Transaction
     {
-        private static IReimburse _DalReimburse = DalFactory.DataAccess.CreateReimburse();
+        private static IReimburse _DalReimburse = new ReimburseDal();
         private readonly HRMISModel.Reimburse _Reimburse;
         private HRMISModel.Reimburse _OldRimburse;
                 /// <summary>

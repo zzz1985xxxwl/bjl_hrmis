@@ -8,14 +8,15 @@
 // ----------------------------------------------------------------
 
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.Tax
 {
     public class SaveTaxCutoffPoint : Transaction
     {
-        private readonly ITax _TaxDal = PayModuleDataAccess.CreateTax();
+        private readonly ITax _TaxDal = new TaxDal();
         private readonly decimal _TaxCutoffPoint;
         private readonly decimal _TaxForeignCutoffPoint;
         public SaveTaxCutoffPoint(decimal taxCutoffPoint, decimal taxForeignCutoffPoint)

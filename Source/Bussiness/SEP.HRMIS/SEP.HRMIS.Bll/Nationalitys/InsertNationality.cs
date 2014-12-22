@@ -1,5 +1,6 @@
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Nationalitys
 {
@@ -8,7 +9,7 @@ namespace SEP.HRMIS.Bll.Nationalitys
     /// </summary>
     public class InsertNationality : Transaction
     {
-        private static IParameter _IParameter = DalFactory.DataAccess.CreateParameter();
+        private static IParameter _IParameter = new ParameterDal();
         private readonly Nationality _Nationality;
 
         /// <summary>

@@ -9,6 +9,7 @@
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 
 namespace SEP.HRMIS.Bll.AssessActivity
@@ -18,7 +19,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static IAssessActivity _Dal = DalFactory.DataAccess.AssessActivityDal;
+        private static IAssessActivity _Dal = new AssessActivityDal();
 
         private readonly int _AssessActivityID;
         private Model.AssessActivity _AssessActivity;

@@ -6,15 +6,16 @@
 // 创建日期: 2008-12
 // 概述: 删除帐套
 // ----------------------------------------------------------------
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
     public class DeleteAccountSet : Transaction
     {
-        private static IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
-        private static IEmployeeAccountSet _DalEmployeeAccountSet = PayModuleDataAccess.CreateEmployeeAccountSet();
+        private static IAccountSet _DalAccountSet = new AccountSetDal();
+        private static IEmployeeAccountSet _DalEmployeeAccountSet =new EmployeeAccountSetDal();
         private int _AccountSetID;
         public DeleteAccountSet(int accountSetID)
         {

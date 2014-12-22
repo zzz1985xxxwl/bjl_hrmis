@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.DiyProcesss;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Departments;
 using SEP.Model.Accounts;
@@ -16,7 +17,7 @@ namespace SEP.HRMIS.Bll.Reimburse
 {
     public class GetReimburse
     {
-        private static IReimburse _DalReimburse = DalFactory.DataAccess.CreateReimburse();
+        private static IReimburse _DalReimburse = new ReimburseDal();
         ////private static IGetDepartment _IGetDepartment = new GetDepartment();
         private static IDepartmentBll _IGetDepartment = BllInstance.DepartmentBllInstance;
 

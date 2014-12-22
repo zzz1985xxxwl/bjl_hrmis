@@ -10,7 +10,8 @@
 using System;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
-using SEP.HRMIS.DalFactory;
+using SEP.HRMIS.SqlServerDal;
+
 
 namespace SEP.HRMIS.Bll.CustomerInfos
 {
@@ -19,7 +20,7 @@ namespace SEP.HRMIS.Bll.CustomerInfos
     /// </summary>
     public  class AddCustomerInfo: Transaction
     {
-        private static  ICustomerInfoDal _Dal = DalFactory.DataAccess.CreateCustomerInfoDal();
+        private static  ICustomerInfoDal _Dal = new CustomerInfoDal();
         private readonly CustomerInfo _CustomerInfo;
 
         /// <summary>

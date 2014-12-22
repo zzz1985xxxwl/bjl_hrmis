@@ -60,26 +60,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\Framework.Common.dll</HintPath>
     </Reference>
-    <Reference Include="SEP.HRMIS.DataAccess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.DataAccess.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.Entity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.Entity.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.IFacede, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.IFacede.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.Logic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.Logic.dll</HintPath>
-    </Reference>
-    <Reference Include="SEP.HRMIS.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SEP.HRMIS.Model.dll</HintPath>
-    </Reference>
     <Reference Include="SEP.IBll, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\SEP.IBll.dll</HintPath>
@@ -431,6 +411,7 @@
     <Compile Include="EmployInformation\WorkInformation\WorkInfoVaildater.cs" />
     <Compile Include="EmployInformation\WorkInformation\WorkInfoViewIniter.cs" />
     <Compile Include="IndexViewSummaryPresenter.cs" />
+    <Compile Include="InstanceFactory.cs" />
     <Compile Include="IPresenter\IAdjustRule\IAdjustRuleEditView.cs" />
     <Compile Include="IPresenter\IAdjustRule\IAdjustRuleListView.cs" />
     <Compile Include="IPresenter\IAdvancedEmployeeStatistics\IAdvancedEmployeeStatisticsListPresenter.cs" />
@@ -890,6 +871,30 @@
     <Compile Include="Vacation\VacationUsedDetailsPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Bll\SEP.HRMIS.Bll.csproj">
+      <Project>{22CBE127-3F41-4020-A613-E90A476B7B9C}</Project>
+      <Name>SEP.HRMIS.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Entity\SEP.HRMIS.Entity.csproj">
+      <Project>{C871BAE6-8FA7-413F-8CD9-D150401FAF50}</Project>
+      <Name>SEP.HRMIS.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Facade\SEP.HRMIS.Facade.csproj">
+      <Project>{C4AE9EBB-FDC5-40D4-90E3-FC0934D1E578}</Project>
+      <Name>SEP.HRMIS.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.IFacede\SEP.HRMIS.IFacede.csproj">
+      <Project>{0E1621D8-6546-4D69-9591-0D4AC1518461}</Project>
+      <Name>SEP.HRMIS.IFacede</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Logic\SEP.HRMIS.Logic.csproj">
+      <Project>{80228CF5-D488-4C24-8D9D-B4FCA3561DD7}</Project>
+      <Name>SEP.HRMIS.Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
+      <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
+      <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SEP.Presenter.Core\SEP.Presenter.Core.csproj">
       <Project>{887CF941-DED9-47C0-8E75-3316CA014459}</Project>
       <Name>SEP.Presenter.Core</Name>

@@ -48,12 +48,12 @@ namespace SEP.HRMIS.Presenter.AssessActivity
             for (int i = list.Count-1; i >= 0; i--)
             {
                 Account operAccount =
-                    InstanceFactory.AssessActivityFacade.GetDiyStepAccount(list[i].ItsEmployee.Account.Id,
+                    InstanceFactory.AssessActivityFacade().GetDiyStepAccount(list[i].ItsEmployee.Account.Id,
                                                                            list[i].DiyProcess.DiySteps[
                                                                                list[i].NextStepIndex]);
                 if(operAccount == null)
                 {
-                    InstanceFactory.AssessActivityFacade.InterruptActivity(list[i].AssessActivityID);
+                    InstanceFactory.AssessActivityFacade().InterruptActivity(list[i].AssessActivityID);
                     list.RemoveAt(i);
                 }
                 else if(operAccount.Id != LoginUser.Id)

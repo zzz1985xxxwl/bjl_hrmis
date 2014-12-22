@@ -13,6 +13,7 @@ using SEP.HRMIS.Bll.OverWorks;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -33,11 +34,11 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         private static GetOverWork _GetOverWork;
         private static GetLeaveRequest _GetLeaveRequest;
         private readonly GetEmployee _GetEmployee = new GetEmployee();
-        private static IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
-        private static IPlanDutyDal _IPlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private static IEmployee _dalEmployee = new EmployeeDal();
+        private static IPlanDutyDal _IPlanDutyDal = new PlanDutyDal();
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private static IAttendanceInAndOutRecord _dalAttendanceInAndOutRecord =
-        DalFactory.DataAccess.CreateAttendanceInAndOutRecord();
+        new AttendanceInAndOutRecordDal();
 
         ///<summary>
         /// 构造函数

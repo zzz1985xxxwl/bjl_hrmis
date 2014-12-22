@@ -1,5 +1,6 @@
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Adjusts;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.EmployeeAdjustRules
 {
@@ -8,7 +9,7 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRules
     /// </summary>
     public class GetEmployeeAdjustRule
     {
-        private readonly IEmployeeAdjustRule _EmployeeAdjustRuleDal = DalFactory.DataAccess.CreateEmployeeAdjustRule();
+        private readonly IEmployeeAdjustRule _EmployeeAdjustRuleDal = new EmployeeAdjustRuleDal();
 
         /// <summary>
         /// 

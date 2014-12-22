@@ -4,6 +4,7 @@ using System.Text;
 using System.Web;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.Presenter;
 using SEP.HRMIS.Presenter.Train.TrainCourse;
 using SEP.Model;
 using SEP.Model.Accounts;

@@ -8,9 +8,10 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Adjusts;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AdjustRules
 {
@@ -19,7 +20,7 @@ namespace SEP.HRMIS.Bll.AdjustRules
     /// </summary>
     public class GetAdjustRule
     {
-        private static readonly IAdjustRule _AdjustRuleDal = DalFactory.DataAccess.CreateAdjustRule();
+        private static readonly IAdjustRule _AdjustRuleDal = new AdjustRuleDal();
 
         /// <summary>
         /// 

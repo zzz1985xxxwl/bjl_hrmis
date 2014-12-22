@@ -9,6 +9,7 @@
 using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class UpdateContractType : Transaction
     {
-        private static IContractType _DalContractType = DalFactory.DataAccess.CreateContractType();
+        private static IContractType _DalContractType = new ContractTypeDal();
         private readonly ContractType _ContractType;
         /// <summary>
         /// 合同类型构造函数

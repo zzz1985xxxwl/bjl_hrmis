@@ -8,7 +8,7 @@ namespace SEP.HRMIS.Presenter.PayModule.AccountSet.AccountSetPara
     public class AccountSetParaListPresenter
     {
         private readonly IAccountSetParaListView _ItsView;
-        private readonly IAccountSetFacade _IAccountSetFacade = PayModuleInstanceFactory.CreateAccountSetFacade();
+        private readonly IAccountSetFacade _IAccountSetFacade = InstanceFactory.CreateAccountSetFacade();
 
         public AccountSetParaListPresenter(IAccountSetParaListView itsView)
         {

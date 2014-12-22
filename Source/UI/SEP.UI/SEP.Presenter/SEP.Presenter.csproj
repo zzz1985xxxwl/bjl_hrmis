@@ -56,9 +56,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\IBizLayer.dll</HintPath>
     </Reference>
-    <Reference Include="SEP.HRMIS.IFacede">
-      <HintPath>..\..\..\Libs\SEP.HRMIS.IFacede.dll</HintPath>
-    </Reference>
     <Reference Include="SEP.HRMIS.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Libs\SEP.HRMIS.Model.dll</HintPath>
@@ -269,6 +266,14 @@
     <Compile Include="WelcomeMails\WelcomeMailPresenter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Facade\SEP.HRMIS.Facade.csproj">
+      <Project>{C4AE9EBB-FDC5-40D4-90E3-FC0934D1E578}</Project>
+      <Name>SEP.HRMIS.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.IFacede\SEP.HRMIS.IFacede.csproj">
+      <Project>{0E1621D8-6546-4D69-9591-0D4AC1518461}</Project>
+      <Name>SEP.HRMIS.IFacede</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SEP.Presenter.Core\SEP.Presenter.Core.csproj">
       <Project>{887CF941-DED9-47C0-8E75-3316CA014459}</Project>
       <Name>SEP.Presenter.Core</Name>

@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.LeaveRequests.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.LeaveRequests
@@ -20,13 +21,13 @@ namespace SEP.HRMIS.Bll.LeaveRequests
         private RequestStatus _RequestStatus;
         private LeaveRequest _LeaveRequest;
 
-        private readonly IVacation _DalVacation = DalFactory.DataAccess.CreateVacation();
-        private readonly IAdjustRest _IAdjustRestDal = DalFactory.DataAccess.CreateAdjustRest();
-        private readonly IPlanDutyDal _DalPlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
-        private readonly ILeaveRequestType _DalLeaveRequestType = DalFactory.DataAccess.CreateLeaveRequestType();
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
-        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private readonly IVacation _DalVacation = new VacationDal();
+        private readonly IAdjustRest _IAdjustRestDal = new AdjustRestDal();
+        private readonly IPlanDutyDal _DalPlanDutyDal = new PlanDutyDal();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
+        private readonly ILeaveRequestType _DalLeaveRequestType = new LeaveRequestTypeDal();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
+        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
 
         /// <summary>
         /// 取消整张请假单

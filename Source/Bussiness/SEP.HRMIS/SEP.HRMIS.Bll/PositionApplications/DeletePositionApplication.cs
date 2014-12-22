@@ -1,14 +1,15 @@
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.PositionApp;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.PositionApplications
 {
     public class DeletePositionApplication:Transaction
     {
-        private readonly IPositionApplicationDal _PositionApplicationDal = DalFactory.DataAccess.CreatePositionApplication();
+        private readonly IPositionApplicationDal _PositionApplicationDal = new PositionApplicationDal();
         private readonly int _ApplicationID;
 
         /// <summary>

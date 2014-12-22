@@ -55,7 +55,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
             {
                 if (HrValidation())
                 {
-                    InstanceFactory.AssessActivityFacade.FillHRItemsExcute(_AssessActivity.AssessActivityID,
+                    InstanceFactory.AssessActivityFacade().FillHRItemsExcute(_AssessActivity.AssessActivityID,
                                                                            _View.AssessActivityItems,_View.Comment,true, LoginUser.Name, ConvertToDecaiml(_View.SalaryNow));
                     ToHRFillingAssessPage(this, null);
                 }

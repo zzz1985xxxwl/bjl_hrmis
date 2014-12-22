@@ -10,12 +10,13 @@
 using SEP.HRMIS.Bll;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class AddFBQuesType : Transaction
     {
-        private static IParameter _DalFBQuesType = DalFactory.DataAccess.CreateParameter();
+        private static IParameter _DalFBQuesType = new ParameterDal();
         private readonly TrainFBQuesType _TrainFBQuesType;
 
         public AddFBQuesType(TrainFBQuesType trainfbquestype)

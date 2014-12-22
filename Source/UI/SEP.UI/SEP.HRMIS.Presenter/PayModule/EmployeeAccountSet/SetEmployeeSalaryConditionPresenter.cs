@@ -16,9 +16,9 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
     public class SetEmployeeSalaryConditionPresenter
     {
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-            PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+            InstanceFactory.CreateEmployeeAccountSetFacade();
         private readonly IAccountSetFacade _IAccountSetFacade =
-            PayModuleInstanceFactory.CreateAccountSetFacade();
+            InstanceFactory.CreateAccountSetFacade();
 
         private readonly Account _AccountOperator;
         private readonly ICompanyInvolveFacade _ICompanyFacade = InstanceFactory.CreateCompanyInvolveFacade();

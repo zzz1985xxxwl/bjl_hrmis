@@ -1,7 +1,8 @@
 using System.Collections.Generic;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
@@ -14,7 +15,7 @@ namespace SEP.HRMIS.Bll.AccountAuth
     /// </summary>
     public class GetAuth
     {
-        private readonly IAuthDal _IAuthDal = DalFactory.DataAccess.CreateAuthDal();
+        private readonly IAuthDal _IAuthDal = new AuthDal();
 
         /// <summary>
         /// 为账号赋予权限，先取消所有权限，然后新增

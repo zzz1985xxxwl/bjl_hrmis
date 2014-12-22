@@ -71,7 +71,7 @@ namespace SEP.HRMIS.Presenter
             if (ValidateTimeFrom() && ValidateTimeTo() && ValidateOperateTimeFrom() && ValidateOperateTimeTo())
             {
                 _View.InAndOutRecords =
-                    InstanceFactory.AttendanceInOutRecordFacade.GetEmployeeInAndOutRecordByCondition(-1,
+                    InstanceFactory.AttendanceInOutRecordFacade().GetEmployeeInAndOutRecordByCondition(-1,
                                                                                                      _View.EmployeeName,
                                                                                                      _View.Department,
                                                                                                      string.Empty,

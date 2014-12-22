@@ -7,9 +7,10 @@
 // 概述: 新增帐套参数
 // ----------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
@@ -18,7 +19,7 @@ namespace SEP.HRMIS.Bll.PayModule.AccountSet
     /// </summary>
     public class CreateAccountSetPara : Transaction
     {
-        private static IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private static IAccountSet _DalAccountSet = new AccountSetDal();
         private readonly string _AccountSetParaName;
         private readonly FieldAttributeEnum _FieldAttributes;
         private readonly BindItemEnum _BindItem;

@@ -1,6 +1,7 @@
 using System;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
@@ -10,7 +11,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     /// </summary>
     public class InsertPlanDuty : Transaction
     {
-        private readonly IPlanDutyDal _DalRull = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _DalRull = new PlanDutyDal();
         private readonly PlanDutyTable _PlanDutyTable;
         private int _CurrentId;
         private string _RepeatAccountList = string.Empty;

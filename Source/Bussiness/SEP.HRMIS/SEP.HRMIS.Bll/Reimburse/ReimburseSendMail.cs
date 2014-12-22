@@ -3,6 +3,7 @@ using System.Text;
 using Mail.Model;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll
     public class ReimburseSendMail : Transaction
     {
         private readonly Model.Reimburse _Reimburse;
-        private readonly IReimburse _IReimburse = DalFactory.DataAccess.CreateReimburse();
+        private readonly IReimburse _IReimburse = new ReimburseDal();
         private delegate void DelSendMail(Model.Reimburse reimburse);
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private static readonly IMailGateWay _MailGateWay = BllInstance.MailGateWayBllInstance;

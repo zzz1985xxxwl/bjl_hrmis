@@ -53,7 +53,7 @@ namespace SEP.HRMIS.Presenter
             {
                 return;
             }
-            Employee employee = InstanceFactory.AttendanceInOutRecordFacade.GetEmployeeInAndOutRecordByEmployeeId(Convert.ToInt32(_View.EmployeeId), LoginUser);
+            Employee employee = InstanceFactory.AttendanceInOutRecordFacade().GetEmployeeInAndOutRecordByEmployeeId(Convert.ToInt32(_View.EmployeeId), LoginUser);
             AttendanceInAndOutRecord oldRecord = employee.EmployeeAttendance.FindInAndOutRecordByRecordId(Convert.ToInt32(_View.RecordId));
 
             #region 收集log 中考勤的旧数据
@@ -79,7 +79,7 @@ namespace SEP.HRMIS.Presenter
 
             try
             {
-                InstanceFactory.AttendanceInOutRecordFacade.UpdateAttendanceInOutRecord(
+                InstanceFactory.AttendanceInOutRecordFacade().UpdateAttendanceInOutRecord(
                     Convert.ToInt32(_View.EmployeeId), oldRecord, oldDate, log, LoginUser);
 
                 _View.ActionSuccess = true;

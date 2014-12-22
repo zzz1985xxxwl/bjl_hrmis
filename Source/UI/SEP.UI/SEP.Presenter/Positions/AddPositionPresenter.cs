@@ -1,6 +1,7 @@
 using System;
 using System.Configuration;
 using System.Transactions;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.Model;
 using SEP.Model.Utility;
@@ -58,7 +59,7 @@ namespace SEP.Presenter.Positions
                     if (CompanyConfig.HasHrmisSystem)
                     {
                         IPositionHistoryFacade hrmisPositionHistoryFacade =
-                            InstanceFactory.CreatePositionHistoryFacade();
+                            new PositionHistoryFacade();
                         hrmisPositionHistoryFacade.AddPositionHistoryFacade(_LoginUser);
                     }
                     ts.Complete();

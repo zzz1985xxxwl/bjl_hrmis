@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.Bll.EmployeeAdjustRest;
 using SEP.HRMIS.Bll.LeaveRequests.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.LeaveRequests
@@ -25,9 +26,9 @@ namespace SEP.HRMIS.Bll.LeaveRequests
         private LeaveRequest _LeaveRequest;
         private LeaveRequestItem _LeaveRequestItem;
 
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
-        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
+        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
         
         /// <summary>
         /// 取消整张请假单

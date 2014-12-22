@@ -8,14 +8,15 @@
 // ----------------------------------------------------------------
 
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
     public class GetAccountSet
     {
-        private static readonly IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private static readonly IAccountSet _DalAccountSet = new AccountSetDal();
         public Model.PayModule.AccountSet GetWholeAccountSetByPKID(int pkid)
         {
             return _DalAccountSet.GetWholeAccountSetByPKID(pkid);

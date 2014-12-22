@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Presenter.IPresenter.IAttendanceStatistics.IPlanDutyPresenter;
-using InstanceFactory=SEP.HRMIS.IFacede.InstanceFactory;
 
 namespace SEP.HRMIS.Presenter.AttendanceStatistics.PlanDutyPresenter
 {

@@ -10,13 +10,14 @@
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.ReadData;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
 {
     public class InsertReadDataHistory:Transaction
     {
-        private readonly IReadDataHistory _DalHistory = DalFactory.DataAccess.CreateAttendanceReadHistory();
+        private readonly IReadDataHistory _DalHistory = new ReadDataHistoryDal();
         private readonly ReadDataHistory _History;
         private int _ReadDataHistoryID;
         private readonly Account _LoginUser;

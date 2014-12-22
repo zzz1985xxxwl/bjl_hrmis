@@ -18,15 +18,16 @@
 //        照片信息是否缓存可以设置
 // ----------------------------------------------------------------
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public static class EmployeeCache
     {
-        private static readonly IEmployee _EmployeeDal = DalFactory.DataAccess.CreateEmployee();
+        private static readonly IEmployee _EmployeeDal = new EmployeeDal();
         private static List<Employee> _EmployeeCache;
 
         /// <summary>

@@ -14,11 +14,12 @@ using SEP.HRMIS.Bll.EmployeeAdjustRest;
 using SEP.HRMIS.Bll.EmployeeAdjustRules;
 using SEP.HRMIS.Bll.OverWorks.MailAndPhone;
 using SEP.HRMIS.Bll.Requests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.OverWorks
@@ -28,7 +29,7 @@ namespace SEP.HRMIS.Bll.OverWorks
     /// </summary>
     public class UpdateOverWork : Transaction
     {
-        private static readonly IOverWork _OverWorkDal = DalFactory.DataAccess.CreateOverWork();
+        private static readonly IOverWork _OverWorkDal = new OverWorkDal();
         private readonly OverWorkDiyProcessUtility _OverWorkDiyProcessUtility = new OverWorkDiyProcessUtility();
         private readonly OverWork _OverWork;
         private readonly List<Account> _CCList;

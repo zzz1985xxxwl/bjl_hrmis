@@ -3,6 +3,7 @@ using SEP.HRMIS.IDal;
 using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -19,7 +20,7 @@ namespace SEP.HRMIS.Bll.CompanyInvolve
     public class GetCompanyInvolve
     {
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
-        private static IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
+        private static IEmployee _dalEmployee = new EmployeeDal();
         private static IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
         /// <summary>
         /// ¹¹Ôìº¯Êý

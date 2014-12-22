@@ -25,8 +25,7 @@ namespace SEP.HRMIS.Presenter.AttendanceStatistics.AttendanceInAndOutStatistics
         private readonly IInAndOutStatisticsView _ItsView;
         private readonly IAttendanceReadDataFacade _IAttendanceReadDataFacade = InstanceFactory.CreateAttendanceReadDataFacade();
 
-        private readonly IAttendanceInOutRecordFacade _IAttendanceInOutRecordFacade =
-            InstanceFactory.AttendanceInOutRecordFacade;
+        private readonly IAttendanceInOutRecordFacade _IAttendanceInOutRecordFacade = InstanceFactory.AttendanceInOutRecordFacade();
 
         private readonly IBll.Accounts.IAccountBll _IGetEmployee = BllInstance.AccountBllInstance;
         //public delegate void _SendMail(string employeeID,string employeeName, string inTime ,
@@ -59,6 +58,7 @@ namespace SEP.HRMIS.Presenter.AttendanceStatistics.AttendanceInAndOutStatistics
             _ItsView.MinutesToList = Minutes();
             _ItsView.SearchFrom = DateTime.Now.ToShortDateString() + " 0:00:00";
             _ItsView.SearchTo = DateTime.Now.ToShortDateString() + " 23:59:59";
+            _ItsView.DepartmentID = _LoginUser.Dept.DepartmentID.ToString();
         }
 
         public static List<OutInTimeConditionEnum> GetOutInTimeCondition()

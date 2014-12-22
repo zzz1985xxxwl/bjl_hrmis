@@ -1,7 +1,6 @@
 using System;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Presenter.IPresenter.IAttendanceStatistics.IPlanDutyPresenter;
-using InstanceFactory=SEP.HRMIS.IFacede.InstanceFactory;
 using IPlanDutyFacade=SEP.HRMIS.IFacede.IPlanDutyFacade;
 
 namespace SEP.HRMIS.Presenter.AttendanceStatistics.PlanDutyPresenter

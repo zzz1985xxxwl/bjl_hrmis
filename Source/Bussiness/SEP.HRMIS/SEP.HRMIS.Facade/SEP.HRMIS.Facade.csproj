@@ -125,9 +125,9 @@
       <Project>{22CBE127-3F41-4020-A613-E90A476B7B9C}</Project>
       <Name>SEP.HRMIS.Bll</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SEP.HRMIS.DalFactory\SEP.HRMIS.DalFactory.csproj">
-      <Project>{EB81BCC2-50EA-467E-87DC-04E737D40179}</Project>
-      <Name>SEP.HRMIS.DalFactory</Name>
+    <ProjectReference Include="..\SEP.HRMIS.DataAccess\SEP.HRMIS.DataAccess.csproj">
+      <Project>{31B71396-EA51-47BC-BD25-14AFA129B24C}</Project>
+      <Name>SEP.HRMIS.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\SEP.HRMIS.IDal\SEP.HRMIS.IDal.csproj">
       <Project>{9149D4B8-2BCD-42C9-BCB3-A14C796172B6}</Project>
@@ -140,6 +140,10 @@
     <ProjectReference Include="..\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
       <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
       <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SEP.HRMIS.SqlServerDal\SEP.HRMIS.SqlServerDal.csproj">
+      <Project>{ABECB284-B369-45F4-AE05-AF886F19501D}</Project>
+      <Name>SEP.HRMIS.SqlServerDal</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

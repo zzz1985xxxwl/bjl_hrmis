@@ -5,7 +5,7 @@ using SEP.HRMIS.Bll.OverWorks;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
-
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Calendar;
 
@@ -23,7 +23,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
         private static GetOverWork _GetOverWork;
         private static GetLeaveRequest _GetLeaveRequest;
 
-        private static readonly IEmployee _dalEmployee = DalFactory.DataAccess.CreateEmployee();
+        private static readonly IEmployee _dalEmployee = new EmployeeDal();
 
         ///<summary>
         ///</summary>

@@ -11,6 +11,7 @@ using System.Transactions;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using System.Collections.Generic;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Departments;
 using SEP.Model.Accounts;
@@ -24,7 +25,7 @@ namespace SEP.HRMIS.Bll
     public class AddDepartmentHistory : Transaction
     {
         private readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance; 
-        private readonly IDepartmentHistory _DalDepartmentHistory = DalFactory.DataAccess.CreateDepartmentHistory();
+        private readonly IDepartmentHistory _DalDepartmentHistory = new DepartmentHistoryDal();
         private readonly Account _OperatorAccount;
         private readonly DateTime _DtNow = DateTime.Now;
         /// <summary>

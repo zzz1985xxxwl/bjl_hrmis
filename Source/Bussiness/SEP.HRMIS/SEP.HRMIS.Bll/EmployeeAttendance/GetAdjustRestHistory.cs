@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAdjustRest;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 
@@ -11,7 +12,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class GetAdjustRestHistory
     {
-        private IAdjustRestHistory _IAdjustRestHistoryDal = DalFactory.DataAccess.CreateAdjustRestHistory();
+        private IAdjustRestHistory _IAdjustRestHistoryDal = new AdjustRestHistoryDal();
         private static IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         /// <summary>
         /// unittest

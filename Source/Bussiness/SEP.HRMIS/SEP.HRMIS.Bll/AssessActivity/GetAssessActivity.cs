@@ -15,6 +15,7 @@ using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.DiyProcesss;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Departments;
 using SEP.IBll;
 using SEP.IBll.Accounts;
@@ -32,7 +33,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static IAssessActivity _AssessActivityDal = DalFactory.DataAccess.AssessActivityDal;
+        private static IAssessActivity _AssessActivityDal = new AssessActivityDal();
         private static IAccountBll _AccountBll = BllInstance.AccountBllInstance;
 
         /// <summary>

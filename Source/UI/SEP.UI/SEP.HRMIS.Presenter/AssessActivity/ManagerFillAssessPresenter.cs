@@ -92,7 +92,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         {
             try
             {
-                InstanceFactory.AssessActivityFacade.FillManagerItemsExcute(_AssessActivity.AssessActivityID,
+                InstanceFactory.AssessActivityFacade().FillManagerItemsExcute(_AssessActivity.AssessActivityID,
                                                                             _View.AssessActivityItems, _View.Comment,
                                                                             _View.SelectIntention, ifSubmit,
                                                                             LoginUser.Name, ConvertToDecaiml(_View.SalaryChange));

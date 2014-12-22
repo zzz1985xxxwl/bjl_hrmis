@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.SystemError;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using ShiXin.Security;
 
@@ -46,7 +47,7 @@ namespace SEP.HRMIS.Bll.SystemErrors
 
         protected override void ExcuteSelf()
         {
-            IContract iContract = DalFactory.DataAccess.CreateContract();
+            IContract iContract = new ContractDal();
             GetEmployee getEmployee = new GetEmployee();
             List<Employee> employeeList = new List<Employee>();
             employeeList.AddRange(

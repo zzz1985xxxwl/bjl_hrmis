@@ -1,5 +1,6 @@
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -8,7 +9,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class GetEmployeeSkill 
     {
-        private static IEmployeeSkill _DalEmployeeSkill = DalFactory.DataAccess.CreateEmployeeSkill();
+        private static IEmployeeSkill _DalEmployeeSkill = new EmployeeSkillDal();
         
         /// <summary>
         /// GetEmployeeSkill的构造函数，专为测试提供

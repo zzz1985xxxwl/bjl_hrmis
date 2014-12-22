@@ -1,11 +1,12 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.LeaveRequests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Departments;
@@ -20,11 +21,11 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class GetLeaveRequest
     {
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
-        private readonly ILeaveRequestType _DalLeaveRequestType = DalFactory.DataAccess.CreateLeaveRequestType();
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
-        private readonly IVacation _DalVacation = DalFactory.DataAccess.CreateVacation();
-        private readonly IPlanDutyDal _DalPlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
+        private readonly ILeaveRequestType _DalLeaveRequestType = new LeaveRequestTypeDal();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
+        private readonly IVacation _DalVacation = new VacationDal();
+        private readonly IPlanDutyDal _DalPlanDutyDal = new PlanDutyDal();
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
 

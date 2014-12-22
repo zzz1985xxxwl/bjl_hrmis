@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 
 namespace SEP.HRMIS.Bll.AssessActivity
@@ -30,8 +31,8 @@ namespace SEP.HRMIS.Bll.AssessActivity
         private AssessTemplatePaper _ItsAssessTemplatePaper;
 
         private IActiveFlow _iActiveFlow = new ActiveFlow();
-        private static IAssessActivity _IAssessActivity = DalFactory.DataAccess.AssessActivityDal;
-        private static IAssessTemplatePaper _IAssessTemplatePaper = DalFactory.DataAccess.CreateAssessTemplatePaper();
+        private static IAssessActivity _IAssessActivity = new AssessActivityDal();
+        private static IAssessTemplatePaper _IAssessTemplatePaper = new AssessTemplatePaperDal();
 
         /// <summary>
         /// 人事确认考评活动的事务

@@ -10,16 +10,17 @@ using System;
 using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.Bll.PayModule.EmployeeAccountSet;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
     public class UpdateAccountSet : Transaction
     {
-        private static IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
-        private static IEmployeeAccountSet _DalEmployeeAccountSet = PayModuleDataAccess.CreateEmployeeAccountSet();
+        private static IAccountSet _DalAccountSet = new AccountSetDal();
+        private static IEmployeeAccountSet _DalEmployeeAccountSet =new EmployeeAccountSetDal();
         private string _AccountSetName;
         private string _Description;
         private string _OperatorName;

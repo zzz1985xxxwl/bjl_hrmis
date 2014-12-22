@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Nationalitys
 {
@@ -9,7 +10,7 @@ namespace SEP.HRMIS.Bll.Nationalitys
     /// </summary>
     public class GetNationality
     {
-        private readonly IParameter _IParameter = DalFactory.DataAccess.CreateParameter();
+        private readonly IParameter _IParameter = new ParameterDal();
 
         /// <summary>
         /// 

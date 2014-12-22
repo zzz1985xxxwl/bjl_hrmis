@@ -8,9 +8,10 @@
 // ---------------------------------------------------------------
 
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.OverWorks
 {
@@ -18,7 +19,7 @@ namespace SEP.HRMIS.Bll.OverWorks
     /// </summary>
     public class DeleteOverWork:Transaction
     {
-        private static readonly IOverWork _OverWorkDal = DalFactory.DataAccess.CreateOverWork();
+        private static readonly IOverWork _OverWorkDal = new OverWorkDal();
         private readonly int _ApplicationID;
 
         /// <summary>

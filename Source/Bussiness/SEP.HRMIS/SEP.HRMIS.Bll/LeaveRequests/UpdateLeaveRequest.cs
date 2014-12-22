@@ -5,11 +5,12 @@ using SEP.HRMIS.Bll.EmployeeAdjustRest;
 using SEP.HRMIS.Bll.LeaveRequests;
 using SEP.HRMIS.Bll.LeaveRequests.MailAndPhone;
 using SEP.HRMIS.Bll.Requests;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll
@@ -19,16 +20,16 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class UpdateLeaveRequest : Transaction
     {
-        private readonly ILeaveRequestDal _DalLeaveRequest = DalFactory.DataAccess.CreateLeaveRequest();
-        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = DalFactory.DataAccess.CreateLeaveRequestFlow();
-        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
-        private readonly IVacation _IVacationDal = DalFactory.DataAccess.CreateVacation();
-        private readonly IAdjustRest _IAdjustRestDal = DalFactory.DataAccess.CreateAdjustRest();
-        private readonly IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
-        private readonly IOutApplication _DalOutApplication = DalFactory.DataAccess.CreateOutApplication();
-        private readonly IPlanDutyDal _DalPlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
-        private readonly ILeaveRequestType _DalLeaveRequestType = DalFactory.DataAccess.CreateLeaveRequestType();
-        private static IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
+        private readonly ILeaveRequestDal _DalLeaveRequest = new LeaveRequestDal();
+        private readonly ILeaveRequestFlowDal _DalLeaveRequestFlow = new LeaveRequestFlowDal();
+        private readonly IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
+        private readonly IVacation _IVacationDal = new VacationDal();
+        private readonly IAdjustRest _IAdjustRestDal = new AdjustRestDal();
+        private readonly IOverWork _DalOverWork = new OverWorkDal();
+        private readonly IOutApplication _DalOutApplication = new OutApplicationDal();
+        private readonly IPlanDutyDal _DalPlanDutyDal = new PlanDutyDal();
+        private readonly ILeaveRequestType _DalLeaveRequestType = new LeaveRequestTypeDal();
+        private static IEmployee _DalEmployee = new EmployeeDal();
         private LeaveRequest _LeaveRequest;
         private readonly bool _IfSubmit;
         private readonly LeaveRequest _OldLeaveRequest;

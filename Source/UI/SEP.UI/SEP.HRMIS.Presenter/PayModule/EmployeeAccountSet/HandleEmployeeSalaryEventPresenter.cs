@@ -18,11 +18,11 @@ namespace SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet
     public class HandleEmployeeSalaryEventPresenter
     {
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-            PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+            InstanceFactory.CreateEmployeeAccountSetFacade();
         //private readonly IEmployeeFacade _IEmployeeFacade = InstanceFactory.CreateEmployeeFacade();
 
         private readonly IAccountSetFacade _IAccountSetFacade =
-            PayModuleInstanceFactory.CreateAccountSetFacade();
+            InstanceFactory.CreateAccountSetFacade();
 
         public EmployeeSalaryHistory GetEmployeeSalary(int pkid)
         {

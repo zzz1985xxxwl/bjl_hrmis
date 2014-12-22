@@ -8,10 +8,11 @@
 // ---------------------------------------------------------------
 
 using SEP.HRMIS.Bll.OutApplications.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OutApplication;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.OutApplications
 {
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.OutApplications
         private readonly int _OutApplicationID;
         private readonly string _Remark;
         private OutApplication _OutApplication;
-        private readonly IOutApplication _DalOutApplication = DalFactory.DataAccess.CreateOutApplication();
+        private readonly IOutApplication _DalOutApplication = new OutApplicationDal();
         private readonly OutDiyProcessUtility _OutDiyProcessUtility = new OutDiyProcessUtility();
 
         /// <summary>

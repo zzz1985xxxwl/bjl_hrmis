@@ -12,6 +12,7 @@ using System.Text;
 using Mail.Model;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.AssessFlow;
+using SEP.HRMIS.SqlServerDal;
 using hrmisModel = SEP.HRMIS.Model;
 using SEP.HRMIS.Model;
 using SEP.IBll;
@@ -35,7 +36,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         ///</summary>
         public ActiveFlow()
         {
-            _AssessActivityDal = DalFactory.DataAccess.AssessActivityDal;
+            _AssessActivityDal = new AssessActivityDal();
             _ICalculateScore = new CalculateScore();
         }
 
@@ -463,7 +464,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
             {
                 Department dept = BllInstance.DepartmentBllInstance.GetDept(_AssessActivity.ItsEmployee.Account.Id,
                                                                             new Account(Account.AdminPkid, "", ""));
-                accounts = DalFactory.DataAccess.CreateAuthDal().GetAccountsByAuthIdAndDeptId(HrmisPowers.A704, dept.Id);
+                accounts = new AuthDal().GetAccountsByAuthIdAndDeptId(HrmisPowers.A704, dept.Id);
             }
             emails = BllUtility.GetEmailsByAccountIds(accounts);
             mailBody.MailTo = emails[0];

@@ -46,7 +46,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
 
             try
             {
-                InstanceFactory.AssessActivityFacade.FillSummarizeCommmentExcute(_AssessActivity.AssessActivityID,
+                InstanceFactory.AssessActivityFacade().FillSummarizeCommmentExcute(_AssessActivity.AssessActivityID,
                                                                           _View.Comment, LoginUser.Name);
                 ToGetCurrentAssessPage(this, null);
             }

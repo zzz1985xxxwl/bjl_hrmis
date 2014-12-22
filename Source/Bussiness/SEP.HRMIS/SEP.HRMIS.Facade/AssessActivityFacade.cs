@@ -11,7 +11,7 @@ namespace SEP.HRMIS.Facade
     /// <summary>
     /// 
     /// </summary>
-    internal class AssessActivityFacade : IAssessActivityFacade
+    public class AssessActivityFacade : IAssessActivityFacade
     {
         #region IAssessActivityFacade ≥…‘±
 

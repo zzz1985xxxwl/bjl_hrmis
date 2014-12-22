@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.Bll.EmployeeContract;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -12,7 +13,7 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class SystemSetApplyAssessCondition : Transaction
     {
-        private static IEmployee _DalEmployee = DalFactory.DataAccess.CreateEmployee();
+        private static IEmployee _DalEmployee = new EmployeeDal();
         private readonly int _ContractTypeId;
         private readonly DateTime _ContractStartTime;
         private readonly DateTime _ContractEndTime;

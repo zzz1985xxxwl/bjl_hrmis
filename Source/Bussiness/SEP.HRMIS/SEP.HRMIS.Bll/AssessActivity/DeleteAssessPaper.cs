@@ -7,8 +7,9 @@
 // ¸ÅÊö: É¾³ý¿¼ÆÀ±í
 // ----------------------------------------------------------------
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
@@ -17,10 +18,10 @@ namespace SEP.HRMIS.Bll.AssessActivity
     /// </summary>
     public class DeleteAssessPaper : Transaction
     {
-        private static IAssessTemplatePaper _IAssessTemplatePaper = DalFactory.DataAccess.CreateAssessTemplatePaper();
+        private static IAssessTemplatePaper _IAssessTemplatePaper = new AssessTemplatePaperDal();
 
         private static IAssessTemplatePaperBindPosition _IAssessTemplatePaperBindPosition =
-            DalFactory.DataAccess.CreateAssessTemplatePaperBindPosition();
+            new AssessTemplatePaperBindPositionDal();
 
         private readonly int _AssessPaperID;
 

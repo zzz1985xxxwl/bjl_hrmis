@@ -88,7 +88,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 hrmisModel.AssessActivity temp = _View.AssessActivityToManual;
                 temp.AssessProposerName = LoginUser.Name;
 
-                InstanceFactory.AssessActivityFacade.ManualAssess(temp);
+                InstanceFactory.AssessActivityFacade().ManualAssess(temp);
                 ToGetEmployeeForApplyPage(this, null);
             }
             catch (ApplicationException ex)

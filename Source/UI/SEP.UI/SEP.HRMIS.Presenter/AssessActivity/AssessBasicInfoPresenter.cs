@@ -49,7 +49,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 _View.Message = "绩效考核活动信息传入错误";
                 return;
             }
-            hrmisModel.AssessActivity assessActivity = InstanceFactory.AssessActivityFacade.GetAssessActivityByAssessActivityID(assessActivityID);
+            hrmisModel.AssessActivity assessActivity = InstanceFactory.AssessActivityFacade().GetAssessActivityByAssessActivityID(assessActivityID);
             BindInformation(assessActivity);
         }
 

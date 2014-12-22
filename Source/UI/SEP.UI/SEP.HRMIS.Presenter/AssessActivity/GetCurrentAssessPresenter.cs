@@ -61,17 +61,17 @@ namespace SEP.HRMIS.Presenter.AssessActivity
 
         private void GetAndPassSelfSource(object sender, EventArgs e)
         {
-            _ItsView.SelfSource = InstanceFactory.AssessActivityFacade.GetEmployeeFillActivitys(LoginUser.Id);
+            _ItsView.SelfSource = InstanceFactory.AssessActivityFacade().GetEmployeeFillActivitys(LoginUser.Id);
         }
 
         private void GetAndPassManagerSource(object sender, EventArgs e)
         {
-            _ItsView.ManagerSource = InstanceFactory.AssessActivityFacade.GetManagerFillActivitys(LoginUser.Id);
+            _ItsView.ManagerSource = InstanceFactory.AssessActivityFacade().GetManagerFillActivitys(LoginUser.Id);
         }
 
         private void GetAndPassCeoSource(object sender, EventArgs e)
         {
-            _ItsView.CeoSource = InstanceFactory.AssessActivityFacade.GetCeoFillActivitys(LoginUser.Id);
+            _ItsView.CeoSource = InstanceFactory.AssessActivityFacade().GetCeoFillActivitys(LoginUser.Id);
         }
 
         private void GetAndPassHrSource(object sender, EventArgs e)
@@ -81,12 +81,12 @@ namespace SEP.HRMIS.Presenter.AssessActivity
             for (int i = list.Count - 1; i >= 0; i--)
             {
                 Account operAccount =
-                    InstanceFactory.AssessActivityFacade.GetDiyStepAccount(list[i].ItsEmployee.Account.Id,
+                    InstanceFactory.AssessActivityFacade().GetDiyStepAccount(list[i].ItsEmployee.Account.Id,
                                                                            list[i].DiyProcess.DiySteps[
                                                                                list[i].NextStepIndex]);
                 if (operAccount == null)
                 {
-                    InstanceFactory.AssessActivityFacade.InterruptActivity(list[i].AssessActivityID);
+                    InstanceFactory.AssessActivityFacade().InterruptActivity(list[i].AssessActivityID);
                     list.RemoveAt(i);
                 }
                 else if (operAccount.Id != LoginUser.Id)
@@ -99,7 +99,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
 
         private void GetAndPassSummarizeCommmentSource(object sender, EventArgs e)
         {
-            _ItsView.SummarizeCommmentSource = InstanceFactory.AssessActivityFacade.GetSummarizeCommmentFillActivitys(LoginUser.Id);
+            _ItsView.SummarizeCommmentSource = InstanceFactory.AssessActivityFacade().GetSummarizeCommmentFillActivitys(LoginUser.Id);
         }
     }
 }

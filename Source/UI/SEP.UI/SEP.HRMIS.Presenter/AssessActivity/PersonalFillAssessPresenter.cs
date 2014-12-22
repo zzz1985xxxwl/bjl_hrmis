@@ -83,7 +83,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         {
             try
             {
-                InstanceFactory.AssessActivityFacade.FillEmployeeItemsExcute(_AssessActivity.AssessActivityID,
+                InstanceFactory.AssessActivityFacade().FillEmployeeItemsExcute(_AssessActivity.AssessActivityID,
                                                                              _View.AssessActivityItems, _View.Comment,
                                                                              _View.SelectIntention, ifSubmit,
                                                                              LoginUser.Name);

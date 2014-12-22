@@ -3,6 +3,7 @@ using System.Configuration;
 using System.IO;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -10,7 +11,7 @@ namespace SEP.HRMIS.Bll
     {
         private readonly ContractType _ContractType;
         private readonly string _TempWordLocation = ConfigurationManager.AppSettings["EmployeeExportLocation"];
-        private static readonly IContractBookMark _ContractBookMark = DalFactory.DataAccess.CreateContractBookMark();
+        private static readonly IContractBookMark _ContractBookMark = new ContractBookMarkDal();
         private readonly string _TempWordName;
 
         public CreateContractBookMark(ContractType contractType)

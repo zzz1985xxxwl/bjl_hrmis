@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Train
 {
@@ -8,7 +9,7 @@ namespace SEP.HRMIS.Bll.Train
     ///</summary>
     public class GetFeedBackPaper
     {
-        private static readonly IFeedBackPaper _IFeedBackPaper = DalFactory.DataAccess.CreateFeedBackPaper();
+        private static readonly IFeedBackPaper _IFeedBackPaper = new FeedBackPaperDal();
         ///<summary>
         ///</summary>
         ///<param name="paperName"></param>

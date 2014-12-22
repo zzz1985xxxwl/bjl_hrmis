@@ -9,9 +9,10 @@
 
 using System;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
@@ -22,10 +23,10 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         private readonly string _BackAccountsName;
         private readonly DateTime _ChangeDate;
         private readonly string _Description;
-        private readonly IEmployeeAccountSet _DalEmployeeAccountSet = PayModuleDataAccess.CreateEmployeeAccountSet();
-        private readonly IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private readonly IEmployeeAccountSet _DalEmployeeAccountSet = new EmployeeAccountSetDal();
+        private readonly IAccountSet _DalAccountSet = new AccountSetDal();
 
-        public UpdateEmployeeAccountSet(int employeeID, Model.PayModule.AccountSet accountSet, string backAccountsName, 
+        public UpdateEmployeeAccountSet(int employeeID, Model.PayModule.AccountSet accountSet, string backAccountsName,
             DateTime changeDate, string description)
         {
             _EmployeeID = employeeID;
@@ -36,7 +37,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         }
 
         public UpdateEmployeeAccountSet(int employeeID, Model.PayModule.AccountSet accountSet, string backAccountsName,
-            DateTime changeDate, string description, 
+            DateTime changeDate, string description,
             IAccountSet mockAccountSet, IEmployeeAccountSet mockEmployeeAccountSet)
         {
             _EmployeeID = employeeID;

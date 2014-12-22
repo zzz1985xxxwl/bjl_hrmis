@@ -5,6 +5,7 @@ using Mail.Model;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.Mail;
@@ -16,7 +17,7 @@ namespace SEP.HRMIS.Bll.AutoRemindServer
     {
         private static readonly IMailGateWay _IMailGateWay = BllInstance.MailGateWayBllInstance;
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
-        private readonly IReimburse _IReimburse = DalFactory.DataAccess.CreateReimburse();
+        private readonly IReimburse _IReimburse = new ReimburseDal();
         private readonly static GetEmployee _GetEmployee = new GetEmployee();
  
         protected override void Validation()

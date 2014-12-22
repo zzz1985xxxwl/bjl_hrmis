@@ -8,15 +8,16 @@
 // ----------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
     public class CreateAccountSet:Transaction
     {
-        private IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private IAccountSet _DalAccountSet = new AccountSetDal();
         private string _AccountSetName;
         private string _Description;
         private int _AccountSetID;

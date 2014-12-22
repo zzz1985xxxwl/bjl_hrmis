@@ -39,12 +39,12 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         public void BindAssessActivity(object sender, EventArgs e)
         {
             _View.AssessActivitys =
-                InstanceFactory.AssessActivityFacade.GetMyAssessActivityByAccountId(LoginUser.Id);
+                InstanceFactory.AssessActivityFacade().GetMyAssessActivityByAccountId(LoginUser.Id);
         }
 
         public string ExportSelfEvent(string employeeTemplateLocation)
         {
-            return InstanceFactory.AssessActivityFacade.ExportEmployeeSelfAssessForm(Convert.ToInt32(_View.AssessActivityId), employeeTemplateLocation);
+            return InstanceFactory.AssessActivityFacade().ExportEmployeeSelfAssessForm(Convert.ToInt32(_View.AssessActivityId), employeeTemplateLocation);
         }
 
       

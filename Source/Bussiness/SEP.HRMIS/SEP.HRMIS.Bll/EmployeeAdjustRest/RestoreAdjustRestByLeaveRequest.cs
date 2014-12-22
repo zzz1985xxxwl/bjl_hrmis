@@ -8,11 +8,12 @@
 // ----------------------------------------------------------------
 
 using System;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAdjustRest;
 using SEP.HRMIS.Model.Enum;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.EmployeeAdjustRest
 {
@@ -22,8 +23,8 @@ namespace SEP.HRMIS.Bll.EmployeeAdjustRest
     public class RestoreAdjustRestByLeaveRequest
     {
         private readonly LeaveRequestItem _LeaveRequestItem;
-        private readonly IAdjustRest _IAdjustRest = DalFactory.DataAccess.CreateAdjustRest();
-        private readonly IAdjustRestHistory _IAdjustRestHistory = DalFactory.DataAccess.CreateAdjustRestHistory();
+        private readonly IAdjustRest _IAdjustRest = new AdjustRestDal();
+        private readonly IAdjustRestHistory _IAdjustRestHistory = new AdjustRestHistoryDal();
         private readonly int _AccountID;
         private readonly int _LeaveRequestID;
 

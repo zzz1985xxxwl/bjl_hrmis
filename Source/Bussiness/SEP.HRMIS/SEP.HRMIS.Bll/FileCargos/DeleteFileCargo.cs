@@ -8,8 +8,9 @@
 // ----------------------------------------------------------------
 
 using System.IO;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.FileCargos
 {
@@ -19,8 +20,7 @@ namespace SEP.HRMIS.Bll.FileCargos
     public class DeleteFileCargo : Transaction
     {
         private readonly int _FileCargoID;
-        private static readonly IFileCargo _FileCargoDal = DalFactory.DataAccess.CreateFileCargo();
-
+        private static readonly IFileCargo _FileCargoDal = new FileCargoDal();
         /// <summary>
         /// 
         /// </summary>

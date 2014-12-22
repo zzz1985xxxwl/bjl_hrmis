@@ -8,21 +8,22 @@
 // ----------------------------------------------------------------
 
 using System;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
     public class AccountReopenedEmployeeAccountSet : Transaction
     {
-        private readonly IEmployeeSalary _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
+        private readonly IEmployeeSalary _DalEmployeeSalary = new EmployeeSalaryDal();
         private readonly int _EmployeeID;
         private readonly Model.PayModule.AccountSet _AccountSet;
         private readonly string _BackAccountsName;
         private readonly string _Description;
         private readonly DateTime _SalaryTime;
-        private readonly IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private readonly IAccountSet _DalAccountSet = new AccountSetDal();
         private readonly int _VersionNum;
         private readonly int _EmployeeSalaryID;
 

@@ -1,6 +1,7 @@
 using System;
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 using ShiXin.Security;
 using System.Collections.Generic;
 using SEP.HRMIS.Model;
@@ -8,7 +9,7 @@ using SEP.IBll.Mail;
 using SEP.IBll;
 using Mail.Model;
 using System.Text;
-using SEP.HRMIS.DalFactory;
+
 
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
@@ -35,7 +36,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         public SendEmployeeSalaryToEmployee(int accountID, DateTime salaryDate)
         {
             _AccountID = accountID;
-            _DalEmployeeSalary = PayModuleDataAccess.CreateEmployeeSarary();
+            _DalEmployeeSalary = new EmployeeSalaryDal();
             _SalaryDate = salaryDate;
             _EmployeeSalaryHistory = _DalEmployeeSalary.GetEmployeeSalaryHistoryByEmployeeIdAndDateTime(_AccountID, _SalaryDate);
         }

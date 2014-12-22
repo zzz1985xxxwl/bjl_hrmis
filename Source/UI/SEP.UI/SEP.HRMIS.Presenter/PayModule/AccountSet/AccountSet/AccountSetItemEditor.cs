@@ -17,7 +17,7 @@ namespace SEP.HRMIS.Presenter.PayModule.AccountSet.AccountSet
     public class AccountSetItemEditor
     {
         private readonly IAccountSetView _IAccountSetView;
-        public IAccountSetFacade _IAccountSetFacade = PayModuleInstanceFactory.CreateAccountSetFacade();
+        public IAccountSetFacade _IAccountSetFacade = InstanceFactory.CreateAccountSetFacade();
 
         public AccountSetItemEditor(IAccountSetView accountSetView)
         {

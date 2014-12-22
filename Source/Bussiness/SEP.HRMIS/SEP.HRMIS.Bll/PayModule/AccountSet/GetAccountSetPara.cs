@@ -7,15 +7,16 @@
 // 概述: 获取帐套参数信息
 // ----------------------------------------------------------------
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal.PayModule;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.SqlServerDal.PayModule;
 
 namespace SEP.HRMIS.Bll.PayModule.AccountSet
 {
     public class GetAccountSetPara
     {
-        private static readonly IAccountSet _DalAccountSet = PayModuleDataAccess.CreateAccountSet();
+        private static readonly IAccountSet _DalAccountSet = new AccountSetDal();
         public AccountSetPara GetAccountSetParaByPKID(int pkid)
         {
             return _DalAccountSet.GetAccountSetParaByPKID(pkid);

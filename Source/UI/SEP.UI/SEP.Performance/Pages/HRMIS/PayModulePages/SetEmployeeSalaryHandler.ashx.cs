@@ -13,6 +13,7 @@ using SEP.HRMIS.IFacede.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.Presenter;
 using SEP.Model.Accounts;
 using SEPPerformance = SEP.Performance;
 
@@ -26,10 +27,10 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
     public class SetEmployeeSalaryHandler : IHttpHandler, IRequiresSessionState
     {
         private readonly IEmployeeAccountSetFacade _IEmployeeAccountSetFacade =
-            PayModuleInstanceFactory.CreateEmployeeAccountSetFacade();
+            InstanceFactory.CreateEmployeeAccountSetFacade();
 
         private readonly IAccountSetFacade _IAccountSetFacade =
-            PayModuleInstanceFactory.CreateAccountSetFacade();
+            InstanceFactory.CreateAccountSetFacade();
 
         private HttpContext _Context;
         private string _ResponseString;

@@ -10,11 +10,12 @@
 using System;
 using System.Transactions;
 using SEP.HRMIS.Bll.OverWorks.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.OverWorks
@@ -23,7 +24,7 @@ namespace SEP.HRMIS.Bll.OverWorks
     /// </summary>
     public class CancelOverWorkItem : Transaction
     {
-        private readonly IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
+        private readonly IOverWork  _OverWorkDal = new OverWorkDal();
         private readonly OverWorkDiyProcessUtility _OverWorkDiyProcessUtility = new OverWorkDiyProcessUtility();
         private readonly int _ItemID;
         private readonly string _Remark;
@@ -42,7 +43,7 @@ namespace SEP.HRMIS.Bll.OverWorks
 
         protected override void Validation()
         {
-            _OverWorkItem = _DalOverWork.GetOverWorkItemByItemID(_ItemID);
+            _OverWorkItem = _OverWorkDal.GetOverWorkItemByItemID(_ItemID);
             if (_OverWorkItem == null)
             {
                 HrmisUtility.ThrowException(HrmisUtility._OverWorkItem_Not_Exit);
@@ -51,7 +52,7 @@ namespace SEP.HRMIS.Bll.OverWorks
 
         protected override void ExcuteSelf()
         {
-            bool valide=CancelOneItem(_OverWorkItem, _Account, _Remark, _DalOverWork, _OverWorkDiyProcessUtility);
+            bool valide = CancelOneItem(_OverWorkItem, _Account, _Remark, _OverWorkDal, _OverWorkDiyProcessUtility);
             if(valide)
             {
                 new OverWorkMailAndPhoneDelegate().CancelOperation(_OverWorkItem.OverWorkID,

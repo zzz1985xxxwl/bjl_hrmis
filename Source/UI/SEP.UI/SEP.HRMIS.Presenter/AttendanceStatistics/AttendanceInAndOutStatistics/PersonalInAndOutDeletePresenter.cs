@@ -56,7 +56,7 @@ namespace SEP.HRMIS.Presenter
 
              try
              {
-                 InstanceFactory.AttendanceInOutRecordFacade.DeleteAttendanceInOutRecord(
+                 InstanceFactory.AttendanceInOutRecordFacade().DeleteAttendanceInOutRecord(
                      Convert.ToInt32(_View.EmployeeId), Convert.ToInt32(_View.RecordId),
                      Convert.ToDateTime(_View.IOTime), CompleteLogData(), LoginUser);
                  _View.ActionSuccess = true;

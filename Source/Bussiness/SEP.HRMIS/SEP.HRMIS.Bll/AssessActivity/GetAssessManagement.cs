@@ -10,6 +10,7 @@
 using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Positions;
 using SEP.Model.Positions;
@@ -18,9 +19,9 @@ namespace SEP.HRMIS.Bll.AssessActivity
 {
     public class GetAssessManagement
     {
-        private static readonly IAssessTemplateItem _IAssessTemplateItem = DalFactory.DataAccess.CreateAssessTemplateItem();
-        private static readonly IAssessTemplatePaper _IAssessTemplatePaper = DalFactory.DataAccess.CreateAssessTemplatePaper();
-        private static readonly IAssessTemplatePaperBindPosition _IAssessTemplatePaperBindPosition = DalFactory.DataAccess.CreateAssessTemplatePaperBindPosition();
+        private static readonly IAssessTemplateItem _IAssessTemplateItem = new AssessTemplateItemDal();
+        private static readonly IAssessTemplatePaper _IAssessTemplatePaper = new AssessTemplatePaperDal();
+        private static readonly IAssessTemplatePaperBindPosition _IAssessTemplatePaperBindPosition = new AssessTemplatePaperBindPositionDal();
         private static readonly IPositionBll _IPostionBll = BllInstance.PositionBllInstance;
         //Get考评项的3个方法
         public AssessTemplateItem GetTemplateItemById(int id)

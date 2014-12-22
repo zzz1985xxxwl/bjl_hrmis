@@ -9,9 +9,10 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.Requests
 {
@@ -20,7 +21,7 @@ namespace SEP.HRMIS.Bll.Requests
     /// </summary>
     public class CalculateHourUtility
     {
-        private IPlanDutyDal _PlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private IPlanDutyDal _PlanDutyDal = new PlanDutyDal();
         private List<PlanDutyDetail> _PlanDutyDetailList;
         private DateTime _MorningStart;
         private DateTime _MorningEnd;

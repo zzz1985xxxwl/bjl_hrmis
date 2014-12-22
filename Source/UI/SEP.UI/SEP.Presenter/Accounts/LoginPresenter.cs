@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using SEP.HRMIS.IFacede;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.IBll;
 using SEP.IBll.Departments;
@@ -14,7 +14,7 @@ namespace SEP.Presenter.Accounts
 {
     public class LoginPresenter
     {
-        private readonly IAccountAuthFacade _IAccountAuthFacade = InstanceFactory.CreateAccountAuthFacade();
+        private readonly AccountAuthFacade _IAccountAuthFacade = new AccountAuthFacade();
         private IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
 
         //private readonly IAccountAuthForEsFacade _IAccountAuthForEsFacade = new AccountAuthForEsFacade();

@@ -9,15 +9,17 @@
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
-using SEP.HRMIS.DalFactory;
+
 using System.Collections.Generic;
+using SEP.HRMIS.SqlServerDal;
+
 namespace SEP.HRMIS.Bll.CustomerInfos
 {
     ///<summary>
     ///</summary>
     public class GetCustomerInfo
     {
-        private static ICustomerInfoDal _Dal = DalFactory.DataAccess.CreateCustomerInfoDal();
+        private static ICustomerInfoDal _Dal = new CustomerInfoDal();
 
         /// <summary>
         /// 

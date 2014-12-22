@@ -9,11 +9,12 @@
 
 using System.Collections.Generic;
 using SEP.HRMIS.Bll.OverWorks.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.OverWork;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
@@ -29,7 +30,7 @@ namespace SEP.HRMIS.Bll.OverWorks
         private readonly bool _IsAgree;
         private readonly string _Remark;
         private OverWork _OverWork;
-        private readonly IOverWork _DalOverWork = DalFactory.DataAccess.CreateOverWork();
+        private readonly IOverWork  _OverWorkDal = new OverWorkDal();
         private readonly IAccountBll _DalAccountBll = BllInstance.AccountBllInstance;
         private readonly OverWorkDiyProcessUtility _OverWorkDiyProcess = new OverWorkDiyProcessUtility();
 
@@ -61,7 +62,7 @@ namespace SEP.HRMIS.Bll.OverWorks
                 {
                     Account nextOperator;
                     bool valide =new ApproveOverWorkItem().ApproveOneItem(item, _IsAgree, _Account, _OverWork, _Remark,
-                                                                     _DalOverWork, _OverWorkDiyProcess, item.Adjust,
+                                                                     _OverWorkDal, _OverWorkDiyProcess, item.Adjust,
                                                                      false,item.AdjustHour,
                                                                      out nextOperator);
 

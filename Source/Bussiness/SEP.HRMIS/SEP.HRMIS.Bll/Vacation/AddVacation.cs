@@ -6,15 +6,16 @@
 // Date:  2009-01-12
 // Resume:
 // ---------------------------------------------------------------
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class AddVacation : Transaction
     {
-        private static IVacation _VacationDal = DalFactory.DataAccess.CreateVacation();
+        private static IVacation _VacationDal = new VacationDal();
         private readonly Model.Vacation _Vacation;
 
         public AddVacation(Model.Vacation vacation)

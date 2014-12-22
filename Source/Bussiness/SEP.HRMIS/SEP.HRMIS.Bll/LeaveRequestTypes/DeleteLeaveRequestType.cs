@@ -7,9 +7,10 @@
 // Resume:
 // ---------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll.LeaveRequestTypes
 {
@@ -18,8 +19,8 @@ namespace SEP.HRMIS.Bll.LeaveRequestTypes
     /// </summary>
     public class DeleteLeaveRequestType : Transaction
     {
-        private static ILeaveRequestType _LeaveRequestTypeDal = DalFactory.DataAccess.CreateLeaveRequestType();
-        private static ILeaveRequestDal _LeaveRequestDal = DalFactory.DataAccess.CreateLeaveRequest();
+        private static ILeaveRequestType _LeaveRequestTypeDal = new LeaveRequestTypeDal();
+        private static ILeaveRequestDal _LeaveRequestDal = new LeaveRequestDal();
         private readonly int _LeaveRequestTypeID;
 
         /// <summary>

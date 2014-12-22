@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Transactions;
 using SEP.HRMIS.Bll.TraineeApplications.MailAndPhone;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.HRMIS.Model.TraineeApplications;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 
 namespace SEP.HRMIS.Bll.TraineeApplications
@@ -17,9 +18,9 @@ namespace SEP.HRMIS.Bll.TraineeApplications
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static ITraineeApplication _DalTraineeApplication = DalFactory.DataAccess.CreateTraineeApplication();
+        private static ITraineeApplication _DalTraineeApplication = new TraineeApplicationDal();
         private readonly TraineeApplication _TraineeApplication;
-        private static IEmployeeDiyProcessDal _DalEmployeeDiyProcess = DalFactory.DataAccess.CreateEmployeeDiyProcessDal();
+        private static IEmployeeDiyProcessDal _DalEmployeeDiyProcess = new EmployeeDiyProcessDal();
 
         //private Account _LoginUser;
 

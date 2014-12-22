@@ -7,14 +7,15 @@
 // Resume:
 // ---------------------------------------------------------------
 
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
     public class DeleteVacation : Transaction
     {
-        private static IVacation _VacationDal = DalFactory.DataAccess.CreateVacation();
+        private static IVacation _VacationDal = new VacationDal();
         private readonly int _VacationID;
 
         public DeleteVacation(int vacationID)

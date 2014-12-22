@@ -13,6 +13,7 @@ using SEP.HRMIS.Bll.AttendanceStatistics;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.SystemError;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Accounts;
 using SEP.Model.Utility;
 using ShiXin.Security;
@@ -30,7 +31,7 @@ namespace SEP.HRMIS.Bll.SystemErrors
         private readonly Account _Operator;
         private readonly int _PowerID;
         private List<SystemError> _SystemErrorList;
-        private IPlanDutyDal _PlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private IPlanDutyDal _PlanDutyDal = new PlanDutyDal();
 
         ///<summary>
         ///</summary>

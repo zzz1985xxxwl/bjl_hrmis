@@ -9,9 +9,10 @@
 
 using System;
 using System.Transactions;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -20,8 +21,8 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class SaveEmployeeWelfare : Transaction
     {
-        private static IEmployeeWelfare _EmployeeWelfareDal = DalFactory.DataAccess.CreateEmployeeWelfare();
-        private static IEmployeeWelfareHistory _EmployeeWelfareHistoryDal = DalFactory.DataAccess.CreateEmployeeWelfareHistory();
+        private static IEmployeeWelfare _EmployeeWelfareDal = new EmployeeWelfareDal();
+        private static IEmployeeWelfareHistory _EmployeeWelfareHistoryDal = new EmployeeWelfareHistoryDal();
         private readonly int _EmployeeID;
         private readonly EmployeeWelfare _EmployeeWelfare;
         private readonly string _OperationName;

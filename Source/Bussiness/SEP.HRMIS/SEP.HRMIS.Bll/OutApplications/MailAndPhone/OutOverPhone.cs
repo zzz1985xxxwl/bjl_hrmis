@@ -6,10 +6,11 @@
 // Date:  2009-05-25
 // Resume:
 // ---------------------------------------------------------------
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.OutApplication;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.IBll.SMS;
@@ -22,7 +23,7 @@ namespace SEP.HRMIS.Bll.OutApplications.MailAndPhone
     /// </summary>
     public class OutOverPhone
     {
-        private static readonly IOutApplication _OutApplicationDal = DalFactory.DataAccess.CreateOutApplication();
+        private static readonly IOutApplication _OutApplicationDal = new OutApplicationDal();
         private static readonly IAccountBll _AccountBll = BllInstance.AccountBllInstance;
         private readonly OutApplication _OutApplication;
         private readonly OutApplicationItem _OutApplicationItem;

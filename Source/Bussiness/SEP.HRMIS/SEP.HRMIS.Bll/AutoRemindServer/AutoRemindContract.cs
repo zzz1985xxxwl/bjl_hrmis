@@ -5,6 +5,7 @@ using Mail.Model;
 using SEP.HRMIS.Bll.DiyProcesses;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Mail;
 
@@ -17,7 +18,7 @@ namespace SEP.HRMIS.Bll.AutoRemindServer
     {
         private GetDiyProcess _GetDiyProcess = new GetDiyProcess();
         private DateTime _CurrDate;
-        private readonly IContract _IContract = DalFactory.DataAccess.CreateContract();
+        private readonly IContract _IContract = new ContractDal();
         private static GetEmployee _GetEmployee = new GetEmployee();
         private static IMailGateWay _IMailGateWay = BllInstance.MailGateWayBllInstance;
         private List<MailBody> _MailBodyListToHR;

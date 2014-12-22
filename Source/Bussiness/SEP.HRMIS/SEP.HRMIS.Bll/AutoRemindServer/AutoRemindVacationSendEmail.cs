@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Mail.Model;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Mail;
 using SEP.Model.Accounts;
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll.AutoRemindServer
     ///</summary>
     public class AutoRemindVacationSendEmail
     {
-        private static IVacation _Dal = DalFactory.DataAccess.CreateVacation();
+        private static IVacation _Dal = new VacationDal();
         private static GetEmployee _GetEmployee = new GetEmployee();
         private static IMailGateWay _IMailGateWay = BllInstance.MailGateWayBllInstance;
         private DateTime _CurrDate;

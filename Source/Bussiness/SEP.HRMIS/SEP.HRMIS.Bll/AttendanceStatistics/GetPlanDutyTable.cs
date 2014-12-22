@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
+using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.Model.Accounts;
 
@@ -13,7 +14,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
     ///</summary>
     public class GetPlanDutyTable
     {
-        private readonly IPlanDutyDal _DalRull = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _DalRull = new PlanDutyDal();
 
         private static bool IsAllAccountUnAuth(List<Account> accountList, Auth myAuth)
         {

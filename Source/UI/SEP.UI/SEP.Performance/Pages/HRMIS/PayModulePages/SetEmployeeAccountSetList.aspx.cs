@@ -6,6 +6,7 @@ using Microsoft.Office.Interop.Excel;
 using SEP.HRMIS.IFacede.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
+using SEP.HRMIS.Presenter;
 using SEP.HRMIS.Presenter.PayModule.EmployeeAccountSet;
 using SEP.Model;
 using SEP.Model.Accounts;
@@ -63,7 +64,7 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
                 return;
             }
             DataTable dt =
-                PayModuleInstanceFactory.CreateEmployeeAccountSetFacade().ExportEmployeeAccountSetFacade(
+                InstanceFactory.CreateEmployeeAccountSetFacade().ExportEmployeeAccountSetFacade(
                     Request.QueryString["txtName"].Trim(), Convert.ToInt32(Request.QueryString["listDepartment"]),
                     Convert.ToInt32(Request.QueryString["listPosition"]),
                     EmployeeTypeUtility.GetEmployeeTypeByID(Convert.ToInt32(Request.QueryString["listEmployeeType"])),

@@ -9,10 +9,11 @@
 
 using System;
 using System.Collections.Generic;
-using SEP.HRMIS.DalFactory;
+
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 using SEP.HRMIS.Model.Request;
+using SEP.HRMIS.SqlServerDal;
 using SEP.Model.Calendar;
 
 namespace SEP.HRMIS.Bll.OutApplications
@@ -31,7 +32,7 @@ namespace SEP.HRMIS.Bll.OutApplications
         private DateTime _MorningEnd;
         private DateTime _AfternoonStart;
         private DateTime _AfternoonEnd;
-        private readonly IPlanDutyDal _PlanDutyDal = DalFactory.DataAccess.CreatePlanDutyDal();
+        private readonly IPlanDutyDal _PlanDutyDal = new PlanDutyDal();
         private List<PlanDutyDetail> _PlanDutyDetailList;
         private List<DayAttendance> _DayAttendanceList=new List<DayAttendance>();
 

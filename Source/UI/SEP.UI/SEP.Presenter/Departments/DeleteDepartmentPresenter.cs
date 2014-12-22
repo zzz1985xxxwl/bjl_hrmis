@@ -1,5 +1,6 @@
 using System;
 using System.Transactions;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.IBll;
 using SEP.IBll.Departments;
@@ -9,7 +10,7 @@ using SEP.Presenter.IPresenter.IDepartments;
 
 namespace SEP.Presenter.Departments
 {
-    public class DeleteDepartmentPresenter 
+    public class DeleteDepartmentPresenter
     {
         private readonly IDepartmentView _ItsView;
         private readonly IDepartmentBll _DepartmentBll = BllInstance.DepartmentBllInstance;
@@ -41,13 +42,12 @@ namespace SEP.Presenter.Departments
         {
             try
             {
-                if (CompanyConfig.HasHrmisSystem && InstanceFactory.CreateCompanyInvolveFacade().GetEmployeeBasicInfoByCompanyID(Convert.ToInt32(_ItsView.DepartmentID)).Count > 0)
+                if (CompanyConfig.HasHrmisSystem && new CompanyInvolveFacade().GetEmployeeBasicInfoByCompanyID(Convert.ToInt32(_ItsView.DepartmentID)).Count > 0)
                     throw new ApplicationException("该公司下存在员工，禁止删除！");
                 using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
                 {
                     _DepartmentBll.DeleteDept(Convert.ToInt32(_ItsView.DepartmentID), _LoginUser);
-                    IDepartmentHistoryFacade hrmisDepartmentHistoryFacade =
-                        InstanceFactory.CreateDepartmentHistoryFacade();
+                    IDepartmentHistoryFacade hrmisDepartmentHistoryFacade = new DepartmentHistoryFacade();
                     hrmisDepartmentHistoryFacade.AddDepartmentHistory(_LoginUser);
                     ts.Complete();
                 }

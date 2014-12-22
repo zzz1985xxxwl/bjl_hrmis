@@ -7,6 +7,7 @@
 // 概述: 删除技能类型
 // ----------------------------------------------------------------
 using SEP.HRMIS.IDal;
+using SEP.HRMIS.SqlServerDal;
 
 namespace SEP.HRMIS.Bll
 {
@@ -15,8 +16,8 @@ namespace SEP.HRMIS.Bll
     /// </summary>
     public class DeleteSkillType : Transaction
     {
-        private static IParameter _DalSkillType = DalFactory.DataAccess.CreateParameter();
-        private static ISkill _DalSkill = DalFactory.DataAccess.CreateSkill();
+        private static IParameter _DalSkillType = new ParameterDal();
+        private static ISkill _DalSkill = new SkillDal();
         private readonly int _SkillTypeId;
         /// <summary>
         /// 删除技能类型构造函数
