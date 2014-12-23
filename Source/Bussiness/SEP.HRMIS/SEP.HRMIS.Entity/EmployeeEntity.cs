@@ -7,6 +7,8 @@ using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
 using SEP.Model.Accounts;
 using SEP.Model.Departments;
 using SEP.Model.Positions;
+using SEP.HRMIS.Model.EmployeeAttendance.AttendanceStatistics;
+using SEP.HRMIS.Model.EmployeeAttendance.PlanDutyModel;
 
 namespace SEP.HRMIS.Entity
 {
@@ -516,9 +518,9 @@ namespace SEP.HRMIS.Entity
                                             e.CompanyName)
                      }
                  },
-                 EmployeeAttendance = new EmployeeAttendance
-                 {
-                     DoorCardNo = e.DoorCardNo
+                 EmployeeAttendance = new EmployeeAttendance { 
+                    DoorCardNo=e.DoorCardNo,
+                    PlanDutyDetailList=new List<PlanDutyDetail>()
                  }
              };
         }

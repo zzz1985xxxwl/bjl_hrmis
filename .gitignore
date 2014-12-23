@@ -98,10 +98,8 @@
 /Source/UI/SEP.WCF/ReadDataFromOA/WindowsServerTest/obj
 /Source/UI/SEP.WCF/ReadDataFromOA/WindowsServerTest/bin
 /Source/UI/SEP.WCF/ReadDataFromOA/*.user
-/Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/bin/Debug
-/Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/bin/Release
-/Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/obj/Debug
-/Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/obj/Release
+/Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/bin
+/Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/obj
 /Source/Bussiness/SEP.HRMIS/SEP.HRMIS.BllUnitTest
 /Source/UI/SEP.UI/SEP.UI.suo
-/Source/UI/SEP.UI/SEP.UI.suo
+

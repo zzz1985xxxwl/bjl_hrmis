@@ -22,6 +22,7 @@ using SEP.HRMIS.Bll.OutApplications;
 using SEP.HRMIS.Bll.OverWorks;
 using SEP.Model.Utility;
 using SEP.Model.Calendar;
+using SEP.HRMIS.Logic;
 
 namespace SEP.HRMIS.Bll.AttendanceStatistics
 {
@@ -76,6 +77,7 @@ namespace SEP.HRMIS.Bll.AttendanceStatistics
             {
                 powerID = HrmisPowers.A503;
             }
+
             var EmployeeList = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(employeeName,
                 EmployeeTypeEnum.All, -1, gradesId, departmentID, null, true, powerID, _LoginUser.Id, -1,
                 new List<int>() { (int)EmployeeTypeEnum.BorrowedEmployee }, true);
