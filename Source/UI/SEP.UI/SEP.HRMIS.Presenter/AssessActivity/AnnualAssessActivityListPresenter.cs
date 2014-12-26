@@ -70,7 +70,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                     AssessStatus assessStatus = (AssessStatus) Convert.ToInt32(_View.StatusType);
 
                     _View.AssessActivitysToList =
-                        AssessActivityLogic.GetAnnualAssessActivityByCondition(_View.EmployeeName,
+                        AssessActivityLogic.GetAssessActivityByCondition(_View.EmployeeName,
                                                                                           assessCharacterType,
                                                                                           assessStatus,
                                                                                           dtHRSubmitTimeFrom,
@@ -78,7 +78,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                                                                                           _View.FinishStatus,
                                                                                           dtScopeFrom, dtScopeTo,
                                                                                           _View.DepartmentID, LoginUser,
-                                                                                          HrmisPowers.A707,_View.pagerEntity);
+                                                                                          HrmisPowers.A707,"=8",_View.pagerEntity);
                     //_View.AssessActivitysToList =
                     //    InstanceFactory.AssessActivityFacade().GetAnnualAssessActivityByCondition(_View.EmployeeName,
                     //                                                                      assessCharacterType,

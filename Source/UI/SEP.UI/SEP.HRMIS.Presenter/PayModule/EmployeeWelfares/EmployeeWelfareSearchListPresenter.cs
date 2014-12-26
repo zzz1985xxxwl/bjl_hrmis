@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IFacede;
+using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Presenter.EmployInformation.WelfareInformation;
@@ -63,14 +64,19 @@ namespace SEP.HRMIS.Presenter
             try
             {
                 List<EmployeeWelfare> employeeWelfarelist = new List<EmployeeWelfare>();
+                //List<Employee> employeeList =
+                //    _IEmployeeFacade.GetEmployeeBasicInfoByBasicCondition(_View.EmployeeName, _View.EmployeeType,
+                //                                                          _View.PositionId, _View.DepartmentId,
+                //                                                          _View.RecursionDepartment,
+                //                                                          Convert.ToInt32(_View.EmployeeStatusId),
+                //                                                          _View.CompanyId);
+                //employeeList =
+                //    HrmisUtility.RemoteUnAuthEmployee(employeeList, AuthType.HRMIS, _Operator, HrmisPowers.A605);
                 List<Employee> employeeList =
-                    _IEmployeeFacade.GetEmployeeBasicInfoByBasicCondition(_View.EmployeeName, _View.EmployeeType,
-                                                                          _View.PositionId, _View.DepartmentId,
-                                                                          _View.RecursionDepartment,
-                                                                          Convert.ToInt32(_View.EmployeeStatusId),
-                                                                          _View.CompanyId);
-                employeeList =
-                    HrmisUtility.RemoteUnAuthEmployee(employeeList, AuthType.HRMIS, _Operator, HrmisPowers.A605);
+                    EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(_View.EmployeeName, _View.EmployeeType,
+                        _View.PositionId, null,
+                        _View.DepartmentId, _View.CompanyId, _View.RecursionDepartment, HrmisPowers.A605, _Operator.Id,
+                        Convert.ToInt32(_View.EmployeeStatusId), null);
                 if (employeeList != null)
                 {
                     foreach (Employee employee in employeeList)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using SEP.HRMIS.IFacede;
+using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Presenter.IPresenter.IAssessActivity;
@@ -76,16 +77,27 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 {
                     AssessCharacterType assessCharacterType = (AssessCharacterType) Convert.ToInt32(_View.CharacterType);
                     AssessStatus assessStatus = (AssessStatus) Convert.ToInt32(_View.StatusType);
+                    //_View.AssessActivitysToList =
+                    //    InstanceFactory.AssessActivityFacade().GetContractAssessActivityByCondition(_View.EmployeeName,
+                    //                                                                      assessCharacterType,
+                    //                                                                      assessStatus,
+                    //                                                                      dtHRSubmitTimeFrom,
+                    //                                                                      dtHRSubmitTimeTo,
+                    //                                                                      _View.FinishStatus,
+                    //                                                                      dtScopeFrom, dtScopeTo,
+                    //                                                                      _View.DepartmentID, LoginUser,
+                    //                                                                      HrmisPowers.A706);
                     _View.AssessActivitysToList =
-                        InstanceFactory.AssessActivityFacade().GetContractAssessActivityByCondition(_View.EmployeeName,
-                                                                                          assessCharacterType,
-                                                                                          assessStatus,
-                                                                                          dtHRSubmitTimeFrom,
-                                                                                          dtHRSubmitTimeTo,
-                                                                                          _View.FinishStatus,
-                                                                                          dtScopeFrom, dtScopeTo,
-                                                                                          _View.DepartmentID, LoginUser,
-                                                                                          HrmisPowers.A706);
+                 AssessActivityLogic.GetAssessActivityByCondition(_View.EmployeeName,
+                                                                                   assessCharacterType,
+                                                                                   assessStatus,
+                                                                                   dtHRSubmitTimeFrom,
+                                                                                   dtHRSubmitTimeTo,
+                                                                                   _View.FinishStatus,
+                                                                                   dtScopeFrom, dtScopeTo,
+                                                                                   _View.DepartmentID, LoginUser,
+                                                                                   HrmisPowers.A706, "<>8", _View.pagerEntity);
+
                     _View.Message =
                         "<span class='font14b'>¹²²éµ½ </span>"
                         + "<span class='fontred'>" + _View.AssessActivitysToList.Count + "</span>"

@@ -13,19 +13,19 @@ namespace SEP.HRMIS.Logic
 {
     public class AssessActivityLogic
     {
-        public static List<AssessActivity> GetAnnualAssessActivityByCondition(string employeeName,
+        public static List<AssessActivity> GetAssessActivityByCondition(string employeeName,
                                                                        AssessCharacterType assessCharacterType,
                                                                        AssessStatus status,
                                                                        DateTime? hrSubmitTimeFrom,
                                                                        DateTime? hrSubmitTimeTo,
                                                                        int finishStatus, DateTime? scopeFrom,
                                                                        DateTime? scopeTo, int departmentID,
-                                                                       Account loginuser, int power, PagerEntity pagerEntity)
+                                                                       Account loginuser, int power,string assessCharacter, PagerEntity pagerEntity)
         {
-            var assessActivitylist = AssessActiveityDA.GetAnnualAssessActivityByCondition(assessCharacterType, status,
+            var assessActivitylist = AssessActiveityDA.GetAssessActivityByCondition(assessCharacterType, status,
                                                                                           hrSubmitTimeFrom,
                                                                                           hrSubmitTimeTo, finishStatus,
-                                                                                          scopeFrom, scopeTo);
+                                                                                          scopeFrom, scopeTo, assessCharacter);
             var assessActivities = assessActivitylist.Select(AssessActivityEntity.Convert).ToList();
             var ans = GetAssessActivityByEmployeeNameAndPower(assessActivities, employeeName, loginuser, power, departmentID);
             var ids = new List<int>();
@@ -53,30 +53,19 @@ namespace SEP.HRMIS.Logic
              int departmentID)
         {
             List<AssessActivity> iRet = new List<AssessActivity>();
-            List<Account> accountList =
-                Tools.RemoteUnAuthAccount(
-                    BllInstance.AccountBllInstance.GetAccountByBaseCondition("", departmentID, -1, null, true, null),
-                    AuthType.HRMIS,
-                    loginuser, power);
+
+            var employees = EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(employeeName, EmployeeTypeEnum.All, -1, null,
+                 departmentID, null, true, power, loginuser.Id, -1, null);
 
             foreach (AssessActivity assessActivity in assessActivitylist)
             {
-                if (!Tools.ContainsAccountById(accountList, assessActivity.ItsEmployee.Account.Id))
+                var employee = employees.FirstOrDefault(x => x.Account.Id == assessActivity.ItsEmployee.Account.Id);
+                if (employee == null || employee.Account == null || employee.Account.Id <= 0)
                 {
                     continue;
                 }
-                assessActivity.ItsEmployee.Account =
-                    BllInstance.AccountBllInstance.GetAccountById(assessActivity.ItsEmployee.Account.Id);
-                if (string.IsNullOrEmpty(employeeName))
-                {
-                    iRet.Add(assessActivity);
-                    continue;
-                }
-                if (assessActivity.ItsEmployee.Account.Name.Contains(employeeName))
-                {
-                    iRet.Add(assessActivity);
-                    continue;
-                }
+                assessActivity.ItsEmployee.Account = employee.Account;
+                iRet.Add(assessActivity);
             }
             return iRet;
         }

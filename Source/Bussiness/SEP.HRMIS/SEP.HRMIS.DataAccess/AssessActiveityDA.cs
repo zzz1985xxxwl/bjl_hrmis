@@ -9,17 +9,17 @@ namespace SEP.HRMIS.DataAccess
 {
     public class AssessActiveityDA
     {
-        public static List<AssessActivityEntity> GetAnnualAssessActivityByCondition(AssessCharacterType assessCharacterType, AssessStatus status, DateTime?
-          hrSubmitTimeFrom, DateTime? hrSubmitTimeTo, int finishStatus, DateTime? scopeFrom, DateTime? scopeTo)
+        public static List<AssessActivityEntity> GetAssessActivityByCondition(AssessCharacterType assessCharacterType, AssessStatus status, DateTime?
+          hrSubmitTimeFrom, DateTime? hrSubmitTimeTo, int finishStatus, DateTime? scopeFrom, DateTime? scopeTo,string assessCharacter)
         {
             using (var dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
             {
                 dataOperator.CommandText =
                     @"SELECT A.*
 	FROM TAssessActivity A with(nolock)  
-	WHERE A.AssessCharacter=8
+	WHERE 1=1
         and A.PKID in (
-				SELECT distinct AssessActivityID FROM TAssessActivityPaper C with(nolock) 
+				SELECT AssessActivityID FROM TAssessActivityPaper C with(nolock) 
 				WHERE  1=1 ";
                 if (hrSubmitTimeFrom != null)
                 {
@@ -32,6 +32,10 @@ namespace SEP.HRMIS.DataAccess
                     dataOperator.SetParameter("@HRSubmitTimeTo", hrSubmitTimeTo.Value.AddDays(1).Date, SqlDbType.DateTime);
                 }
                 dataOperator.CommandText += " )";
+                if (!string.IsNullOrEmpty(assessCharacter))
+                {
+                    dataOperator.CommandText += "  and  A.AssessCharacter"+assessCharacter;
+                }
                 if ((int)assessCharacterType != -1)
                 {
                     dataOperator.CommandText += "  AND  A.AssessCharacter=@AssessCharacter";

@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Mail.Model;
 using SEP.HRMIS.IDal;
@@ -93,28 +94,32 @@ namespace SEP.HRMIS.Bll.AssessActivity
             (List<Model.AssessActivity> assessActivitylist, string employeeName, Account loginuser, int power, int departmentID)
         {
             List<Model.AssessActivity> iRet = new List<Model.AssessActivity>();
-            List<Account> accountList =
-                Tools.RemoteUnAuthAccount(_AccountBll.GetAccountByBaseCondition("", departmentID, -1, null, true, null), AuthType.HRMIS,
-                                          loginuser, power);
+     
+
+           var employees= EmployeeLogic.GetEmployeeBasicInfoByBasicConditionRetModel(employeeName, EmployeeTypeEnum.All, -1, null,
+                departmentID, null, true, power, loginuser.Id, -1, null);
 
             foreach (Model.AssessActivity assessActivity in assessActivitylist)
             {
-                if (!Tools.ContainsAccountById(accountList, assessActivity.ItsEmployee.Account.Id))
+                var employee =
+                    employees.Where(x => x.Account.Id == assessActivity.ItsEmployee.Account.Id).FirstOrDefault();
+                if (employee == null || employee.Account == null || employee.Account.Id<=0)
                 {
                     continue;
                 }
-                assessActivity.ItsEmployee.Account =
-                    BllInstance.AccountBllInstance.GetAccountById(assessActivity.ItsEmployee.Account.Id);
-                if (string.IsNullOrEmpty(employeeName))
-                {
-                    iRet.Add(assessActivity);
-                    continue;
-                }
-                if (assessActivity.ItsEmployee.Account.Name.Contains(employeeName))
-                {
-                    iRet.Add(assessActivity);
-                    continue;
-                }
+                assessActivity.ItsEmployee.Account = employee.Account;
+                iRet.Add(assessActivity);
+                    //BllInstance.AccountBllInstance.GetAccountById(assessActivity.ItsEmployee.Account.Id);
+                //if (string.IsNullOrEmpty(employeeName))
+                //{
+                //    iRet.Add(assessActivity);
+                //    continue;
+                //}
+                //if (assessActivity.ItsEmployee.Account.Name.Contains(employeeName))
+                //{
+                //    iRet.Add(assessActivity);
+                //    continue;
+                //}
             }
             return iRet;
         }
