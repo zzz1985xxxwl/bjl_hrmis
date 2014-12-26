@@ -1,1 +1,0 @@
-D:\svn_work\bjl\trunk\Coding\Source\UI\SEP.WindowsServer\SEP.AutoRemindServer\bin\Debug\SEP.AutoRemindServer.exe.config

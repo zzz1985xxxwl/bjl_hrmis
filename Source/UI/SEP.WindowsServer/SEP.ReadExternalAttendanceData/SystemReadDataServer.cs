@@ -10,6 +10,7 @@ using System;
 using System.Configuration;
 using System.ServiceProcess;
 using System.Timers;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.EmployeeAttendance.ReadData;
 using SEP.HRMIS.IFacede;
@@ -65,7 +66,7 @@ namespace SEP.ReadExternalAttendanceData
                     dt_SystemReadTime[1].Equals(dt_Now.Minute.ToString()))
                 {
                     ReadDataHistory readNewHistory = new ReadDataHistory(DateTime.Now, ReadDataResultType.Reading,"");
-                    InstanceFactory.ReadExternalDataFacade.SystemReadDataFromAccessToSQL(readNewHistory,new Account());
+                    (new ReadExternalDataFacade()).SystemReadDataFromAccessToSQL(readNewHistory,new Account());
                 }
             }
             catch (Exception ex)
@@ -81,7 +82,7 @@ namespace SEP.ReadExternalAttendanceData
                     ConfigurationManager.AppSettings["IsAutoSystemReadFromSetTime"];
                 if (_IsAutoSystemReadFromSetTime == "true")
                 {
-                    InstanceFactory.ReadExternalDataFacade.SystemReadDataFromSetTime(new Account());
+                    (new ReadExternalDataFacade()).SystemReadDataFromSetTime(new Account());
                 }
             }
             catch (Exception ex)

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.ServiceProcess;
+using System.Text;
 using Mail.Model;
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.IFacede;
 using SEP.IBll;
 using SEP.IBll.Mail;
@@ -14,8 +17,10 @@ namespace SEP.AutoRemindServer
     {
         private static bool _IsExecute;//用于保证一天执行一次
         private static DateTime _Today = DateTime.Now;
+        private static DateTime _LastRunTime;
+        private static DateTime _RunDate;
         private static string strErrorMsg;
-        private static readonly IAutoRemindServerFacade _IAutoRemindServerFacade = InstanceFactory.CreateAutoRemindServerFacade();
+        private static readonly IAutoRemindServerFacade _IAutoRemindServerFacade = new AutoRemindServerFacade();
         private static IMailGateWay _IMailGateWay = BllInstance.MailGateWayBllInstance;
         public AutoRemindServer()
         {
@@ -26,53 +31,109 @@ namespace SEP.AutoRemindServer
         private void tTrack_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             tTrack.Stop();
+
             if (_Today.Date != DateTime.Now.Date && _IsExecute)
             {
                 _IsExecute = false;
             }
             if (!_IsExecute)//用于保证一天执行一次
             {
+                _LastRunTime = GetLastDateTime();
+                _RunDate = _LastRunTime.AddDays(1).Date;
+
                 CompanyConfig.FileName = AppDomain.CurrentDomain.BaseDirectory;
-                strErrorMsg = "";
                 _Today = DateTime.Now;
+                strErrorMsg = _Today+ "执行\n";
                 _IsExecute = true;
                 try
                 {
-                    AutoAssess();
-                    AutoEmployeeResidenceDateRearch();
-                    AutoRemindEmployeeConfirmAttendance();
-                    AutoRemindVacation();
-                    AutoRemindContract();
-                    AutoRemindProbationDateRearch();
-
-                    AutoCreateVacation();
-                    AutoRemindVacationSendEmail();
-
-                    AutoRemindReimburse();
-
-                    AutoSendBirthdayMail();
-
-                    if (!String.IsNullOrEmpty(strErrorMsg))
+                    while (_RunDate <= _Today.Date)
                     {
-                        throw new Exception(strErrorMsg);
-                    }
+                        AutoAssess();
+                        AutoEmployeeResidenceDateRearch();
+                        AutoRemindEmployeeConfirmAttendance();
+                        AutoRemindVacation();
+                        AutoRemindContract();
+                        AutoRemindProbationDateRearch();
 
-                    TLineEventLog el = new TLineEventLog();
-                    el.DoWriteEventLog(DateTime.Now.Date.ToShortDateString() + "执行完毕！", EventType.Information);
-                    SendEmailAboutExecuteResult(DateTime.Now.Date.ToShortDateString() + "执行完毕！");
+                        AutoCreateVacation();
+                        AutoRemindVacationSendEmail();
+
+                        AutoRemindReimburse();
+
+                        AutoSendBirthdayMail();
+
+                        if (!String.IsNullOrEmpty(strErrorMsg))
+                        {
+                            throw new Exception(strErrorMsg);
+                        }
+
+                        SendEmailAboutExecuteResult(strErrorMsg);
+                        _RunDate = _RunDate.AddDays(1).Date;
+                    }
                 }
                 catch (Exception ex)
                 {
                     // 错误信息
-                    strErrorMsg = "异常：\n" + ex.Message;
-                    //// 写日志
-                    TLineEventLog el = new TLineEventLog();
-                    el.DoWriteEventLog(strErrorMsg, EventType.Error);
-                    SendEmailAboutExecuteResult("执行出错！" + strErrorMsg);
+                    strErrorMsg += "\n异常：\n" + ex.Message;
                 }
+
+                Log(strErrorMsg);
             }
             tTrack.Start();
         }
+
+        #region log
+        private static DateTime GetLastDateTime()
+        {
+            var filepath = Environment.CurrentDirectory + "\\log\\time.log";
+            if (File.Exists(filepath))
+            {
+                StreamReader sr = new StreamReader(filepath, Encoding.Default);
+                String line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    return Convert.ToDateTime(line);
+                }
+            }
+            return DateTime.Now.AddDays(-1);
+        }
+
+        private static void Log(string message)
+        {
+            string logFilePath = Environment.CurrentDirectory + "\\log";
+            if (!Directory.Exists(logFilePath))
+            {
+                Directory.CreateDirectory(logFilePath);
+            }
+            WriteFile(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Path.Combine(logFilePath, "time.log"), false);
+
+            // 将错误记录到日志中
+            WriteFile(message, Path.Combine(logFilePath, DateTime.Now.ToString("yyyyMMdd") + ".log"));
+        }
+
+        private static void WriteFile(string message, string file, bool append = true)
+        {
+            StreamWriter writer = null;
+            try
+            {
+                writer = new StreamWriter(file, append);
+                writer.WriteLine(message);
+            }
+            catch
+            {
+            }
+            finally
+            {
+                if (writer != null)
+                {
+                    writer.Close();
+                    writer.Dispose();
+                }
+            }
+        }
+
+        #endregion
 
         private static void SendEmailAboutExecuteResult(string mailbodystring)
         {
@@ -83,7 +144,7 @@ namespace SEP.AutoRemindServer
                 mailBody.Subject = "自动提醒功能执行结果！";
                 List<string> mailAddress = new List<string>();
                 //mailAddress.Add("Luan.Tianlin@br-automation.com");
-                mailAddress.Add("Br-hrmis.Cn@br-automation.com");
+                mailAddress.Add("316048597@qq.com");
                 mailBody.MailTo = mailAddress;
                 _IMailGateWay.Send(mailBody);
             }
@@ -99,7 +160,7 @@ namespace SEP.AutoRemindServer
                 string _IsAutoAssess = ConfigurationManager.AppSettings["IsAutoAssess"];
                 if (_IsAutoAssess == "true")
                 {
-                    _IAutoRemindServerFacade.AutoAssessFacade(DateTime.Now.Date);
+                    _IAutoRemindServerFacade.AutoAssessFacade(_RunDate);
                 }
             }
             catch (Exception ex)
@@ -134,7 +195,7 @@ namespace SEP.AutoRemindServer
                     ConfigurationManager.AppSettings["BeforeProbationDateRearchDays"];
                 if (_IsAutoRemindProbationDateRearch == "true")
                 {
-                    _IAutoRemindServerFacade.AutoRemindProbationDateRearch(DateTime.Now.Date,
+                    _IAutoRemindServerFacade.AutoRemindProbationDateRearch(_RunDate,
                                                                                    Convert.ToInt32(
                                                                                        _BeforeProbationDateRearchDays));
                 }
@@ -155,7 +216,7 @@ namespace SEP.AutoRemindServer
                     ConfigurationManager.AppSettings["BeforeEmployeeResidenceDateRearchDays"];
                 if (_IsAutoEmployeeResidenceDateRearch == "true")
                 {
-                    _IAutoRemindServerFacade.AutoEmployeeResidenceDateRearchFacade(DateTime.Now.Date,
+                    _IAutoRemindServerFacade.AutoEmployeeResidenceDateRearchFacade(_RunDate,
                                                                                    Convert.ToInt32(
                                                                                        _BeforeEmployeeResidenceDateRearchDays));
                 }
@@ -174,7 +235,7 @@ namespace SEP.AutoRemindServer
                     ConfigurationManager.AppSettings["IsAutoRemindEmployeeConfirmAttendance"];
                 if (_IsAutoRemindEmployeeConfirmAttendance == "true")
                 {
-                    _IAutoRemindServerFacade.AutoRemindEmployeeConfirmAttendanceFacade(DateTime.Now.Date);
+                    _IAutoRemindServerFacade.AutoRemindEmployeeConfirmAttendanceFacade(_RunDate);
                 }
             }
             catch (Exception ex)
@@ -191,7 +252,7 @@ namespace SEP.AutoRemindServer
                 string _BeforeRemindVacationDays = ConfigurationManager.AppSettings["BeforeRemindVacationDays"];
                 if (_IsAutoRemindVacation == "true")
                 {
-                    _IAutoRemindServerFacade.AutoRemindVacationFacade(DateTime.Now.Date,
+                    _IAutoRemindServerFacade.AutoRemindVacationFacade(_RunDate,
                                                                       Convert.ToInt32(_BeforeRemindVacationDays));
                 }
             }
@@ -209,7 +270,7 @@ namespace SEP.AutoRemindServer
                 string _BeforeRemindContractDays = ConfigurationManager.AppSettings["BeforeRemindContractDays"];
                 if (_IsAutoRemindVacation == "true")
                 {
-                    _IAutoRemindServerFacade.AutoRemindContractFacade(DateTime.Now.Date,
+                    _IAutoRemindServerFacade.AutoRemindContractFacade(_RunDate,
                                                                       Convert.ToInt32(_BeforeRemindContractDays));
                 }
             }
@@ -246,7 +307,7 @@ namespace SEP.AutoRemindServer
                 string _IsAutoCreateAnnualHoliday = ConfigurationManager.AppSettings["IsAutoCreateAnnualHoliday"];
                 if (_IsAutoCreateAnnualHoliday == "true")
                 {
-                    _IAutoRemindServerFacade.AutoCreateVacation(DateTime.Now.Date, createAnnualHolidayMonth,
+                    _IAutoRemindServerFacade.AutoCreateVacation(_RunDate, createAnnualHolidayMonth,
                                                                 annualHolidayLow, annualHolidayHigh, deferredMonths,
                                                                 inComanyMonth, createAnnualHolidayDay);
                 }
@@ -315,7 +376,7 @@ namespace SEP.AutoRemindServer
                         strErrorMsg += "Execute AutoRemindVacationSendEmail Error: 提醒员工年假到期的时间格式设置不正确！" + "\n";
                         return;
                     }
-                    _IAutoRemindServerFacade.AutoRemindVacationSendEmail(DateTime.Now.Date, dateTimeList);
+                    _IAutoRemindServerFacade.AutoRemindVacationSendEmail(_RunDate, dateTimeList);
                 }
             }
             catch (Exception ex)
@@ -328,7 +389,7 @@ namespace SEP.AutoRemindServer
         {
             try
             {
-                _IAutoRemindServerFacade.AutoSendBirthdayMailFacade(DateTime.Now.Date);
+                _IAutoRemindServerFacade.AutoSendBirthdayMailFacade(_RunDate);
             }
             catch (Exception ex)
             {

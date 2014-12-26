@@ -1,2 +1,0 @@
-InstallUtil SEP.AutoRemindServer.exe
-pause
