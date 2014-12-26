@@ -4,718 +4,57 @@
         <name>SEP.HRMIS.SqlServerDal</name>
     </assembly>
     <members>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.InsertEmployeeWelfareByAccountID(SEP.HRMIS.Model.EmployeeWelfare,System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.InsertEmployeeContract(System.Int32,SEP.HRMIS.Model.Contract)">
             <summary>
-            
-            </summary>
-            <param name="employeeWelfare"></param>
-            <param name="accountID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.UpdateEmployeeWelfareByAccountID(SEP.HRMIS.Model.EmployeeWelfare,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="employeeWelfare"></param>
-            <param name="accountID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.EditParameters(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.EmployeeWelfare,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="cmd"></param>
-            <param name="employeeWelfare"></param>
-            <param name="accountID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.GetEmployeeWelfareByAccountID(System.Int32)">
-            <summary>
-            
+            新增员工合同
             </summary>
             <param name="accountID"></param>
+            <param name="contract"></param>
             <returns></returns>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal">
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.UpdateEmployeeContract(SEP.HRMIS.Model.Contract)">
             <summary>
-            
+            更新员工合同
             </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.Insert(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.UpdateEmployeeAdjustRuleByAccountID(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.DeleteEmployeeAdjustRuleByAccountID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.CountAdjustRuleUsedByAdjustRuleID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.Insert(SEP.HRMIS.Model.Vacation)">
-            <summary>
-            插入年假信息
-            </summary>
-            <param name="vacation"></param>
-            <returns>PKID</returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.Update(SEP.HRMIS.Model.Vacation)">
-            <summary>
-            更新年假
-            </summary>
-            <param name="vacation"></param>
+            <param name="contract"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.CountVacationByAccountID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.DeleteEmployeeContract(System.Int32)">
             <summary>
-            通过员工ID查找年假数量
+            删除员工合同
+            </summary>
+            <param name="contractId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetCurrentContractByAccountID(System.Int32,System.DateTime)">
+            <summary>
+            查询员工的合同
             </summary>
             <param name="accountID"></param>
             <returns></returns>
+            <param name="currentDate"></param>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.DeleteVacationByAccountID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetEmployeeContractByContractTypeId(System.Int32)">
             <summary>
-            通过员工ID删除年假
+            根据合同类型查询合同
+            </summary>
+            <param name="contractTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetEmployeeContractByContractId(System.Int32)">
+            <summary>
+            根据PKID查询合同
+            </summary>
+            <param name="contractId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetLastContractInAllTypeByAccountID(System.Int32,System.DateTime)">
+            <summary>
+            以currentDate为准，在员工所有的合同类型中，查询员工的最新合同
             </summary>
             <param name="accountID"></param>
             <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.DeleteVacationByVacationID(System.Int32)">
-            <summary>
-            通过年假ID删除年假
-            </summary>
-            <param name="vacationID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetAllVacation">
-            <summary>
-            查找所有年假
-            </summary>
-            <returns></returns>
-        </member>
-        <!-- 对于成员“M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByCondition(System.String,System.Decimal,System.Decimal,System.DateTime,System.DateTime,System.Decimal,System.Decimal)”忽略有格式错误的 XML 注释 -->
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByAccountID(System.Int32)">
-            <summary>
-            通过员工ID查找年假
-            </summary>
-            <param name="accountID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetLastVacationByAccountID(System.Int32)">
-            <summary>
-            获得员工最新的年假信息
-            </summary>
-            <param name="accountID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByVacationID(System.Int32)">
-            <summary>
-            通过年假ID查找年假
-            </summary>
-            <param name="vacationID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetNearVacationByAccountIDAndTime(System.Int32,System.DateTime)">
-            <summary>
-             获得某个员工，某个时间点以后的最近的一条年假信息
-            </summary>
-            <param name="accountID"></param>
-            <param name="time"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByAccountIDAndTimeSpan(System.Int32,System.DateTime,System.DateTime)">
-            <summary>
-            获得某个员工在一段时期内相关的年假信息
-            </summary>
-            <param name="accountID"></param>
-            <param name="startDt"></param>
-            <param name="endDt"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.Insert(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.DeleteByPaperID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.GetBindPostionByPaperID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.GetAssessTemplatePaperBindPostionByPositionIDDiffPaperID(System.Int32,System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.GetAssessTemplatePaperIDByPositionID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.TraineeApplicationDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTraineeApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
-            <summary>
-            </summary>
-            <param name="traineeApplication"></param>
-            <exception cref="T:System.ApplicationException"></exception>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.UpdateTraineeApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
-            <summary>
-            </summary>
-            <param name="traineeApplication"></param>
-            <exception cref="T:System.ApplicationException"></exception>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTraineeApplication(System.Int32)">
-            <summary>
-            </summary>
-            <param name="traineeApplicationID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetApplicationFlows(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="trainAppID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetEmployeeTraineeApplicationByEmployeeID(System.Int32)">
-            <summary>
-            </summary>
-            <param name="employeeID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetTraineeApplicationByCondition(System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.HRMIS.Model.TrainScopeType,SEP.HRMIS.Model.TraineeApplications.TraineeApplicationStatus)">
-            <summary>
-            </summary>
-            <param name="traineeName"></param>
-            <param name="courseName"></param>
-            <param name="traineeFrom"></param>
-            <param name="traineeTo"></param>
-            <param name="hasCertifacation"></param>
-            <param name="trainScopeEnum"></param>
-            <param name="statusEnum"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetTraineeApplicationByTraineeApplicationID(System.Int32)">
-            <summary>
-            </summary>
-            <param name="TraineeApplicationID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.ApproveTraineeApplication(SEP.Model.Accounts.Account,SEP.HRMIS.Model.TraineeApplications.TraineeApplication,SEP.HRMIS.Model.TraineeApplications.TraineeApplicationStatus)">
-            <summary>
-            </summary>
-            <param name="loginUser"></param>
-            <param name="TraineeApplication"></param>
-            <param name="traineeApplicationStatus"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetMyAuditingTraineeApplications(System.Int32)">
-             <summary>
-            
-             </summary>
-             <param name="accountID"></param>
-             <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetConfimingTraineeApplications">
-            <summary>
-            获取待审核的培训申请
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTrainApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
-            <summary>
-            新增申请培训
-            </summary>
-            <param name="traineeApplication"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTraineeApplicationFlow(SEP.HRMIS.Model.TraineeApplications.TraineeApplicationFlow,System.Int32)">
-            <summary>
-            新增培训流程
-            </summary>
-            <param name="flow"></param>
-            <param name="trainAppID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.UpdateTrainApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
-            <summary>
-            更新申请培训
-            </summary>
-            <param name="traineeApplication"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTraineeApplicationFlow(System.Int32)">
-            <summary>
-            删除申请培训
-            </summary>
-            <param name="trainAppID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTrainAppTrainee(System.Int32)">
-            <summary>
-            删除申请培训培训人员
-            </summary>
-            <param name="trainAppID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTrainAppTrainee(System.Int32,System.Int32)">
-            <summary>
-            新增申请培训培训人员
-            </summary>
-            <param name="accountid"></param>
-            <param name="trainAppID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTrainApplication(System.Int32)">
-            <summary>
-            删除培训课程
-            </summary>
-            <param name="trainAppID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetDiyProcess(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
-            <summary>
-            获取自定义流程
-            </summary>
-            <param name="traineeApplication"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetAppTrainee(System.Int32)">
-            <summary>
-            获取申请培训中人员
-            </summary>
-            <param name="trainAppID"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.PositionApplicationDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal">
-            <summary>
-            部门历史数据交互
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.InsertDepartmentHistory(System.Collections.Generic.List{SEP.HRMIS.Model.DepartmentHistory})">
-            <summary>
-            拍下部门历史
-            </summary>
-            <param name="departmentHistoryList"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.GetDepartmentByDepartmentIDAndDateTime(System.Int32,System.DateTime)">
-            <summary>
-            获得dt时间点部门的信息
-            </summary>
-            <param name="departmentID"></param>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.GetDepartmentNoStructByDateTime(System.DateTime)">
-            <summary>
-            获得dt时间点的组织架构,无结构
-            </summary>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.GetDepartmentTreeStructByDateTime(System.DateTime)">
-            <summary>
-            获得dt时间点的组织架构,有树形结构
-            </summary>
-            <param name="dt"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept">
-            <summary>
-            数据转换使用
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.String)">
-            <summary>
-            构造函数
-            </summary>
-            <param name="pkid"></param>
-            <param name="name"></param>
-            <param name="leaderId"></param>
-            <param name="parentId"></param>
-            <param name="leaderName"></param>
-        </member>
-        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Address">
-            <summary>
-            地址
-            </summary>
-        </member>
-        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Fax">
-            <summary>
-            传真
-            </summary>
-        </member>
-        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.FoundationTime">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Others">
-            <summary>
-            其他
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.CustomerInfoDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DalUtility.DecryptPassword(System.String,System.String)">
-            <summary>
-            解密
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DalUtility.EncryptThePassword(System.String,System.String)">
-            <summary>
-            加密
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.FileCargoDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.Insert(SEP.HRMIS.Model.FileCargo)">
-            <summary>
-            
-            </summary>
-            <param name="fileCargo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.Update(SEP.HRMIS.Model.FileCargo)">
-            <summary>
-            
-            </summary>
-            <param name="fileCargo"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.Delete(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="pKID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.GetFileCargoByFileCargoID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="pKID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.GetFileCargoByAccountID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="accountID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.InsertFBItem(SEP.HRMIS.Model.TrainFBItem,System.Int32)">
-            <summary>
-            插入反馈问题选择项
-            </summary>
-            <param name="item"></param>
-            <param name="quesId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.DeleteFBItem(System.Int32)">
-             <summary>
-            删除反馈问题选择项
-             </summary>
-             <param name="quesId"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.UpdateFBQues(SEP.HRMIS.Model.TrainFBQuestion)">
-            <summary>
-            更新反馈问题
-            </summary>
-            <param name="obj"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.GetFBItemsByQuesId(System.Int32)">
-            <summary>
-            得到反馈问题下的反馈选择项
-            </summary>
-            <param name="quesId"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.TrainDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourse(SEP.HRMIS.Model.Course)">
-            <summary>
-            新增课程
-            </summary>
-            <param name="course"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.UpdateCourse(SEP.HRMIS.Model.Course)">
-            <summary>
-            更新课程
-            </summary>
-            <param name="course"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseSkill(SEP.HRMIS.Model.Skill,System.Int32,System.String)">
-            <summary>
-            新增课程技能
-            </summary>
-            <param name="skill"></param>
-            <param name="courseId"></param>
-            <param name="courseName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseTrainee(System.Int32,System.String,SEP.HRMIS.Model.TrainEmployeeFB)">
-            <summary>
-            新增课程培训人员
-            </summary>
-            <param name="courseId"></param>
-            <param name="courseName"></param>
-            <param name="fb"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseTraineeWithoutFb(SEP.Model.Accounts.Account,System.Int32,System.String)">
-            <summary>
-            新增课程培训人员
-            </summary>
-            <param name="account"></param>
-            <param name="courseId"></param>
-            <param name="courseName"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseFB(System.Int32,SEP.HRMIS.Model.FBPaperItem)">
-            <summary>
-            新增课程反馈题目
-            </summary>
-            <param name="courseId"></param>
-            <param name="item"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseFBResult(System.Int32,SEP.HRMIS.Model.TraineeFBItem,SEP.Model.Accounts.Account)">
-            <summary>
-            新增课程培训人员反馈
-            </summary>
-            <param name="courseId"></param>
-            <param name="item"></param>
-            <param name="account"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourse(System.Int32)">
-            <summary>
-            删除课程
-            </summary>
-            <param name="courseId"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseFB(System.Int32)">
-            <summary>
-            删除课程反馈题目
-            </summary>
-            <param name="courseId"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseFBResult(System.Int32)">
-            <summary>
-            删除课程反馈结果
-            </summary>
-            <param name="courseId"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseSkill(System.Int32)">
-            <summary>
-            删除课程技能
-            </summary>
-            <param name="courseId"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseTrainee(System.Int32)">
-            <summary>
-            删除课程培训人员
-            </summary>
-            <param name="courseId"></param>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.ReimburseDal">
-            <summary>
-            报销数据
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.InsertEmployeeReimburse(SEP.HRMIS.Model.Employee)">
-            <summary>
-            新增报销
-            </summary>
-            <param name="employeeReimburse"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.InsertEmployeeReimburse(SEP.HRMIS.Model.Reimburse)">
-            <summary>
-            新增报销
-            </summary>
-            <param name="reimburse"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.GetMyAuditingReimburses(System.Int32)">
-            <summary>
-            查找我审核完成的报销单
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.GetReimbursesHistory(System.Int32)">
-            <summary>
-            查找报销的流程历史
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.GetReiburseByCustomerID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="customerID"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.InsertAccountSetPara(SEP.HRMIS.Model.PayModule.AccountSetPara)">
-            <summary>
-            新增帐套参数
-            </summary>
-            <param name="para"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.UpdateAccountSetPara(SEP.HRMIS.Model.PayModule.AccountSetPara)">
-            <summary>
-            更新帐套参数
-            </summary>
-            <param name="para"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.CountAccountSetParaByNameDiffPKID(System.Int32,System.String)">
-            <summary>
-            通过PKID，和name查找数据库中除该PKID外是否还有同名数据
-            </summary>
-            <param name="pkid"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.DeleteAccountSetParaByPKID(System.Int32)">
-            <summary>
-            通过PKID删除帐号参数
-            </summary>
-            <param name="pkid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetParaByPKID(System.Int32)">
-            <summary>
-            通过ID查找记录
-            </summary>
-            <param name="pkid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetParaByCondition(System.String,SEP.HRMIS.Model.PayModule.FieldAttributeEnum,SEP.HRMIS.Model.PayModule.MantissaRoundEnum,SEP.HRMIS.Model.PayModule.BindItemEnum)">
-            <summary>
-            通过条件查询
-            </summary>
-            <param name="name"></param>
-            <param name="fieldAttribute"></param>
-            <param name="mantissaRound"></param>
-            <param name="bindItem"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.InsertWholeAccountSet(SEP.HRMIS.Model.PayModule.AccountSet)">
-            <summary>
-            新增帐套，包括帐套项
-            </summary>
-            <param name="accountSet"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.UpdateWholeAccountSet(SEP.HRMIS.Model.PayModule.AccountSet)">
-            <summary>
-            更新帐套，包括帐套项
-            </summary>
-            <param name="accountSet"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.DeleteWholeAccountSetByPKID(System.Int32)">
-            <summary>
-            删除帐套，包括帐套项
-            </summary>
-            <param name="accountSetID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.CountAccountSetByNameDiffPKID(System.Int32,System.String)">
-            <summary>
-            通过PKID，和name查找数据库中除该PKID外是否还有同名数据
-            </summary>
-            <param name="pkid"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetWholeAccountSetByPKID(System.Int32)">
-            <summary>
-            通过ID查找帐套，包括帐套项
-            </summary>
-            <param name="accountSetID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetByCondition(System.String)">
-            <summary>
-            通过姓名模糊查询
-            </summary>
-             <param name="accountSetName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetByName(System.String)">
-            <summary>
-            通过姓名精确查询
-            </summary>
-             <param name="accountSetName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.InsertAccountSetItem(System.Int32,SEP.HRMIS.Model.PayModule.AccountSetItem,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
-            <summary>
-            新增帐套项
-            </summary>
-            <param name="accountSetID"></param>
-            <param name="accountSetItem"></param>
-            <param name="conn"></param>
-            <param name="trans"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.DeleteAccountSetItemByAccountSetID(System.Int32,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
-            <summary>
-            根据帐号ID删除相关的帐套项
-            </summary>
-            <param name="accountSetID"></param>
-            <param name="conn"></param>
-            <param name="trans"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetItemByAccountSetID(System.Int32)">
-            <summary>
-            通过帐号ID查找相关的帐套项
-            </summary>
-            <param name="accountSetID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.CountAccountSetItemByAccountSetParaID(System.Int32)">
-            <summary>
-            通过帐套参数ID查找是否有帐套使用
-            </summary>
-            <param name="accountSetParaID"></param>
-            <returns></returns>
+            <param name="currentDate"></param>
         </member>
         <member name="T:SEP.HRMIS.SqlServerDal.LeaveRequestFlowDal">
             <summary>
@@ -756,510 +95,6 @@
             </summary>
             <param name="leaveRequestItemID"></param>
             <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AdjustRestDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.UpdateAdjustRest(SEP.HRMIS.Model.EmployeeAdjustRest.AdjustRest)">
-            <summary>
-            更新调休
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.InsertAdjustRest(SEP.HRMIS.Model.EmployeeAdjustRest.AdjustRest)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.DeleteAdjustRestByAccountID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.GetFieldFromParm(System.Data.IDataRecord)">
-            <summary>
-            所有GET数据绑定
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal">
-            <summary>
-            请假类型
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.InsertLeaveRequestType(SEP.HRMIS.Model.Request.LeaveRequestType)">
-            <summary>
-            添加请假类型
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.UpdateLeaveRequestType(SEP.HRMIS.Model.Request.LeaveRequestType)">
-            <summary>
-            修改请假类型
-            </summary>
-            <param name="leaveRequestType"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.DeleteLeaveRequestType(System.Int32)">
-            <summary>
-            删除请假类型
-            </summary>
-            <param name="leaveRequestTypeID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.GetAllLeaveRequestType">
-            <summary>
-            得到所有请假类型
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.GetLeaveRequestTypeByPkid(System.Int32)">
-            <summary>
-            通过ID取得请假类型
-            </summary>
-            <param name="leaveTypeID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.GetLeaveRequestTypeByName(System.String)">
-            <summary>
-            通过名字找请假
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordLogDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.DiyProcessDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.InsertDiyProcess(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
-            <summary>
-            新增自定义流程
-            </summary>
-            <param name="diyProcess"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.InsertDiySteps(System.Int32,SEP.HRMIS.Model.DiyProcesss.DiyStep,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
-            <summary>
-            新增自定义步骤
-            </summary>
-            <param name="diyProcessID"></param>
-            <param name="diyStep"></param>
-            <param name="conn"></param>
-            <param name="trans"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.UpdateDiyProcess(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
-            <summary>
-            新增自定义流程
-            </summary>
-            <param name="diyProcess"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.DeleteDiyProcess(System.Int32)">
-            <summary>
-            删除自定义流程
-            </summary>
-            <param name="diyProcessID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyProcessByPKID(System.Int32)">
-            <summary>
-            根据自定义流程
-            </summary>
-            <param name="diyProcessID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyProcessByProcessType(System.Int32)">
-            <summary>
-             根据自定义流程类型获取自定义流程
-            </summary>
-            <param name="processTypeId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyStepsByDiyProcessID(System.Int32)">
-            <summary>
-            通过帐号ID查找相关的帐套项
-            </summary>
-            <param name="diyProcessID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.CountDiyProcessByName(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.CountDiyProcessByNameDiffPKID(System.Int32,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.ConvertToString(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
-            <summary>
-            将DiyProcess对象转化为字符串
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyProcessByCondition(System.Int32,System.String)">
-            <summary>
-             根据自定义流程类型获取自定义流程
-            </summary>
-            <param name="processTypeId"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.ConvertToObject(System.String)">
-            <summary>
-            将字符串转化为DiyProcess对象
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.DbAssessActivityItemType">
-            <summary>
-            数据库assessActivityItem的表的type字段的枚举
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.DbSubmitInfoType">
-            <summary>
-            数据库assessActivityPaper表中type字段的枚举
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.FeedBackPaperDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.GetFeedBackPaperById(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.GetFeedBackPaperItemsById(System.Int32)">
-            <summary>
-            获取反馈问题
-            </summary>
-            <param name="paperId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.DeleteAllItemsInPaper(System.Int32)">
-            <summary>
-            删除考评表与考评项的关系
-            </summary>
-            <param name="paperId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.ManagePaperItems(System.Int32,System.Int32)">
-            <summary>
-            添加反馈表与反馈问题的关系
-            </summary>
-            <param name="paperId"></param>
-            <param name="itemId"></param>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.InsertEmployeeDiyProcess(System.Int32,SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
-            <summary>
-            </summary>
-            <param name="accountID"></param>
-            <param name="diyProcess"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.DeleteEmployeeDiyProcessByAccountID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="employeeID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.GetDiyProcessByProcessTypeAndAccountID(SEP.HRMIS.Model.DiyProcesss.ProcessType,System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="type"></param>
-            <param name="accountID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.CountAccountByDiyProcessID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="diyProcessID"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AdjustRestHistoryDal">
-            <summary>
-            数据库交互
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestHistoryDal.GetFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.EmployeeAdjustRest.AdjustRestHistory)">
-            <summary>
-            所有GET数据绑定
-            </summary>
-            <param name="sdr"></param>
-            <param name="adjustRestHistory"></param>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.PayModule.EmployeeAccountSetDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.EmployeeAccountSetDal.InsertEmployeeAccountSet(System.Int32,SEP.HRMIS.Model.PayModule.AccountSet)">
-            <summary>
-            </summary>
-            <param name="employeeID"></param>
-            <param name="accountSet"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.OverWorkDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.InsertOverWork(SEP.HRMIS.Model.OverWork.OverWork)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.UpdateOverWork(SEP.HRMIS.Model.OverWork.OverWork)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkByOverWorkID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.DeleteOverWorkByPKID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetAllOverWorkByAccountID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetNeedConfirmOverWork">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetConfirmHistroy(System.Int32,System.DateTime,System.DateTime)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.UpdateOverWorkItemStatusByItemID(System.Int32,SEP.HRMIS.Model.Request.RequestStatus)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.UpdateOverWorkItemAdjustByItemID(System.Int32,System.Boolean,System.Decimal)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.InsertOverWorkItem(System.Int32,SEP.HRMIS.Model.OverWork.OverWorkItem)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkItemByOverWorkID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkItemByItemID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.DeleteOverWorkItemByOverWorkID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.CountOverWorkInRepeatDateDiffPKID(System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.DeleteOverWorkFlowByItemID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.InsertOverWorkFlow(System.Int32,SEP.HRMIS.Model.OverWork.OverWorkFlow)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkFlowByItemID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkByCondition(System.Int32,System.DateTime,System.DateTime,SEP.HRMIS.Model.Request.RequestStatus)">
-            <summary>
-             查询申请
-            </summary>
-            <param name="employeeID"></param>
-            <param name="formTime"></param>
-            <param name="toTime"></param>
-            <param name="status"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordDal">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordDal.DeleteAttendanceInAndOutRecord(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.OutApplicationDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.InsertOutApplication(SEP.HRMIS.Model.OutApplication.OutApplication)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.UpdateOutApplication(SEP.HRMIS.Model.OutApplication.OutApplication)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationByOutApplicationID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetAllOutApplicationByAccountID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationByPKID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="pKID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.CountOutApplicationInRepeatDateDiffPKID(System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime)">
-            <summary>
-            
-            </summary>
-            <param name="AccountID"></param>
-            <param name="outApplicationID"></param>
-            <param name="from"></param>
-            <param name="to"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetNeedConfirmOutApplication">
-            <summary>
-            得到所有待审核的请假单
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.InsertOutApplicationItem(System.Int32,SEP.HRMIS.Model.OutApplication.OutApplicationItem)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.UpdateOutApplicationItem(System.Int32,SEP.HRMIS.Model.OutApplication.OutApplicationItem)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationItem(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationItemByOutApplicationID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationItemByOutApplicationID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationItemByItemID(System.Int32)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.UpdateOutApplicationItemStatusByItemID(System.Int32,SEP.HRMIS.Model.Request.RequestStatus)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.InsertOutApplicationFlow(System.Int32,SEP.HRMIS.Model.OutApplication.OutApplicationFlow)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationFlowByItemID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationFlowByItemID(System.Int32)">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationForCalendar(System.Int32,System.DateTime,System.DateTime)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetAllOutApplicationForCalendar(System.Int32,System.DateTime,System.DateTime)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationByAccountAndRelatedDate(System.Int32,System.DateTime,System.DateTime)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationByCondition(System.Int32,System.DateTime,System.DateTime,SEP.HRMIS.Model.Request.RequestStatus,SEP.HRMIS.Model.OutApplication.OutType)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AuthDal">
-            <summary>
-            实现IAuthDal接口中的方法
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetAccountAuth(System.Int32)">
-            <summary>
-            获取用户权限，是树形结构
-            </summary>
-            <param name="accountId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetAccountAuthList(System.Int32)">
-            <summary>
-            获取用户权限
-            </summary>
-            <param name="accountId">用户Id</param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.SetAccountAuth(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            为用户赋予权限
-            </summary>
-            <param name="accountId"></param>
-            <param name="authId"></param>
-            <param name="departmentID"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.CancelAccountAllAuth(System.Int32)">
-            <summary>
-            取消用户的所有权限
-            </summary>
-            <param name="accountId"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetDepartmentByBackAccontsID(System.Int32,System.Int32)">
-            <summary>
-            根据权限、帐号查找该帐号该权限下的范围
-            </summary>
-            <param name="accountId"></param>
-            <param name="authID"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetAccountsByAuthIdAndDeptId(System.Int32,System.Nullable{System.Int32})">
-            <summary>
-            获取对某部门有某权限的账号
-            </summary>
         </member>
         <member name="T:SEP.HRMIS.SqlServerDal.AssessActivityDal">
             <summary>
@@ -1388,164 +223,605 @@
             查找自己参与过的考评
             </summary>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.ParameterDal">
+        <member name="T:SEP.HRMIS.SqlServerDal.ReimburseDal">
             <summary>
-            参数
+            报销数据
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetParameterByCondition(System.Int32,System.String,SEP.HRMIS.Model.ParameterTypeEnum)">
+        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.InsertEmployeeReimburse(SEP.HRMIS.Model.Employee)">
+            <summary>
+            新增报销
+            </summary>
+            <param name="employeeReimburse"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.InsertEmployeeReimburse(SEP.HRMIS.Model.Reimburse)">
+            <summary>
+            新增报销
+            </summary>
+            <param name="reimburse"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.GetMyAuditingReimburses(System.Int32)">
+            <summary>
+            查找我审核完成的报销单
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.GetReimbursesHistory(System.Int32)">
+            <summary>
+            查找报销的流程历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ReimburseDal.GetReiburseByCustomerID(System.Int32)">
             <summary>
             
             </summary>
-            <param name="pkid"></param>
-            <param name="name"></param>
-            <param name="type"></param>
+            <param name="customerID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.InsertSkillType(SEP.HRMIS.Model.SkillType)">
+        <member name="T:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal">
             <summary>
-            
+            请假类型
             </summary>
-            <param name="obj"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.InsertLeaveRequestType(SEP.HRMIS.Model.Request.LeaveRequestType)">
+            <summary>
+            添加请假类型
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.UpdateLeaveRequestType(SEP.HRMIS.Model.Request.LeaveRequestType)">
+            <summary>
+            修改请假类型
+            </summary>
+            <param name="leaveRequestType"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.DeleteLeaveRequestType(System.Int32)">
+            <summary>
+            删除请假类型
+            </summary>
+            <param name="leaveRequestTypeID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.GetAllLeaveRequestType">
+            <summary>
+            得到所有请假类型
+            </summary>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.DeleteSkillType(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.GetLeaveRequestTypeByPkid(System.Int32)">
             <summary>
-            
+            通过ID取得请假类型
             </summary>
-            <param name="skillId"></param>
+            <param name="leaveTypeID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountSkillTypeByName(System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.LeaveRequestTypeDal.GetLeaveRequestTypeByName(System.String)">
             <summary>
-            
+            通过名字找请假
             </summary>
-            <param name="SkillTypeName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountSkillTypeByNameDiffPKID(System.Int32,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
-            <param name="Name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetSkillTypeByPkid(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetSkillTypeByCondition(System.Int32,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.InsertFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.UpdateFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
-            <summary>
-            
-            </summary>
-            <param name="obj"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.DeleteFBQuesType(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountFBQuesTypeByName(System.String)">
-            <summary>
-            
-            </summary>
-            <param name="Name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountFBQuesTypeByNameDiffPKID(System.Int32,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
-            <param name="Name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetTrainFBQuesTypeByPKID(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetTrainFBQuesTypeByCondition(System.Int32,System.String)">
-            <summary>
-            
-            </summary>
-            <param name="pkid"></param>
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.InsertNationality(SEP.HRMIS.Model.Nationality)">
+        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal">
+            <summary>
+            员工历史数据交互
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.SetParmNeededValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
+            <summary>
+            除image以外的数据赋值
+            </summary>
+            <param name="cmd"></param>
+            <param name="aNewEmployee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.SetParmNullableValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
+            <summary>
+            image数据赋值
+            </summary>
+            <param name="cmd"></param>
+            <param name="aNewEmployee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.GetEmployeeImageFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.Employee)">
+            <summary>
+            image数据绑定
+            </summary>
+            <param name="sdr"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.GetEmployeeNotImageFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.Employee)">
+            <summary>
+            除了image以外的所有数据绑定
+            </summary>
+            <param name="sdr"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal">
             <summary>
             
             </summary>
-            <param name="obj"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.UpdateTemplatePaper(SEP.HRMIS.Model.AssessTemplatePaper)">
+            <summary>
+            更新考评表
+            </summary>
+            <param name="assessTemplatePaper"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.UpdateNationality(SEP.HRMIS.Model.Nationality)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.InsertAssessTemplatePaper(SEP.HRMIS.Model.AssessTemplatePaper)">
             <summary>
-            
+            插入考评表
             </summary>
-            <param name="obj"></param>
+            <param name="assessTemplatePaper"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.DeleteNationality(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetAssessTempletPaperById(System.Int32)">
             <summary>
-            
+            通过Id取考评表
             </summary>
-            <param name="pkid"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountNationalityByName(System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetTempletPaperAndItemById(System.Int32)">
             <summary>
-            
+            通过Id取考评表以及考评项
             </summary>
-            <param name="Name"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountNationalityByNameDiffPKID(System.Int32,System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.CountTemplatePaperByPaperName(System.String)">
             <summary>
-            
+            计算有没有重名的考评表
             </summary>
-            <param name="pkid"></param>
-            <param name="Name"></param>
+            <param name="paperName"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetNationalityByPKID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.CountTemplatePaperByPaperNameDiffPKID(System.Int32,System.String)">
             <summary>
-            
+            计算有没有重名的考评表
             </summary>
-            <param name="pkid"></param>
+            <param name="id"></param>
+            <param name="paperName"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetNationalityByCondition(System.Int32,System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.DeleteAssessPaperByAssessPaperID(System.Int32)">
+            <summary>
+            删除考评表
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.ManagePaperItems(System.Int32,System.Int32,System.Decimal)">
+            <summary>
+            在考评表与考评项的关系表中添加关系
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.DeleteAllItemsInPaper(System.Int32)">
+            <summary>
+            删除考评表与考评项的关系
+            </summary>
+            <param name="paperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetAllTemplatePaper">
+            <summary>
+            得到所有的考评表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetTemplatePapersByPaperName(System.String)">
+            <summary>
+            根据名称查找考评表
+            </summary>
+            <param name="paperName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetTemplatePapersExactlyByPaperName(System.String)">
+            <summary>
+            根据名称查找考评表
+            </summary>
+            <param name="paperName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.FileCargoDal">
             <summary>
             
             </summary>
-            <param name="pkid"></param>
-            <param name="name"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.Insert(SEP.HRMIS.Model.FileCargo)">
+            <summary>
+            
+            </summary>
+            <param name="fileCargo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.Update(SEP.HRMIS.Model.FileCargo)">
+            <summary>
+            
+            </summary>
+            <param name="fileCargo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pKID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.GetFileCargoByFileCargoID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pKID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FileCargoDal.GetFileCargoByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.PayModule.EmployeeSalaryDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.EmployeeSalaryDal.InsertEmployeeSalaryHistory(System.Int32,SEP.HRMIS.Model.PayModule.EmployeeSalaryHistory)">
+            <summary>
+            发薪
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.EmployeeSalaryDal.UpdateEmployeeSalaryHistory(System.Int32,SEP.HRMIS.Model.PayModule.EmployeeSalaryHistory)">
+            <summary>
+            更新薪水
+            </summary>
+            <param name="employeeID"></param>
+            <param name="salary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.Insert(SEP.HRMIS.Model.Vacation)">
+            <summary>
+            插入年假信息
+            </summary>
+            <param name="vacation"></param>
+            <returns>PKID</returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.Update(SEP.HRMIS.Model.Vacation)">
+            <summary>
+            更新年假
+            </summary>
+            <param name="vacation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.CountVacationByAccountID(System.Int32)">
+            <summary>
+            通过员工ID查找年假数量
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.DeleteVacationByAccountID(System.Int32)">
+            <summary>
+            通过员工ID删除年假
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.DeleteVacationByVacationID(System.Int32)">
+            <summary>
+            通过年假ID删除年假
+            </summary>
+            <param name="vacationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetAllVacation">
+            <summary>
+            查找所有年假
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- 对于成员“M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByCondition(System.String,System.Decimal,System.Decimal,System.DateTime,System.DateTime,System.Decimal,System.Decimal)”忽略有格式错误的 XML 注释 -->
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByAccountID(System.Int32)">
+            <summary>
+            通过员工ID查找年假
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetLastVacationByAccountID(System.Int32)">
+            <summary>
+            获得员工最新的年假信息
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByVacationID(System.Int32)">
+            <summary>
+            通过年假ID查找年假
+            </summary>
+            <param name="vacationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetNearVacationByAccountIDAndTime(System.Int32,System.DateTime)">
+            <summary>
+             获得某个员工，某个时间点以后的最近的一条年假信息
+            </summary>
+            <param name="accountID"></param>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.VacationDal.GetVacationByAccountIDAndTimeSpan(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            获得某个员工在一段时期内相关的年假信息
+            </summary>
+            <param name="accountID"></param>
+            <param name="startDt"></param>
+            <param name="endDt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareHistoryDal.DeleteEmployeeWelfareHistoryByAccountID(System.Int32)">
+            <summary>
+            测试
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.InsertEmployeeWelfareByAccountID(SEP.HRMIS.Model.EmployeeWelfare,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="employeeWelfare"></param>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.UpdateEmployeeWelfareByAccountID(SEP.HRMIS.Model.EmployeeWelfare,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="employeeWelfare"></param>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.EditParameters(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.EmployeeWelfare,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="cmd"></param>
+            <param name="employeeWelfare"></param>
+            <param name="accountID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareDal.GetEmployeeWelfareByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordLogDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.CountTemplateItemByTitle(System.String)">
+            <summary>
+            计算是否有重名的考评项
+            </summary>
+            <param name="title"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.InsertTemplateItem(SEP.HRMIS.Model.AssessTemplateItem)">
+            <summary>
+            插入考评项
+            </summary>
+            <param name="assessTemplateItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.UpdateTemplateItem(SEP.HRMIS.Model.AssessTemplateItem)">
+            <summary>
+            补充更新考评项
+            </summary>
+            <param name="assessTemplateItem"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.DeleteAssessItemByAssessItemID(System.Int32)">
+            <summary>
+            补充删除考评项
+            </summary>
+            <param name="itemID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.CountTemplateItemByQuestionDiffPKID(System.Int32,System.String)">
+            <summary>
+            补充计算有没有重名的考评项
+            </summary>
+            <param name="itemID"></param>
+            <param name="question"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.GetPIShipByItemId(System.Int32)">
+            <summary>
+            补充查询考评项在考评表中的关系
+            </summary>
+            <param name="itemID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.FeedBackPaperDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.GetFeedBackPaperById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.GetFeedBackPaperItemsById(System.Int32)">
+            <summary>
+            获取反馈问题
+            </summary>
+            <param name="paperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.DeleteAllItemsInPaper(System.Int32)">
+            <summary>
+            删除考评表与考评项的关系
+            </summary>
+            <param name="paperId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FeedBackPaperDal.ManagePaperItems(System.Int32,System.Int32)">
+            <summary>
+            添加反馈表与反馈问题的关系
+            </summary>
+            <param name="paperId"></param>
+            <param name="itemId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DalUtility.DecryptPassword(System.String,System.String)">
+            <summary>
+            解密
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DalUtility.EncryptThePassword(System.String,System.String)">
+            <summary>
+            加密
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.Insert(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.UpdateEmployeeAdjustRuleByAccountID(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.DeleteEmployeeAdjustRuleByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeAdjustRuleDal.CountAdjustRuleUsedByAdjustRuleID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.SqlHelper">
+            <summary>
+            调用存储过程的公共方法
+            </summary>
+        </member>
+        <member name="F:SEP.HRMIS.SqlServerDal.SqlHelper._ConnectionStringProfile">
+            <summary>
+            读取App.config中的数据库链接
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlCommand)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteNonQueryReturnPKID(System.String,System.Data.SqlClient.SqlCommand,System.Int32@)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteReader(System.String,System.Data.SqlClient.SqlCommand)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            用于执行SqlCommand命令
+            </summary>
+            <param name="cmd">需要封装Cmd的参数、命令</param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            用于执行SqlCommand命令，需要返回Reader
+            </summary>
+            <param name="cmd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.TransExecuteNonQuery(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            用于执行数据库transcation,需要把相关的connection传入
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.TransExecuteNonQueryReturnPKID(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Int32@)">
+            <summary>
+            用于执行数据库transcation，需要把相关的connection传入
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.PhoneMessageDal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetNeedConfirmMessage">
+            <summary>
+            找出待审核和待发送
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.UpdatePhoneMessage(SEP.HRMIS.Model.PhoneMessage.PhoneMessage)">
+            <summary>
+            修改短信内容
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.InsertPhoneMessage(SEP.HRMIS.Model.PhoneMessage.PhoneMessage)">
+            <summary>
+            
+            </summary>
+            <param name="phoneMessage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetPhoneMessageByType(SEP.HRMIS.Model.PhoneMessage.PhoneMessageType)">
+            <summary>
+            
+            </summary>
+            <param name="phoneMessageType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetPhoneMessageByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetToBeConfirmPhoneMessageByAssessorID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.FinishPhoneMessageByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="PKID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.CountToBeConfirmMessageWithSameAssessor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.DeleteMessageByPKID(System.Int32)">
+            <summary>
+            为测试清理数据
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetToBeConfirmMessage">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetPhoneMessageByCondition(System.Int32,SEP.HRMIS.Model.PhoneMessage.PhoneMessageStatus)">
+            <summary>
+            
+            </summary>
             <returns></returns>
         </member>
         <member name="T:SEP.HRMIS.SqlServerDal.LeaveRequestDal">
@@ -1719,240 +995,420 @@
             
             </summary>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.PositionHistoryDal">
+        <member name="T:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal">
             <summary>
-            职位历史数据交互
+            部门历史数据交互
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.CreatePositionHistory(SEP.HRMIS.Model.PositionHistory)">
+        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.InsertDepartmentHistory(System.Collections.Generic.List{SEP.HRMIS.Model.DepartmentHistory})">
             <summary>
-            插入一条职位历史
+            拍下部门历史
+            </summary>
+            <param name="departmentHistoryList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.GetDepartmentByDepartmentIDAndDateTime(System.Int32,System.DateTime)">
+            <summary>
+            获得dt时间点部门的信息
+            </summary>
+            <param name="departmentID"></param>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.GetDepartmentNoStructByDateTime(System.DateTime)">
+            <summary>
+            获得dt时间点的组织架构,无结构
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.GetDepartmentTreeStructByDateTime(System.DateTime)">
+            <summary>
+            获得dt时间点的组织架构,有树形结构
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept">
+            <summary>
+            数据转换使用
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.GetPositionByPositionIDAndDateTime(System.Int32,System.DateTime)">
+        <member name="M:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.#ctor(System.Int32,System.String,System.Int32,System.Int32,System.String)">
             <summary>
-            在职位历史中找到员工某一时间的职位
+            构造函数
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <param name="leaderId"></param>
+            <param name="parentId"></param>
+            <param name="leaderName"></param>
+        </member>
+        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Address">
+            <summary>
+            地址
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.GetPositionByDateTime(System.DateTime)">
+        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Phone">
             <summary>
-            得到某一时间的职位情况
+            电话
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.DeletePositionHistory(System.Int32)">
+        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Fax">
             <summary>
-            删除历史记录，暂时仅为测试 
+            传真
             </summary>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.PhoneMessageDal">
+        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.FoundationTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:SEP.HRMIS.SqlServerDal.DepartmentHistoryDal.DBDept.Others">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.TraineeApplicationDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTraineeApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            </summary>
+            <param name="traineeApplication"></param>
+            <exception cref="T:System.ApplicationException"></exception>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.UpdateTraineeApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            </summary>
+            <param name="traineeApplication"></param>
+            <exception cref="T:System.ApplicationException"></exception>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTraineeApplication(System.Int32)">
+            <summary>
+            </summary>
+            <param name="traineeApplicationID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetApplicationFlows(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="trainAppID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetEmployeeTraineeApplicationByEmployeeID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetTraineeApplicationByCondition(System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32,SEP.HRMIS.Model.TrainScopeType,SEP.HRMIS.Model.TraineeApplications.TraineeApplicationStatus)">
+            <summary>
+            </summary>
+            <param name="traineeName"></param>
+            <param name="courseName"></param>
+            <param name="traineeFrom"></param>
+            <param name="traineeTo"></param>
+            <param name="hasCertifacation"></param>
+            <param name="trainScopeEnum"></param>
+            <param name="statusEnum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetTraineeApplicationByTraineeApplicationID(System.Int32)">
+            <summary>
+            </summary>
+            <param name="TraineeApplicationID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.ApproveTraineeApplication(SEP.Model.Accounts.Account,SEP.HRMIS.Model.TraineeApplications.TraineeApplication,SEP.HRMIS.Model.TraineeApplications.TraineeApplicationStatus)">
+            <summary>
+            </summary>
+            <param name="loginUser"></param>
+            <param name="TraineeApplication"></param>
+            <param name="traineeApplicationStatus"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetMyAuditingTraineeApplications(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="accountID"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetConfimingTraineeApplications">
+            <summary>
+            获取待审核的培训申请
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTrainApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            新增申请培训
+            </summary>
+            <param name="traineeApplication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTraineeApplicationFlow(SEP.HRMIS.Model.TraineeApplications.TraineeApplicationFlow,System.Int32)">
+            <summary>
+            新增培训流程
+            </summary>
+            <param name="flow"></param>
+            <param name="trainAppID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.UpdateTrainApplication(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            更新申请培训
+            </summary>
+            <param name="traineeApplication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTraineeApplicationFlow(System.Int32)">
+            <summary>
+            删除申请培训
+            </summary>
+            <param name="trainAppID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTrainAppTrainee(System.Int32)">
+            <summary>
+            删除申请培训培训人员
+            </summary>
+            <param name="trainAppID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.InsertTrainAppTrainee(System.Int32,System.Int32)">
+            <summary>
+            新增申请培训培训人员
+            </summary>
+            <param name="accountid"></param>
+            <param name="trainAppID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.DeleteTrainApplication(System.Int32)">
+            <summary>
+            删除培训课程
+            </summary>
+            <param name="trainAppID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetDiyProcess(SEP.HRMIS.Model.TraineeApplications.TraineeApplication)">
+            <summary>
+            获取自定义流程
+            </summary>
+            <param name="traineeApplication"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TraineeApplicationDal.GetAppTrainee(System.Int32)">
+            <summary>
+            获取申请培训中人员
+            </summary>
+            <param name="trainAppID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.ParameterDal">
+            <summary>
+            参数
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetParameterByCondition(System.Int32,System.String,SEP.HRMIS.Model.ParameterTypeEnum)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.InsertSkillType(SEP.HRMIS.Model.SkillType)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.DeleteSkillType(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="skillId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountSkillTypeByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="SkillTypeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountSkillTypeByNameDiffPKID(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetSkillTypeByPkid(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetSkillTypeByCondition(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.InsertFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.UpdateFBQuesType(SEP.HRMIS.Model.TrainFBQuesType)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.DeleteFBQuesType(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountFBQuesTypeByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountFBQuesTypeByNameDiffPKID(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetTrainFBQuesTypeByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetTrainFBQuesTypeByCondition(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.InsertNationality(SEP.HRMIS.Model.Nationality)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.UpdateNationality(SEP.HRMIS.Model.Nationality)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.DeleteNationality(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountNationalityByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.CountNationalityByNameDiffPKID(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="Name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetNationalityByPKID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.ParameterDal.GetNationalityByCondition(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AdjustRuleDal">
             <summary>
             
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetNeedConfirmMessage">
-            <summary>
-            找出待审核和待发送
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.UpdatePhoneMessage(SEP.HRMIS.Model.PhoneMessage.PhoneMessage)">
-            <summary>
-            修改短信内容
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.InsertPhoneMessage(SEP.HRMIS.Model.PhoneMessage.PhoneMessage)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.InsertAdjustRule(SEP.HRMIS.Model.Adjusts.AdjustRule)">
             <summary>
             
             </summary>
-            <param name="phoneMessage"></param>
+            <param name="adjustRule"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetPhoneMessageByType(SEP.HRMIS.Model.PhoneMessage.PhoneMessageType)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.UpdateAdjustRule(SEP.HRMIS.Model.Adjusts.AdjustRule)">
             <summary>
             
             </summary>
-            <param name="phoneMessageType"></param>
+            <param name="adjustRule"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetPhoneMessageByPKID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.DeleteAdjustRule(System.Int32)">
             <summary>
             
             </summary>
+            <param name="pKID"></param>
+            <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetToBeConfirmPhoneMessageByAssessorID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.GetAdjustRuleByAdjustRuleID(System.Int32)">
             <summary>
             
             </summary>
+            <param name="pKID"></param>
+            <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.FinishPhoneMessageByPKID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.GetAdjustRuleByNameLike(System.String)">
             <summary>
             
             </summary>
-            <param name="PKID"></param>
+            <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.CountToBeConfirmMessageWithSameAssessor(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.CountAdjustRuleByNameDiffPKID(System.String,System.Int32)">
             <summary>
             
             </summary>
+            <param name="name"></param>
+            <param name="pkid"></param>
             <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.DeleteMessageByPKID(System.Int32)">
-            <summary>
-            为测试清理数据
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetToBeConfirmMessage">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PhoneMessageDal.GetPhoneMessageByCondition(System.Int32,SEP.HRMIS.Model.PhoneMessage.PhoneMessageStatus)">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.UpdateTemplatePaper(SEP.HRMIS.Model.AssessTemplatePaper)">
-            <summary>
-            更新考评表
-            </summary>
-            <param name="assessTemplatePaper"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.InsertAssessTemplatePaper(SEP.HRMIS.Model.AssessTemplatePaper)">
-            <summary>
-            插入考评表
-            </summary>
-            <param name="assessTemplatePaper"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetAssessTempletPaperById(System.Int32)">
-            <summary>
-            通过Id取考评表
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetTempletPaperAndItemById(System.Int32)">
-            <summary>
-            通过Id取考评表以及考评项
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.CountTemplatePaperByPaperName(System.String)">
-            <summary>
-            计算有没有重名的考评表
-            </summary>
-            <param name="paperName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.CountTemplatePaperByPaperNameDiffPKID(System.Int32,System.String)">
-            <summary>
-            计算有没有重名的考评表
-            </summary>
-            <param name="id"></param>
-            <param name="paperName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.DeleteAssessPaperByAssessPaperID(System.Int32)">
-            <summary>
-            删除考评表
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.ManagePaperItems(System.Int32,System.Int32,System.Decimal)">
-            <summary>
-            在考评表与考评项的关系表中添加关系
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.DeleteAllItemsInPaper(System.Int32)">
-            <summary>
-            删除考评表与考评项的关系
-            </summary>
-            <param name="paperId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetAllTemplatePaper">
-            <summary>
-            得到所有的考评表
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetTemplatePapersByPaperName(System.String)">
-            <summary>
-            根据名称查找考评表
-            </summary>
-            <param name="paperName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperDal.GetTemplatePapersExactlyByPaperName(System.String)">
-            <summary>
-            根据名称查找考评表
-            </summary>
-            <param name="paperName"></param>
-            <returns></returns>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.SqlHelper">
-            <summary>
-            调用存储过程的公共方法
-            </summary>
-        </member>
-        <member name="F:SEP.HRMIS.SqlServerDal.SqlHelper._ConnectionStringProfile">
-            <summary>
-            读取App.config中的数据库链接
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteNonQuery(System.String,System.Data.SqlClient.SqlCommand)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteNonQueryReturnPKID(System.String,System.Data.SqlClient.SqlCommand,System.Int32@)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteReader(System.String,System.Data.SqlClient.SqlCommand)">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteNonQuery(System.Data.SqlClient.SqlCommand)">
-            <summary>
-            用于执行SqlCommand命令
-            </summary>
-            <param name="cmd">需要封装Cmd的参数、命令</param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.ExecuteReader(System.Data.SqlClient.SqlCommand)">
-            <summary>
-            用于执行SqlCommand命令，需要返回Reader
-            </summary>
-            <param name="cmd"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.TransExecuteNonQuery(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
-            <summary>
-            用于执行数据库transcation,需要把相关的connection传入
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.SqlHelper.TransExecuteNonQueryReturnPKID(System.String,System.Data.SqlClient.SqlCommand,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction,System.Int32@)">
-            <summary>
-            用于执行数据库transcation，需要把相关的connection传入
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeWelfareHistoryDal.DeleteEmployeeWelfareHistoryByAccountID(System.Int32)">
-            <summary>
-            测试
-            </summary>
         </member>
         <member name="T:SEP.HRMIS.SqlServerDal.PayModule.TaxDal">
             <summary>
@@ -1964,153 +1420,461 @@
             </summary>
             <returns>为空则返回-1</returns>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.PayModule.EmployeeSalaryDal">
+        <member name="T:SEP.HRMIS.SqlServerDal.PayModule.EmployeeAccountSetDal">
             <summary>
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.EmployeeSalaryDal.InsertEmployeeSalaryHistory(System.Int32,SEP.HRMIS.Model.PayModule.EmployeeSalaryHistory)">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.EmployeeAccountSetDal.InsertEmployeeAccountSet(System.Int32,SEP.HRMIS.Model.PayModule.AccountSet)">
             <summary>
-            发薪
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.EmployeeSalaryDal.UpdateEmployeeSalaryHistory(System.Int32,SEP.HRMIS.Model.PayModule.EmployeeSalaryHistory)">
-            <summary>
-            更新薪水
             </summary>
             <param name="employeeID"></param>
-            <param name="salary"></param>
+            <param name="accountSet"></param>
             <returns></returns>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal">
+        <member name="T:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal">
             <summary>
-            员工历史数据交互
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.SetParmNeededValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.InsertAccountSetPara(SEP.HRMIS.Model.PayModule.AccountSetPara)">
             <summary>
-            除image以外的数据赋值
+            新增帐套参数
             </summary>
-            <param name="cmd"></param>
-            <param name="aNewEmployee"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.SetParmNullableValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
-            <summary>
-            image数据赋值
-            </summary>
-            <param name="cmd"></param>
-            <param name="aNewEmployee"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.GetEmployeeImageFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.Employee)">
-            <summary>
-            image数据绑定
-            </summary>
-            <param name="sdr"></param>
-            <param name="employee"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeHistoryDal.GetEmployeeNotImageFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.Employee)">
-            <summary>
-            除了image以外的所有数据绑定
-            </summary>
-            <param name="sdr"></param>
-            <param name="employee"></param>
-        </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeDal">
-            <summary>
-            员工数据交互
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.CreateEmployee(SEP.HRMIS.Model.Employee)">
-            <summary>
-            持久一个员工对象
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.UpdateEmployee(SEP.HRMIS.Model.Employee)">
-            <summary>
-            更新员工对象，该对象必须工作在对象状态，不可以是查询器状态
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.DeleteEmployeeByAccountID(System.Int32)">
-            <summary>
-            专为测试用，勿在其他地方调用
-            </summary>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetAllEmployeeInfo">
-            <summary>
-            获取Employee表的所有员工的信息
-            </summary>
+            <param name="para"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeByAccountID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.UpdateAccountSetPara(SEP.HRMIS.Model.PayModule.AccountSetPara)">
             <summary>
-            根据AccountID获得所有Employee信息
+            更新帐套参数
             </summary>
-            <param name="accountID"></param>
+            <param name="para"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeBasicInfoByAccountID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.CountAccountSetParaByNameDiffPKID(System.Int32,System.String)">
             <summary>
-            根据AccountID获得Employee的基本信息
+            通过PKID，和name查找数据库中除该PKID外是否还有同名数据
             </summary>
-            <param name="accountID"></param>
+            <param name="pkid"></param>
+            <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetAllEmployeeBasicInfo">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.DeleteAccountSetParaByPKID(System.Int32)">
             <summary>
-            获取Employee表的所有员工的基本信息
+            通过PKID删除帐号参数
             </summary>
+            <param name="pkid"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeBasicInfoByCompanyID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetParaByPKID(System.Int32)">
             <summary>
-            获得公司CompanyID下所有的员工的基本信息
+            通过ID查找记录
             </summary>
-            <param name="companyID"></param>
+            <param name="pkid"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetAllCompanyHaveEmployee">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetParaByCondition(System.String,SEP.HRMIS.Model.PayModule.FieldAttributeEnum,SEP.HRMIS.Model.PayModule.MantissaRoundEnum,SEP.HRMIS.Model.PayModule.BindItemEnum)">
             <summary>
-            获得系统中所有公司
+            通过条件查询
             </summary>
+            <param name="name"></param>
+            <param name="fieldAttribute"></param>
+            <param name="mantissaRound"></param>
+            <param name="bindItem"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeePhotoByAccountID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.InsertWholeAccountSet(SEP.HRMIS.Model.PayModule.AccountSet)">
+            <summary>
+            新增帐套，包括帐套项
+            </summary>
+            <param name="accountSet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.UpdateWholeAccountSet(SEP.HRMIS.Model.PayModule.AccountSet)">
+            <summary>
+            更新帐套，包括帐套项
+            </summary>
+            <param name="accountSet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.DeleteWholeAccountSetByPKID(System.Int32)">
+            <summary>
+            删除帐套，包括帐套项
+            </summary>
+            <param name="accountSetID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.CountAccountSetByNameDiffPKID(System.Int32,System.String)">
+            <summary>
+            通过PKID，和name查找数据库中除该PKID外是否还有同名数据
+            </summary>
+            <param name="pkid"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetWholeAccountSetByPKID(System.Int32)">
+            <summary>
+            通过ID查找帐套，包括帐套项
+            </summary>
+            <param name="accountSetID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetByCondition(System.String)">
+            <summary>
+            通过姓名模糊查询
+            </summary>
+             <param name="accountSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetByName(System.String)">
+            <summary>
+            通过姓名精确查询
+            </summary>
+             <param name="accountSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.InsertAccountSetItem(System.Int32,SEP.HRMIS.Model.PayModule.AccountSetItem,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            新增帐套项
+            </summary>
+            <param name="accountSetID"></param>
+            <param name="accountSetItem"></param>
+            <param name="conn"></param>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.DeleteAccountSetItemByAccountSetID(System.Int32,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            根据帐号ID删除相关的帐套项
+            </summary>
+            <param name="accountSetID"></param>
+            <param name="conn"></param>
+            <param name="trans"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.GetAccountSetItemByAccountSetID(System.Int32)">
+            <summary>
+            通过帐号ID查找相关的帐套项
+            </summary>
+            <param name="accountSetID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PayModule.AccountSetDal.CountAccountSetItemByAccountSetParaID(System.Int32)">
+            <summary>
+            通过帐套参数ID查找是否有帐套使用
+            </summary>
+            <param name="accountSetParaID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.OverWorkDal">
             <summary>
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.CountEmployeeByNationalityID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.InsertOverWork(SEP.HRMIS.Model.OverWork.OverWork)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.UpdateOverWork(SEP.HRMIS.Model.OverWork.OverWork)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkByOverWorkID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.DeleteOverWorkByPKID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetAllOverWorkByAccountID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetNeedConfirmOverWork">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetConfirmHistroy(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.UpdateOverWorkItemStatusByItemID(System.Int32,SEP.HRMIS.Model.Request.RequestStatus)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.UpdateOverWorkItemAdjustByItemID(System.Int32,System.Boolean,System.Decimal)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.InsertOverWorkItem(System.Int32,SEP.HRMIS.Model.OverWork.OverWorkItem)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkItemByOverWorkID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkItemByItemID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.DeleteOverWorkItemByOverWorkID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.CountOverWorkInRepeatDateDiffPKID(System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.DeleteOverWorkFlowByItemID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.InsertOverWorkFlow(System.Int32,SEP.HRMIS.Model.OverWork.OverWorkFlow)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkFlowByItemID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OverWorkDal.GetOverWorkByCondition(System.Int32,System.DateTime,System.DateTime,SEP.HRMIS.Model.Request.RequestStatus)">
+            <summary>
+             查询申请
+            </summary>
+            <param name="employeeID"></param>
+            <param name="formTime"></param>
+            <param name="toTime"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal">
             <summary>
             
             </summary>
-            <param name="nationalityID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.Insert(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.DeleteByPaperID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.GetBindPostionByPaperID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.GetAssessTemplatePaperBindPostionByPositionIDDiffPaperID(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplatePaperBindPositionDal.GetAssessTemplatePaperIDByPositionID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.TrainDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourse(SEP.HRMIS.Model.Course)">
+            <summary>
+            新增课程
+            </summary>
+            <param name="course"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.SetParmNeededValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.UpdateCourse(SEP.HRMIS.Model.Course)">
             <summary>
-            除image以外的数据赋值
+            更新课程
             </summary>
-            <param name="cmd"></param>
-            <param name="aNewEmployee"></param>
+            <param name="course"></param>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.SetParmNullableValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseSkill(SEP.HRMIS.Model.Skill,System.Int32,System.String)">
             <summary>
-            image数据赋值
+            新增课程技能
             </summary>
-            <param name="cmd"></param>
-            <param name="aNewEmployee"></param>
+            <param name="skill"></param>
+            <param name="courseId"></param>
+            <param name="courseName"></param>
+            <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeImageFieldFromParm(System.Data.IDataRecord,SEP.HRMIS.Model.Employee)">
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseTrainee(System.Int32,System.String,SEP.HRMIS.Model.TrainEmployeeFB)">
             <summary>
-            image数据绑定
+            新增课程培训人员
+            </summary>
+            <param name="courseId"></param>
+            <param name="courseName"></param>
+            <param name="fb"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseTraineeWithoutFb(SEP.Model.Accounts.Account,System.Int32,System.String)">
+            <summary>
+            新增课程培训人员
+            </summary>
+            <param name="account"></param>
+            <param name="courseId"></param>
+            <param name="courseName"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseFB(System.Int32,SEP.HRMIS.Model.FBPaperItem)">
+            <summary>
+            新增课程反馈题目
+            </summary>
+            <param name="courseId"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.InsertCourseFBResult(System.Int32,SEP.HRMIS.Model.TraineeFBItem,SEP.Model.Accounts.Account)">
+            <summary>
+            新增课程培训人员反馈
+            </summary>
+            <param name="courseId"></param>
+            <param name="item"></param>
+            <param name="account"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourse(System.Int32)">
+            <summary>
+            删除课程
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseFB(System.Int32)">
+            <summary>
+            删除课程反馈题目
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseFBResult(System.Int32)">
+            <summary>
+            删除课程反馈结果
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseSkill(System.Int32)">
+            <summary>
+            删除课程技能
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.TrainDal.DeleteCourseTrainee(System.Int32)">
+            <summary>
+            删除课程培训人员
+            </summary>
+            <param name="courseId"></param>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.PositionApplicationDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.InsertEmployeeDiyProcess(System.Int32,SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
+            <summary>
+            </summary>
+            <param name="accountID"></param>
+            <param name="diyProcess"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.DeleteEmployeeDiyProcessByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="employeeID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.GetDiyProcessByProcessTypeAndAccountID(SEP.HRMIS.Model.DiyProcesss.ProcessType,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="accountID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDiyProcessDal.CountAccountByDiyProcessID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="diyProcessID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.InsertFBItem(SEP.HRMIS.Model.TrainFBItem,System.Int32)">
+            <summary>
+            插入反馈问题选择项
+            </summary>
+            <param name="item"></param>
+            <param name="quesId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.DeleteFBItem(System.Int32)">
+             <summary>
+            删除反馈问题选择项
+             </summary>
+             <param name="quesId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.UpdateFBQues(SEP.HRMIS.Model.TrainFBQuestion)">
+            <summary>
+            更新反馈问题
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.FBQuestionDal.GetFBItemsByQuesId(System.Int32)">
+            <summary>
+            得到反馈问题下的反馈选择项
+            </summary>
+            <param name="quesId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AdjustRestHistoryDal">
+            <summary>
+            数据库交互
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestHistoryDal.GetFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.EmployeeAdjustRest.AdjustRestHistory)">
+            <summary>
+            所有GET数据绑定
             </summary>
             <param name="sdr"></param>
-            <param name="employee"></param>
+            <param name="adjustRestHistory"></param>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeNotImageFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.Employee)">
+        <member name="T:SEP.HRMIS.SqlServerDal.DbAssessActivityItemType">
             <summary>
-            除了image以外的所有数据绑定
+            数据库assessActivityItem的表的type字段的枚举
             </summary>
-            <param name="sdr"></param>
-            <param name="employee"></param>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.DbSubmitInfoType">
+            <summary>
+            数据库assessActivityPaper表中type字段的枚举
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AdjustRestDal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.UpdateAdjustRest(SEP.HRMIS.Model.EmployeeAdjustRest.AdjustRest)">
+            <summary>
+            更新调休
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.InsertAdjustRest(SEP.HRMIS.Model.EmployeeAdjustRest.AdjustRest)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.DeleteAdjustRestByAccountID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRestDal.GetFieldFromParm(System.Data.IDataRecord)">
+            <summary>
+            所有GET数据绑定
+            </summary>
         </member>
         <member name="T:SEP.HRMIS.SqlServerDal.SystemErrorDal">
             <summary>
@@ -2139,6 +1903,128 @@
         <member name="M:SEP.HRMIS.SqlServerDal.SystemErrorDal.GetAcBaseSystemError">
             <summary>
             
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordDal">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AttendanceInAndOutRecordDal.DeleteAttendanceInAndOutRecord(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.DiyProcessDal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.InsertDiyProcess(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
+            <summary>
+            新增自定义流程
+            </summary>
+            <param name="diyProcess"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.InsertDiySteps(System.Int32,SEP.HRMIS.Model.DiyProcesss.DiyStep,System.Data.SqlClient.SqlConnection,System.Data.SqlClient.SqlTransaction)">
+            <summary>
+            新增自定义步骤
+            </summary>
+            <param name="diyProcessID"></param>
+            <param name="diyStep"></param>
+            <param name="conn"></param>
+            <param name="trans"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.UpdateDiyProcess(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
+            <summary>
+            新增自定义流程
+            </summary>
+            <param name="diyProcess"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.DeleteDiyProcess(System.Int32)">
+            <summary>
+            删除自定义流程
+            </summary>
+            <param name="diyProcessID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyProcessByPKID(System.Int32)">
+            <summary>
+            根据自定义流程
+            </summary>
+            <param name="diyProcessID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyProcessByProcessType(System.Int32)">
+            <summary>
+             根据自定义流程类型获取自定义流程
+            </summary>
+            <param name="processTypeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyStepsByDiyProcessID(System.Int32)">
+            <summary>
+            通过帐号ID查找相关的帐套项
+            </summary>
+            <param name="diyProcessID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.CountDiyProcessByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.CountDiyProcessByNameDiffPKID(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.ConvertToString(SEP.HRMIS.Model.DiyProcesss.DiyProcess)">
+            <summary>
+            将DiyProcess对象转化为字符串
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.GetDiyProcessByCondition(System.Int32,System.String)">
+            <summary>
+             根据自定义流程类型获取自定义流程
+            </summary>
+            <param name="processTypeId"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.DiyProcessDal.ConvertToObject(System.String)">
+            <summary>
+            将字符串转化为DiyProcess对象
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.PositionHistoryDal">
+            <summary>
+            职位历史数据交互
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.CreatePositionHistory(SEP.HRMIS.Model.PositionHistory)">
+            <summary>
+            插入一条职位历史
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.GetPositionByPositionIDAndDateTime(System.Int32,System.DateTime)">
+            <summary>
+            在职位历史中找到员工某一时间的职位
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.GetPositionByDateTime(System.DateTime)">
+            <summary>
+            得到某一时间的职位情况
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.PositionHistoryDal.DeletePositionHistory(System.Int32)">
+            <summary>
+            删除历史记录，暂时仅为测试 
             </summary>
         </member>
         <member name="T:SEP.HRMIS.SqlServerDal.PlanDutyDal">
@@ -2345,148 +2231,262 @@
             <param name="dateEnd"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.InsertEmployeeContract(System.Int32,SEP.HRMIS.Model.Contract)">
+        <member name="T:SEP.HRMIS.SqlServerDal.EmployeeDal">
             <summary>
-            新增员工合同
+            员工数据交互
             </summary>
-            <param name="accountID"></param>
-            <param name="contract"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.CreateEmployee(SEP.HRMIS.Model.Employee)">
+            <summary>
+            持久一个员工对象
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.UpdateEmployee(SEP.HRMIS.Model.Employee)">
+            <summary>
+            更新员工对象，该对象必须工作在对象状态，不可以是查询器状态
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.DeleteEmployeeByAccountID(System.Int32)">
+            <summary>
+            专为测试用，勿在其他地方调用
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetAllEmployeeInfo">
+            <summary>
+            获取Employee表的所有员工的信息
+            </summary>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.UpdateEmployeeContract(SEP.HRMIS.Model.Contract)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeByAccountID(System.Int32)">
             <summary>
-            更新员工合同
-            </summary>
-            <param name="contract"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.DeleteEmployeeContract(System.Int32)">
-            <summary>
-            删除员工合同
-            </summary>
-            <param name="contractId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetCurrentContractByAccountID(System.Int32,System.DateTime)">
-            <summary>
-            查询员工的合同
-            </summary>
-            <param name="accountID"></param>
-            <returns></returns>
-            <param name="currentDate"></param>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetEmployeeContractByContractTypeId(System.Int32)">
-            <summary>
-            根据合同类型查询合同
-            </summary>
-            <param name="contractTypeId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetEmployeeContractByContractId(System.Int32)">
-            <summary>
-            根据PKID查询合同
-            </summary>
-            <param name="contractId"></param>
-            <returns></returns>
-        </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.ContractDal.GetLastContractInAllTypeByAccountID(System.Int32,System.DateTime)">
-            <summary>
-            以currentDate为准，在员工所有的合同类型中，查询员工的最新合同
+            根据AccountID获得所有Employee信息
             </summary>
             <param name="accountID"></param>
             <returns></returns>
-            <param name="currentDate"></param>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.CountTemplateItemByTitle(System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeBasicInfoByAccountID(System.Int32)">
             <summary>
-            计算是否有重名的考评项
+            根据AccountID获得Employee的基本信息
             </summary>
-            <param name="title"></param>
+            <param name="accountID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.InsertTemplateItem(SEP.HRMIS.Model.AssessTemplateItem)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetAllEmployeeBasicInfo">
             <summary>
-            插入考评项
+            获取Employee表的所有员工的基本信息
             </summary>
-            <param name="assessTemplateItem"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.UpdateTemplateItem(SEP.HRMIS.Model.AssessTemplateItem)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeBasicInfoByCompanyID(System.Int32)">
             <summary>
-            补充更新考评项
+            获得公司CompanyID下所有的员工的基本信息
             </summary>
-            <param name="assessTemplateItem"></param>
+            <param name="companyID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.DeleteAssessItemByAssessItemID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetAllCompanyHaveEmployee">
             <summary>
-            补充删除考评项
+            获得系统中所有公司
             </summary>
-            <param name="itemID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.CountTemplateItemByQuestionDiffPKID(System.Int32,System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeePhotoByAccountID(System.Int32)">
             <summary>
-            补充计算有没有重名的考评项
             </summary>
-            <param name="itemID"></param>
-            <param name="question"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.CountEmployeeByNationalityID(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="nationalityID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AssessTemplateItemDal.GetPIShipByItemId(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.SetParmNeededValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
             <summary>
-            补充查询考评项在考评表中的关系
+            除image以外的数据赋值
             </summary>
-            <param name="itemID"></param>
+            <param name="cmd"></param>
+            <param name="aNewEmployee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.SetParmNullableValues(System.Data.SqlClient.SqlCommand,SEP.HRMIS.Model.Employee)">
+            <summary>
+            image数据赋值
+            </summary>
+            <param name="cmd"></param>
+            <param name="aNewEmployee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeImageFieldFromParm(System.Data.IDataRecord,SEP.HRMIS.Model.Employee)">
+            <summary>
+            image数据绑定
+            </summary>
+            <param name="sdr"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.EmployeeDal.GetEmployeeNotImageFieldFromParm(System.Data.SqlClient.SqlDataReader,SEP.HRMIS.Model.Employee)">
+            <summary>
+            除了image以外的所有数据绑定
+            </summary>
+            <param name="sdr"></param>
+            <param name="employee"></param>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.AuthDal">
+            <summary>
+            实现IAuthDal接口中的方法
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetAccountAuth(System.Int32)">
+            <summary>
+            获取用户权限，是树形结构
+            </summary>
+            <param name="accountId"></param>
             <returns></returns>
         </member>
-        <member name="T:SEP.HRMIS.SqlServerDal.AdjustRuleDal">
+        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetAccountAuthList(System.Int32)">
+            <summary>
+            获取用户权限
+            </summary>
+            <param name="accountId">用户Id</param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.SetAccountAuth(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            为用户赋予权限
+            </summary>
+            <param name="accountId"></param>
+            <param name="authId"></param>
+            <param name="departmentID"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.CancelAccountAllAuth(System.Int32)">
+            <summary>
+            取消用户的所有权限
+            </summary>
+            <param name="accountId"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetDepartmentByBackAccontsID(System.Int32,System.Int32)">
+            <summary>
+            根据权限、帐号查找该帐号该权限下的范围
+            </summary>
+            <param name="accountId"></param>
+            <param name="authID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.AuthDal.GetAccountsByAuthIdAndDeptId(System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            获取对某部门有某权限的账号
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.OutApplicationDal">
             <summary>
             
             </summary>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.InsertAdjustRule(SEP.HRMIS.Model.Adjusts.AdjustRule)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.InsertOutApplication(SEP.HRMIS.Model.OutApplication.OutApplication)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.UpdateOutApplication(SEP.HRMIS.Model.OutApplication.OutApplication)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationByOutApplicationID(System.Int32)">
             <summary>
             
             </summary>
-            <param name="adjustRule"></param>
-            <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.UpdateAdjustRule(SEP.HRMIS.Model.Adjusts.AdjustRule)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetAllOutApplicationByAccountID(System.Int32)">
             <summary>
-            
             </summary>
-            <param name="adjustRule"></param>
-            <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.DeleteAdjustRule(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationByPKID(System.Int32)">
             <summary>
             
             </summary>
             <param name="pKID"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.GetAdjustRuleByAdjustRuleID(System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.CountOutApplicationInRepeatDateDiffPKID(System.Int32,System.Nullable{System.Int32},System.DateTime,System.DateTime)">
             <summary>
             
             </summary>
-            <param name="pKID"></param>
+            <param name="AccountID"></param>
+            <param name="outApplicationID"></param>
+            <param name="from"></param>
+            <param name="to"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.GetAdjustRuleByNameLike(System.String)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetNeedConfirmOutApplication">
             <summary>
-            
+            得到所有待审核的请假单
             </summary>
-            <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:SEP.HRMIS.SqlServerDal.AdjustRuleDal.CountAdjustRuleByNameDiffPKID(System.String,System.Int32)">
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.InsertOutApplicationItem(System.Int32,SEP.HRMIS.Model.OutApplication.OutApplicationItem)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.UpdateOutApplicationItem(System.Int32,SEP.HRMIS.Model.OutApplication.OutApplicationItem)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationItem(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationItemByOutApplicationID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationItemByOutApplicationID(System.Int32)">
             <summary>
             
             </summary>
-            <param name="name"></param>
-            <param name="pkid"></param>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationItemByItemID(System.Int32)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.UpdateOutApplicationItemStatusByItemID(System.Int32,SEP.HRMIS.Model.Request.RequestStatus)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.InsertOutApplicationFlow(System.Int32,SEP.HRMIS.Model.OutApplication.OutApplicationFlow)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationFlowByItemID(System.Int32)">
+            <summary>
+            
+            </summary>
             <returns></returns>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.DeleteOutApplicationFlowByItemID(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationForCalendar(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetAllOutApplicationForCalendar(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationByAccountAndRelatedDate(System.Int32,System.DateTime,System.DateTime)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:SEP.HRMIS.SqlServerDal.OutApplicationDal.GetOutApplicationByCondition(System.Int32,System.DateTime,System.DateTime,SEP.HRMIS.Model.Request.RequestStatus,SEP.HRMIS.Model.OutApplication.OutType)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SEP.HRMIS.SqlServerDal.CustomerInfoDal">
+            <summary>
+            </summary>
         </member>
     </members>
 </doc>

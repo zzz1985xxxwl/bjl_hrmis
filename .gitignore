@@ -104,3 +104,18 @@
 /Source/UI/SEP.UI/SEP.UI.suo
 
 /Source/UI/SEP.UI/SEP.UI.suo
+/Source/UI/SEP.WindowsServer/SEP.AutoRemindServer/obj
+/Source/UI/SEP.WindowsServer/SEP.AutoRemindServer/bin
+/Source/UI/SEP.WindowsServer/SEP.ReadExternalAttendanceData/obj
+/Source/UI/SEP.WindowsServer/SEP.ReadExternalAttendanceData/bin
+/Source/UI/SEP.WindowsServer/SetupClassLibrary/obj
+/Source/UI/SEP.WindowsServer/SetupClassLibrary/bin
+/Source/UI/SEP.WindowsServer/SEP.Server.SetUp/Release
+/Source/UI/SEP.WindowsServer/SEP.Server.SetUp/Debug
+/Source/UI/SEP.WindowsServer/SEP.WindowsServer.suo
+/Source/UI/SEP.WindowsServer/SEP.WindowsServer.sln.DotSettings.user
+/Source/UI/SEP.WindowsServer/SEP.WindowsServer.sln.docstates.suo
+/Source/UI/SEP.UI/SEP.UI.sln.DotSettings.user
+/Source/UI/SEP.UI/FacadeTest/*.user
+/Source/UI/SEP.UI/FacadeTest/bin/Debug
+/Source/UI/SEP.UI/FacadeTest/obj/Debug

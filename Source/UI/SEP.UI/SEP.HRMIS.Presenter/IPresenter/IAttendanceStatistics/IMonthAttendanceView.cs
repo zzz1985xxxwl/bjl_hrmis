@@ -12,7 +12,7 @@ namespace SEP.HRMIS.Presenter.IPresenter.IAttendanceStatistics
         List<Employee> EmployeeMonthAttendanceList { get; set;}
         string EmployeeName { get; set;}
         List<Department> DepartmentList { set;}
-        int SelectedDepartment { get;}
+        int SelectedDepartment { get; set; }
         string FromDate { get; set;}
         string ToDate { get; set;}
         string ScopeDateFrom { set;}

@@ -170,9 +170,14 @@ namespace SEP.HRMIS.Bll
             string remark = "系统每年自动生成年假记录";
             foreach (Employee employee in allEmployeeList)
             {
-                //只有正式和试用期的员工才能生成年假，其他则不生成年假
-                if (employee.EmployeeType != EmployeeTypeEnum.NormalEmployee &&
-                    employee.EmployeeType != EmployeeTypeEnum.ProbationEmployee)
+                ////只有正式和试用期的员工才能生成年假，其他则不生成年假
+                //if (employee.EmployeeType != EmployeeTypeEnum.NormalEmployee &&
+                //    employee.EmployeeType != EmployeeTypeEnum.ProbationEmployee)
+                //{
+                //    continue;
+                //}
+                //只有正式的员工才能生成每年12-21号自动生成年假，其他则不生成年假 change by xwl 2014-12-26
+                if (employee.EmployeeType != EmployeeTypeEnum.NormalEmployee)
                 {
                     continue;
                 }

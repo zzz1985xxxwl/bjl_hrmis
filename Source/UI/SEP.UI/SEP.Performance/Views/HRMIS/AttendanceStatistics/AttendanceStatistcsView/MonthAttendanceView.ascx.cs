@@ -137,6 +137,7 @@ namespace SEP.Performance.Views.HRMIS.AttendanceStatistics.AttendanceStatistcsVi
         }
         public int SelectedDepartment
         {
+            set { ddlDepartment.SelectedValue = value.ToString(); }
             get { return Convert.ToInt32(ddlDepartment.SelectedValue); }
         }
         public string FromDate

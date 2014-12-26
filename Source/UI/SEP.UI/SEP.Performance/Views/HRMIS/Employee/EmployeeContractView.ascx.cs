@@ -60,7 +60,7 @@ namespace SEP.Performance.Views.Employee
                 }
                 else
                 {
-                    tbCondition.Style["display"] = "block";
+                    tbCondition.Style["display"] = "";
                 }
             }
         }
@@ -102,7 +102,7 @@ namespace SEP.Performance.Views.Employee
                 }
                 else
                 {
-                    tbNoDataMessage.Style["display"] = "block";
+                    tbNoDataMessage.Style["display"] = "";
                 }
             }
         }
@@ -201,7 +201,7 @@ namespace SEP.Performance.Views.Employee
             {
                 if (value != null && value.Count > 0)
                 {
-                    trBookMark.Style["display"] = "block";
+                    trBookMark.Style["display"] = "";
                     //生成表格
                     if (value.Count == 1)
                     {

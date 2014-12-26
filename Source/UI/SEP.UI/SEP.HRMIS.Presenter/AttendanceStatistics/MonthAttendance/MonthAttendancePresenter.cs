@@ -37,9 +37,10 @@ namespace SEP.HRMIS.Presenter.AttendanceStatistics.MonthAttendance
                 _IMonthAttendanceView.FromDate = new HrmisUtility().CurrenMonthStartTime().ToShortDateString(); //ÔÂÍ·
                 _IMonthAttendanceView.ToDate = new HrmisUtility().CurrenMonthEndTime().ToShortDateString(); //ÔÂÄ©
                 BindDepartment();
-                BindMonthAttendanceList(null, null);
                 _IMonthAttendanceView.IsHours = true;
                 _IMonthAttendanceView.GradesSource = GradesType.GetAll();
+                _IMonthAttendanceView.SelectedDepartment = _Operator.Dept.Id;
+                BindMonthAttendanceList(null, null);
             }
         }
 
