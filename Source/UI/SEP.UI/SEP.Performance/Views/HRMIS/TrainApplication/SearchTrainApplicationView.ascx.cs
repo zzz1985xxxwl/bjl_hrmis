@@ -50,7 +50,7 @@ namespace SEP.Performance.Views.HRMIS.TrainApplication
             switch (e.CommandName)
             {
                 case "HiddenPostButtonCommand":
-                    Response.Redirect("DetailTrainApplication.aspx?TrainApplicationID=" + SecurityUtil.DECEncrypt(e.CommandArgument.ToString())); 
+                    Response.Redirect("DetailTrainApplication.aspx?TrainApplicationID=" + SecurityUtil.DECEncrypt(e.CommandArgument.ToString()));
                     return;
             }
         }
@@ -143,6 +143,7 @@ namespace SEP.Performance.Views.HRMIS.TrainApplication
             {
                 return dtpDateFrom.Text.Trim();
             }
+            set { dtpDateFrom.Text = value; }
         }
 
         public string DateTo
@@ -151,6 +152,7 @@ namespace SEP.Performance.Views.HRMIS.TrainApplication
             {
                 return dtpDateTo.Text.Trim();
             }
+            set { dtpDateTo.Text = value; }
         }
 
 

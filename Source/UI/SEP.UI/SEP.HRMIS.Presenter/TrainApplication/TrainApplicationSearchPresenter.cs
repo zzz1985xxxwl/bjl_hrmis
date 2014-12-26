@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using SEP.HRMIS.Presenter.IPresenter.ITrainApplication;
 using SEP.HRMIS.IFacede;
 using SEP.Model.Accounts;
@@ -77,6 +78,9 @@ namespace SEP.HRMIS.Presenter.TrainApplication
         {
             _ItsView.ScopeSource = TrainScopeType.AllTrainScopeTypes;
             _ItsView.StatusSource = TraineeApplicationStatus.AllTraineeApplicationStatuss;
+            var start = new DateTime(DateTime.Now.Year, 1, 1);
+            _ItsView.DateFrom = start.ToString("yyyy-MM-dd");
+            _ItsView.DateTo = start.AddYears(1).AddDays(-1).ToString("yyyy-MM-dd");
         }
 
         #region Validate

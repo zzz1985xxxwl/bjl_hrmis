@@ -22,8 +22,8 @@ namespace SEP.HRMIS.Presenter.IPresenter.ITrainApplication
         string Trainee { get;}
 
         //≤È—Ø ±º‰
-        string DateFrom { get;}
-        string DateTo { get;}
+        string DateFrom { get; set; }
+        string DateTo { get; set; }
 
 
         string TimeErrorMessage {  set;}
