@@ -135,6 +135,7 @@ namespace SEP.HRMIS.Presenter.AttendanceStatistics
                 _IDayAttendance.DepartmentId = "-1";
                 _IDayAttendance.FromDate = DateTime.Now.AddDays(1 - DateTime.Now.Day).ToShortDateString();
                 _IDayAttendance.ToDate = DateTime.Now.AddDays(1 - DateTime.Now.Day).AddMonths(1).AddDays(-1).ToShortDateString();
+                _IDayAttendance.DepartmentId = _LoginUser.Dept.Id.ToString();
                 OperationAndSplitWeek();
             }
         }
