@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Framework.Common.DataAccess;
 using SEP.HRMIS.Presenter.IPresenter.IAssessActivity;
 using SEP.Presenter.Core;
 using ShiXin.Security;
@@ -51,6 +52,12 @@ namespace SEP.Performance.Views.HRMIS.AssessActivity
                 }
             }
         }
+
+        public PagerEntity pagerEntity
+        {
+            get { return new PagerEntity() { PageIndex = dgUnderlingAssessHistorylist.PageIndex, PageSize = dgUnderlingAssessHistorylist.PageSize }; }
+        }
+
 
         public EventHandler BindAssessActivity;
         public EventHandler CaculateCount;

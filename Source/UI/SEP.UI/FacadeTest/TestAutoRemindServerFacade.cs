@@ -30,6 +30,8 @@ namespace FacadeTest
         [Test]
         public void Test3()
         {
+            //Xg+rY5F9vI6TzXAyGoS+XQ==
+           Console.WriteLine(Framework.Common.Encrypt.SecurityUtil.SymmetricDecrypt("Xg+rY5F9vI6TzXAyGoS+XQ==","luantianlin"));
            //Log("");
            var _LastRunTime = GetLastDateTime();
            var _RunDate = _LastRunTime.AddDays(1).Date;

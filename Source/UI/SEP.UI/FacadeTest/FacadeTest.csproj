@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Framework.Common">
+      <HintPath>..\..\..\Libs\Framework.Common.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\Libs\nunit.framework.dll</HintPath>
     </Reference>
