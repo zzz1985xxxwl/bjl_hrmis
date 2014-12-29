@@ -145,7 +145,7 @@ namespace SEP.HRMIS.Presenter
         /// <summary>
         /// </summary>
         /// <returns></returns>
-        public static ITraineeApplicationFacade CreateTraineeApplicationFacade()
+        public static TraineeApplicationFacade CreateTraineeApplicationFacade()
         {
             return new TraineeApplicationFacade();
         }

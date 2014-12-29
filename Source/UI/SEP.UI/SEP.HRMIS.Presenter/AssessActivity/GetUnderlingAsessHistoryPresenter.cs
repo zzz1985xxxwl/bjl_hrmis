@@ -7,6 +7,7 @@
 // 概述: 添加查询作为主管考评他人的历史考评活动
 // ----------------------------------------------------------------
 using System;
+using SEP.HRMIS.Logic;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Presenter.IPresenter.IAssessActivity;
 using SEP.Model.Accounts;
@@ -39,7 +40,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
 
         public void BindAssessActivity(object sender, EventArgs e)
         {
-            _View.AssessActivitys = InstanceFactory.AssessActivityFacade().GetAssessActivityHistoryByEmployeeName(LoginUser.Name);
+            _View.AssessActivitys = AssessActivityLogic.GetAssessActivityHistoryByEmployeeName(LoginUser.Name, _View.pagerEntity);
         }
 
         public string ExportLeaderEvent(string employeeTemplateLocation)

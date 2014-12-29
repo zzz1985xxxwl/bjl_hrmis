@@ -1,3 +1,4 @@
+using SEP.HRMIS.Facade;
 using SEP.HRMIS.Presenter.IPresenter.ITrainApplication;
 using SEP.HRMIS.IFacede;
 using SEP.Model.Accounts;
@@ -8,7 +9,7 @@ namespace SEP.HRMIS.Presenter.TrainApplication
     public class TrainApplicationConfirmHistoryPresenter : PresenterCore.BasePresenter
     {
         private readonly ITrainApplicationConfirmHistoryView _ItsView;
-        private readonly ITraineeApplicationFacade _ITrainFacade = InstanceFactory.CreateTraineeApplicationFacade();
+        private readonly TraineeApplicationFacade _ITrainFacade = InstanceFactory.CreateTraineeApplicationFacade();
 
         public TrainApplicationConfirmHistoryPresenter(ITrainApplicationConfirmHistoryView view,Account loginUser)
             : base(loginUser)

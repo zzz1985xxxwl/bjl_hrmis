@@ -8,6 +8,7 @@
 // ----------------------------------------------------------------
 using System;
 using SEP.HRMIS.IFacede;
+using SEP.HRMIS.Logic;
 using SEP.HRMIS.Presenter.IPresenter.IAssessActivity;
 using SEP.Model.Accounts;
 using hrmisModel = SEP.HRMIS.Model;
@@ -38,8 +39,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
 
         public void BindAssessActivity(object sender, EventArgs e)
         {
-            _View.AssessActivitys =
-                InstanceFactory.AssessActivityFacade().GetMyAssessActivityByAccountId(LoginUser.Id);
+            _View.AssessActivitys =AssessActivityLogic.GetAssessActivityByEmployee(LoginUser.Id,_View.pagerEntity);
         }
 
         public string ExportSelfEvent(string employeeTemplateLocation)
