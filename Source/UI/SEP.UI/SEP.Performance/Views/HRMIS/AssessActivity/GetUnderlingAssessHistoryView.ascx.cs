@@ -63,8 +63,8 @@ namespace SEP.Performance.Views.HRMIS.AssessActivity
         public EventHandler CaculateCount;
         protected void dgUnderlingAssessHistorylist_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            BindAssessActivity(null, null);
             dgUnderlingAssessHistorylist.PageIndex = e.NewPageIndex;
+            BindAssessActivity(null, null);
             dgUnderlingAssessHistorylist.DataSource = _AssessActivitys;
             dgUnderlingAssessHistorylist.DataBind();
             CaculateCount(null, null);

@@ -62,8 +62,8 @@ namespace SEP.Performance.Views.HRMIS.AssessActivity
         public EventHandler BindAssessActivity;
         protected void gvAssessActivityList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            BindAssessActivity(null, null);
             gvAssessActivityList.PageIndex = e.NewPageIndex;
+            BindAssessActivity(null, null);
             gvAssessActivityList.DataSource = _AssessActivitysToList;
             gvAssessActivityList.DataBind();
             SetEmunListColumnTest();

@@ -5,20 +5,20 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F4C5BFD7-3DDF-4DD5-97CF-D81AB2620038}</ProjectGuid>
+    <ProjectGuid>{974C2243-E156-45FE-B10A-F91FAE6C4F72}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SEP.IBll</RootNamespace>
-    <AssemblyName>SEP.IBll</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <RootNamespace>Test</RootNamespace>
+    <AssemblyName>Test</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
-    <PublishUrl>http://localhost/SEP.IBll/</PublishUrl>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -27,10 +27,9 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,8 +39,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>
-    </DocumentationFile>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -54,48 +51,30 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="nunit.framework, Version=2.4.6.0, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Mail.dll</HintPath>
+      <HintPath>..\..\..\Libs\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="SmsDataContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SEP.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SmsDataContract.dll</HintPath>
+      <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\System.ServiceModel.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\IAccountBll.cs" />
-    <Compile Include="Accounts\IAccountGroupBll.cs" />
-    <Compile Include="Accounts\IAuthBll.cs" />
-    <Compile Include="BllInstance.cs" />
-    <Compile Include="Bulletins\IBulletinBll.cs" />
-    <Compile Include="CompanyRegulations\ICompanyRegulationBll.cs" />
-    <Compile Include="Departments\IDepartmentBll.cs" />
-    <Compile Include="Goals\IGoalBll.cs" />
-    <Compile Include="Mail\IMailGateWay.cs" />
-    <Compile Include="Mail\IMailSource.cs" />
-    <Compile Include="Positions\IPositionBll.cs" />
+    <Compile Include="NotesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SMS\ISendSMSBll.cs" />
-    <Compile Include="SMS\SmsClientProcessCenter.cs" />
-    <Compile Include="SMS\SmsServiceEnableDescription.cs" />
-    <Compile Include="SpecialDates\ISpecialDateBll.cs" />
-    <Compile Include="WelcomeMails\IWelcomeMailBll.cs" />
-    <Compile Include="WorkTask\IWorkTaskBll.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SEP.Model\SEP.Model.csproj">
-      <Project>{054CB2F3-C375-425E-8EDF-417EF5BD5F43}</Project>
-      <Name>SEP.Model</Name>
+    <ProjectReference Include="..\SEP.Notes\SEP.Notes.csproj">
+      <Project>{3C664ABF-BC22-41BB-9AAE-2A8A36460AF3}</Project>
+      <Name>SEP.Notes</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -122,8 +101,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <PropertyGroup>
-    <PostBuildEvent>
-</PostBuildEvent>
-  </PropertyGroup>
 </Project>

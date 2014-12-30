@@ -5,20 +5,20 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F4C5BFD7-3DDF-4DD5-97CF-D81AB2620038}</ProjectGuid>
+    <ProjectGuid>{3C664ABF-BC22-41BB-9AAE-2A8A36460AF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SEP.IBll</RootNamespace>
-    <AssemblyName>SEP.IBll</AssemblyName>
+    <RootNamespace>SEP.Notes</RootNamespace>
+    <AssemblyName>SEP.Notes</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>2.0</OldToolsVersion>
     <UpgradeBackupLocation />
-    <PublishUrl>http://localhost/SEP.IBll/</PublishUrl>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Web</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <TargetFrameworkProfile />
@@ -54,48 +54,27 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\Mail.dll</HintPath>
-    </Reference>
-    <Reference Include="SmsDataContract, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\SmsDataContract.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.ServiceModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Libs\System.ServiceModel.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accounts\IAccountBll.cs" />
-    <Compile Include="Accounts\IAccountGroupBll.cs" />
-    <Compile Include="Accounts\IAuthBll.cs" />
-    <Compile Include="BllInstance.cs" />
-    <Compile Include="Bulletins\IBulletinBll.cs" />
-    <Compile Include="CompanyRegulations\ICompanyRegulationBll.cs" />
-    <Compile Include="Departments\IDepartmentBll.cs" />
-    <Compile Include="Goals\IGoalBll.cs" />
-    <Compile Include="Mail\IMailGateWay.cs" />
-    <Compile Include="Mail\IMailSource.cs" />
-    <Compile Include="Positions\IPositionBll.cs" />
+    <Compile Include="Notes.cs" />
+    <Compile Include="NotesCalendar\NotesCalendarList.cs" />
+    <Compile Include="Params.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SMS\ISendSMSBll.cs" />
-    <Compile Include="SMS\SmsClientProcessCenter.cs" />
-    <Compile Include="SMS\SmsServiceEnableDescription.cs" />
-    <Compile Include="SpecialDates\ISpecialDateBll.cs" />
-    <Compile Include="WelcomeMails\IWelcomeMailBll.cs" />
-    <Compile Include="WorkTask\IWorkTaskBll.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SEP.Model\SEP.Model.csproj">
-      <Project>{054CB2F3-C375-425E-8EDF-417EF5BD5F43}</Project>
-      <Name>SEP.Model</Name>
-    </ProjectReference>
+    <Compile Include="RepeatTypes\IRepeat.cs" />
+    <Compile Include="RepeatTypes\MonthRepeat.cs" />
+    <Compile Include="RepeatUtility.cs" />
+    <Compile Include="RepeatTypes\DayRepeat.cs" />
+    <Compile Include="RepeatTypes\NoRepeat.cs" />
+    <Compile Include="RepeatTypes\WeekRepeat.cs" />
+    <Compile Include="Share.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -113,6 +92,28 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SEP.HRMIS\SEP.HRMIS.Facade\SEP.HRMIS.Facade.csproj">
+      <Project>{C4AE9EBB-FDC5-40D4-90E3-FC0934D1E578}</Project>
+      <Name>SEP.HRMIS.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SEP.HRMIS\SEP.HRMIS.IFacede\SEP.HRMIS.IFacede.csproj">
+      <Project>{0E1621D8-6546-4D69-9591-0D4AC1518461}</Project>
+      <Name>SEP.HRMIS.IFacede</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SEP.HRMIS\SEP.HRMIS.Model\SEP.HRMIS.Model.csproj">
+      <Project>{D132897B-2732-4190-B50C-85D67594DDA8}</Project>
+      <Name>SEP.HRMIS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SEP\SEP.IBll\SEP.IBll.csproj">
+      <Project>{F4C5BFD7-3DDF-4DD5-97CF-D81AB2620038}</Project>
+      <Name>SEP.IBll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SEP\SEP.Model\SEP.Model.csproj">
+      <Project>{054CB2F3-C375-425E-8EDF-417EF5BD5F43}</Project>
+      <Name>SEP.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

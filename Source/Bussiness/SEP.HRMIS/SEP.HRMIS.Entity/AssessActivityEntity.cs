@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using SEP.HRMIS.Model;
 using SEP.Model.Accounts;
 using SEP.HRMIS.Model.DiyProcesss;
@@ -217,7 +218,7 @@ namespace SEP.HRMIS.Entity
 
             assessActivity.AssessActivityID = entity.PKID;
             assessActivity.ItsEmployee = new Employee{ Account = new Account() { Id = entity.AssessEmployeeID,Name = entity.AssessEmployeeName} };
-            assessActivity.ItsAssessActivityPaper=new AssessActivityPaper(entity.PaperName){Score = entity.Score.GetValueOrDefault()};
+            assessActivity.ItsAssessActivityPaper=new AssessActivityPaper(entity.PaperName){Score = entity.Score.GetValueOrDefault(),SubmitInfoes = new List<SubmitInfo>()};
             assessActivity.AssessCharacterType = (AssessCharacterType)entity.AssessCharacter;
             assessActivity.ItsAssessStatus = (AssessStatus)entity.AssessStatus;
             assessActivity.ScopeFrom = entity.ScopeFrom;

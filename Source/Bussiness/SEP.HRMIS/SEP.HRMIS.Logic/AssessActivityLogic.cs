@@ -36,7 +36,7 @@ namespace SEP.HRMIS.Logic
         {
             var ids = new List<int>();
             for (var i = pagerEntity.PageIndex*pagerEntity.PageSize;
-                i < (pagerEntity.PageIndex + 1*pagerEntity.PageSize) && i < ans.Count;
+                i < ((pagerEntity.PageIndex + 1)*pagerEntity.PageSize) && i < ans.Count;
                 i++)
             {
                 ids.Add(ans[i].AssessActivityID);
@@ -44,7 +44,7 @@ namespace SEP.HRMIS.Logic
             var items = AssessActivityItemDA.GetByAssessActivityIDs(ids);
             var papers = AssessActivityPaperDA.GetByAssessActivityIDs(ids);
             for (var i = pagerEntity.PageIndex*pagerEntity.PageSize;
-                i < (pagerEntity.PageIndex + 1*pagerEntity.PageSize) && i < ans.Count;
+                i < ((pagerEntity.PageIndex + 1)*pagerEntity.PageSize) && i < ans.Count;
                 i++)
             {
                 ans[i].ItsAssessActivityPaper.SubmitInfoes =

@@ -4634,6 +4634,10 @@
       <Project>{C871BAE6-8FA7-413F-8CD9-D150401FAF50}</Project>
       <Name>SEP.HRMIS.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Facade\SEP.HRMIS.Facade.csproj">
+      <Project>{C4AE9EBB-FDC5-40D4-90E3-FC0934D1E578}</Project>
+      <Name>SEP.HRMIS.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.IFacede\SEP.HRMIS.IFacede.csproj">
       <Project>{0E1621D8-6546-4D69-9591-0D4AC1518461}</Project>
       <Name>SEP.HRMIS.IFacede</Name>

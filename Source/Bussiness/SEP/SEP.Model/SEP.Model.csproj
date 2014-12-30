@@ -139,7 +139,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetDir)$(TargetFileName) ..\..\..\..\..\Build\
+    <PostBuildEvent>
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

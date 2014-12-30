@@ -111,8 +111,8 @@ namespace SEP.Performance.Views.HRMIS.AssessActivity
 
         protected void LinkButtonGoPage_Click(int pageindex)
         {
-            BindAssessActivity(null, null);
             dgMyAssessHistorylist.PageIndex = pageindex;
+            BindAssessActivity(null, null);
             dgMyAssessHistorylist.DataSource = _AssessActivitys;
             dgMyAssessHistorylist.DataBind();
             CaculateCount(null, null);
