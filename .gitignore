@@ -102,8 +102,6 @@
 /Source/Bussiness/SEP.HRMIS/SEP.HRMIS.IFacede/obj
 /Source/Bussiness/SEP.HRMIS/SEP.HRMIS.BllUnitTest
 /Source/UI/SEP.UI/SEP.UI.suo
-
-/Source/UI/SEP.UI/SEP.UI.suo
 /Source/UI/SEP.WindowsServer/SEP.AutoRemindServer/obj
 /Source/UI/SEP.WindowsServer/SEP.AutoRemindServer/bin
 /Source/UI/SEP.WindowsServer/SEP.ReadExternalAttendanceData/obj
@@ -117,7 +115,8 @@
 /Source/UI/SEP.WindowsServer/SEP.WindowsServer.sln.docstates.suo
 /Source/UI/SEP.UI/SEP.UI.sln.DotSettings.user
 /Source/UI/SEP.UI/FacadeTest/*.user
-/Source/UI/SEP.UI/FacadeTest/bin/Debug
-/Source/UI/SEP.UI/FacadeTest/obj/Debug
+/Source/UI/SEP.UI/FacadeTest/bin
+/Source/UI/SEP.UI/FacadeTest/obj
 /Source/UI/SEP.UI/SEP.Performance/SEP.Performance.csproj.user
-/Source/UI/SEP.UI/SEP.UI.suo
+/Source/UI/SEP.UI/SEP.Performance/SEP.Performance.Publish.xml
+

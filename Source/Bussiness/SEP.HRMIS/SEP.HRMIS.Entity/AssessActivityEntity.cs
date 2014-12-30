@@ -30,6 +30,7 @@ namespace SEP.HRMIS.Entity
             set { _AssessEmployeeID = value; }
         }
 
+        public string AssessEmployeeName { get; set; }
         private int _AssessCharacter;
 
         /// <summary>
@@ -215,7 +216,7 @@ namespace SEP.HRMIS.Entity
             AssessActivity assessActivity = new AssessActivity();
 
             assessActivity.AssessActivityID = entity.PKID;
-            assessActivity.ItsEmployee = new Employee{ Account = new Account() { Id = entity.AssessEmployeeID } };
+            assessActivity.ItsEmployee = new Employee{ Account = new Account() { Id = entity.AssessEmployeeID,Name = entity.AssessEmployeeName} };
             assessActivity.ItsAssessActivityPaper=new AssessActivityPaper(entity.PaperName){Score = entity.Score.GetValueOrDefault()};
             assessActivity.AssessCharacterType = (AssessCharacterType)entity.AssessCharacter;
             assessActivity.ItsAssessStatus = (AssessStatus)entity.AssessStatus;

@@ -18,7 +18,7 @@ namespace SEP.HRMIS.Bll.TraineeApplications
     public class GetTraineeApplication
     {
 
-        private static readonly ITraineeApplication _DalTraineeApplication = new TraineeApplicationDal();
+        private static readonly TraineeApplicationDal _DalTraineeApplication = new TraineeApplicationDal();
         private readonly IAccountBll _IAccountBll = BllInstance.AccountBllInstance;
         private readonly IDepartmentBll _IDepartmentBll = BllInstance.DepartmentBllInstance;
 

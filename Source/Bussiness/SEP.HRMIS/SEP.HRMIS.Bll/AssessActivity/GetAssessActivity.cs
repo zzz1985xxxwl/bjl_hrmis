@@ -34,7 +34,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// <summary>
         /// 构造类工厂
         /// </summary>
-        private static IAssessActivity _AssessActivityDal = new AssessActivityDal();
+        private static AssessActivityDal _AssessActivityDal = new AssessActivityDal();
         private static IAccountBll _AccountBll = BllInstance.AccountBllInstance;
 
         /// <summary>
