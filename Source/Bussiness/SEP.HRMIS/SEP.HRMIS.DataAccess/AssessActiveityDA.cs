@@ -96,5 +96,36 @@ namespace SEP.HRMIS.DataAccess
                 return dataOperator.ExecuteEntityList<AssessActivityEntity>();
             }
         }
+
+
+        public static List<AssessActivityEntity> GetAssessActivityHistoryByEmployeeName(string employeeName)
+        {
+            using (var dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
+            {
+                dataOperator.CommandText =
+                   string.Format( @" select b.EmployeeName as AssessEmployeeName,a.* from TAssessActivity as a with(nolock)
+inner join {0}.dbo.TAccount as b with(nolock) on a.AssessEmployeeID=b.PKID
+where a.pkid in ( select AssessActivityID
+ from TAssessActivityPaper 
+ where FillPerson=@FillPerson and [Type]<>1) or AssessProposerName=@FillPerson
+order by a.PKID desc", SqlHelper.SEPDBName);
+                dataOperator.SetParameter("@FillPerson", employeeName, SqlDbType.NVarChar);
+                return dataOperator.ExecuteEntityList<AssessActivityEntity>();
+            }
+        }
+
+        public static List<AssessActivityEntity> GetAssessActivityByEmployee(int employeeId)
+        {
+            using (var dataOperator = new DataOperator(SqlHelper.HrmisConnectionString))
+            {
+                dataOperator.CommandText = string.Format(@" Select b.EmployeeName as AssessEmployeeName,a.*
+        FROM  TAssessActivity as a with(nolock)
+inner join {0}.dbo.TAccount as b with(nolock) on a.AssessEmployeeID=b.PKID
+        WHERE AssessEmployeeID=@EmployeeID
+              ORDER BY a.PKID DESC", SqlHelper.SEPDBName);
+                dataOperator.SetParameter("@EmployeeID", employeeId, SqlDbType.Int);
+                return dataOperator.ExecuteEntityList<AssessActivityEntity>();
+            }
+        }
     }
 }

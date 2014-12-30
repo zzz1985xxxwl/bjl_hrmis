@@ -28,24 +28,38 @@ namespace SEP.HRMIS.Logic
                                                                                           scopeFrom, scopeTo, assessCharacter);
             var assessActivities = assessActivitylist.Select(AssessActivityEntity.Convert).ToList();
             var ans = GetAssessActivityByEmployeeNameAndPower(assessActivities, employeeName, loginuser, power, departmentID);
+            BindItemInfo(pagerEntity, ans);
+            return ans;
+        }
+
+        private static void BindItemInfo(PagerEntity pagerEntity, List<AssessActivity> ans)
+        {
             var ids = new List<int>();
-            for (var i = pagerEntity.PageIndex * pagerEntity.PageSize; i < (pagerEntity.PageIndex + 1 * pagerEntity.PageSize) && i < ans.Count; i++)
+            for (var i = pagerEntity.PageIndex*pagerEntity.PageSize;
+                i < (pagerEntity.PageIndex + 1*pagerEntity.PageSize) && i < ans.Count;
+                i++)
             {
                 ids.Add(ans[i].AssessActivityID);
             }
             var items = AssessActivityItemDA.GetByAssessActivityIDs(ids);
             var papers = AssessActivityPaperDA.GetByAssessActivityIDs(ids);
-            for (var i = pagerEntity.PageIndex * pagerEntity.PageSize; i < (pagerEntity.PageIndex + 1 * pagerEntity.PageSize) && i < ans.Count; i++)
+            for (var i = pagerEntity.PageIndex*pagerEntity.PageSize;
+                i < (pagerEntity.PageIndex + 1*pagerEntity.PageSize) && i < ans.Count;
+                i++)
             {
-                ans[i].ItsAssessActivityPaper.SubmitInfoes = papers.Where(x => x.AssessActivityID == ans[i].AssessActivityID).Select(AssessActivityPaperEntity.Convert).ToList();
+                ans[i].ItsAssessActivityPaper.SubmitInfoes =
+                    papers.Where(x => x.AssessActivityID == ans[i].AssessActivityID)
+                        .Select(AssessActivityPaperEntity.Convert)
+                        .ToList();
                 foreach (var submitInfoe in ans[i].ItsAssessActivityPaper.SubmitInfoes)
                 {
                     submitInfoe.ItsAssessActivityItems = new List<AssessActivityItem>();
-                    submitInfoe.ItsAssessActivityItems.AddRange(items.Where(x => x.AssessActivityPaperID == submitInfoe.SubmitInfoID).Select(AssessActivityItemEntity.Convert).ToList());
-
+                    submitInfoe.ItsAssessActivityItems.AddRange(
+                        items.Where(x => x.AssessActivityPaperID == submitInfoe.SubmitInfoID)
+                            .Select(AssessActivityItemEntity.Convert)
+                            .ToList());
                 }
             }
-            return ans;
         }
 
         private static List<AssessActivity> GetAssessActivityByEmployeeNameAndPower
@@ -87,7 +101,7 @@ namespace SEP.HRMIS.Logic
                 }
             }
 
-            foreach (Model.AssessActivity activity in list)
+            foreach (AssessActivity activity in list)
             {
                 activity.ItsEmployee.Account =
                 BllInstance.AccountBllInstance.GetAccountById(activity.ItsEmployee.Account.Id);
@@ -96,5 +110,22 @@ namespace SEP.HRMIS.Logic
         }
 
 
+        public static List<AssessActivity> GetAssessActivityHistoryByEmployeeName(string employeeName, PagerEntity pagerEntity)
+        {
+            var assessActivitylist = AssessActiveityDA.GetAssessActivityHistoryByEmployeeName(employeeName)
+                .Select(AssessActivityEntity.Convert).ToList();
+            BindItemInfo(pagerEntity, assessActivitylist);
+            return assessActivitylist;
+        }
+
+
+        public static List<AssessActivity> GetAssessActivityByEmployee(int employeeId, PagerEntity pagerEntity)
+        {
+            var assessActivitylist = AssessActiveityDA.GetAssessActivityByEmployee(employeeId)
+                .Select(AssessActivityEntity.Convert).ToList();
+            BindItemInfo(pagerEntity, assessActivitylist);
+            return assessActivitylist;
+        }
+        
     }
 }
