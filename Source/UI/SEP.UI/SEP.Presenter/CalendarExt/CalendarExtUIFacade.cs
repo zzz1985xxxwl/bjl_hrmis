@@ -9,6 +9,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using SEP.IBll;
 using SEP.IBll.Accounts;
@@ -46,7 +47,7 @@ namespace SEP.Presenter.CalendarExt
             }
 
             List<CalendarADay> items = new CalendarADayList(account.Id, start, end, typelist).GetList();
-            return Merge(items);
+            return Merge(items).OrderBy(x=>x.Date).ToList();
         }
 
 

@@ -67,10 +67,10 @@ namespace SEP.Model.CalendarExt
 
         public static CalendarADay CreateOrGetCalendarADayByDate(List<CalendarADay> retList, DateTime date)
         {
-            CalendarADay calendarADay = FindCalendarDayByDate(retList, date);
+            CalendarADay calendarADay = FindCalendarDayByDate(retList, date.Date);
             if (calendarADay == null)
             {
-                calendarADay = new CalendarADay(date, new List<MonthItem>(), new List<DayItem>());
+                calendarADay = new CalendarADay(date.Date, new List<MonthItem>(), new List<DayItem>());
                 retList.Add(calendarADay);
             }
             return calendarADay;
