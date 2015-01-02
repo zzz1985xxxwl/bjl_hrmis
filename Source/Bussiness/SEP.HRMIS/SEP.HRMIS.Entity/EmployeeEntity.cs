@@ -489,6 +489,7 @@ namespace SEP.HRMIS.Entity
         public string CompanyName { get; set; }
         public string MobileNum { get; set; }
         public DateTime? DimissionDate { get; set; }
+        public string PositionGradeName { get; set; }
 
         public static Employee Convert(EmployeeEntity e)
         {
@@ -500,11 +501,12 @@ namespace SEP.HRMIS.Entity
                      Name = e.EmployeeName,
                      MobileNum = e.MobileNum,
                      Dept = new Department(e.DepartmentID, e.DepartmentName),
-                     Position = new Position(e.PositionID, e.PositionName, null)
+                     Position = new Position(e.PositionID, e.PositionName, new PositionGrade(e.PositionGradeId, e.PositionGradeName, ""))
                  },
                  EmployeeType = (EmployeeTypeEnum)e.EmployeeType,
                  EmployeeDetails = new EmployeeDetails
                  {
+                     ProbationTime=e.ProbationTime.GetValueOrDefault(),
                      Work = new Work
                      {
                          ComeDate =
@@ -515,7 +517,10 @@ namespace SEP.HRMIS.Entity
                                              },
                          Company =
                              new Department(e.CompanyID,
-                                            e.CompanyName)
+                                            e.CompanyName),
+                         SalaryCardNo = e.SalaryCardNo,
+                         WorkPlace = e.WorkPlace,
+                         Principalship = PrincipalShip.GetById(e.PrincipalShipID == null ? -1 : e.PrincipalShipID.Value)
                      }
                  },
                  EmployeeAttendance = new EmployeeAttendance { 
