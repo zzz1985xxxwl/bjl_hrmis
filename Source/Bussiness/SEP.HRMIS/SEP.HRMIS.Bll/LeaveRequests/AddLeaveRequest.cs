@@ -108,7 +108,7 @@ namespace SEP.HRMIS.Bll.LeaveRequests
                     HrmisUtility.ThrowException(HrmisUtility._LeaveRequestItem_CanNot_Zero);
                 }
             }
-
+            // 判断是否在试用期，试用期无法申请年假
             new JudgeProbation(_LeaveRequest.LeaveRequestItems, _LeaveRequest.Account.Id, _LeaveRequest.LeaveRequestType,
                                _DalEmployee).Excute();
         }
