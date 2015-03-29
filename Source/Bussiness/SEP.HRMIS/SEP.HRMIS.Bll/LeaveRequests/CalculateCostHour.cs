@@ -251,6 +251,7 @@ namespace SEP.HRMIS.Bll
         private decimal CalculateOneDay(DateTime from, DateTime to)
         {
             InitRule();
+            DateTime fromDate = from.Date;
             from = RequestUtility.ConvertToTime(from);
             to = RequestUtility.ConvertToTime(to);
             DateTime fromtemp = from;
@@ -287,7 +288,7 @@ namespace SEP.HRMIS.Bll
             var requestsInDaysCostTime = 0m;
             foreach (var leaveRequest in _LeaveRequests)
             {
-               var item= leaveRequest.LeaveRequestItems.Where(x => x.FromDate.Date == from.Date);
+               var item= leaveRequest.LeaveRequestItems.Where(x => x.FromDate.Date == fromDate);
                 if (item.Count() > 0)
                 {
                     requestsInDaysCostTime += item.Sum(x => x.CostTime);
