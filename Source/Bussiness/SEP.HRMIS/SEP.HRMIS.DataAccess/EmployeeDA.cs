@@ -24,7 +24,7 @@ namespace SEP.HRMIS.DataAccess
                         @"
 select a.PKID,b.EmployeeName,b.MobileNum as MobileNum,a.CompanyID,d.PKID as DepartmentID,d.DepartmentName as DepartmentName,e.PKID as PositionID,e.PositionName,a.AccountID,a.ComeDate,a.EmployeeType,c.DepartmentName as CompanyName from TEmployee as a with(nolock)
 inner join {0}.dbo.TAccount as b with(nolock) on a.AccountID=b.PKID
-inner join {0}.dbo.TDepartment as c with(nolock) on a.CompanyID=c.PKID
+left  join {0}.dbo.TDepartment as c with(nolock) on a.CompanyID=c.PKID
 inner join {0}.dbo.TDepartment as d with(nolock) on b.DepartmentId=d.PKID
 inner join {0}.dbo.TPosition as e with(nolock) on e.PKID=b.PositionId
 where EmployeeName like @EmployeeName

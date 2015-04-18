@@ -47,7 +47,7 @@ namespace SEP.HRMIS.Bll
         private readonly ISpecialDateBll _SpecialDateBll = BllInstance.SpecialDateBllInstance;
         private readonly ILeaveRequestDal _leaveRequestDal=new LeaveRequestDal();
         private CalculateDays _CalculateDays;
-        private List<LeaveRequest> _LeaveRequests=new List<LeaveRequest>(); 
+       // private List<LeaveRequest> _LeaveRequests=new List<LeaveRequest>(); 
 
         /// <summary>
         /// 
@@ -109,7 +109,7 @@ namespace SEP.HRMIS.Bll
         private void Init()
         {
             LeaveRequestType leaveRequestType = _LeaveRequestTypeDal.GetLeaveRequestTypeByPkid(_LeaveRequestTypeID);
-            _LeaveRequests=_leaveRequestDal.GetLeaveRequestByCondition(_AccountID, _From.Date, _To.Date.AddHours(24), RequestStatus.All);
+            //_LeaveRequests=_leaveRequestDal.GetLeaveRequestByCondition(_AccountID, _From.Date, _To.Date.AddHours(24), RequestStatus.All);
             _LeaveRequestTypeName = leaveRequestType.Name;
             _LeastHour = leaveRequestType.LeastHour;
             _IncludeLegalHoliday = leaveRequestType.IncludeLegalHoliday == LegalHoliday.Include;
@@ -284,19 +284,20 @@ namespace SEP.HRMIS.Bll
                 costMinutes -= Convert.ToDecimal((_AfternoonStart - _MorningEnd).TotalMinutes);
             }
             decimal answer = ConvertToHour(costMinutes/60);
-            //查询当天其它请假，总和不能超过8
-            var requestsInDaysCostTime = 0m;
-            foreach (var leaveRequest in _LeaveRequests)
-            {
-               var item= leaveRequest.LeaveRequestItems.Where(x => x.FromDate.Date == fromDate);
-                if (item.Count() > 0)
-                {
-                    requestsInDaysCostTime += item.Sum(x => x.CostTime);
-                }
-            }
+            ////查询当天其它请假，总和不能超过8
+            //var requestsInDaysCostTime = 0m;
+            //foreach (var leaveRequest in _LeaveRequests)
+            //{
+            //   var item= leaveRequest.LeaveRequestItems.Where(x => x.FromDate.Date == fromDate);
+            //    if (item.Count() > 0)
+            //    {
+            //        requestsInDaysCostTime += item.Sum(x => x.CostTime);
+            //    }
+            //}
             answer=answer > _OneDayMaxHour ? _OneDayMaxHour : answer;
-            var leftCostHour = _OneDayMaxHour - requestsInDaysCostTime;
-            return answer > leftCostHour ? (leftCostHour < 0 ? 0 : leftCostHour) : answer;
+            return answer;
+            //var leftCostHour = _OneDayMaxHour - requestsInDaysCostTime;
+            //return answer > leftCostHour ? (leftCostHour < 0 ? 0 : leftCostHour) : answer;
         }
 
         private decimal ConvertToHour(decimal actualHour)
