@@ -31,7 +31,7 @@ namespace MachineDll
         //短信片，将一条大短信切割成小短信置于此
         public List<SendMessageDataModel> _SendPieceMessages = new List<SendMessageDataModel>();
 
-        private Thread _WorkThread;                                
+        private static  Thread _WorkThread;                                
         private readonly TheSerialPort _TheSerialPort;
 
         internal TheSmsMachine()
@@ -257,7 +257,7 @@ namespace MachineDll
             {
                 SendOneMessage();
                 ReceiveAllMessage();
-                Thread.Sleep(3000);
+                Thread.Sleep(60000);
                 if (!_WorkNow)
                 {
                     break;
