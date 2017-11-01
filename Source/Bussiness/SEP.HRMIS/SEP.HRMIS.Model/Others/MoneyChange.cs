@@ -1,287 +1,287 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SEP.HRMIS.Model
 {
-    public class MoneyChange
-    {
-        public static string GetChineseNum(string p_num)
-        {
-            MoneyChange cn = new MoneyChange();
+	public class MoneyChange
+	{
+		public static string GetChineseNum(string p_num)
+		{
+			MoneyChange cn = new MoneyChange();
 
-            return cn.NumToChn(p_num);
-        }
+			return cn.NumToChn(p_num);
+		}
 
-        public static string GetUpperMoney(double p_Money)
-        {
-            MoneyChange cn = new MoneyChange();
+		public static string GetUpperMoney(double p_Money)
+		{
+			MoneyChange cn = new MoneyChange();
 
-            return cn.GetMoneyChinese(p_Money);
-        }
+			return cn.GetMoneyChinese(p_Money);
+		}
 
-        //×ª»»Êı×Ö
-        private char CharToNum(char x)
-        {
-            string stringChnNames = "ÁãÒ»¶şÈıËÄÎåÁùÆß°Ë¾Å";
-            string stringNumNames = "0123456789";
-            return stringChnNames[stringNumNames.IndexOf(x)];
-        }
+		//è½¬æ¢æ•°å­—
+		private char CharToNum(char x)
+		{
+			string stringChnNames = "é›¶ä¸€äºŒä¸‰å››äº”å…­ä¸ƒå…«ä¹";
+			string stringNumNames = "0123456789";
+			return stringChnNames[stringNumNames.IndexOf(x)];
+		}
 
-        //×ª»»ÍòÒÔÏÂÕûÊı
-        private string WanStrToInt(string x)
-        {
-            string[] stringArrayLevelNames = new string[4] { "", "Ê®", "°Ù", "Ç§" };
-            string ret = "";
-            int i;
-            for (i = x.Length - 1; i >= 0; i--)
-                if (x[i] == '0')
-                {
-                    ret = CharToNum(x[i]) + ret;
-                }
-                else
-                {
-                    ret = CharToNum(x[i]) + stringArrayLevelNames[x.Length - 1 - i] + ret;
-                }
-            while ((i = ret.IndexOf("ÁãÁã")) != -1)
-            {
-                ret = ret.Remove(i, 1);
-            }
-            if (ret[ret.Length - 1] == 'Áã' && ret.Length > 1)
-            {
-                ret = ret.Remove(ret.Length - 1, 1);
-            }
-            if (ret.Length >= 2 && ret.Substring(0, 2) == "Ò»Ê®")
-            {
-                ret = ret.Remove(0, 1);
-            }
-            return ret;
-        }
-        //×ª»»ÕûÊı
-        private string StrToInt(string x)
-        {
-            int len = x.Length;
-            string ret, temp;
-            if (len <= 4)
-            {
-                ret = WanStrToInt(x);
-            }
-            else if (len <= 8)
-            {
-                ret = WanStrToInt(x.Substring(0, len - 4)) + "Íò";
-                temp = WanStrToInt(x.Substring(len - 4, 4));
-                if (temp.IndexOf("Ç§") == -1 &&!string.IsNullOrEmpty(temp))
-                    ret += "Áã" + temp;
-                else
-                    ret += temp;
-            }
-            else
-            {
-                ret = WanStrToInt(x.Substring(0, len - 8)) + "ÒÚ";
-                temp = WanStrToInt(x.Substring(len - 8, 4));
-                if (temp.IndexOf("Ç§") == -1 && !string.IsNullOrEmpty(temp))
-                {
-                    ret += "Áã" + temp;
-                }
-                else
-                {
-                    ret += temp;
-                }
-                ret += "Íò";
-                temp = WanStrToInt(x.Substring(len - 4, 4));
-                if (temp.IndexOf("Ç§") == -1 && !string.IsNullOrEmpty(temp))
-                {
-                    ret += "Áã" + temp;
-                }
-                else
-                {
-                    ret += temp;
-                }
+		//è½¬æ¢ä¸‡ä»¥ä¸‹æ•´æ•°
+		private string WanStrToInt(string x)
+		{
+			string[] stringArrayLevelNames = new string[4] { "", "å", "ç™¾", "åƒ" };
+			string ret = "";
+			int i;
+			for (i = x.Length - 1; i >= 0; i--)
+				if (x[i] == '0')
+				{
+					ret = CharToNum(x[i]) + ret;
+				}
+				else
+				{
+					ret = CharToNum(x[i]) + stringArrayLevelNames[x.Length - 1 - i] + ret;
+				}
+			while ((i = ret.IndexOf("é›¶é›¶")) != -1)
+			{
+				ret = ret.Remove(i, 1);
+			}
+			if (ret[ret.Length - 1] == 'é›¶' && ret.Length > 1)
+			{
+				ret = ret.Remove(ret.Length - 1, 1);
+			}
+			if (ret.Length >= 2 && ret.Substring(0, 2) == "ä¸€å")
+			{
+				ret = ret.Remove(0, 1);
+			}
+			return ret;
+		}
+		//è½¬æ¢æ•´æ•°
+		private string StrToInt(string x)
+		{
+			int len = x.Length;
+			string ret, temp;
+			if (len <= 4)
+			{
+				ret = WanStrToInt(x);
+			}
+			else if (len <= 8)
+			{
+				ret = WanStrToInt(x.Substring(0, len - 4)) + "ä¸‡";
+				temp = WanStrToInt(x.Substring(len - 4, 4));
+				if (temp.IndexOf("åƒ") == -1 && !string.IsNullOrEmpty(temp))
+					ret += "é›¶" + temp;
+				else
+					ret += temp;
+			}
+			else
+			{
+				ret = WanStrToInt(x.Substring(0, len - 8)) + "äº¿";
+				temp = WanStrToInt(x.Substring(len - 8, 4));
+				if (temp.IndexOf("åƒ") == -1 && !string.IsNullOrEmpty(temp))
+				{
+					ret += "é›¶" + temp;
+				}
+				else
+				{
+					ret += temp;
+				}
+				ret += "ä¸‡";
+				temp = WanStrToInt(x.Substring(len - 4, 4));
+				if (temp.IndexOf("åƒ") == -1 && !string.IsNullOrEmpty(temp))
+				{
+					ret += "é›¶" + temp;
+				}
+				else
+				{
+					ret += temp;
+				}
 
-            }
-            int i;
-            if ((i = ret.IndexOf("ÁãÍò")) != -1)
-            {
-                ret = ret.Remove(i + 1, 1);
-            }
-            while ((i = ret.IndexOf("ÁãÁã")) != -1)
-            {
-                ret = ret.Remove(i, 1);
-            }
-            if (ret[ret.Length - 1] == 'Áã' && ret.Length > 1)
-            {
-                ret = ret.Remove(ret.Length - 1, 1);
-            }
-            return ret;
-        }
-        //×ª»»Ğ¡Êı
-        private string StrToDouble(string x)
-        {
-            string ret = "";
-            for (int i = 0; i < x.Length; i++)
-            {
-                ret += CharToNum(x[i]);
-            }
-            return ret;
-        }
+			}
+			int i;
+			if ((i = ret.IndexOf("é›¶ä¸‡")) != -1)
+			{
+				ret = ret.Remove(i + 1, 1);
+			}
+			while ((i = ret.IndexOf("é›¶é›¶")) != -1)
+			{
+				ret = ret.Remove(i, 1);
+			}
+			if (ret[ret.Length - 1] == 'é›¶' && ret.Length > 1)
+			{
+				ret = ret.Remove(ret.Length - 1, 1);
+			}
+			return ret;
+		}
+		//è½¬æ¢å°æ•°
+		private string StrToDouble(string x)
+		{
+			string ret = "";
+			for (int i = 0; i < x.Length; i++)
+			{
+				ret += CharToNum(x[i]);
+			}
+			return ret;
+		}
 
-        private string NumToChn(string x)
-        {
-            if (x.Length == 0)
-            {
-                return "";
-            }
-            string ret = "";
-            if (x[0] == '-')
-            {
-                ret = "¸º";
-                x = x.Remove(0, 1);
-            }
-            if (x[0].ToString() == ".")
-            {
-                x = "0" + x;
-            }
-            if (x[x.Length - 1].ToString() == ".")
-            {
-                x = x.Remove(x.Length - 1, 1);
-            }
-            if (x.IndexOf(".") > -1)
-            {
-                ret += StrToInt(x.Substring(0, x.IndexOf("."))) + "µã" + StrToDouble(x.Substring(x.IndexOf(".") + 1));
-            }
-            else
-            {
-                ret += StrToInt(x);
-            }
-            return ret;
-        }
+		private string NumToChn(string x)
+		{
+			if (x.Length == 0)
+			{
+				return "";
+			}
+			string ret = "";
+			if (x[0] == '-')
+			{
+				ret = "è´Ÿ";
+				x = x.Remove(0, 1);
+			}
+			if (x[0].ToString() == ".")
+			{
+				x = "0" + x;
+			}
+			if (x[x.Length - 1].ToString() == ".")
+			{
+				x = x.Remove(x.Length - 1, 1);
+			}
+			if (x.IndexOf(".") > -1)
+			{
+				ret += StrToInt(x.Substring(0, x.IndexOf("."))) + "ç‚¹" + StrToDouble(x.Substring(x.IndexOf(".") + 1));
+			}
+			else
+			{
+				ret += StrToInt(x);
+			}
+			return ret;
+		}
 
 
-        private string GetMoneyChinese(Double Money)
-        {
-            int i;
-            string mstrSource;
+		private string GetMoneyChinese(Double Money)
+		{
+			int i;
+			string mstrSource;
 
-            if (Money == 0)
-            {
-                return "ÁãÔªÕû";
-            }
-            
-            mstrSource = Math.Abs(Money).ToString("#0.00");
-            i = mstrSource.IndexOf(".");
-            if (i > 0) { mstrSource = mstrSource.Replace(".", ""); }
-            if (mstrSource.Substring(0, 1) == "0") { mstrSource = mstrSource.Remove(0, 1); }
+			if (Money == 0)
+			{
+				return "é›¶å…ƒæ•´";
+			}
 
-            mstrSource = NumstrToChinese(mstrSource);
-            if (mstrSource.Length == 0) { return ""; }
-            //¸º
-            if (Money < 0)
-            {
-                mstrSource = "¸º" + mstrSource;
-            }
+			mstrSource = Math.Abs(Money).ToString("#0.00");
+			i = mstrSource.IndexOf(".");
+			if (i > 0) { mstrSource = mstrSource.Replace(".", ""); }
+			if (mstrSource.Substring(0, 1) == "0") { mstrSource = mstrSource.Remove(0, 1); }
 
-            mstrSource = mstrSource.Replace("0", "Áã");//"");//
-            mstrSource = mstrSource.Replace("1", "Ò¼");
-            mstrSource = mstrSource.Replace("2", "·¡");
-            mstrSource = mstrSource.Replace("3", "Èş");
-            mstrSource = mstrSource.Replace("4", "ËÁ");
-            mstrSource = mstrSource.Replace("5", "Îé");
-            mstrSource = mstrSource.Replace("6", "Â½");
-            mstrSource = mstrSource.Replace("7", "Æâ");
-            mstrSource = mstrSource.Replace("8", "°Æ");
-            mstrSource = mstrSource.Replace("9", "¾Á");
-            mstrSource = mstrSource.Replace("M", "ÒÚ");
-            mstrSource = mstrSource.Replace("W", "Íò");
-            mstrSource = mstrSource.Replace("S", "Çª");
-            mstrSource = mstrSource.Replace("H", "°Û");
-            mstrSource = mstrSource.Replace("T", "Ê°");
-            mstrSource = mstrSource.Replace("Y", "Ôª");
-            mstrSource = mstrSource.Replace("J", "½Ç");
-            mstrSource = mstrSource.Replace("F", "·Ö");
-            if (mstrSource.Substring(mstrSource.Length - 1, 1) != "·Ö")
-            {
-                mstrSource = mstrSource + "Õû";
-            }
-            return mstrSource;
-        }
+			mstrSource = NumstrToChinese(mstrSource);
+			if (mstrSource.Length == 0) { return ""; }
+			//è´Ÿ
+			if (Money < 0)
+			{
+				mstrSource = "è´Ÿ" + mstrSource;
+			}
 
-        //½ğ¶î×ª»»
-        private string NumstrToChinese(string numstr)
-        {
-            int i;
-            int j;
-            string mstrChar;
-            string[] mstrFlag = new string[4];
-            string mstrReturn = "";
-            bool mblnAddzero = false;
+			mstrSource = mstrSource.Replace("0", "é›¶");//"");//
+			mstrSource = mstrSource.Replace("1", "å£¹");
+			mstrSource = mstrSource.Replace("2", "è´°");
+			mstrSource = mstrSource.Replace("3", "å");
+			mstrSource = mstrSource.Replace("4", "è‚†");
+			mstrSource = mstrSource.Replace("5", "ä¼");
+			mstrSource = mstrSource.Replace("6", "é™†");
+			mstrSource = mstrSource.Replace("7", "æŸ’");
+			mstrSource = mstrSource.Replace("8", "æŒ");
+			mstrSource = mstrSource.Replace("9", "ç–");
+			mstrSource = mstrSource.Replace("M", "äº¿");
+			mstrSource = mstrSource.Replace("W", "ä¸‡");
+			mstrSource = mstrSource.Replace("S", "ä»Ÿ");
+			mstrSource = mstrSource.Replace("H", "ä½°");
+			mstrSource = mstrSource.Replace("T", "æ‹¾");
+			mstrSource = mstrSource.Replace("Y", "å…ƒ");
+			mstrSource = mstrSource.Replace("J", "è§’");
+			mstrSource = mstrSource.Replace("F", "åˆ†");
+			if (mstrSource.Substring(mstrSource.Length - 1, 1) != "åˆ†")
+			{
+				mstrSource = mstrSource + "æ•´";
+			}
+			return mstrSource;
+		}
 
-            mstrFlag[0] = "";
-            mstrFlag[1] = "T";
-            mstrFlag[2] = "H";
-            mstrFlag[3] = "S";
+		//é‡‘é¢è½¬æ¢
+		private string NumstrToChinese(string numstr)
+		{
+			int i;
+			int j;
+			string mstrChar;
+			string[] mstrFlag = new string[4];
+			string mstrReturn = "";
+			bool mblnAddzero = false;
 
-            for (i = 1; i <= numstr.Length; i++)
-            {
-                j = numstr.Length - i;
-                mstrChar = numstr.Substring(i - 1, 1);
-                if (mstrChar != "0" && j > 1) { mstrReturn = string.Format("{0}{1}{2}",mstrReturn,mstrChar,mstrFlag[(j - 2) % 4]); }
-                if (mstrChar == "0" && mblnAddzero == false)
-                {
-                    mstrReturn = string.Format("{0}{1}",mstrReturn,"0");
-                    mblnAddzero = true;
-                }
-                if (j == 14)
-                {
-                    if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
-                    { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "W0"; }
-                    else
-                    { mstrReturn =string.Format("{0}{1}",mstrReturn,"W"); }
-                }
-                if (j == 2)
-                {
-                    if (mstrReturn.Substring(mstrReturn.Length - 1, 1) == "0")
-                    { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "Y"; }//"Y0"; }
-                    else
-                    { mstrReturn = string.Format("{0}{1}",mstrReturn,"Y"); }
-                    //Ôª
-                }
-                if (j == 6)
-                {
-                    if (mstrReturn.Length > 2)
-                    {
-                        if (mstrReturn.Substring(mstrReturn.Length - 2) != "M0")
-                        {
-                            if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
-                            { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "W0"; }
-                            else
-                            { mstrReturn = string.Format("{0}{1}", mstrReturn, "W"); }
-                        }
-                    }
-                    else
-                    {
-                        if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
-                        { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "W0"; }
-                        else
-                        { mstrReturn = string.Format("{0}{1}", mstrReturn, "W");}
-                    }
-                }
-                if (j == 10)
-                {
-                    if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
-                    { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "M0"; }
-                    else
-                    { mstrReturn = string.Format("{0}{1}", mstrReturn, "M");}
-                }
-                if (j == 0 && mstrChar != "0") { mstrReturn = string.Format("{0}{1}{2}", mstrReturn, mstrChar, "F");}
-                if (j == 1 && mstrChar != "0") { mstrReturn = string.Format("{0}{1}{2}", mstrReturn, mstrChar, "J");}
-                if (mstrChar != "0") { mblnAddzero = false; }
-            }
-            //if (mstrReturn.Substring(0, 1) == "1" && mstrReturn.Substring(1, 1) == mstrFlag[1]) { mstrReturn = mstrReturn.Substring(1); }
-            if (mstrReturn.Substring(mstrReturn.Length - 1, 1) == "0") { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1); }
-            if (mstrReturn.Substring(0, 1) == "0") { mstrReturn = mstrReturn.Substring(1); }
-            if (mstrReturn.Substring(mstrReturn.Length - 1, 1) == "M" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "W" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "S" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "H" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "T") { mstrReturn = mstrReturn + "Y"; }
-            return mstrReturn;
-        }
+			mstrFlag[0] = "";
+			mstrFlag[1] = "T";
+			mstrFlag[2] = "H";
+			mstrFlag[3] = "S";
 
-    }
+			for (i = 1; i <= numstr.Length; i++)
+			{
+				j = numstr.Length - i;
+				mstrChar = numstr.Substring(i - 1, 1);
+				if (mstrChar != "0" && j > 1) { mstrReturn = string.Format("{0}{1}{2}", mstrReturn, mstrChar, mstrFlag[(j - 2) % 4]); }
+				if (mstrChar == "0" && mblnAddzero == false)
+				{
+					mstrReturn = string.Format("{0}{1}", mstrReturn, "0");
+					mblnAddzero = true;
+				}
+				if (j == 14)
+				{
+					if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
+					{ mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "W0"; }
+					else
+					{ mstrReturn = string.Format("{0}{1}", mstrReturn, "W"); }
+				}
+				if (j == 2)
+				{
+					if (mstrReturn.Substring(mstrReturn.Length - 1, 1) == "0")
+					{ mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "Y"; }//"Y0"; }
+					else
+					{ mstrReturn = string.Format("{0}{1}", mstrReturn, "Y"); }
+					//å…ƒ
+				}
+				if (j == 6)
+				{
+					if (mstrReturn.Length > 2)
+					{
+						if (mstrReturn.Substring(mstrReturn.Length - 2) != "M0")
+						{
+							if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
+							{ mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "W0"; }
+							else
+							{ mstrReturn = string.Format("{0}{1}", mstrReturn, "W"); }
+						}
+					}
+					else
+					{
+						if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
+						{ mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "W0"; }
+						else
+						{ mstrReturn = string.Format("{0}{1}", mstrReturn, "W"); }
+					}
+				}
+				if (j == 10)
+				{
+					if (mstrReturn.Substring(mstrReturn.Length - 1) == "0")
+					{ mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1) + "M0"; }
+					else
+					{ mstrReturn = string.Format("{0}{1}", mstrReturn, "M"); }
+				}
+				if (j == 0 && mstrChar != "0") { mstrReturn = string.Format("{0}{1}{2}", mstrReturn, mstrChar, "F"); }
+				if (j == 1 && mstrChar != "0") { mstrReturn = string.Format("{0}{1}{2}", mstrReturn, mstrChar, "J"); }
+				if (mstrChar != "0") { mblnAddzero = false; }
+			}
+			//if (mstrReturn.Substring(0, 1) == "1" && mstrReturn.Substring(1, 1) == mstrFlag[1]) { mstrReturn = mstrReturn.Substring(1); }
+			if (mstrReturn.Substring(mstrReturn.Length - 1, 1) == "0") { mstrReturn = mstrReturn.Substring(0, mstrReturn.Length - 1); }
+			if (mstrReturn.Substring(0, 1) == "0") { mstrReturn = mstrReturn.Substring(1); }
+			if (mstrReturn.Substring(mstrReturn.Length - 1, 1) == "M" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "W" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "S" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "H" || mstrReturn.Substring(mstrReturn.Length - 1, 1) == "T") { mstrReturn = mstrReturn + "Y"; }
+			return mstrReturn;
+		}
+
+	}
 }

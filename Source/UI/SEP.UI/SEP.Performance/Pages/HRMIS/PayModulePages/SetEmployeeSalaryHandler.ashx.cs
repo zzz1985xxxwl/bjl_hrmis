@@ -814,9 +814,9 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
 				}
 				body.Add(models[i].Remark);
 				var row = sheet.CreateRow(i + 1);
-				for (var j = 0; j < body.Count; j++)
+				for (int j = 0; j < body.Count; j++)
 				{
-					var cell = firstRow.CreateCell(j);
+					var cell = row.CreateCell(j);
 					cell.SetCellValue(body[j]);
 					cell.CellStyle.SetFont(font);
 				}
