@@ -716,58 +716,6 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
 			Export3(filename);
 		}
 
-		private void Export2(string FileName)
-		{
-			var sb = new StringBuilder();
-			List<SalaryExcelModel> models = SearchEvent();
-
-			////生成表头
-			List<String> heads = new List<String>() { "员工姓名", "帐套名称", "工作地点", "部门", "职位", "职务", "职级", "入职时间", "试用期到期日", "工资卡号" };
-			if (models.Count > 0)
-			{
-				foreach (SalaryValue sv in models[0].SalaryValueList)
-				{
-					heads.Add(sv.ItemName);
-				}
-			}
-			heads.Add("备注");
-			sb.Append(string.Join(",", heads));
-			sb.Append(Environment.NewLine);
-
-			//生成内容
-			for (int i = 0; i < models.Count; i++)
-			{
-				List<String> body = new List<String>();
-				body.Add(models[i].EmployeeName);
-				body.Add(models[i].AccountSetName);
-				body.Add(models[i].WorkPlace);
-				body.Add(models[i].Dept);
-				body.Add(models[i].Position);
-				body.Add(models[i].PrincipalshipName);
-				body.Add(models[i].Grade);
-				body.Add(models[i].ComeDate);
-				body.Add(models[i].ProbationTime);
-				body.Add(models[i].SalaryCardNo);
-				for (int j = 0; j < models[i].SalaryValueList.Count; j++)
-				{
-					body.Add(models[i].SalaryValueList[j].ItemValue);
-				}
-				body.Add(models[i].Remark);
-				sb.Append(string.Join(",", body));
-				sb.Append(Environment.NewLine);
-			}
-
-			_Context.Response.Clear();
-			_Context.Response.Charset = "GB2312";
-			_Context.Response.ContentEncoding = UnicodeEncoding.GetEncoding("GB2312");
-			_Context.Response.AddHeader("Content-Disposition",
-										"attachment; filename=员工薪资表.csv");
-			_Context.Response.AddHeader("Content-Length", sb.Length.ToString());
-			_Context.Response.ContentType = "text/csv";
-			_Context.Response.Write(sb);
-			_Context.Response.End();
-		}
-
 		private void Export3(string filename)
 		{
 			var sb = new StringBuilder();
