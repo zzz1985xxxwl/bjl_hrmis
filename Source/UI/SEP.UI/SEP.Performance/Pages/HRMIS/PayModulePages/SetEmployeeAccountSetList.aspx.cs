@@ -12,7 +12,8 @@ using SEP.Model;
 using SEP.Model.Accounts;
 using SEP.Performance.Views;
 using ShiXin.Security;
-using DataTable=System.Data.DataTable;
+using DataTable = System.Data.DataTable;
+using System.Text;
 
 namespace SEP.Performance.Pages.HRMIS.PayModulePages
 {
@@ -69,33 +70,8 @@ namespace SEP.Performance.Pages.HRMIS.PayModulePages
                     Convert.ToInt32(Request.QueryString["listPosition"]),
                     EmployeeTypeUtility.GetEmployeeTypeByID(Convert.ToInt32(Request.QueryString["listEmployeeType"])),
                     Convert.ToBoolean(Request.QueryString["cbRecursionDepartment"]), LoginUser, Convert.ToInt32(Request.QueryString["ddlEmployeeStatus"]));
-            GC.Collect();
-            Application excelApp = new ApplicationClass();
-            excelApp.Visible = false;
-            List<Worksheet> excelSheetList = new List<Worksheet>();
-            Workbook excelBook = excelApp.Workbooks.Add(Type.Missing);
-            Worksheet excelSheet1 =
-                (Worksheet) excelBook.Sheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-            excelSheetList.Add(excelSheet1);
-            excelSheet1.Name = "EmployeeAccountSet";
-
-            ExcelExportUtility.DataTableTurnToExcel(dt, excelSheet1);
-
-            object nothing = Type.Missing;
-            object fileFormat = XlFileFormat.xlExcel8;
-            object file = Server.MapPath(".") + "\\员工帐套.xls";
-            if (File.Exists(file.ToString()))
-            {
-                File.Delete(file.ToString());
-            }
-            excelBook.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange,
-                             nothing, nothing, nothing, nothing, nothing);
-
-            excelBook.Close(false, null, null);
-
-            ExcelExportUtility.ReleaseComObject(excelApp, excelBook, excelSheetList);
-            ExcelExportUtility.KillProcess(excelApp, "Excel");
-            ExcelExportUtility.OutputExcel(Server, Response, "员工帐套");
+            MemoryStream ms = ExcelExportUtility.DataTableTurnToExcel(dt);
+            ExcelExportUtility.OutputExcel(Server, Response, "员工帐套", ms);
         }
     }
 }
