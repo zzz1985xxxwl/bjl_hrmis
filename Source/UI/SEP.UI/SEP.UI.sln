@@ -1,6 +1,10 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{08106DC0-1D84-4259-A664-86327B20994B}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.Presenter", "SEP.Presenter\SEP.Presenter.csproj", "{CCA51A7B-FE7A-4DF8-9CC3-6E8AA8916FEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.Performance", "SEP.Performance\SEP.Performance.csproj", "{CADC4451-A094-426B-AFA4-1F8CBB3B99D5}"
@@ -26,8 +30,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.HRMIS.Entity", "..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.Entity\SEP.HRMIS.Entity.csproj", "{C871BAE6-8FA7-413F-8CD9-D150401FAF50}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.HRMIS.DataAccess", "..\..\Bussiness\SEP.HRMIS\SEP.HRMIS.DataAccess\SEP.HRMIS.DataAccess.csproj", "{31B71396-EA51-47BC-BD25-14AFA129B24C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{08106DC0-1D84-4259-A664-86327B20994B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacadeTest", "FacadeTest\FacadeTest.csproj", "{35699328-B2ED-4979-A7D0-139808148996}"
 EndProject
@@ -187,5 +189,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{35699328-B2ED-4979-A7D0-139808148996} = {08106DC0-1D84-4259-A664-86327B20994B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2DBD4746-B76F-4D8E-8517-69CE4D0FC275}
 	EndGlobalSection
 EndGlobal

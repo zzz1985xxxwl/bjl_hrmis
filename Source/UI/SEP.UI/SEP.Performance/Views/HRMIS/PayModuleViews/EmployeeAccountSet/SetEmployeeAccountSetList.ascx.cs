@@ -11,7 +11,7 @@ using SEP.HRMIS.Model.PayModule;
 using SEP.Model.Departments;
 using SEP.Model.Positions;
 using SEP.Performance;
-using Button=System.Web.UI.WebControls.Button;
+using Button = System.Web.UI.WebControls.Button;
 
 namespace SEP.Performance.Views.HRMIS.PayModuleViews
 {
@@ -207,7 +207,7 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews
             {
                 string filename = Path.GetFileName(hpf.FileName);
                 string fileExt = Path.GetExtension(hpf.FileName);
-                string filePath = uploadFileLocation + "\\Ô±¹¤ÕÊÌ×.xls";
+                string filePath = uploadFileLocation + "\\" + (Guid.NewGuid().ToString()) + ".xls";
                 if (Validation(filename, fileExt))
                 {
                     hpf.SaveAs(filePath);

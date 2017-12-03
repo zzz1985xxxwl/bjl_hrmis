@@ -34,6 +34,18 @@
     <Reference Include="Framework.Common">
       <HintPath>..\..\..\Libs\Framework.Common.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\..\Libs\NPOI\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\..\..\Libs\NPOI\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\..\..\Libs\NPOI\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\..\..\Libs\NPOI\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="SEP.Model">
       <HintPath>..\..\..\Libs\SEP.Model.dll</HintPath>
     </Reference>
@@ -90,6 +102,7 @@
     <Compile Include="EmployeeSkillEntity.cs" />
     <Compile Include="EmployeeWelfareEntity.cs" />
     <Compile Include="EmployeeWelfareHistoryEntity.cs" />
+    <Compile Include="ExcelUtility.cs" />
     <Compile Include="ExchangeRateEntity.cs" />
     <Compile Include="FeedBackPaperEntity.cs" />
     <Compile Include="FeedBackPIShipEntity.cs" />

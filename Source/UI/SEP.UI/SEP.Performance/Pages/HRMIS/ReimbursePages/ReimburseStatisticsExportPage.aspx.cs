@@ -4,8 +4,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using Microsoft.Office.Interop.Excel;
 using SEP.Performance.Views;
-using DataTable=System.Data.DataTable;
-using Page=System.Web.UI.Page;
+using DataTable = System.Data.DataTable;
+using Page = System.Web.UI.Page;
+using NPOI.HSSF.UserModel;
+using SEP.HRMIS.Entity;
 
 namespace SEP.Performance.Pages.HRMIS.ReimbursePages
 {
@@ -13,88 +15,56 @@ namespace SEP.Performance.Pages.HRMIS.ReimbursePages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           if(Request.QueryString["type"]=="department")
-           {
-               DepartmentExport();
-           }
-           else if (Request.QueryString["type"] == "employee")
-           {
-               EmployeeExport();
-           }
+            if (Request.QueryString["type"] == "department")
+            {
+                DepartmentExport();
+            }
+            else if (Request.QueryString["type"] == "employee")
+            {
+                EmployeeExport();
+            }
         }
 
 
         private void DepartmentExport()
         {
-            GC.Collect();
-            Application excelApp = new ApplicationClass();
-            Workbook excelBook = excelApp.Workbooks.Add(Type.Missing);
+            var workbook = new HSSFWorkbook();
             if (Session[SessionKeys.gvDepartmentStatisticsTableSourceForReimburse] as DataTable != null)
             {
-                Worksheet excelSheet1 =
-                    (Worksheet) excelBook.Sheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                excelSheet1.Name = "按部门统计报销";
                 DataTable dtgvDepartmentStatisticsTableSource =
-                    Session[SessionKeys.gvDepartmentStatisticsTableSourceForReimburse] as DataTable;
-                ExcelExportUtility.DataTableTurnToExcel(dtgvDepartmentStatisticsTableSource, excelSheet1);
-                ExcelExportUtility.ImageTurnToExcel(excelSheet1,
-                                                    Session[SessionKeys.DepartmentReimburseStatisticsBarChart].ToString(),
-                                                    300, 100);
+                  Session[SessionKeys.gvDepartmentStatisticsTableSourceForReimburse] as DataTable;
+                ExcelUtility.RenderDataTableToExcel(workbook, dtgvDepartmentStatisticsTableSource, "按部门统计报销");
+                ExcelUtility.EmbedImage(workbook, workbook.GetSheet("按部门统计报销") as HSSFSheet,
+              ExcelExportUtility.GetImagePath(Session[SessionKeys.DepartmentReimburseStatisticsBarChart].ToString()),
+              true, new int[] { 0, 10, 0, 10 });
             }
-
-            object nothing = Type.Missing;
-            object fileFormat = XlFileFormat.xlExcel8;
-            object file = Server.MapPath(".") + "\\部门报销综合统计.xls";
-            if (File.Exists(file.ToString()))
-            {
-                File.Delete(file.ToString());
-            }
-            excelBook.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange, nothing, nothing, nothing, nothing, nothing);
-
-            excelBook.Close(false, null, null);
-
-            excelApp.Quit();
-            Marshal.ReleaseComObject(excelBook);
-            Marshal.ReleaseComObject(excelApp);
-            GC.Collect();
-
-            OutputExcel("部门报销综合统计");
+            MemoryStream ms = new MemoryStream();
+            workbook.Write(ms);
+            ms.Flush();
+            ms.Position = 0;
+            workbook = null;
+            ExcelExportUtility.OutputExcel(Server, Response, "部门报销综合统计", ms);
         }
 
         private void EmployeeExport()
         {
-            GC.Collect();
-            Application excelApp = new ApplicationClass();
-            Workbook excelBook = excelApp.Workbooks.Add(Type.Missing);
+
+            var workbook = new HSSFWorkbook();
             if (Session[SessionKeys.gvEmployeeStatisticsTableSource] as DataTable != null)
             {
-                Worksheet excelSheet1 =
-                    (Worksheet)excelBook.Sheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                excelSheet1.Name = "按员工统计报销";
-                DataTable dtgvEmployeeStatisticsTableSource =
-                    Session[SessionKeys.gvEmployeeStatisticsTableSource] as DataTable;
-                ExcelExportUtility.DataTableTurnToExcel(dtgvEmployeeStatisticsTableSource, excelSheet1);
-                ExcelExportUtility.ImageTurnToExcel(excelSheet1,
-                                                Session[SessionKeys.EmployeeReimburseStatisticsBarChart].ToString(),
-                                                300, 100);
+                DataTable dtgvDepartmentStatisticsTableSource =
+                  Session[SessionKeys.gvEmployeeStatisticsTableSource] as DataTable;
+                ExcelUtility.RenderDataTableToExcel(workbook, dtgvDepartmentStatisticsTableSource, "按员工统计报销");
+                ExcelUtility.EmbedImage(workbook, workbook.GetSheet("按员工统计报销") as HSSFSheet,
+              ExcelExportUtility.GetImagePath(Session[SessionKeys.EmployeeReimburseStatisticsBarChart].ToString()),
+              true, new int[] { 0, 10, 0, 10 });
             }
-            object nothing = Type.Missing;
-            object fileFormat = XlFileFormat.xlExcel8;
-            object file = Server.MapPath(".") + "\\员工报销综合统计.xls";
-            if (File.Exists(file.ToString()))
-            {
-                File.Delete(file.ToString());
-            }
-            excelBook.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange, nothing, nothing, nothing, nothing, nothing);
-
-            excelBook.Close(false, null, null);
-
-            excelApp.Quit();
-            Marshal.ReleaseComObject(excelBook);
-            Marshal.ReleaseComObject(excelApp);
-            GC.Collect();
-
-            OutputExcel("员工报销综合统计");
+            MemoryStream ms = new MemoryStream();
+            workbook.Write(ms);
+            ms.Flush();
+            ms.Position = 0;
+            workbook = null;
+            ExcelExportUtility.OutputExcel(Server, Response, "员工报销综合统计", ms);
         }
 
         private void OutputExcel(string filename)

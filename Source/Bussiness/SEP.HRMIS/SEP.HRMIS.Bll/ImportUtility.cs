@@ -1,5 +1,7 @@
+using NPOI.HSSF.UserModel;
 using System.Data;
 using System.Data.OleDb;
+using System.IO;
 
 namespace SEP.HRMIS.Bll
 {
@@ -86,7 +88,7 @@ namespace SEP.HRMIS.Bll
         public static string FirstSheetName(OleDbConnection conn)
         {
             DataTable sheetNames = conn.GetOleDbSchemaTable
-                (OleDbSchemaGuid.Tables, new object[] {null, null, null, "TABLE"});
+                (OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
             if (sheetNames.Rows.Count < 1)
             {
                 BllUtility.ThrowException(BllExceptionConst._Sheet_Count_NotOne);
@@ -95,5 +97,6 @@ namespace SEP.HRMIS.Bll
         }
 
         public const string EmptyNull = "EmptyNull";
+
     }
 }

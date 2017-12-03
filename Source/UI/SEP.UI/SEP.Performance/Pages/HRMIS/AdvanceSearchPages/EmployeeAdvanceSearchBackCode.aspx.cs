@@ -11,9 +11,10 @@ using SEP.HRMIS.Model.AdvanceSearch;
 using SEP.HRMIS.Presenter;
 using SEP.Model.Accounts;
 using SEP.Performance.Views;
-using Page=System.Web.UI.Page;
-using SEPPerformance=SEP.Performance;
-using ModelAdvanceSearch =SEP.HRMIS.Model.AdvanceSearch;
+using Page = System.Web.UI.Page;
+using SEPPerformance = SEP.Performance;
+using ModelAdvanceSearch = SEP.HRMIS.Model.AdvanceSearch;
+using SEP.HRMIS.Entity;
 
 namespace SEP.Performance.Pages.HRMIS.AdvanceSearchPages
 {

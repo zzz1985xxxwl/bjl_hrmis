@@ -52,22 +52,22 @@ namespace SEP.Performance.Views
 
 
         private const float ExcelImageRate = (float)0.75;
-        public static void DataTableTurnToExcel(System.Data.DataTable dt, _Worksheet excelSheet)
-        {
-            int rowCount = dt.Rows.Count;
-            int colCount = dt.Columns.Count;
-            object[,] dataArray = new object[rowCount + 1, colCount];
-            for (int j = 0; j < colCount; j++)
-            {
-                dataArray[0, j] = dt.Columns[j].Caption == "." ? "" : dt.Columns[j].Caption;
-                for (int i = 0; i < rowCount; i++)
-                {
-                    dataArray[i + 1, j] = dt.Rows[i][j];
-                }
-            }
-            excelSheet.get_Range("A1", excelSheet.Cells[rowCount + 1, colCount]).Value2 = dataArray;
+        //public static void DataTableTurnToExcel(System.Data.DataTable dt, _Worksheet excelSheet)
+        //{
+        //    int rowCount = dt.Rows.Count;
+        //    int colCount = dt.Columns.Count;
+        //    object[,] dataArray = new object[rowCount + 1, colCount];
+        //    for (int j = 0; j < colCount; j++)
+        //    {
+        //        dataArray[0, j] = dt.Columns[j].Caption == "." ? "" : dt.Columns[j].Caption;
+        //        for (int i = 0; i < rowCount; i++)
+        //        {
+        //            dataArray[i + 1, j] = dt.Rows[i][j];
+        //        }
+        //    }
+        //    excelSheet.get_Range("A1", excelSheet.Cells[rowCount + 1, colCount]).Value2 = dataArray;
 
-        }
+        //}
 
         public static MemoryStream DataTableTurnToExcel(System.Data.DataTable dt)
         {
@@ -182,6 +182,12 @@ namespace SEP.Performance.Views
             excelBook = null;
             excelApp = null;
             GC.Collect(0);
+        }
+
+        public static string GetImagePath(string imageNameAndExp)
+        {
+            return HttpContext.Current.Request.PhysicalApplicationPath + @"Pages\image\imageZedGraph\" +
+                                   imageNameAndExp;
         }
 
         public static void ImageTurnToExcel(Worksheet worksheet, string imageNameAndExp, int left, int top)

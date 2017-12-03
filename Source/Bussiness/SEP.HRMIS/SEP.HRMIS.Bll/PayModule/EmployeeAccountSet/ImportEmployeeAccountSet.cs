@@ -10,13 +10,16 @@ using SEP.IBll;
 using SEP.IBll.Accounts;
 using SEP.Model.Accounts;
 using SEP.Model.Utility;
+using NPOI.HSSF.UserModel;
 using ModelPayModule = SEP.HRMIS.Model.PayModule;
+using SEP.HRMIS.Entity;
+
 namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 {
     /// <summary>
     /// excel导入员工工资套以及固定值
     /// </summary>
-    public class ImportEmployeeAccountSet: Transaction
+    public class ImportEmployeeAccountSet : Transaction
     {
         private readonly Account _Operator;
         private readonly string _FilePath;
@@ -39,24 +42,25 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
 
         protected override void ExcuteSelf()
         {
-            DataSet ds = LoadDataFromExcel(_FilePath.Trim());
-            InsertUpdateEmployeeAccountSet(ds);
+            var fileStream = ExcelUtility.FileToStream(_FilePath.Trim());
+            var dataTable = ExcelUtility.RenderDataTableFromExcel(fileStream, 0, 0, true);
+            InsertUpdateEmployeeAccountSet(dataTable);
         }
         /// <summary>
         /// 更新员工的帐套
         /// </summary>
         /// <param name="ds"></param>
-        private void InsertUpdateEmployeeAccountSet(DataSet ds)
+        private void InsertUpdateEmployeeAccountSet(DataTable dt)
         {
-            int indexAccountSetName = GetDataSetColumnIndex(ds, "帐套名称");
-            int indexEmployeeName = GetDataSetColumnIndex(ds, "员工姓名");
+            int indexAccountSetName = GetDataSetColumnIndex(dt, "帐套名称");
+            int indexEmployeeName = GetDataSetColumnIndex(dt, "员工姓名");
             if (indexEmployeeName == -1)
             {
                 throw new Exception("无法找到员工姓名列，请检查excel！");
             }
             //using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
             //{
-                ToInsertUpdateEmployeeAccountSet(ds, indexAccountSetName, indexEmployeeName);
+            ToInsertUpdateEmployeeAccountSet(dt, indexAccountSetName, indexEmployeeName);
             //    ts.Complete();
             //}
         }
@@ -67,11 +71,11 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         /// <param name="ds"></param>
         /// <param name="columnName"></param>
         /// <returns></returns>
-        private static int GetDataSetColumnIndex(DataSet ds, string columnName)
+        private static int GetDataSetColumnIndex(DataTable dt, string columnName)
         {
-            for (int j = 0; j < ds.Tables[0].Columns.Count; j++)
+            for (int j = 0; j < dt.Columns.Count; j++)
             {
-                if (ds.Tables[0].Columns[j].ColumnName.Trim() == columnName)
+                if (dt.Columns[j].ColumnName.Trim() == columnName)
                 {
                     return j;
                 }
@@ -84,16 +88,16 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         /// <param name="ds"></param>
         /// <param name="indexAccountSetName"></param>
         /// <param name="indexEmployeeName"></param>
-        private void ToInsertUpdateEmployeeAccountSet(DataSet ds, int indexAccountSetName, int indexEmployeeName)
+        private void ToInsertUpdateEmployeeAccountSet(DataTable dt, int indexAccountSetName, int indexEmployeeName)
         {
             List<Account> allAccount = _IAccountBll.GetAllAccount();
             allAccount = Tools.RemoteUnAuthAccount(allAccount, AuthType.HRMIS, _Operator, HrmisPowers.A604);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 ModelPayModule.AccountSet accountSet = null;
                 //有没有当前账号
                 Account account =
-                    _IAccountBll.GetAccountByName(ds.Tables[0].Rows[i][indexEmployeeName].ToString().Trim());
+                    _IAccountBll.GetAccountByName(dt.Rows[i][indexEmployeeName].ToString().Trim());
                 if (account == null || !Tools.ContainsAccountById(allAccount, account.Id))
                 {
                     continue;
@@ -112,7 +116,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
                 {
                     ModelPayModule.AccountSet accountSetInExcel =
                         new GetAccountSet().GetAccountSetByName(
-                            ds.Tables[0].Rows[i][indexAccountSetName].ToString().Trim());
+                            dt.Rows[i][indexAccountSetName].ToString().Trim());
                     if (accountSetInExcel != null)
                     {
                         //如果accountSet是空，则将accountSetInExcel赋值给accountSet
@@ -120,7 +124,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
                         {
                             accountSet = new GetAccountSet().GetWholeAccountSetByPKID(accountSetInExcel.AccountSetID);
                         }
-                            //如果accountSet不是空，是否和accountSetInExcel的帐套一致，如果不一致，则要覆盖accountSet,并且做AccountSet信息的数据Merge，保留原有的固定值信息
+                        //如果accountSet不是空，是否和accountSetInExcel的帐套一致，如果不一致，则要覆盖accountSet,并且做AccountSet信息的数据Merge，保留原有的固定值信息
                         else if (accountSetInExcel.AccountSetID != accountSet.AccountSetID)
                         {
                             accountSet = new GetAccountSet().GetWholeAccountSetByPKID(accountSetInExcel.AccountSetID);
@@ -137,7 +141,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
                     continue;
                 }
 
-                BindAccountSetData(ds, i, accountSet);
+                BindAccountSetData(dt, i, accountSet);
                 if (IsEmployeeHaveAccountSet)
                 {
                     new UpdateEmployeeAccountSet(account.Id, accountSet, _Operator.Name,
@@ -175,7 +179,7 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
         /// <param name="ds"></param>
         /// <param name="indexRow"></param>
         /// <param name="accountSet"></param>
-        private static void BindAccountSetData(DataSet ds, int indexRow, ModelPayModule.AccountSet accountSet)
+        private static void BindAccountSetData(DataTable dt, int indexRow, ModelPayModule.AccountSet accountSet)
         {
             if (accountSet.Items == null)
             {
@@ -187,44 +191,44 @@ namespace SEP.HRMIS.Bll.PayModule.EmployeeAccountSet
                 {
                     continue;
                 }
-                int indexAccountSetParaName = GetDataSetColumnIndex(ds, item.AccountSetPara.AccountSetParaName);
+                int indexAccountSetParaName = GetDataSetColumnIndex(dt, item.AccountSetPara.AccountSetParaName);
                 if (indexAccountSetParaName == -1)
                 {
                     continue;
                 }
                 decimal data;
-                if (decimal.TryParse(ds.Tables[0].Rows[indexRow][indexAccountSetParaName].ToString().Trim(), out data))
+                if (decimal.TryParse(dt.Rows[indexRow][indexAccountSetParaName].ToString().Trim(), out data))
                 {
                     item.CalculateResult = data;
                 }
             }
         }
-        /// <summary>
-        /// 加载Excel 
-        /// </summary>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        private static DataSet LoadDataFromExcel(string filePath)
-        {
-            try
-            {
-                string strConn;
-                strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath + ";Extended Properties='Excel 5.0;HDR=False;IMEX=1'";
-                OleDbConnection OleConn = new OleDbConnection(strConn);
-                OleConn.Open();
-                String sql = "SELECT * FROM [EmployeeAccountSet$]";//可是更改Sheet名称，比如sheet2，等等 
+        ///// <summary>
+        ///// 加载Excel 
+        ///// </summary>
+        ///// <param name="filePath"></param>
+        ///// <returns></returns>
+        //private static DataSet LoadDataFromExcel(string filePath)
+        //{
+        //    try
+        //    {
+        //        string strConn;
+        //        strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + filePath + ";Extended Properties='Excel 5.0;HDR=False;IMEX=1'";
+        //        OleDbConnection OleConn = new OleDbConnection(strConn);
+        //        OleConn.Open();
+        //        String sql = "SELECT * FROM [EmployeeAccountSet$]";//可是更改Sheet名称，比如sheet2，等等 
 
-                OleDbDataAdapter OleDaExcel = new OleDbDataAdapter(sql, OleConn);
-                DataSet OleDsExcle = new DataSet();
-                OleDaExcel.Fill(OleDsExcle, "Sheet1");
-                OleConn.Close();
-                return OleDsExcle;
-            }
-            catch (Exception err)
-            {
-                throw new Exception("Excel数据获取失败!失败原因：" + err.Message);
-            }
-        }
+        //        OleDbDataAdapter OleDaExcel = new OleDbDataAdapter(sql, OleConn);
+        //        DataSet OleDsExcle = new DataSet();
+        //        OleDaExcel.Fill(OleDsExcle, "Sheet1");
+        //        OleConn.Close();
+        //        return OleDsExcle;
+        //    }
+        //    catch (Exception err)
+        //    {
+        //        throw new Exception("Excel数据获取失败!失败原因：" + err.Message);
+        //    }
+        //}
 
     }
 }
