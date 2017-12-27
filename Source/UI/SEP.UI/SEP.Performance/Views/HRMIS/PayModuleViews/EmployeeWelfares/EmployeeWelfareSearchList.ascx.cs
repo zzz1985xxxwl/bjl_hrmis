@@ -13,7 +13,8 @@ using SEP.HRMIS.Presenter.PayModule.IPresenter.IEmployeeWelfares;
 using SEP.Model.Departments;
 using SEP.Model.Positions;
 using SEP.Presenter.Core;
-using TextBox=System.Web.UI.WebControls.TextBox;
+using TextBox = System.Web.UI.WebControls.TextBox;
+using NPOI.HSSF.UserModel;
 
 namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
 {
@@ -98,8 +99,8 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
 
         public List<Department> CompanySource
         {
-            set 
-            {                 
+            set
+            {
                 ddlCompany.Items.Clear();
                 ListItem itemAll = new ListItem(string.Empty, _All.ToString(), true);
                 ddlCompany.Items.Add(itemAll);
@@ -130,7 +131,7 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
         private void SetGridViewRowddSocialSecurityTypeDisplay(int rowIndex)
         {
             DropDownList ddSocialSecurityType =
-                (DropDownList) gvEmployeeWelfare.Rows[rowIndex].FindControl("ddSocialSecurityType");
+                (DropDownList)gvEmployeeWelfare.Rows[rowIndex].FindControl("ddSocialSecurityType");
             if (ddSocialSecurityType != null)
             {
                 ddSocialSecurityType.DataSource = SocialSecurityTypeEnum.GetAll();
@@ -138,7 +139,7 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
                 ddSocialSecurityType.DataTextField = "Name";
                 ddSocialSecurityType.DataBind();
                 ddSocialSecurityType.SelectedValue =
-                    EmployeeWelfareList[rowIndex + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.Type.Id.ToString
+                    EmployeeWelfareList[rowIndex + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.Type.Id.ToString
                         ();
             }
         }
@@ -146,17 +147,17 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
         private void SetGridViewRowDateDisplay(int rowIndex)
         {
             TextBox txtSocialSecurityYear =
-                (TextBox) gvEmployeeWelfare.Rows[rowIndex].FindControl("txtSocialSecurityYear");
+                (TextBox)gvEmployeeWelfare.Rows[rowIndex].FindControl("txtSocialSecurityYear");
             TextBox txtSocialSecurityMonth =
-                (TextBox) gvEmployeeWelfare.Rows[rowIndex].FindControl("txtSocialSecurityMonth");
+                (TextBox)gvEmployeeWelfare.Rows[rowIndex].FindControl("txtSocialSecurityMonth");
             TextBox txtAccumulationFundYear =
-                (TextBox) gvEmployeeWelfare.Rows[rowIndex].FindControl("txtAccumulationFundYear");
+                (TextBox)gvEmployeeWelfare.Rows[rowIndex].FindControl("txtAccumulationFundYear");
             TextBox txtAccumulationFundMonth =
-                (TextBox) gvEmployeeWelfare.Rows[rowIndex].FindControl("txtAccumulationFundMonth");
+                (TextBox)gvEmployeeWelfare.Rows[rowIndex].FindControl("txtAccumulationFundMonth");
             if (txtSocialSecurityYear != null && txtSocialSecurityMonth != null)
             {
                 List<string> SocialSecurityYearMonthTemp =
-                    EmployeeWelfareList[rowIndex + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.
+                    EmployeeWelfareList[rowIndex + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.
                         EffectiveYearMonthTemp;
                 txtSocialSecurityYear.Text = SocialSecurityYearMonthTemp[0];
                 txtSocialSecurityMonth.Text = SocialSecurityYearMonthTemp[1];
@@ -164,7 +165,7 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
             if (txtAccumulationFundYear != null && txtAccumulationFundMonth != null)
             {
                 List<string> AccumulationFundYearMonthTemp =
-                    EmployeeWelfareList[rowIndex + PageIndex*gvEmployeeWelfare.PageSize].AccumulationFund.
+                    EmployeeWelfareList[rowIndex + PageIndex * gvEmployeeWelfare.PageSize].AccumulationFund.
                         EffectiveYearMonthTemp;
                 txtAccumulationFundYear.Text = AccumulationFundYearMonthTemp[0];
                 txtAccumulationFundMonth.Text = AccumulationFundYearMonthTemp[1];
@@ -176,93 +177,93 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
             for (int i = 0; i < gvEmployeeWelfare.Rows.Count; i++)
             {
                 DropDownList ddSocialSecurityType =
-                    (DropDownList) gvEmployeeWelfare.Rows[i].FindControl("ddSocialSecurityType");
+                    (DropDownList)gvEmployeeWelfare.Rows[i].FindControl("ddSocialSecurityType");
                 if (ddSocialSecurityType != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.Type =
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.Type =
                         SocialSecurityTypeEnum.GetById(Convert.ToInt32(ddSocialSecurityType.SelectedValue));
                 }
 
                 TextBox txtSocialSecurityYear =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtSocialSecurityYear");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtSocialSecurityYear");
                 TextBox txtSocialSecurityMonth =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtSocialSecurityMonth");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtSocialSecurityMonth");
                 TextBox txtAccumulationFundYear =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundYear");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundYear");
                 TextBox txtAccumulationFundMonth =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundMonth");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundMonth");
                 TextBox txtSocialSecurityBase =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtSocialSecurityBase");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtSocialSecurityBase");
                 TextBox txtAccumulationFundAccount =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundAccount");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundAccount");
                 TextBox txtAccumulationFundBase =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundBase");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtAccumulationFundBase");
                 TextBox txtSupplyAccount =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtSupplyAccount");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtSupplyAccount");
                 TextBox txtSupplyBase =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtSupplyBase");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtSupplyBase");
                 TextBox txtYangLaoBase =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtYangLaoBase");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtYangLaoBase");
                 TextBox txtShiYeBase =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtShiYeBase");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtShiYeBase");
                 TextBox txtYiLiaoBase =
-                    (TextBox) gvEmployeeWelfare.Rows[i].FindControl("txtYiLiaoBase");
+                    (TextBox)gvEmployeeWelfare.Rows[i].FindControl("txtYiLiaoBase");
                 if (txtSocialSecurityYear != null && txtSocialSecurityMonth != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.
                         EffectiveYearMonthTemp =
                         new List<string>(
-                            new string[2] {txtSocialSecurityYear.Text.Trim(), txtSocialSecurityMonth.Text.Trim()});
+                            new string[2] { txtSocialSecurityYear.Text.Trim(), txtSocialSecurityMonth.Text.Trim() });
                 }
                 if (txtAccumulationFundYear != null && txtAccumulationFundMonth != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].AccumulationFund.
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].AccumulationFund.
                         EffectiveYearMonthTemp =
                         new List<string>(
-                            new string[2] {txtAccumulationFundYear.Text.Trim(), txtAccumulationFundMonth.Text.Trim()});
+                            new string[2] { txtAccumulationFundYear.Text.Trim(), txtAccumulationFundMonth.Text.Trim() });
                 }
                 if (txtSocialSecurityBase != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.BaseTemp =
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.BaseTemp =
                         txtSocialSecurityBase.Text.Trim();
                 }
                 if (txtAccumulationFundAccount != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].AccumulationFund.Account =
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].AccumulationFund.Account =
                         txtAccumulationFundAccount.Text.Trim();
                 }
                 if (txtAccumulationFundBase != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].AccumulationFund.BaseTemp =
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].AccumulationFund.BaseTemp =
                         txtAccumulationFundBase.Text.Trim();
                 }
                 if (txtSupplyAccount != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].AccumulationFund.
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].AccumulationFund.
                         SupplyAccount =
                         txtSupplyAccount.Text.Trim();
                 }
                 if (txtSupplyBase != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].AccumulationFund.
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].AccumulationFund.
                         SupplyBaseTemp =
                         txtSupplyBase.Text.Trim();
                 }
                 if (txtYangLaoBase != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.
                         YangLaoBaseTemp =
                         txtYangLaoBase.Text.Trim();
                 }
                 if (txtShiYeBase != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.ShiYeBaseTemp
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.ShiYeBaseTemp
                         =
                         txtShiYeBase.Text.Trim();
                 }
                 if (txtYiLiaoBase != null)
                 {
-                    EmployeeWelfareListViewState[i + PageIndex*gvEmployeeWelfare.PageSize].SocialSecurity.YiLiaoBaseTemp
+                    EmployeeWelfareListViewState[i + PageIndex * gvEmployeeWelfare.PageSize].SocialSecurity.YiLiaoBaseTemp
                         =
                         txtYiLiaoBase.Text.Trim();
                 }
@@ -337,8 +338,8 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
 
         public EmployeeTypeEnum EmployeeType
         {
-            get { return (EmployeeTypeEnum) Convert.ToInt32(listEmployeeType.SelectedValue); }
-            set { listEmployeeType.SelectedValue = ((int) value).ToString(); }
+            get { return (EmployeeTypeEnum)Convert.ToInt32(listEmployeeType.SelectedValue); }
+            set { listEmployeeType.SelectedValue = ((int)value).ToString(); }
         }
 
         public Dictionary<string, string> EmployeeTypeSource
@@ -367,7 +368,65 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            Export("员工福利表.xls");
+            var workbook = new HSSFWorkbook();
+            MemoryStream ms = new MemoryStream();
+            HSSFSheet sheet = workbook.CreateSheet() as HSSFSheet;
+            HSSFRow headerRow = sheet.CreateRow(0) as HSSFRow;
+
+            headerRow.CreateCell(0).SetCellValue(EmployeeWelfare.ConstParemeter.Name);
+            headerRow.CreateCell(1).SetCellValue(EmployeeWelfare.ConstParemeter.SocialType);
+            headerRow.CreateCell(2).SetCellValue(EmployeeWelfare.ConstParemeter.SocialBase);
+            headerRow.CreateCell(3).SetCellValue(EmployeeWelfare.ConstParemeter.SocialYM);
+            headerRow.CreateCell(4).SetCellValue(EmployeeWelfare.ConstParemeter.FundAccount);
+            headerRow.CreateCell(5).SetCellValue(EmployeeWelfare.ConstParemeter.FundBase);
+            headerRow.CreateCell(6).SetCellValue(EmployeeWelfare.ConstParemeter.FundYM);
+            headerRow.CreateCell(7).SetCellValue(EmployeeWelfare.ConstParemeter.SupplyAccount);
+            headerRow.CreateCell(8).SetCellValue(EmployeeWelfare.ConstParemeter.SupplyBase);
+            headerRow.CreateCell(9).SetCellValue(EmployeeWelfare.ConstParemeter.YangLaoBase);
+            headerRow.CreateCell(10).SetCellValue(EmployeeWelfare.ConstParemeter.ShiYeBase);
+            headerRow.CreateCell(11).SetCellValue(EmployeeWelfare.ConstParemeter.YiLiaoBase);
+            // handling value.
+            int rowIndex = 1;
+
+            for (int i = 0; i < EmployeeWelfareListViewState.Count; i++)
+            {
+                HSSFRow dataRow = sheet.CreateRow(rowIndex) as HSSFRow;
+                dataRow.CreateCell(0).SetCellValue(EmployeeWelfareListViewState[i].Owner.Name);
+                dataRow.CreateCell(1).SetCellValue(EmployeeWelfareListViewState[i].SocialSecurity.Type.Name);
+                dataRow.CreateCell(2).SetCellValue(EmployeeWelfareListViewState[i].SocialSecurity.Base.ToString());
+                if (EmployeeWelfareListViewState[i].SocialSecurity.EffectiveYearMonth != null)
+                {
+                    List<string> SocialSecurityYearMonth =
+                        EmployeeWelfare.YearAndMonth(EmployeeWelfareListViewState[i].SocialSecurity.EffectiveYearMonth);
+                    dataRow.CreateCell(3).SetCellValue(string.Format("{0}年{1}月", SocialSecurityYearMonth[0], SocialSecurityYearMonth[1]));
+                }
+                dataRow.CreateCell(4).SetCellValue(EmployeeWelfareListViewState[i].AccumulationFund.Account);
+                dataRow.CreateCell(5).SetCellValue(EmployeeWelfareListViewState[i].AccumulationFund.Base.ToString());
+
+                if (EmployeeWelfareListViewState[i].AccumulationFund.EffectiveYearMonth != null)
+                {
+                    List<string> AccumulationFundYearMonth =
+                        EmployeeWelfare.YearAndMonth(EmployeeWelfareListViewState[i].AccumulationFund.EffectiveYearMonth);
+                    dataRow.CreateCell(6).SetCellValue(string.Format("{0}年{1}月", AccumulationFundYearMonth[0], AccumulationFundYearMonth[1]));
+                }
+                dataRow.CreateCell(7).SetCellValue(EmployeeWelfareListViewState[i].AccumulationFund.SupplyAccount);
+                dataRow.CreateCell(8).SetCellValue(EmployeeWelfareListViewState[i].AccumulationFund.SupplyBase.ToString());
+                dataRow.CreateCell(9).SetCellValue(EmployeeWelfareListViewState[i].SocialSecurity.YangLaoBase.ToString());
+                dataRow.CreateCell(10).SetCellValue(EmployeeWelfareListViewState[i].SocialSecurity.ShiYeBase.ToString());
+                dataRow.CreateCell(11).SetCellValue(EmployeeWelfareListViewState[i].SocialSecurity.YiLiaoBase.ToString());
+
+                rowIndex++;
+            }
+
+            workbook.Write(ms);
+            ms.Flush();
+            ms.Position = 0;
+
+            sheet = null;
+            headerRow = null;
+            workbook = null;
+            ExcelExportUtility.OutputExcel(Server, Response, "员工福利表", ms);
+            // Export("员工福利表.xls");
         }
 
         private void Export(string FileName)
@@ -381,7 +440,7 @@ namespace SEP.Performance.Views.HRMIS.PayModuleViews.EmployeeWelfares
             string templocation = tempdirectory + "\\" + FileName;
             Application excel = new Application();
             _Workbook xBk = excel.Workbooks.Add(Type.Missing);
-            _Worksheet xSt = (_Worksheet) xBk.ActiveSheet;
+            _Worksheet xSt = (_Worksheet)xBk.ActiveSheet;
 
             try
             {

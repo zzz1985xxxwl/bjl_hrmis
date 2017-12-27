@@ -5,6 +5,7 @@ using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.DiyProcesss;
 using SEP.Model.Accounts;
+using System.IO;
 
 namespace SEP.HRMIS.Facade
 {
@@ -94,13 +95,13 @@ namespace SEP.HRMIS.Facade
                                                           int departmentID,
                                                           bool recursionDepartment, Account loginUser)
         {
-            return new GetAssessActivity().GetAssessActivityForHRApply( employeeName,
-                                                           employeeType,  positionID,
+            return new GetAssessActivity().GetAssessActivityForHRApply(employeeName,
+                                                           employeeType, positionID,
                                                            departmentID,
                                                            recursionDepartment, loginUser);
         }
 
-      
+
 
         /// <summary>
         /// 获取员工参加的所有活动
@@ -163,16 +164,16 @@ namespace SEP.HRMIS.Facade
         /// 主管考评项的事务
         /// </summary>
         public void FillManagerItemsExcute(int activityId, List<AssessActivityItem> answers, string comments,
-                                    string intention, bool ifSubmit, string currentEmployeeName,decimal? salaryChange)
+                                    string intention, bool ifSubmit, string currentEmployeeName, decimal? salaryChange)
         {
-            new FillManagerItems(activityId, answers, comments, intention, ifSubmit, currentEmployeeName,salaryChange).Excute();
+            new FillManagerItems(activityId, answers, comments, intention, ifSubmit, currentEmployeeName, salaryChange).Excute();
         }
 
         /// <summary>
         /// 人事考评项的事务
         /// </summary>
         public void FillHRItemsExcute(int activityId, List<AssessActivityItem> answers, string comments,
-                                    bool ifSubmit, string currentEmployeeName,decimal? salarynow )
+                                    bool ifSubmit, string currentEmployeeName, decimal? salarynow)
         {
             new FillHRItems(activityId, answers, comments, ifSubmit, currentEmployeeName, salarynow).Excute();
         }
@@ -188,7 +189,7 @@ namespace SEP.HRMIS.Facade
         /// <summary>
         /// CEO考评项的事务
         /// </summary>
-        public void FillCEOCommentExcute(int activityId, string comment, string currentEmployeeName,decimal? salarychange )
+        public void FillCEOCommentExcute(int activityId, string comment, string currentEmployeeName, decimal? salarychange)
         {
             new FillCEOComment(activityId, comment, currentEmployeeName, salarychange).Excute();
         }
@@ -257,7 +258,7 @@ namespace SEP.HRMIS.Facade
         {
             return new ExportAnnualAssessForm(assessActivityId, employeeTemplateLocation).Excute();
         }
-        public string ExportAnualAssessListExcel(string employeeTemplateLocation, string employeeName, DateTime? hrSubmitTimeFrom, DateTime? hrSubmitTimeTo,
+        public MemoryStream ExportAnualAssessListExcel(string employeeTemplateLocation, string employeeName, DateTime? hrSubmitTimeFrom, DateTime? hrSubmitTimeTo,
                                                     int finishStatus, DateTime? scopeFrom, DateTime? scopeTo, int departmentID, Account loginuser, int power, AssessStatus assessStatus)
         {
             return

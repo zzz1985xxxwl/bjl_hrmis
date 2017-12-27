@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using SEP.HRMIS.Model;
 using SEP.Model.Accounts;
 using SEP.HRMIS.Model.DiyProcesss;
+using System.IO;
 
 namespace SEP.HRMIS.IFacede
 {
@@ -36,12 +37,12 @@ namespace SEP.HRMIS.IFacede
         /// <param name="Status">处理的流转状态</param>
         /// <returns></returns>
         //List<AssessActivity> GetAssessActivityByEmployeeStatus(int EmployeeID, AssessStatus Status);
-        
+
         ///<summary>
         /// 通过当前的员工的Id，获取所有待当前员工填写的考评活动
         ///</summary>
         List<AssessActivity> GetEmployeeFillActivitys(int currentEmployeeId);
-        
+
         /// <summary>
         /// 通过当前的主管的Id，获取所有待当前主管填写的考评活动
         /// </summary>
@@ -130,13 +131,13 @@ namespace SEP.HRMIS.IFacede
         /// 主管考评项的事务
         /// </summary>
         void FillManagerItemsExcute(int activityId, List<AssessActivityItem> answers, string comments,
-                                    string intention, bool ifSubmit, string currentEmployeeName,decimal? salaryChange);
+                                    string intention, bool ifSubmit, string currentEmployeeName, decimal? salaryChange);
 
         /// <summary>
         /// 人事考评项的事务
         /// </summary>
         void FillHRItemsExcute(int activityId, List<AssessActivityItem> answers, string comments,
-                               bool ifSubmit, string currentEmployeeName,decimal? salaryNow );
+                               bool ifSubmit, string currentEmployeeName, decimal? salaryNow);
 
         ///// <summary>
         ///// 总监考评项的事务
@@ -203,10 +204,10 @@ namespace SEP.HRMIS.IFacede
         /// <summary>
         /// 导出员工年终绩效考评
         /// </summary>
-        string ExportAnualAssessListExcel(string employeeTemplateLocation, string employeeName,
-                                          DateTime? hrSubmitTimeFrom, DateTime? hrSubmitTimeTo,
-                                          int finishStatus, DateTime? scopeFrom, DateTime? scopeTo, int departmentID,
-                                          Account loginuser, int power, AssessStatus assessStatus);
+        MemoryStream ExportAnualAssessListExcel(string employeeTemplateLocation, string employeeName,
+                                           DateTime? hrSubmitTimeFrom, DateTime? hrSubmitTimeTo,
+                                           int finishStatus, DateTime? scopeFrom, DateTime? scopeTo, int departmentID,
+                                           Account loginuser, int power, AssessStatus assessStatus);
 
         /// <summary>
         /// 删除考评活动

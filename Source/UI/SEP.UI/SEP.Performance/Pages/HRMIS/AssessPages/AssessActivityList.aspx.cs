@@ -6,6 +6,7 @@ using SEP.HRMIS.Model.AccountAuth;
 using SEP.HRMIS.Presenter.AssessActivity;
 using SEP.Model;
 using SEP.Model.Accounts;
+using SEP.Performance.Views;
 
 namespace SEP.Performance.Pages.HRMIS.AssessPages
 {
@@ -69,11 +70,17 @@ namespace SEP.Performance.Pages.HRMIS.AssessPages
 
         public void btnExportAnnualAssessClick()
         {
-            string filename =
-                presenter.ExportAnnualAssessAll(Server.MapPath(ConstParameters.Template_AnnualAssessXls));
-            if (filename != presenter.JUDGEERROR)
+            //string filename =
+            //    presenter.ExportAnnualAssessAll(Server.MapPath(ConstParameters.Template_AnnualAssessXls));
+            //if (filename != presenter.JUDGEERROR)
+            //{
+            //    Export(filename);
+            //}
+            MemoryStream ms =
+               presenter.ExportAnnualAssessAll(Server.MapPath(ConstParameters.Template_AnnualAssessXls));
+            if (ms != null)
             {
-                Export(filename);
+                ExcelExportUtility.OutputExcel(Server, Response, "¼¨Ð§ÆÀ¹À½á¹û", ms);
             }
         }
 

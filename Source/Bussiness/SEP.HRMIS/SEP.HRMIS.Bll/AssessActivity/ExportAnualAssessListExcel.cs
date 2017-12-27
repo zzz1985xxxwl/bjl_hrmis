@@ -12,7 +12,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Runtime.InteropServices;
-using Microsoft.Office.Interop.Excel;
 using SEP.HRMIS.Bll.PayModule;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Model.AssessFlow;
@@ -21,6 +20,9 @@ using SEP.IBll;
 using SEP.IBll.Departments;
 using SEP.IBll.Positions;
 using SEP.Model.Accounts;
+using NPOI.HSSF.UserModel;
+using System.Data;
+using SEP.HRMIS.Entity;
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
@@ -60,7 +62,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// 初始化数据
         /// </summary>
         private void PrepareData()
-        {      
+        {
             foreach (Model.AssessActivity activity in _AssessActivityList)
             {
                 activity.ItsEmployee = new GetEmployee().GetEmployeeByAccountID(activity.ItsEmployee.Account.Id);
@@ -78,51 +80,107 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// 
         /// </summary>
         /// <returns></returns>
-        public string Excute()
+        //public string Excute()
+        //{
+        //GC.Collect();
+
+        //if (!Directory.Exists(_EmployeeExportLocation))
+        //{
+        //    Directory.CreateDirectory(_EmployeeExportLocation);
+        //}
+        //string templocation = _EmployeeExportLocation + "\\绩效评估结果.xls";
+        //Application excel = new Application();
+        //_Workbook xBk = excel.Workbooks.Add(_EmployeeTemplateLocation);
+        //_Worksheet xSt = (_Worksheet) xBk.ActiveSheet;
+
+        //try
+        //{
+        //    InitHrmisQuestionRow(excel);
+        //    ExportALLInfo(excel);
+        //    object nothing = Type.Missing;
+        //    object fileFormat = XlFileFormat.xlExcel8;
+        //    object file = templocation;
+        //    if (File.Exists(file.ToString()))
+        //    {
+        //        File.Delete(file.ToString());
+        //    }
+        //    xBk.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange, nothing, nothing, nothing, nothing, nothing);
+        //}
+        //finally
+        //{
+        //    xBk.Close(false, null, null);
+        //    excel.Quit();
+        //    Marshal.ReleaseComObject(xBk);
+        //    Marshal.ReleaseComObject(excel);
+        //    Marshal.ReleaseComObject(xSt);
+        //    GC.Collect();
+        //}
+        //return templocation;
+        //return "";
+        //}
+
+        public MemoryStream Excute()
         {
-            GC.Collect();
+            //var workbook = new HSSFWorkbook();
+            //MemoryStream ms = new MemoryStream();
+            //HSSFSheet sheet = workbook.CreateSheet("sheet1") as HSSFSheet;
+            //HSSFRow headerRow = sheet.CreateRow(0) as HSSFRow;
 
-            if (!Directory.Exists(_EmployeeExportLocation))
-            {
-                Directory.CreateDirectory(_EmployeeExportLocation);
-            }
-            string templocation = _EmployeeExportLocation + "\\绩效评估结果.xls";
-            Application excel = new Application();
-            _Workbook xBk = excel.Workbooks.Add(_EmployeeTemplateLocation);
-            _Worksheet xSt = (_Worksheet) xBk.ActiveSheet;
+            DataTable dt = new DataTable("Table");
+            InitHrmisQuestionRow(dt);
+            ExportALLInfo(dt);
+            var workbook = new HSSFWorkbook();
+            MemoryStream ms = new MemoryStream();
+            HSSFSheet sheet = workbook.CreateSheet("sheet1") as HSSFSheet;
+            HSSFRow headerRow = sheet.CreateRow(0) as HSSFRow;
 
-            try
+            // handling header.
+            foreach (DataColumn column in dt.Columns)
+                headerRow.CreateCell(column.Ordinal).SetCellValue(column.ColumnName);
+
+            // handling value.
+            int rowIndex = 1;
+
+            foreach (DataRow row in dt.Rows)
             {
-                InitHrmisQuestionRow(excel);
-                ExportALLInfo(excel);
-                object nothing = Type.Missing;
-                object fileFormat = XlFileFormat.xlExcel8;
-                object file = templocation;
-                if (File.Exists(file.ToString()))
+                HSSFRow dataRow = sheet.CreateRow(rowIndex) as HSSFRow;
+
+                foreach (DataColumn column in dt.Columns)
                 {
-                    File.Delete(file.ToString());
+                    dataRow.CreateCell(column.Ordinal).SetCellValue(row[column].ToString());
                 }
-                xBk.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange, nothing, nothing, nothing, nothing, nothing);
+
+                rowIndex++;
             }
-            finally
+            for (var i = 0; i < dt.Columns.Count; i++)
             {
-                xBk.Close(false, null, null);
-                excel.Quit();
-                Marshal.ReleaseComObject(xBk);
-                Marshal.ReleaseComObject(excel);
-                Marshal.ReleaseComObject(xSt);
-                GC.Collect();
+                sheet.AutoSizeColumn(i);
             }
-            return templocation;
+            //_TotalScoreLocation + 4 + _360Question.Count
+            //Range range = excel.get_Range(excel.Cells[1, 1], excel.Cells[i + 1, _TotalScoreLocation + 4 + _360Question.Count]);
+            //range.Cells.Borders.LineStyle = 1;
+            //range.EntireColumn.AutoFit();
+
+
+            workbook.Write(ms);
+            ms.Flush();
+            ms.Position = 0;
+
+            sheet = null;
+            headerRow = null;
+            workbook = null;
+
+            return ms;
         }
 
-
-        private void ExportALLInfo(_Application excel)
+        private void ExportALLInfo(DataTable dt)
         {
             int i;
             for (i = 0; i < _AssessActivityList.Count; i++)
             {
-                ExportNormalInfo(i, excel);
+                DataRow dr = dt.NewRow();
+                dt.Rows.Add(dr);
+                ExportNormalInfo(i, dr);
 
                 int submintInfoManageIndex = -1;
                 int submintInfoHrIndex = -1;
@@ -133,14 +191,14 @@ namespace SEP.HRMIS.Bll.AssessActivity
                 if (submintInfoCeoIndex != -1)
                 {
                     //建议工资
-                    excel.Cells[i + 2, 7] = _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoCeoIndex].SalaryChange.
+                    dr[6] = _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoCeoIndex].SalaryChange.
                             ToString();
                 }
 
                 if (submintInfoSelfIndex != -1)
                 {
                     //个人评分
-                    excel.Cells[i + 2, 8] =
+                    dr[7] =
                         CalculateScore(
                             _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoSelfIndex].
                                 ItsAssessActivityItems);
@@ -148,20 +206,20 @@ namespace SEP.HRMIS.Bll.AssessActivity
                 if (submintInfoManageIndex != -1)
                 {
                     //主管评分
-                    excel.Cells[i + 2, 9] =
+                    dr[8] =
                         CalculateScore(
                             _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoManageIndex].
                                 ItsAssessActivityItems);
-                    excel.Cells[i + 2, _TotalScoreLocation + 4] =
+                    dr[_TotalScoreLocation + 3] =
                         _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoManageIndex].Comment;
-                        //主管总评
+                    //主管总评
                 }
                 if (submintInfoHrIndex != -1)
                 {
                     //目前工资
-                    excel.Cells[i + 2, 6] =
-                        _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoHrIndex].SalaryNow.
-                            ToString();
+                    dr[5] =
+                         _AssessActivityList[i].ItsAssessActivityPaper.SubmitInfoes[submintInfoHrIndex].SalaryNow.
+                             ToString();
                     //导出人事项
                     for (int t = 0; t < _HrmisQuestion.Count; t++)
                     {
@@ -172,15 +230,15 @@ namespace SEP.HRMIS.Bll.AssessActivity
                         {
                             if (item.Question == _HrmisQuestion[t])
                             {
-                                excel.Cells[i + 2, 12 + t] = item.Grade*item.Weight;
+                                dr[12 + t - 1] = item.Grade * item.Weight;
                                 break;
                             }
                         }
                     }
                 }
                 decimal totlescore = _AssessActivityList[i].ItsAssessActivityPaper.Score;
-                excel.Cells[i + 2, _TotalScoreLocation] = totlescore; //年度总评分
-                excel.Cells[i + 2, _TotalScoreLocation + 1] = ExportAnnualAssessForm.GetAns(totlescore); //综合评价
+                dr[_TotalScoreLocation - 1] = totlescore; //年度总评分
+                dr[_TotalScoreLocation] = ExportAnnualAssessForm.GetAns(totlescore); //综合评价
                 //360
                 if (submintInfoSelfIndex != -1)
                 {
@@ -194,7 +252,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
                         {
                             if (item.Question == _360Question[t])
                             {
-                                excel.Cells[i + 2, _TotalScoreLocation + 5 + t] = item.AssessTemplateItemType ==
+                                dr[_TotalScoreLocation + 5 + t - 1] = item.AssessTemplateItemType ==
                                                                                   AssessTemplateItemType.Open
                                                                                       ? item.Note
                                                                                       : item.Grade.ToString();
@@ -204,10 +262,10 @@ namespace SEP.HRMIS.Bll.AssessActivity
                     }
                 }
             }
-            //设置边框和列宽
-            Range range = excel.get_Range(excel.Cells[1, 1], excel.Cells[i + 1, _TotalScoreLocation + 4 + _360Question.Count]);
-            range.Cells.Borders.LineStyle = 1;
-            range.EntireColumn.AutoFit();
+            ////设置边框和列宽
+            //Range range = excel.get_Range(excel.Cells[1, 1], excel.Cells[i + 1, _TotalScoreLocation + 4 + _360Question.Count]);
+            //range.Cells.Borders.LineStyle = 1;
+            //range.EntireColumn.AutoFit();
         }
 
         /// <summary>
@@ -215,7 +273,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// </summary>
         private static void GetIndex(Model.AssessActivity assessActivity, ref int submintInfoSelfIndex,
                                      ref int submintInfoManageIndex,
-                                     ref int submintInfoHrIndex,ref int submitInfoCeoIndex)
+                                     ref int submintInfoHrIndex, ref int submitInfoCeoIndex)
         {
             for (int j = 0; j < assessActivity.ItsAssessActivityPaper.SubmitInfoes.Count; j++)
             {
@@ -243,17 +301,17 @@ namespace SEP.HRMIS.Bll.AssessActivity
             }
         }
 
-        private void ExportNormalInfo(int i, _Application excel)
+        private void ExportNormalInfo(int i, DataRow dr)
         {
-            excel.Cells[i + 2, 1] = _AssessActivityList[i].ItsEmployee.Account.Name;
+            dr[0] = _AssessActivityList[i].ItsEmployee.Account.Name;
             if (_AssessActivityList[i].ItsEmployee.Account.Position.Grade != null)
             {
-                excel.Cells[i + 2, 2] = _AssessActivityList[i].ItsEmployee.Account.Position.Grade.Name;
+                dr[1] = _AssessActivityList[i].ItsEmployee.Account.Position.Grade.Name;
             }
-            excel.Cells[i + 2, 3] = _AssessActivityList[i].ItsEmployee.EmployeeDetails.Work.ComeDate;
-            excel.Cells[i + 2, 4] =
+            dr[2] = _AssessActivityList[i].ItsEmployee.EmployeeDetails.Work.ComeDate;
+            dr[3] =
                 _AssessActivityList[i].ItsEmployee.EmployeeDetails.Education.EducationalBackground.Name;
-            excel.Cells[i + 2, 5] = _AssessActivityList[i].ItsEmployee.Account.Dept.DepartmentName;
+            dr[4] = _AssessActivityList[i].ItsEmployee.Account.Dept.DepartmentName;
             BindItemValueCollection collection =
                 _GetBindField.BindItemValueCollection(_AssessActivityList[i].ItsEmployee.Account.Id,
                                                       _AssessActivityList[i].ScopeFrom, _AssessActivityList[i].ScopeTo);
@@ -261,11 +319,11 @@ namespace SEP.HRMIS.Bll.AssessActivity
             {
                 if (item.BindItemEnum.Id == BindItemEnum.OutCityDays.Id)
                 {
-                    excel.Cells[i + 2, 10] = item.Value;
+                    dr[9] = item.Value;
                 }
                 else if (item.BindItemEnum.Id == BindItemEnum.Absenteeism.Id)
                 {
-                    excel.Cells[i + 2, 11] = item.Value;
+                    dr[10] = item.Value;
                 }
             }
         }
@@ -275,7 +333,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
             decimal totalScore = 0;
             foreach (AssessActivityItem item in AssessActivityItemList)
             {
-                totalScore += (item.Grade*item.Weight);
+                totalScore += (item.Grade * item.Weight);
             }
             return totalScore;
         }
@@ -284,34 +342,43 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// 创建人事项，放入表头
         /// </summary>
         /// <param name="excel"></param>
-        private void InitHrmisQuestionRow(_Application excel)
+        private void InitHrmisQuestionRow(DataTable dt)
         {
             InitHrmisQuestion();
             Init360Question();
+
+            dt.Columns.Add("姓名", typeof(String));
+            dt.Columns.Add("职等", typeof(String));
+            dt.Columns.Add("进本单位年月", typeof(String));
+            dt.Columns.Add("最高学历", typeof(String));
+            dt.Columns.Add("部门", typeof(String));
+            dt.Columns.Add("目前工资", typeof(String));
+            dt.Columns.Add("建议工资", typeof(String));
+            dt.Columns.Add("个人考评分", typeof(String));
+            dt.Columns.Add("部门考评分", typeof(String));
+            dt.Columns.Add("出差天数", typeof(String));
+            dt.Columns.Add("缺勤天数", typeof(String));
             int i = 0;
             foreach (string s in _HrmisQuestion)
             {
-                excel.Cells[1, 12 + i] = s;
+                dt.Columns.Add(s, typeof(String));
                 i++;
             }
-
             _TotalScoreLocation = 12 + i;
-            excel.Cells[1, _TotalScoreLocation] = "年度总评分";
-            excel.Cells[1, _TotalScoreLocation + 1] = "综合评价";
-            excel.Cells[1, _TotalScoreLocation + 2] = "加薪建议";
-            excel.Cells[1, _TotalScoreLocation + 3] = "备注";
-            excel.Cells[1, _TotalScoreLocation + 4] = "主管总评";
-            int j = 0;
+            dt.Columns.Add("年度总评分", typeof(String));
+            dt.Columns.Add("综合评价", typeof(String));
+            dt.Columns.Add("加薪建议", typeof(String));
+            dt.Columns.Add("备注", typeof(String));
+            dt.Columns.Add("主管总评", typeof(String));
             foreach (string s in _360Question)
             {
-                excel.Cells[1, _TotalScoreLocation + 5 + j] = s;
-                j++;
+                dt.Columns.Add(s, typeof(String));
             }
         }
 
         private void Init360Question()
         {
-            _360Question=new List<string>();
+            _360Question = new List<string>();
             foreach (Model.AssessActivity activity in _AssessActivityList)
             {
                 int submintInfo360Index = -1;

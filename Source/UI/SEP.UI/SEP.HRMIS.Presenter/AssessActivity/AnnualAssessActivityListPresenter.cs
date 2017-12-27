@@ -9,6 +9,7 @@ using SEP.IBll;
 using SEP.IBll.Departments;
 using SEP.Model.Accounts;
 using SEP.Presenter.Core;
+using System.IO;
 
 namespace SEP.HRMIS.Presenter.AssessActivity
 {
@@ -66,8 +67,8 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                 dtScopeTo = DateTime.TryParse(_View.ScopeTimeTo, out dttemp) ? dttemp : dtScopeTo;
                 try
                 {
-                    AssessCharacterType assessCharacterType = (AssessCharacterType) Convert.ToInt32(_View.CharacterType);
-                    AssessStatus assessStatus = (AssessStatus) Convert.ToInt32(_View.StatusType);
+                    AssessCharacterType assessCharacterType = (AssessCharacterType)Convert.ToInt32(_View.CharacterType);
+                    AssessStatus assessStatus = (AssessStatus)Convert.ToInt32(_View.StatusType);
 
                     _View.AssessActivitysToList =
                         AssessActivityLogic.GetAssessActivityByCondition(_View.EmployeeName,
@@ -78,7 +79,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                                                                                           _View.FinishStatus,
                                                                                           dtScopeFrom, dtScopeTo,
                                                                                           _View.DepartmentID, LoginUser,
-                                                                                          HrmisPowers.A707,"=8",_View.pagerEntity);
+                                                                                          HrmisPowers.A707, "=8", _View.pagerEntity);
                     //_View.AssessActivitysToList =
                     //    InstanceFactory.AssessActivityFacade().GetAnnualAssessActivityByCondition(_View.EmployeeName,
                     //                                                                      assessCharacterType,
@@ -200,7 +201,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
         }
 
 
-        public static string ExportEmployeeSummaryEvent(string employeeTemplateLocationAnnual,string employeeTemplateLocationNormal,int id)
+        public static string ExportEmployeeSummaryEvent(string employeeTemplateLocationAnnual, string employeeTemplateLocationNormal, int id)
         {
             Model.AssessActivity assess =
                InstanceFactory.AssessActivityFacade().GetAssessActivityByAssessActivityID(
@@ -238,7 +239,7 @@ namespace SEP.HRMIS.Presenter.AssessActivity
             }
         }
 
-        public string ExportAnnualAssessAll(string employeeTemplateLocation)
+        public MemoryStream ExportAnnualAssessAll(string employeeTemplateLocation)
         {
             if (Validation())
             {
@@ -260,10 +261,10 @@ namespace SEP.HRMIS.Presenter.AssessActivity
                                                                                     dtScopeTo, _View.DepartmentID, LoginUser,
                                                                                           HrmisPowers.A707, assessStatus);
             }
-            return JUDGEERROR;
+            return null;
         }
 
-        public  string JUDGEERROR
+        public string JUDGEERROR
         {
             get { return "JUDGEERROR"; }
         }
