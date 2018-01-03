@@ -90,7 +90,7 @@ namespace SEP.Performance.Pages.HRMIS.AssessPages
             Response.Clear();
             Response.ClearContent();
             Response.ClearHeaders();
-            Response.AddHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode(filename));
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + HttpUtility.UrlEncode(fileInfo.Name));
             Response.AddHeader("Content-Length", fileInfo.Length.ToString());
             Response.AddHeader("Content-Transfer-Encoding", "binary");
             Response.ContentType = "application/octet-stream";
