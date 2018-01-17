@@ -73,7 +73,10 @@ namespace SEP.HRMIS.Entity
 
                 rowIndex++;
             }
-
+            for (var i = 0; i < SourceTable.Columns.Count; i++)
+            {
+                sheet.AutoSizeColumn(i);
+            }
             workbook.Write(ms);
             ms.Flush();
             ms.Position = 0;

@@ -126,7 +126,7 @@ namespace SEP.HRMIS.Bll.Requests
         /// </summary>
         public static DateTime FixMorningStartTo
         {
-            get { return new DateTime(2009, 1, 1, 9, 0, 0); }
+            get { return new DateTime(2009, 1, 1, 9, 10, 0); }
         }
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace SEP.HRMIS.Bll.Requests
         /// </summary>
         public static DateTime FixAfternoonEnd
         {
-            get { return new DateTime(2009, 1, 1, 18, 0, 0); }
+            get { return new DateTime(2009, 1, 1, 18, 10, 0); }
         }
         /// <summary>
         /// 17:00
