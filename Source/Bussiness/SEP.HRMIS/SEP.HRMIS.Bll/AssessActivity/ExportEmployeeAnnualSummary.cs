@@ -96,6 +96,10 @@ namespace SEP.HRMIS.Bll.AssessActivity
         //    }
         //}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string Excute()
         {
             if (!Directory.Exists(_EmployeeExportLocation))
@@ -134,7 +138,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         }
 
 
-        public static void mergeCellsHorizontal(XWPFTable table, int row, int fromCell, int toCell)
+        private void mergeCellsHorizontal(XWPFTable table, int row, int fromCell, int toCell)
         {
             for (int cellIndex = fromCell; cellIndex <= toCell; cellIndex++)
             {
@@ -152,7 +156,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
             }
         }
 
-        public static void SetParagraph(XWPFTableCell cell, String cellText)
+        private void SetParagraph(XWPFTableCell cell, String cellText)
         {
             XWPFParagraph p0 = new XWPFParagraph(new CT_P(), cell);//创建段落
             p0.Alignment = ParagraphAlignment.LEFT;//居中显示
@@ -167,7 +171,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
             cell.SetParagraph(p0);
         }
 
-        public static void AppendParagraph(XWPFTableCell cell, String cellText)
+        private void AppendParagraph(XWPFTableCell cell, String cellText)
         {
             XWPFParagraph paragraph = cell.AddParagraph();
             XWPFRun run = paragraph.CreateRun();
@@ -180,7 +184,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         }
 
 
-        static void SaveToFile(MemoryStream ms, string fileName)
+        private void SaveToFile(MemoryStream ms, string fileName)
         {
             using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write))
             {
@@ -191,6 +195,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
                 data = null;
             }
         }
+
         private void PrepareData()
         {
             _AssessActivity = _DalAssessActivity.GetAssessActivityById(_AssessActivityId);
@@ -237,7 +242,6 @@ namespace SEP.HRMIS.Bll.AssessActivity
             }
 
         }
-
 
         private void ExportItemInfoSummary(XWPFTable tb)
         {
@@ -321,7 +325,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// <summary>
         /// 根据需要在table中增加必要的行
         /// </summary>
-        private static void AddNeedRow(XWPFTable tb, int count, int rowIndex)
+        private void AddNeedRow(XWPFTable tb, int count, int rowIndex)
         {
             for (int i = 0; i < count; i++)
             {

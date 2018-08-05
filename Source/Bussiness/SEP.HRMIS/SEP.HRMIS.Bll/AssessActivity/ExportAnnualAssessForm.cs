@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using Microsoft.Office.Interop.Word;
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
@@ -18,6 +17,8 @@ using SEP.HRMIS.Model.AssessFlow;
 using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Departments;
+using NPOI.XWPF.UserModel;
+using NPOI.OpenXmlFormats.Wordprocessing;
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
@@ -45,49 +46,99 @@ namespace SEP.HRMIS.Bll.AssessActivity
             _EmployeeTemplateLocation = employeeTemplateLocation;
         }
 
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //public string Excute()
+        //{
+        //    PrepareData();
+        //    Application app = new Application();
+        //    object nothing = Type.Missing;
+        //    object localPatho = _EmployeeTemplateLocation;
+        //    Document doc = app.Documents.Add(ref localPatho, ref nothing, ref nothing, ref nothing);
+        //    try
+        //    {
+        //        if (!Directory.Exists(_EmployeeExportLocation))
+        //        {
+        //            Directory.CreateDirectory(_EmployeeExportLocation);
+        //        }
+        //        Table tb = doc.Tables[1];
+        //        InitSubmitInfoIndex();
+        //        InitRows(ref tb);
+        //        ExportBasicInfo(ref tb);
+        //        ExportItemInfo(ref tb);
+        //        object fileFormat = WdSaveFormat.wdFormatTemplate97;
+        //        object filename = _EmployeeExportLocation + "\\" + _AssessActivity.ItsEmployee.Account.Name +
+        //                          "年度员工绩效考核统计表.doc";
+        //        doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing);
+        //        return filename.ToString();
+        //    }
+        //    catch 
+        //    {
+        //        object filename = _EmployeeExportLocation + "\\" + "temp.doc";
+        //        object fileFormat = WdSaveFormat.wdFormatTemplate97;
+        //        doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing);
+        //        return "";
+        //    }
+        //    finally
+        //    {
+        //        doc.Close(ref nothing, ref nothing, ref nothing);
+        //        app.Quit(ref nothing, ref nothing, ref nothing);
+        //    }
+        //}
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public string Excute()
         {
+            if (!Directory.Exists(_EmployeeExportLocation))
+            {
+                Directory.CreateDirectory(_EmployeeExportLocation);
+            }
             PrepareData();
-            Application app = new Application();
-            object nothing = Type.Missing;
-            object localPatho = _EmployeeTemplateLocation;
-            Document doc = app.Documents.Add(ref localPatho, ref nothing, ref nothing, ref nothing);
-            try
+            using (FileStream stream = File.OpenRead(_EmployeeTemplateLocation))
             {
-                if (!Directory.Exists(_EmployeeExportLocation))
-                {
-                    Directory.CreateDirectory(_EmployeeExportLocation);
-                }
-                Table tb = doc.Tables[1];
+                var document = new XWPFDocument(stream);
                 InitSubmitInfoIndex();
-                InitRows(ref tb);
-                ExportBasicInfo(ref tb);
-                ExportItemInfo(ref tb);
-                object fileFormat = WdSaveFormat.wdFormatTemplate97;
-                object filename = _EmployeeExportLocation + "\\" + _AssessActivity.ItsEmployee.Account.Name +
-                                  "年度员工绩效考核统计表.doc";
-                doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing);
-                return filename.ToString();
+                ExportDate(document.Tables[0]);
+                InitRows(document.Tables[1]);
+                ExportBasicInfo(document.Tables[1]);
+                ExportItemInfo(document.Tables[1]);
+                string ffname = _AssessActivity.ItsEmployee.Account.Name + "年度员工绩效考核统计表.docx";
+                string filename = _EmployeeExportLocation + "\\" + ffname;
+
+                MemoryStream ms = new MemoryStream();
+                document.Write(ms);
+                ms.Flush();
+                SaveToFile(ms, filename);
+                return filename;
             }
-            catch 
+        }
+
+        /// <summary>
+        /// 初始化第几个考评是主管考评
+        /// </summary>
+        private void InitSubmitInfoIndex()
+        {
+            for (int i = 0; i < _AssessActivity.ItsAssessActivityPaper.SubmitInfoes.Count; i++)
             {
-                object filename = _EmployeeExportLocation + "\\" + "temp.doc";
-                object fileFormat = WdSaveFormat.wdFormatTemplate97;
-                doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing);
-                return "";
-            }
-            finally
-            {
-                doc.Close(ref nothing, ref nothing, ref nothing);
-                app.Quit(ref nothing, ref nothing, ref nothing);
+                if (_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[i].SubmitInfoType.Id ==
+                    SubmitInfoType.ManagerAssess.Id)
+                {
+                    _SubmitInfoManageIndex = i;
+                }
+                if (_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[i].SubmitInfoType.Id ==
+                   SubmitInfoType.HRAssess.Id)
+                {
+                    _SubmitInfoHrIndex = i;
+                }
             }
         }
 
@@ -100,16 +151,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
                 _IDepartmentBll.GetDepartmentById(_AssessActivity.ItsEmployee.Account.Dept.Id, null);
         }
 
-        private void ExportBasicInfo(ref Table tb)
-        {
-            tb.Cell(2, 1).Range.Text = string.Format("考评时间段：{0}", _AssessActivity.ScopeFrom.ToShortDateString() + "--" +
-                                       _AssessActivity.ScopeTo.ToShortDateString());
-            tb.Cell(3, 1).Range.Text = string.Format("部门：{0}", _AssessActivity.ItsEmployee.Account.Dept.DepartmentName);
-            tb.Cell(3, 2).Range.Text = string.Format("姓名：{0}", _AssessActivity.ItsEmployee.Account.Name);
-            tb.Cell(3, 3).Range.Text = string.Format("岗位：{0}", _AssessActivity.ItsEmployee.Account.Position.Name);
-        }
-
-        private void InitRows(ref Table tb)
+        private void InitRows(XWPFTable tb)
         {
             List<AssessActivityItem> AssessActivityItemList = new List<AssessActivityItem>();
             AssessActivityItemList.AddRange(_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoManageIndex].
@@ -118,31 +160,46 @@ namespace SEP.HRMIS.Bll.AssessActivity
                                                 ItsAssessActivityItems);
             foreach (AssessActivityItem item in AssessActivityItemList)
             {
-                if ((item.AssessTemplateItemType != AssessTemplateItemType.Open) 
+                if ((item.AssessTemplateItemType != AssessTemplateItemType.Open)
                     && item.Classfication != ItemClassficationEmnu._360)
                 {
                     _ItemCount++;
                 }
             }
-            AddNeedRow(ref tb, _ItemCount, 5);
+            AddNeedRow(tb, _ItemCount);
         }
 
+        private void ExportDate(XWPFTable tb)
+        {
+            SetText(tb, 1, 0, string.Format("考评时间段：{0}", _AssessActivity.ScopeFrom.ToShortDateString() + "--" +
+                                   _AssessActivity.ScopeTo.ToShortDateString()), ParagraphAlignment.RIGHT);
+        }
 
-        private void ExportItemInfo(ref Table tb)
+        private void ExportBasicInfo(XWPFTable tb)
+        {
+            SetText(tb, 0, 0, string.Format("部门：{0}", _AssessActivity.ItsEmployee.Account.Dept.DepartmentName));
+            SetText(tb, 0, 1, string.Format("姓名：{0}", _AssessActivity.ItsEmployee.Account.Name));
+            SetText(tb, 0, 2, string.Format("岗位：{0}", _AssessActivity.ItsEmployee.Account.Position.Name));
+        }
+
+        private void ExportItemInfo(XWPFTable tb)
         {
             int i = 0;
             decimal totalScore = 0;
 
             ExportItemByItemType(tb, ref i, ref totalScore);
             _ItemCount = _ItemCount > 0 ? _ItemCount : 1;
-            tb.Cell(_ItemCount + 5, 2).Range.Text = decimal.Round(totalScore,2).ToString();
-            tb.Cell(_ItemCount + 6, 2).Range.Text = GetAns(totalScore);
-            tb.Cell(_ItemCount + 7, 1).Range.Text =
-                string.Format("考评人评语：{0}",
-                              _AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoManageIndex].Comment);
-            tb.Cell(_ItemCount + 8, 1).Range.Text =
-               string.Format("年度考评人：{0}",
-                             _AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoManageIndex].FillPerson);
+            SetText(tb, _ItemCount + 2, 0, "本年度总评分ΣCi×λi");
+            SetText(tb, _ItemCount + 2, 1, decimal.Round(totalScore, 2).ToString());
+            SetText(tb, _ItemCount + 3, 0, "综合评价");
+            SetText(tb, _ItemCount + 3, 1, GetAns(totalScore));
+            SetText(tb, _ItemCount + 4, 0, string.Format("考评人评语：{0}", _AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoManageIndex].Comment));
+            SetText(tb, _ItemCount + 5, 0, string.Format("年度考评人：{0}", _AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoManageIndex].FillPerson));
+
+            mergeCellsHorizontal(tb, _ItemCount + 2, 1, 2);
+            mergeCellsHorizontal(tb, _ItemCount + 3, 1, 2);
+            mergeCellsHorizontal(tb, _ItemCount + 4, 0, 2);
+            mergeCellsHorizontal(tb, _ItemCount + 5, 0, 2);
         }
 
         ///<summary>
@@ -175,7 +232,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
             return ans;
         }
 
-        private void ExportItemByItemType(Table tb, ref int i, ref decimal totalScore)
+        private void ExportItemByItemType(XWPFTable tb, ref int i, ref decimal totalScore)
         {
             List<AssessActivityItem> AssessActivityItemList = new List<AssessActivityItem>();
             AssessActivityItemList.AddRange(_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoManageIndex].
@@ -193,46 +250,73 @@ namespace SEP.HRMIS.Bll.AssessActivity
                     || item.AssessTemplateItemType == AssessTemplateItemType.Score
                     || item.AssessTemplateItemType == AssessTemplateItemType.Formula)
                 {
-                    tb.Cell(5 + i, 1).Range.Text = item.Question;
-                    tb.Cell(5 + i, 2).Range.Text = string.Format("年度评分＝{0}", item.Grade);
-                    tb.Cell(5 + i, 3).Range.Text = string.Format("{0}%", Convert.ToInt32(item.Weight*100));
-                    totalScore += item.Grade*item.Weight;
+                    SetText(tb, 2 + i, 0, item.Question);
+                    SetText(tb, 2 + i, 1, string.Format("年度评分＝{0}", item.Grade));
+                    SetText(tb, 2 + i, 2, string.Format("{0}%", Convert.ToInt32(item.Weight * 100)));
+
+                    totalScore += item.Grade * item.Weight;
                     i++;
                 }
             }
         }
 
         /// <summary>
-        /// 初始化第几个考评是主管考评
+        /// 根据需要在table中增加必要的行
         /// </summary>
-        private void InitSubmitInfoIndex()
+        private void AddNeedRow(XWPFTable tb, int count)
         {
-            for (int i = 0; i < _AssessActivity.ItsAssessActivityPaper.SubmitInfoes.Count; i++)
+            for (int i = 0; i < count - 1; i++)
             {
-                if (_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[i].SubmitInfoType.Id ==
-                    SubmitInfoType.ManagerAssess.Id)
+                tb.CreateRow();
+            }
+            tb.CreateRow();
+            tb.CreateRow();
+            tb.CreateRow();
+            tb.CreateRow();
+        }
+
+        //private void SetText(XWPFTable tb, int row, int column, string text, ParagraphAlignment paragraphAlignment = ParagraphAlignment.LEFT)
+        //{
+        //    tb.GetRow(row).GetCell(column).SetText(text);
+        //}
+
+        private void SetText(XWPFTable tb, int row, int column, String cellText, ParagraphAlignment paragraphAlignment = ParagraphAlignment.LEFT)
+        {
+            var cell = tb.GetRow(row).GetCell(column);
+            XWPFParagraph p0 = new XWPFParagraph(new CT_P(), cell);
+            p0.Alignment = paragraphAlignment;
+            XWPFRun r0 = p0.CreateRun();
+            r0.FontFamily = "宋体";
+            r0.FontSize = 11;
+            r0.SetText(cellText);
+            cell.SetParagraph(p0);
+        }
+
+        private void mergeCellsHorizontal(XWPFTable table, int row, int fromCell, int toCell)
+        {
+            for (int cellIndex = fromCell; cellIndex <= toCell; cellIndex++)
+            {
+                XWPFTableCell cell = table.GetRow(row).GetCell(cellIndex);
+                if (cellIndex == fromCell)
                 {
-                    _SubmitInfoManageIndex = i;
+                    cell.GetCTTc().AddNewTcPr().AddNewHMerge().val = ST_Merge.restart;
                 }
-                if (_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[i].SubmitInfoType.Id ==
-                   SubmitInfoType.HRAssess.Id)
+                else
                 {
-                    _SubmitInfoHrIndex = i;
+                    cell.GetCTTc().AddNewTcPr().AddNewHMerge().val = ST_Merge.@continue;
                 }
             }
         }
 
-
-        /// <summary>
-        /// 根据需要在table中增加必要的行
-        /// </summary>
-        private static void AddNeedRow(ref Table tb, int count, int rowIndex)
+        private void SaveToFile(MemoryStream ms, string fileName)
         {
-            object row = tb.Rows[rowIndex];
-            for (int i = 0; i < count - 1; i++)
+            using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write))
             {
-                tb.Rows[rowIndex].Select();
-                tb.Rows.Add(ref row);
+                byte[] data = ms.ToArray();
+
+                fs.Write(data, 0, data.Length);
+                fs.Flush();
+                data = null;
             }
         }
     }
