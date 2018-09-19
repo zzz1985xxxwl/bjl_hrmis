@@ -19,6 +19,9 @@ using SEP.HRMIS.Model.AssessFlow;
 using SEP.HRMIS.SqlServerDal;
 using SEP.IBll;
 using SEP.IBll.Departments;
+using NPOI.XWPF.UserModel;
+using NPOI.OpenXmlFormats.Wordprocessing;
+using NPOI.XWPF.Model;
 
 namespace SEP.HRMIS.Bll.AssessActivity
 {
@@ -45,57 +48,88 @@ namespace SEP.HRMIS.Bll.AssessActivity
             _EmployeeTemplateLocation = employeeTemplateLocation;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns></returns>
+        //public string Excute()
+        //{
+        //    PrepareData();
+        //    Application app = new Application();
+        //    object nothing = Type.Missing;
+        //    object localPatho = _EmployeeTemplateLocation;
+        //    Document doc = app.Documents.Add(ref localPatho, ref nothing, ref nothing, ref nothing);
+        //    try
+        //    {
+        //        if (!Directory.Exists(_EmployeeExportLocation))
+        //        {
+        //            Directory.CreateDirectory(_EmployeeExportLocation);
+        //        }
+        //        Table tbBase = doc.Tables[1];
+        //        Table tbSummary = doc.Tables[2];
+        //        InitSubmitInfoIndex();
+        //        ExportBasicInfo(ref tbBase);
+        //        InitRows(ref tbBase);
+        //        ExportItemInfoItem(ref tbBase);
+        //        ExportItemInfoSummary(ref tbSummary);
+        //        app.ActiveWindow.View.SeekView = WdSeekView.wdSeekCurrentPageFooter; //页脚 
+        //        app.Selection.InsertAfter(string.Format("员工个人{0}", _AssessActivity.ItsAssessActivityPaper.PaperName));
+        //        object fileFormat = WdSaveFormat.wdFormatTemplate97;
+        //        string ffname = _AssessActivity.ItsEmployee.Account.Name + "个人" +
+        //                        _AssessActivity.ItsAssessActivityPaper.PaperName +
+        //                        ".doc";
+        //        ffname = ffname.Replace("/", "").Replace(@"\", "");
+        //        object filename = _EmployeeExportLocation + "\\" + ffname;
+        //        doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing);
+        //        return filename.ToString();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        doc.Tables[1].Cell(3, 2).Range.Text = e.Message;
+        //        object filename = _EmployeeExportLocation + "\\" + "temp.doc";
+        //        object fileFormat = WdSaveFormat.wdFormatTemplate97;
+        //        doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
+        //                   ref nothing, ref nothing);
+        //        return "";
+        //    }
+        //    finally
+        //    {
+        //        doc.Close(ref nothing, ref nothing, ref nothing);
+        //        app.Quit(ref nothing, ref nothing, ref nothing);
+        //    }
+        //}
+
         public string Excute()
         {
-            PrepareData();
-            Application app = new Application();
-            object nothing = Type.Missing;
-            object localPatho = _EmployeeTemplateLocation;
-            Document doc = app.Documents.Add(ref localPatho, ref nothing, ref nothing, ref nothing);
-            try
+            if (!Directory.Exists(_EmployeeExportLocation))
             {
-                if (!Directory.Exists(_EmployeeExportLocation))
-                {
-                    Directory.CreateDirectory(_EmployeeExportLocation);
-                }
-                Table tbBase = doc.Tables[1];
-                Table tbSummary = doc.Tables[2];
+                Directory.CreateDirectory(_EmployeeExportLocation);
+            }
+            PrepareData();
+            using (FileStream stream = File.OpenRead(_EmployeeTemplateLocation))
+            {
+                var document = new XWPFDocument(stream);
+
                 InitSubmitInfoIndex();
-                ExportBasicInfo(ref tbBase);
-                InitRows(ref tbBase);
-                ExportItemInfoItem(ref tbBase);
-                ExportItemInfoSummary(ref tbSummary);
-                app.ActiveWindow.View.SeekView = WdSeekView.wdSeekCurrentPageFooter; //页脚 
-                app.Selection.InsertAfter(string.Format("员工个人{0}",_AssessActivity.ItsAssessActivityPaper.PaperName));
-                object fileFormat = WdSaveFormat.wdFormatTemplate97;
+                ExportBasicInfo(document.Tables[0]);
+                InitRows(document.Tables[1]);
+                ExportItemInfoItem(document.Tables[1]);
+                ExportItemInfoSummary(document.Tables[2]);
+
                 string ffname = _AssessActivity.ItsEmployee.Account.Name + "个人" +
                                 _AssessActivity.ItsAssessActivityPaper.PaperName +
-                                ".doc";
-                ffname = ffname.Replace("/", "").Replace(@"\", "");
-                object filename = _EmployeeExportLocation + "\\" + ffname;
-                doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing);
-                return filename.ToString();
-            }
-            catch (Exception e)
-            {
-                doc.Tables[1].Cell(3, 2).Range.Text = e.Message;
-                object filename = _EmployeeExportLocation + "\\" + "temp.doc";
-                object fileFormat = WdSaveFormat.wdFormatTemplate97;
-                doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-                           ref nothing, ref nothing);
-                return "";
-            }
-            finally
-            {
-                doc.Close(ref nothing, ref nothing, ref nothing);
-                app.Quit(ref nothing, ref nothing, ref nothing);
+                                ".docx";
+
+                string filename = _EmployeeExportLocation + "\\" + ffname;
+
+                MemoryStream ms = new MemoryStream();
+                document.Write(ms);
+                ms.Flush();
+                SaveToFile(ms, filename);
+                return filename;
             }
         }
 
@@ -109,21 +143,21 @@ namespace SEP.HRMIS.Bll.AssessActivity
         }
 
 
-        private void ExportBasicInfo(ref Table tb)
+        private void ExportBasicInfo(XWPFTable tb)
         {
-            tb.Cell(1, 1).Range.Text =string.Format("员工个人{0}",_AssessActivity.ItsAssessActivityPaper.PaperName) ;
-            tb.Cell(2, 2).Range.Text = _AssessActivity.ItsEmployee.Account.Name;
-            tb.Cell(2, 4).Range.Text = _AssessActivity.ItsEmployee.EmployeeDetails.Gender.Name;
-            tb.Cell(2, 6).Range.Text = _AssessActivity.ItsEmployee.EmployeeDetails.Birthday.ToShortDateString();
-            tb.Cell(3, 2).Range.Text = _AssessActivity.ItsEmployee.Account.Dept.DepartmentName;
-            tb.Cell(3, 4).Range.Text = _AssessActivity.ItsEmployee.Account.Position.Name;
-            tb.Cell(3, 6).Range.Text = _AssessActivity.ItsEmployee.Account.Dept.DepartmentLeader.Name;
-            tb.Cell(4, 2).Range.Text = _AssessActivity.ItsEmployee.EmployeeDetails.Education.EducationalBackground.Name;
-            tb.Cell(4, 4).Range.Text = _AssessActivity.ItsEmployee.EmployeeDetails.Work.ComeDate.ToShortDateString();
-            tb.Cell(4, 6).Range.Text = _AssessActivity.ScopeFrom.ToShortDateString() + "--" +
-                                       _AssessActivity.ScopeTo.ToShortDateString();
+            SetText(tb, 0, 0, string.Format("员工个人{0}", _AssessActivity.ItsAssessActivityPaper.PaperName), ParagraphAlignment.CENTER, 16);
+            SetText(tb, 1, 1, _AssessActivity.ItsEmployee.Account.Name);
+            SetText(tb, 1, 3, _AssessActivity.ItsEmployee.EmployeeDetails.Gender.Name);
+            SetText(tb, 1, 5, _AssessActivity.ItsEmployee.EmployeeDetails.Birthday.ToShortDateString());
+            SetText(tb, 2, 1, _AssessActivity.ItsEmployee.Account.Dept.DepartmentName);
+            SetText(tb, 2, 3, _AssessActivity.ItsEmployee.Account.Position.Name);
+            SetText(tb, 2, 5, _AssessActivity.ItsEmployee.Account.Dept.DepartmentLeader.Name);
+            SetText(tb, 3, 1, _AssessActivity.ItsEmployee.EmployeeDetails.Education.EducationalBackground.Name);
+            SetText(tb, 3, 3, _AssessActivity.ItsEmployee.EmployeeDetails.Work.ComeDate.ToShortDateString());
+            SetText(tb, 3, 5, _AssessActivity.ScopeFrom.ToShortDateString() + "--" +
+                                       _AssessActivity.ScopeTo.ToShortDateString());
         }
-        private void InitRows(ref Table tb)
+        private void InitRows(XWPFTable tb)
         {
             List<AssessActivityItem> AssessActivityItemList = new List<AssessActivityItem>();
             AssessActivityItemList.AddRange(_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoIndex].
@@ -137,7 +171,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
                     _ItemCount++;
                 }
             }
-            AddNeedRow(ref tb, _ItemCount, 6);
+            AddNeedRow(tb, _ItemCount);
         }
 
         /// <summary>
@@ -153,14 +187,15 @@ namespace SEP.HRMIS.Bll.AssessActivity
                     _SubmitInfoIndex = i;
                 }
             }
-           
+
         }
 
 
-        private void ExportItemInfoSummary(ref Table tb)
+        private void ExportItemInfoSummary(XWPFTable tb)
         {
+
             int i = 1;
-            StringBuilder sb=new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             foreach (
                 AssessActivityItem item in
                     _AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoIndex].ItsAssessActivityItems)
@@ -172,24 +207,36 @@ namespace SEP.HRMIS.Bll.AssessActivity
                 if (item.AssessActivityItemType == AssessActivityItemType.PersonalItem &&
                     item.AssessTemplateItemType == AssessTemplateItemType.Open)
                 {
-                    sb.AppendFormat("{0}、{1}",i,item.Question);
-                    sb.Append(Environment.NewLine);
-                    sb.Append(item.Note);
-                    sb.Append(Environment.NewLine);
-                    sb.Append(Environment.NewLine);
+                    if (i == 1)
+                    {
+                        SetParagraph(tb.GetRow(1).GetCell(0), string.Format("{0}、{1}", i, item.Question));
+                    }
+                    else
+                    {
+                        AppendParagraph(tb.GetRow(1).GetCell(0), string.Format("{0}、{1}", i, item.Question));
+                    }
+                    AppendParagraph(tb.GetRow(1).GetCell(0), item.Note);
+                    AppendParagraph(tb.GetRow(1).GetCell(0), "");
+                    AppendParagraph(tb.GetRow(1).GetCell(0), "");
                     i++;
                 }
             }
-            sb.Append("总评");
-            sb.Append(Environment.NewLine);
-            sb.Append(_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoIndex].Comment );
-            sb.Append(Environment.NewLine);
+            if (!string.IsNullOrEmpty(_AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoIndex].Comment))
+            {
+                if (i == 1)
+                {
+                    SetParagraph(tb.GetRow(1).GetCell(0), "总评");
+                }
+                else
+                {
+                    AppendParagraph(tb.GetRow(1).GetCell(0), "总评");
+                }
+                AppendParagraph(tb.GetRow(1).GetCell(0), _AssessActivity.ItsAssessActivityPaper.SubmitInfoes[_SubmitInfoIndex].Comment);
+            }
 
-            tb.Cell(3, 1).Range.Text = sb.ToString();
         }
 
-
-        private void ExportItemInfoItem(ref Table tb)
+        private void ExportItemInfoItem(XWPFTable tb)
         {
             int i = 0;
             decimal totalScore = 0;
@@ -204,22 +251,18 @@ namespace SEP.HRMIS.Bll.AssessActivity
                     continue;
                 }
                 int j = 0; //重复项数量
-                foreach (
-                    AssessActivityItem item in AssessActivityItemList)
+                foreach (AssessActivityItem item in AssessActivityItemList)
                 {
                     if (item.AssessTemplateItemType == AssessTemplateItemType.Option && item.Classfication == c)
                     {
                         if (j == 0)
                         {
-                            tb.Cell(6 + i, 1).Range.Text =
-                                string.Format("{0}考评", AssessUtility.ClassficationToString(item.Classfication));
+                            SetText(tb, i + 1, 0, string.Format("{0}考评", AssessUtility.ClassficationToString(item.Classfication)));
                         }
-
-                        tb.Cell(6 + i, 2).Range.Text = item.Question;
+                        SetText(tb, i + 1, 1, item.Question);
                         int gradecellindex = item.Grade < 6 ? Convert.ToInt32(item.Grade) : Convert.ToInt32(item.Grade) / 20;
-                        tb.Cell(6 + i, gradecellindex + 2).Range.Text =
-                            Convert.ToInt32(item.Grade).ToString();
-                        tb.Cell(6 + i, 8).Range.Text = string.Format("{0}%", Convert.ToInt32(item.Weight * 100));
+                        SetText(tb, i + 1, gradecellindex + 1, Convert.ToInt32(item.Grade).ToString());
+                        SetText(tb, i + 1, 7, string.Format("{0}%", Convert.ToInt32(item.Weight * 100)));
                         totalScore += Convert.ToInt32(item.Grade) * item.Weight;
                         i++;
                         j++;
@@ -227,33 +270,122 @@ namespace SEP.HRMIS.Bll.AssessActivity
                 }
                 if (j > 1)
                 {
-                    mergework.Add(string.Format("{0}:{1}", 5 + i, 6 + i - j));
+                    mergework.Add(string.Format("{0}:{1}", 1 + i - j, i));
                 }
             }
             _ItemCount = _ItemCount > 0 ? _ItemCount : 1;
-            tb.Cell(_ItemCount + 6, 2).Range.Text = totalScore.ToString();
-
+            SetText(tb, i + 1, 1, totalScore.ToString());
+            MergeCellsHorizontal(tb, 0, 2, 6);
+            SetText(tb, 0, 2, "评定（很差→很好）", ParagraphAlignment.CENTER);
+            MergeCellsHorizontal(tb, i + 1, 1, 7);
+            SetText(tb, i + 1, 0, "总评分");
             //合并单元格
             for (int k = mergework.Count - 1; k >= 0; k--)
             {
                 string[] s = mergework[k].Split(':');
                 int start = Convert.ToInt32(s[0]);
                 int end = Convert.ToInt32(s[1]);
-                tb.Cell(start, 1).Merge(tb.Cell(end, 1));
+                MergeCellsVertically(tb, 0, start, end);
             }
         }
 
         /// <summary>
         /// 根据需要在table中增加必要的行
         /// </summary>
-        private static void AddNeedRow(ref Table tb, int count, int rowIndex)
+        private void AddNeedRow(XWPFTable tb, int count)
         {
-            object row = tb.Rows[rowIndex];
-            for (int i = 0; i < count - 1; i++)
+            for (int i = 0; i < count; i++)
             {
-                tb.Rows[rowIndex].Select();
-                tb.Rows.Add(ref row);
+                XWPFTableRow m_Row = tb.CreateRow();
+                m_Row.SetHeight(380);
             }
+        }
+
+        private void SetText(XWPFTable tb, int row, int column, String cellText, ParagraphAlignment paragraphAlignment = ParagraphAlignment.LEFT, int fontSize = 11)
+        {
+            var cell = tb.GetRow(row).GetCell(column);
+            XWPFParagraph p0 = new XWPFParagraph(new CT_P(), cell);
+            p0.Alignment = paragraphAlignment;
+            XWPFRun r0 = p0.CreateRun();
+            r0.FontFamily = "宋体";
+            r0.FontSize = fontSize;
+            r0.SetBold(true);
+            r0.SetText(cellText);
+            cell.SetParagraph(p0);
+        }
+
+        private void MergeCellsHorizontal(XWPFTable table, int row, int fromCell, int toCell)
+        {
+            for (int cellIndex = fromCell; cellIndex <= toCell; cellIndex++)
+            {
+                XWPFTableCell cell = table.GetRow(row).GetCell(cellIndex);
+                if (cellIndex == fromCell)
+                {
+                    cell.GetCTTc().AddNewTcPr().AddNewHMerge().val = ST_Merge.restart;
+                }
+                else
+                {
+                    cell.GetCTTc().AddNewTcPr().AddNewHMerge().val = ST_Merge.@continue;
+                }
+            }
+        }
+
+        // word跨行并单元格  
+        private void MergeCellsVertically(XWPFTable table, int col, int fromRow, int toRow)
+        {
+            for (int rowIndex = fromRow; rowIndex <= toRow; rowIndex++)
+            {
+                XWPFTableCell cell = table.GetRow(rowIndex).GetCell(col);
+                if (rowIndex == fromRow)
+                {
+                    // The first merged cell is set with RESTART merge value    
+                    cell.GetCTTc().AddNewTcPr().AddNewVMerge().val = ST_Merge.restart;
+                }
+                else
+                {
+                    // Cells which join (merge) the first one, are set with CONTINUE    
+                    cell.GetCTTc().AddNewTcPr().AddNewVMerge().val = ST_Merge.@continue;
+                }
+            }
+        }
+
+        private void SaveToFile(MemoryStream ms, string fileName)
+        {
+            using (FileStream fs = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+            {
+                byte[] data = ms.ToArray();
+
+                fs.Write(data, 0, data.Length);
+                fs.Flush();
+                data = null;
+            }
+        }
+
+        private void SetParagraph(XWPFTableCell cell, String cellText)
+        {
+            XWPFParagraph p0 = new XWPFParagraph(new CT_P(), cell);//创建段落
+            p0.Alignment = ParagraphAlignment.LEFT;//居中显示
+            XWPFRun r0 = p0.CreateRun();
+            //设置字体
+            r0.FontFamily = "宋体";
+            //设置字体大小
+            r0.FontSize = 11;
+            //字体是否加粗，这里加粗了
+            r0.SetBold(true);
+            r0.SetText(cellText);
+            cell.SetParagraph(p0);
+        }
+
+        private void AppendParagraph(XWPFTableCell cell, String cellText)
+        {
+            XWPFParagraph paragraph = cell.AddParagraph();
+            XWPFRun run = paragraph.CreateRun();
+            run.FontFamily = "宋体";
+            //设置字体大小
+            run.FontSize = 11;
+            //字体是否加粗，这里加粗了
+            run.SetBold(true);
+            run.SetText(cellText);
         }
     }
 }
