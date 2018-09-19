@@ -31,10 +31,10 @@ namespace FacadeTest
         public void Test3()
         {
             //Xg+rY5F9vI6TzXAyGoS+XQ==
-           Console.WriteLine(Framework.Common.Encrypt.SecurityUtil.SymmetricDecrypt("Xg+rY5F9vI6TzXAyGoS+XQ==","luantianlin"));
-           //Log("");
-           var _LastRunTime = GetLastDateTime();
-           var _RunDate = _LastRunTime.AddDays(1).Date;
+            Console.WriteLine(Framework.Common.Encrypt.SecurityUtil.SymmetricDecrypt("kThbc6IxyGRhn1/CwpqoeA==", "luantianlin"));
+            //Log("");
+            var _LastRunTime = GetLastDateTime();
+            var _RunDate = _LastRunTime.AddDays(1).Date;
             DateTime _Today = DateTime.Now;
             while (_RunDate <= _Today.Date)
             {
@@ -54,7 +54,7 @@ namespace FacadeTest
                 String line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                   return Convert.ToDateTime(line);
+                    return Convert.ToDateTime(line);
                 }
             }
             return DateTime.Now.AddDays(-1);
@@ -67,7 +67,7 @@ namespace FacadeTest
             {
                 Directory.CreateDirectory(logFilePath);
             }
-            WriteFile(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Path.Combine(logFilePath, "time.log"),false);
+            WriteFile(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), Path.Combine(logFilePath, "time.log"), false);
 
             // 将错误记录到日志中
             WriteFile(message, Path.Combine(logFilePath, DateTime.Now.ToString("yyyyMMdd") + ".log"));

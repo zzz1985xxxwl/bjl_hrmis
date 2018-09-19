@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP.HRMIS.DataAccess", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacadeTest", "FacadeTest\FacadeTest.csproj", "{35699328-B2ED-4979-A7D0-139808148996}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,18 @@ Global
 		{35699328-B2ED-4979-A7D0-139808148996}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{35699328-B2ED-4979-A7D0-139808148996}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{35699328-B2ED-4979-A7D0-139808148996}.Release|x86.ActiveCfg = Release|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Debug|x86.Build.0 = Debug|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Release|x86.ActiveCfg = Release|Any CPU
+		{6114B4B7-F1E9-4799-8520-A5C77F5A8CCE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

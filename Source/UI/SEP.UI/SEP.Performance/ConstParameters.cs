@@ -181,7 +181,7 @@ namespace SEP.Performance
         public const string Template_PositionInfoDoc = "../Template/PositionInfo.doc";
         public const string Template_EmployeeInfoDoc = "../Template/EmployeeInfo.doc";
         public const string Template_NormalForContractDoc = "../Template/合同期满评估表.doc";
-        public const string Template_EmployeeNormalSummaryDoc = "../Template/员工考评个人工作总结表.doc";
+        public const string Template_EmployeeNormalSummaryDoc = "../Template/员工考评个人工作总结表.docx";
         public const string Template_EmployeeAnnualSummaryDoc = "../Template/员工年终绩效考评个人工作总结表.docx";
         public const string Template_AnnualDoc = "../Template/年度员工绩效考核统计表.docx";
         public const string Template_FeedBackReportDoc = "../Template/培训课程反馈结果表.doc";
