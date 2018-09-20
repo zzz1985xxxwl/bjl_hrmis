@@ -11,7 +11,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Text;
-using Microsoft.Office.Interop.Word;
 
 using SEP.HRMIS.IDal;
 using SEP.HRMIS.Model;
@@ -48,60 +47,10 @@ namespace SEP.HRMIS.Bll.AssessActivity
             _EmployeeTemplateLocation = employeeTemplateLocation;
         }
 
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <returns></returns>
-        //public string Excute()
-        //{
-        //    PrepareData();
-        //    Application app = new Application();
-        //    object nothing = Type.Missing;
-        //    object localPatho = _EmployeeTemplateLocation;
-        //    Document doc = app.Documents.Add(ref localPatho, ref nothing, ref nothing, ref nothing);
-        //    try
-        //    {
-        //        if (!Directory.Exists(_EmployeeExportLocation))
-        //        {
-        //            Directory.CreateDirectory(_EmployeeExportLocation);
-        //        }
-        //        Table tbBase = doc.Tables[1];
-        //        Table tbSummary = doc.Tables[2];
-        //        InitSubmitInfoIndex();
-        //        ExportBasicInfo(ref tbBase);
-        //        InitRows(ref tbBase);
-        //        ExportItemInfoItem(ref tbBase);
-        //        ExportItemInfoSummary(ref tbSummary);
-        //        app.ActiveWindow.View.SeekView = WdSeekView.wdSeekCurrentPageFooter; //页脚 
-        //        app.Selection.InsertAfter(string.Format("员工个人{0}", _AssessActivity.ItsAssessActivityPaper.PaperName));
-        //        object fileFormat = WdSaveFormat.wdFormatTemplate97;
-        //        string ffname = _AssessActivity.ItsEmployee.Account.Name + "个人" +
-        //                        _AssessActivity.ItsAssessActivityPaper.PaperName +
-        //                        ".doc";
-        //        ffname = ffname.Replace("/", "").Replace(@"\", "");
-        //        object filename = _EmployeeExportLocation + "\\" + ffname;
-        //        doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-        //                   ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-        //                   ref nothing, ref nothing);
-        //        return filename.ToString();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        doc.Tables[1].Cell(3, 2).Range.Text = e.Message;
-        //        object filename = _EmployeeExportLocation + "\\" + "temp.doc";
-        //        object fileFormat = WdSaveFormat.wdFormatTemplate97;
-        //        doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-        //                   ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
-        //                   ref nothing, ref nothing);
-        //        return "";
-        //    }
-        //    finally
-        //    {
-        //        doc.Close(ref nothing, ref nothing, ref nothing);
-        //        app.Quit(ref nothing, ref nothing, ref nothing);
-        //    }
-        //}
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string Excute()
         {
             if (!Directory.Exists(_EmployeeExportLocation))
