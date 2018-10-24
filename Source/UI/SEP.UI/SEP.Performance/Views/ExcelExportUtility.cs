@@ -1,5 +1,4 @@
-﻿//ÎÄÕÂ³ö´¦£ºhttp://www.diybl.com/course/4_webprogram/asp.net/netjs/2008917/143216_2.html
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
@@ -69,11 +68,11 @@ namespace SEP.Performance.Views
 
         //}
 
-        public static MemoryStream DataTableTurnToExcel(System.Data.DataTable dt)
+        public static MemoryStream DataTableTurnToExcel(System.Data.DataTable dt, string sheetName = "Sheet1")
         {
             var sb = new StringBuilder();
             IWorkbook workbook = new HSSFWorkbook();
-            var sheet = workbook.CreateSheet("Sheet1");
+            var sheet = workbook.CreateSheet(sheetName);
             var font = workbook.CreateFont();
             font.FontName = "MS Sans Serif";
             int rowCount = dt.Rows.Count;

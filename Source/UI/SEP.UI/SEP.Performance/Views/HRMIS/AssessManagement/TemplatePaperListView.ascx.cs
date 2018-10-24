@@ -5,12 +5,11 @@ using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.Office.Interop.Excel;
-using SEP.HRMIS.IFacede;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Presenter;
 using SEP.Model.Positions;
 using SEP.Presenter.Core;
+using System.Data;
 
 namespace SEP.Performance.Views.HRMIS.AssessManagement
 {
@@ -89,9 +88,9 @@ namespace SEP.Performance.Views.HRMIS.AssessManagement
                     break;
             }
         }
-        
+
         protected void gvPaperlist_RowDataBound(object sender, GridViewRowEventArgs e)
-        {              
+        {
             ViewUtility.SetTheGridHandStyle(e, sender);
         }
 
@@ -141,8 +140,8 @@ namespace SEP.Performance.Views.HRMIS.AssessManagement
                     tbPaperList.Style["display"] = "block";
 
                 }
-                lblMessage.Text = "<span class=\"font14b\">共查到 <span class=\"fontred\">" 
-                                   + value.Count+"</span> 条记录</span>";
+                lblMessage.Text = "<span class=\"font14b\">共查到 <span class=\"fontred\">"
+                                   + value.Count + "</span> 条记录</span>";
             }
         }
         public event DelegateNoParameter BtnSearchEvent;
@@ -174,64 +173,57 @@ namespace SEP.Performance.Views.HRMIS.AssessManagement
         private void Export()
         {
             string FileName = "绩效考核表" + DateTime.Now.Year + DateTime.Now.Month + DateTime.Now.Day +
-                              DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond +
-                              ".xls";
-            GC.Collect();
-            Application excel = new Application();
-
-            _Workbook xBk = excel.Workbooks.Add(HttpContext.Current.Request.PhysicalApplicationPath +
-                                         @"\Pages\HRMIS\Template\empty2003Excel.xls");
-            _Worksheet xSt = (_Worksheet)xBk.ActiveSheet;
-            xSt.Name = "绩效考核表";
-            TemplateBuildStringWriter(excel);
-            ExcelExportUtility.OutputExcelByTemplocation(Server, Response, excel, xBk, xSt, FileName);
+                      DateTime.Now.Hour + DateTime.Now.Minute + DateTime.Now.Second + DateTime.Now.Millisecond;
+            DataTable dt = CreateTable();
+            MemoryStream ms = ExcelExportUtility.DataTableTurnToExcel(dt, "绩效考核表");
+            ExcelExportUtility.OutputExcel(Server, Response, FileName, ms);
         }
 
         /// <summary>
         /// 生成表数据
         /// </summary>
-        private void TemplateBuildStringWriter(_Application excel)
+        private DataTable CreateTable()
         {
-            //生成表头
-            TemplateBuildHead(excel);
-            //生成内容
-            TemplateBuildBody(excel);
+            DataTable dt = new DataTable();
+            TemplateBuildHead(dt);
+            TemplateBuildBody(dt);
+            return dt;
         }
 
         /// <summary>
         /// 生成内容
         /// </summary>
-        private void TemplateBuildBody(_Application excel)
+        private void TemplateBuildBody(DataTable dt)
         {
             List<AssessTemplatePaper> itsSource =
                 InstanceFactory.CreateAssessManagementFacade().GetTemplatePapersAllInfoByPaperName(TemplatePaperName);
-            int j = 0;
             for (int k = 0; k < itsSource.Count; k++)
             {
                 for (int i = 0; i < itsSource[k].ItsAssessTemplateItems.Count; i++)
                 {
-                    excel.Cells[j + 2 + i, 1] = itsSource[k].PaperName;
-                    excel.Cells[j + 2 + i, 2] = itsSource[k].PositionList != null
+                    DataRow dr = dt.NewRow();
+                    dr["考核表名"] = itsSource[k].PaperName;
+                    dr["岗位"] = itsSource[k].PositionList != null
                                                     ? PositionNames(itsSource[k].PositionList)
                                                     : "";
-                    excel.Cells[j + 2 + i, 3] = itsSource[k].ItsAssessTemplateItems[i].Question;
-                    excel.Cells[j + 2 + i, 4] = itsSource[k].ItsAssessTemplateItems[i].Weight;
-                    excel.Cells[j + 2 + i, 5] = itsSource[k].ItsAssessTemplateItems[i].Description;
+                    dr["绩效指标"] = itsSource[k].ItsAssessTemplateItems[i].Question;
+                    dr["权重"] = itsSource[k].ItsAssessTemplateItems[i].Weight;
+                    dr["绩效指标的相关说明"] = itsSource[k].ItsAssessTemplateItems[i].Description;
+                    dt.Rows.Add(dr);
                 }
-                j = j + itsSource[k].ItsAssessTemplateItems.Count;
             }
         }
 
         /// <summary>
         /// 生成表头
         /// </summary>
-        private static void TemplateBuildHead( _Application excel)
+        private static void TemplateBuildHead(DataTable dt)
         {
-            excel.Cells[1, 1] = "考核表名";
-            excel.Cells[1, 2] = "岗位";
-            excel.Cells[1, 3] = "绩效指标";
-            excel.Cells[1, 4] = "权重";
-            excel.Cells[1, 5] = "绩效指标的相关说明";
+            dt.Columns.Add("考核表名");
+            dt.Columns.Add("岗位");
+            dt.Columns.Add("绩效指标");
+            dt.Columns.Add("权重");
+            dt.Columns.Add("绩效指标的相关说明");
         }
 
         private static string PositionNames(List<Position> positions)
