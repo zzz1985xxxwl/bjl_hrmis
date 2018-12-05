@@ -71,24 +71,27 @@ namespace SEP.HRMIS.Bll.AssessActivity
         /// </summary>
         private void ValidateAnswersFromUi()
         {
-            foreach (AssessActivityItem answer in _Answers)
+            if (_ItsAssessActivity.ItsAssessActivityPaper.ItsAssessActivityItems.Count > 0)
             {
-                string itemType = GetItemType();
-                AssessActivityItem item =
-                    _ItsAssessActivity.ItsAssessActivityPaper.FindAssessActivityItem(answer.Question,itemType);
+                foreach (AssessActivityItem answer in _Answers)
+                {
+                    string itemType = GetItemType();
+                    AssessActivityItem item =
+                        _ItsAssessActivity.ItsAssessActivityPaper.FindAssessActivityItem(answer.Question, itemType);
 
-                if (item == null)
-                {
-                    BllUtility.ThrowException(BllExceptionConst._InvalidFillItems);
-                }
-                else
-                {
-                    item.Grade = answer.Grade;
-                    item.Note = answer.Note;
+                    if (item == null)
+                    {
+                        BllUtility.ThrowException(BllExceptionConst._InvalidFillItems);
+                    }
+                    else
+                    {
+                        item.Grade = answer.Grade;
+                        item.Note = answer.Note;
+                    }
                 }
             }
         }
-        
+
         protected override void ExcuteSelf()
         {
             FillSubmitInformation();
@@ -118,7 +121,7 @@ namespace SEP.HRMIS.Bll.AssessActivity
             }
         }
 
-        protected abstract string GetItemType(); 
+        protected abstract string GetItemType();
         protected abstract void ValidateSelf();
         protected abstract void HandleIntention();
         protected abstract void FillSubmitInformation();
