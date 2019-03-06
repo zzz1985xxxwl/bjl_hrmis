@@ -23,7 +23,7 @@ namespace SEP.HRMIS.Bll.PayModule.AccountSet
     public class UpdateAccountSetPara : Transaction
     {
         private static IAccountSet _DalAccountSet = new AccountSetDal();
-        private static IEmployeeAccountSet _DalEmployeeAccountSet =new EmployeeAccountSetDal();
+        private static IEmployeeAccountSet _DalEmployeeAccountSet = new EmployeeAccountSetDal();
         private readonly string _AccountSetParaName;
         private readonly FieldAttributeEnum _FieldAttributes;
         private readonly BindItemEnum _BindItem;
@@ -75,7 +75,7 @@ namespace SEP.HRMIS.Bll.PayModule.AccountSet
         /// </summary>
         public UpdateAccountSetPara(int accountSetParaID, string accountSetParaName, FieldAttributeEnum fieldAttributes,
                                     BindItemEnum bindItem, MantissaRoundEnum mantissaRoundEnum, string description, string operatorName,
-                                    bool isVisibleToEmployee, bool isVisibleWhenZero, 
+                                    bool isVisibleToEmployee, bool isVisibleWhenZero,
                                     IAccountSet iMockAccountSet, IEmployeeAccountSet iMockEmployeeAccountSet)
         {
             _OperatorName = operatorName;
@@ -112,17 +112,17 @@ namespace SEP.HRMIS.Bll.PayModule.AccountSet
         {
             try
             {
-                using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+                //using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+                //{
+                _DalAccountSet.UpdateAccountSetPara(MakeAccountSetPara());
+                if (_IsAccountSetParaChanged)
                 {
-                    _DalAccountSet.UpdateAccountSetPara(MakeAccountSetPara());
-                    if (_IsAccountSetParaChanged)
-                    {
-                        UpdateEmployeeAccountSetWithNewPara();
-                    }
-                    ts.Complete();
+                    UpdateEmployeeAccountSetWithNewPara();
                 }
+                //    ts.Complete();
+                //}
             }
-            catch
+            catch (Exception ex)
             {
                 BllUtility.ThrowException(BllExceptionConst._DbError);
             }

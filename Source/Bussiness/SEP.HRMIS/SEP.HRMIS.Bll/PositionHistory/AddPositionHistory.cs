@@ -14,7 +14,7 @@ namespace SEP.HRMIS.Bll
     /// <summary>
     /// 新增职位历史
     /// </summary>
-    public class AddPositionHistory:Transaction
+    public class AddPositionHistory : Transaction
     {
         private readonly Account _OperatorAccount;
         private readonly Position _Position;
@@ -29,7 +29,7 @@ namespace SEP.HRMIS.Bll
         public AddPositionHistory(Account operatorAccount)
         {
             _OperatorAccount = operatorAccount;
-        }        
+        }
         /// <summary>
         /// 构造函数,当修改某个职位时调用
         /// </summary>
@@ -43,14 +43,14 @@ namespace SEP.HRMIS.Bll
         /// </summary>
         public GetEmployee MockGetEmployee
         {
-            set { _GetEmployee = value;}
+            set { _GetEmployee = value; }
         }
         /// <summary>
         /// 测试 职位
         /// </summary>
         public IPositionBll MockIPositionBll
         {
-            set { _IPositionBll = value;}
+            set { _IPositionBll = value; }
         }
         /// <summary>
         /// 测试 职位历史
@@ -73,15 +73,15 @@ namespace SEP.HRMIS.Bll
 
         protected override void ExcuteSelf()
         {
-            using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+            //using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+            //{
+            BackUpPosition();
+            if (_Position != null)
             {
-                BackUpPosition();
-                if (_Position != null)
-                {
-                    BackUpEmployee();
-                }
-                ts.Complete();
+                BackUpEmployee();
             }
+            //    ts.Complete();
+            //}
         }
 
         private void BackUpPosition()
