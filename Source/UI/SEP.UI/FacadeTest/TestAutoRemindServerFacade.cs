@@ -28,6 +28,13 @@ namespace FacadeTest
         }
 
         [Test]
+        public void TestAutoCreateVacation()
+        {
+            var facade = new AutoRemindServerFacade();
+            facade.AutoCreateVacation(Convert.ToDateTime("2018-12-20"), 12, 6, 15, 4, 12, 20);
+        }
+
+        [Test]
         public void Test3()
         {
             //Xg+rY5F9vI6TzXAyGoS+XQ==

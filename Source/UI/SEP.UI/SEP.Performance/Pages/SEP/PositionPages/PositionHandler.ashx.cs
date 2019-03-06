@@ -27,7 +27,7 @@ namespace SEP.Performance.Pages.SEP.PositionPages
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    public class PositionHandler : IHttpHandler, IRequiresSessionState 
+    public class PositionHandler : IHttpHandler, IRequiresSessionState
     {
 
         private HttpContext _Context;
@@ -275,14 +275,14 @@ namespace SEP.Performance.Pages.SEP.PositionPages
                     return;
                 }
 
-                string filestringbuild = ToCreateFile(p,"","","");
-                
+                string filestringbuild = ToCreateFile(p, "", "", "");
+
                 ExportWord(filestringbuild);
 
             }
         }
 
-        private string ToCreateFile(Position p, string leaderName, string leaderPosition,string dept)
+        private string ToCreateFile(Position p, string leaderName, string leaderPosition, string dept)
         {
             string ret = "";
             PositionViewModel pvm = new PositionViewModel(p);
@@ -324,8 +324,8 @@ namespace SEP.Performance.Pages.SEP.PositionPages
                 tb.Cell(21, 2).Range.Text = pvm.AuxiliarySkills;
                 tb.Cell(22, 2).Range.Text = pvm.Competence;
                 tb.Cell(23, 2).Range.Text = pvm.OtherRequirements;
-             
-            
+
+
                 object fileFormat = WdSaveFormat.wdFormatTemplate97;
                 object filename = _EmployeeExportLocation + "\\" + "职位说明书-" + p.Name + ".doc";
                 doc.SaveAs(ref filename, ref fileFormat, ref nothing, ref nothing, ref nothing, ref nothing, ref nothing,
@@ -399,20 +399,20 @@ namespace SEP.Performance.Pages.SEP.PositionPages
                 position.Nature = new List<PositionNature>();
                 PositionDataBind(position);
 
-                using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+                //using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+                //{
+                BllInstance.PositionBllInstance.UpdatePosition(position,
+                                                               _Operator);
+                UpdateAccountPosition(position);
+                //System.Threading.Thread.Sleep(1500);
+                if (CompanyConfig.HasHrmisSystem && !oldposition.IsEqual(position))
                 {
-                    BllInstance.PositionBllInstance.UpdatePosition(position,
-                                                                   _Operator);
-                    UpdateAccountPosition(position);
-                    System.Threading.Thread.Sleep(1500);
-                    if (CompanyConfig.HasHrmisSystem && !oldposition.IsEqual(position))
-                    {
-                        IPositionHistoryFacade hrmisPositionHistoryFacade =
-                            InstanceFactory.CreatePositionHistoryFacade();
-                        hrmisPositionHistoryFacade.AddPositionHistoryFacade(_Operator, position);
-                    }
-                    ts.Complete();
+                    IPositionHistoryFacade hrmisPositionHistoryFacade =
+                        InstanceFactory.CreatePositionHistoryFacade();
+                    hrmisPositionHistoryFacade.AddPositionHistoryFacade(_Operator, position);
                 }
+                //    ts.Complete();
+                //}
             }
             catch (Exception e)
             {
@@ -428,20 +428,20 @@ namespace SEP.Performance.Pages.SEP.PositionPages
             {
                 Position position = new Position();
                 PositionDataBind(position);
-                using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
-                {
-                    BllInstance.PositionBllInstance.CreatePosition(position, _Operator);
+                //using (TransactionScope ts = new TransactionScope(TransactionScopeOption.Required))
+                //{
+                BllInstance.PositionBllInstance.CreatePosition(position, _Operator);
 
-                    UpdateAccountPosition(position);
-                    System.Threading.Thread.Sleep(1500);
-                    if (CompanyConfig.HasHrmisSystem)
-                    {
-                        IPositionHistoryFacade hrmisPositionHistoryFacade =
-                            InstanceFactory.CreatePositionHistoryFacade();
-                        hrmisPositionHistoryFacade.AddPositionHistoryFacade(_Operator);
-                    }
-                    ts.Complete();
+                UpdateAccountPosition(position);
+                //System.Threading.Thread.Sleep(1500);
+                if (CompanyConfig.HasHrmisSystem)
+                {
+                    IPositionHistoryFacade hrmisPositionHistoryFacade =
+                        InstanceFactory.CreatePositionHistoryFacade();
+                    hrmisPositionHistoryFacade.AddPositionHistoryFacade(_Operator);
                 }
+                //    ts.Complete();
+                //}
 
             }
             catch (Exception e)
@@ -535,7 +535,7 @@ namespace SEP.Performance.Pages.SEP.PositionPages
             }
 
             position.Grade = new PositionGrade();
-            position.Grade.Id =0;
+            position.Grade.Id = 0;
             //position.Grade.Id = !string.IsNullOrEmpty(_Context.Request.Params["dialogGrade"]) &&
             //                    int.TryParse(_Context.Request.Params["dialogGrade"], out i)
             //                        ? i
@@ -650,23 +650,23 @@ namespace SEP.Performance.Pages.SEP.PositionPages
                              + "		 ) "
                              + "     ) "
                              + " ) ";
-                             //+ "and  (     '' = '" + Grade + "' "
-                             //+ "     or "
-                             //+ "      ( "
-                             //+ "         tposition.pkid in "
-                             //+ "		 (	 select tposition.pkid "
-                             //+ "			 from tpositiongrade,tposition "
-                             //+ "			 where tpositiongrade.pkid = tposition.levelid "
-                             //+ "				and  (" + GradeWhere + ") "
-                             //+ "		 ) "
-                             //+ "     ) "
-                             //+ " ) ";
+                //+ "and  (     '' = '" + Grade + "' "
+                //+ "     or "
+                //+ "      ( "
+                //+ "         tposition.pkid in "
+                //+ "		 (	 select tposition.pkid "
+                //+ "			 from tpositiongrade,tposition "
+                //+ "			 where tpositiongrade.pkid = tposition.levelid "
+                //+ "				and  (" + GradeWhere + ") "
+                //+ "		 ) "
+                //+ "     ) "
+                //+ " ) ";
 
                 List<Position> Positions = BllInstance.PositionBllInstance.GetPositionByCondition(sql);
                 for (int i = 0; i < Positions.Count; i++)
                 {
                     Positions[i] = BllInstance.PositionBllInstance.GetPositionById(Positions[i].Id, _Operator);
-                 }
+                }
                 positionViewModelUIs = PositionViewModel.Turn(Positions);
             }
             catch (Exception e)
