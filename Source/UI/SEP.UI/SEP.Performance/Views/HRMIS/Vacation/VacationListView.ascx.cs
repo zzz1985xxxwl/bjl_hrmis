@@ -12,12 +12,12 @@ using System.IO;
 using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Microsoft.Office.Interop.Excel;
 using SEP.HRMIS.Model;
 using SEP.HRMIS.Presenter;
 
 namespace SEP.Performance
 {
+    using System.Data;
     using Views;
 
     public partial class VacationListView : UserControl, IVacationBaseListView
@@ -79,7 +79,7 @@ namespace SEP.Performance
                 }
                 else
                 {
-                    return (bool) ViewState["IsAdd"];
+                    return (bool)ViewState["IsAdd"];
                 }
             }
             set { ViewState["IsAdd"] = value; }
@@ -253,65 +253,50 @@ namespace SEP.Performance
 
         protected void btnExport_Click(object sender, EventArgs e)
         {
-            ExcelExportUtility.ExportContent ExportContentImplement = TemplateBuildStringWriter;
-            FileInfo file = ExcelExportUtility.NormalExport("员工年假.xls", ExportContentImplement);
-            if (file.Exists)
-            {
-                Response.Clear();
-                Response.Charset = "GB2312";
-                Response.ContentEncoding = Encoding.UTF8;
-                Response.AddHeader("Content-Disposition", "attachment; filename=" + Server.UrlEncode(file.Name));
-                Response.AddHeader("Content-Length", file.Length.ToString());
-                Response.ContentType = "application/ms-excel";
-                Response.WriteFile(file.FullName);
-                Response.End();
-            }
-        }
-
-
-        private void TemplateBuildStringWriter(Application excel)
-        {
-            int cols = 1;
-            excel.Cells[1, cols++] = "员工姓名";
-            excel.Cells[1, cols++] = "所属部门";
-            excel.Cells[1, cols++] = "职位";
-            excel.Cells[1, cols++] = "年假起始日";
-            excel.Cells[1, cols++] = "年假到期日";
-            excel.Cells[1, cols++] = "年假总天数";
-            excel.Cells[1, cols++] = "已用天数";
-            excel.Cells[1, cols++] = "剩余天数";
-            excel.Cells[1, cols++] = "备注";
-
+            DataTable ret_dt = new DataTable();
+            ret_dt.Columns.Add("员工姓名");
+            ret_dt.Columns.Add("所属部门");
+            ret_dt.Columns.Add("职位");
+            ret_dt.Columns.Add("年假起始日");
+            ret_dt.Columns.Add("年假到期日");
+            ret_dt.Columns.Add("年假总天数");
+            ret_dt.Columns.Add("已用天数");
+            ret_dt.Columns.Add("剩余天数");
+            ret_dt.Columns.Add("备注");
             for (int i = 0; i < VacationSourceViewState.Count; i++)
             {
-                cols = 1;
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i] != null &&
+                DataRow dr = ret_dt.NewRow();
+                dr["员工姓名"] = VacationSourceViewState[i] != null &&
                                          VacationSourceViewState[i].Employee != null &&
                                          VacationSourceViewState[i].Employee.Account != null &&
                                          VacationSourceViewState[i].Employee.Account.Name != null
                                              ? VacationSourceViewState[i].Employee.Account.Name
                                              : "";
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i] != null &&
-                                         VacationSourceViewState[i].Employee != null &&
-                                         VacationSourceViewState[i].Employee.Account != null &&
-                                         VacationSourceViewState[i].Employee.Account.Dept != null &&
-                                         VacationSourceViewState[i].Employee.Account.Dept.Name != null
-                                             ? VacationSourceViewState[i].Employee.Account.Dept.Name
-                                             : "";
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i] != null &&
-                                         VacationSourceViewState[i].Employee != null &&
-                                         VacationSourceViewState[i].Employee.Account != null &&
-                                         VacationSourceViewState[i].Employee.Account.Position != null &&
-                                         VacationSourceViewState[i].Employee.Account.Position.Name != null
-                                             ? VacationSourceViewState[i].Employee.Account.Position.Name
-                                             : "";
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i].VacationStartDate;
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i].VacationEndDate;
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i].VacationDayNum;
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i].UsedDayNum;
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i].SurplusDayNum;
-                excel.Cells[i + 2, cols++] = VacationSourceViewState[i].Remark;
+                dr["所属部门"] = VacationSourceViewState[i] != null &&
+                                        VacationSourceViewState[i].Employee != null &&
+                                        VacationSourceViewState[i].Employee.Account != null &&
+                                        VacationSourceViewState[i].Employee.Account.Dept != null &&
+                                        VacationSourceViewState[i].Employee.Account.Dept.Name != null
+                                            ? VacationSourceViewState[i].Employee.Account.Dept.Name
+                                            : "";
+                dr["职位"] = VacationSourceViewState[i] != null &&
+                                        VacationSourceViewState[i].Employee != null &&
+                                        VacationSourceViewState[i].Employee.Account != null &&
+                                        VacationSourceViewState[i].Employee.Account.Position != null &&
+                                        VacationSourceViewState[i].Employee.Account.Position.Name != null
+                                            ? VacationSourceViewState[i].Employee.Account.Position.Name
+                                            : "";
+                dr["年假起始日"] = VacationSourceViewState[i].VacationStartDate;
+                dr["年假到期日"] = VacationSourceViewState[i].VacationEndDate;
+                dr["年假总天数"] = VacationSourceViewState[i].VacationDayNum;
+                dr["已用天数"] = VacationSourceViewState[i].UsedDayNum;
+                dr["剩余天数"] = VacationSourceViewState[i].SurplusDayNum;
+                dr["备注"] = VacationSourceViewState[i].Remark;
+                ret_dt.Rows.Add(dr);
             }
+            MemoryStream ms = ExcelExportUtility.DataTableTurnToExcel(ret_dt, "员工年假");
+            ExcelExportUtility.OutputExcel(Server, Response, "员工年假", ms);
+
         }
 
     }

@@ -9,6 +9,7 @@ using SEP.Model.Accounts;
 using SEP.Performance.Views;
 using DataTable = System.Data.DataTable;
 using Page = System.Web.UI.Page;
+using System.Data;
 
 namespace SEP.Performance.Pages.HRMIS.AttendancePages
 {
@@ -34,40 +35,45 @@ namespace SEP.Performance.Pages.HRMIS.AttendancePages
 
         private void btnExportPersonList()
         {
-            GC.Collect();
-            Application excelApp = new ApplicationClass();
-            excelApp.Visible = false;
-            List<Worksheet> excelSheetList = new List<Worksheet>();
-            Workbook excelBook = excelApp.Workbooks.Add(Type.Missing);
+            //GC.Collect();
+            //Application excelApp = new ApplicationClass();
+            //excelApp.Visible = false;
+            //List<Worksheet> excelSheetList = new List<Worksheet>();
+            //Workbook excelBook = excelApp.Workbooks.Add(Type.Missing);
             if (Session[SessionKeys.PersionInAndOutDataTable] != null)
             {
-                Worksheet excelSheet3 =
-                    (Worksheet)excelBook.Sheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
-                excelSheetList.Add(excelSheet3);
-                excelSheet3.Name = "员工打卡信息";
+                //Worksheet excelSheet3 =
+                //    (Worksheet)excelBook.Sheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                //excelSheetList.Add(excelSheet3);
+                //excelSheet3.Name = "员工打卡信息";
                 List<AttendanceInAndOutRecord> records = new List<AttendanceInAndOutRecord>();
                 foreach (AttendanceInAndOutRecord record in (List<AttendanceInAndOutRecord>)Session[SessionKeys.PersionInAndOutDataTable])
                 {
                     records.Add(record);
                 }
-                TurnToExcel(records, excelSheet3);
+                DataTable dataTable = TurnToDataTable(records);
+                MemoryStream ms = ExcelExportUtility.DataTableTurnToExcel(dataTable);
+                ExcelExportUtility.OutputExcel(Server, Response, "员工日打卡信息", ms);
             }
-            ExcelExportUtility.RemoveBlankWorkSheet(excelBook);
-            object nothing = Type.Missing;
-            object fileFormat = XlFileFormat.xlExcel8;
-            object file = Server.MapPath(".") + "\\员工打卡信息.xls";
-            if (File.Exists(file.ToString()))
-            {
-                File.Delete(file.ToString());
-            }
-            excelBook.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange,
-                             nothing, nothing, nothing, nothing, nothing);
+            //ExcelExportUtility.RemoveBlankWorkSheet(excelBook);
+            //object nothing = Type.Missing;
+            //object fileFormat = XlFileFormat.xlExcel8;
+            //object file = Server.MapPath(".") + "\\员工打卡信息.xls";
+            //if (File.Exists(file.ToString()))
+            //{
+            //    File.Delete(file.ToString());
+            //}
+            //excelBook.SaveAs(file, fileFormat, nothing, nothing, nothing, nothing, XlSaveAsAccessMode.xlNoChange,
+            //                 nothing, nothing, nothing, nothing, nothing);
 
-            excelBook.Close(false, null, null);
+            //excelBook.Close(false, null, null);
 
-            ExcelExportUtility.ReleaseComObject(excelApp, excelBook, excelSheetList);
-            ExcelExportUtility.KillProcess(excelApp, "Excel");
-            ExcelExportUtility.OutputExcel(Server, Response, "员工打卡信息");
+            //ExcelExportUtility.ReleaseComObject(excelApp, excelBook, excelSheetList);
+            //ExcelExportUtility.KillProcess(excelApp, "Excel");
+            //ExcelExportUtility.OutputExcel(Server, Response, "员工打卡信息");
+
+
+
         }
 
         private void TurnToExcel(IList<AttendanceInAndOutRecord> attendances, _Worksheet excelSheet)
@@ -91,6 +97,28 @@ namespace SEP.Performance.Pages.HRMIS.AttendancePages
                 dataArray[i + 1, 3] = outtime == Convert.ToDateTime("1900-1-1") ? "" : outtime.ToShortTimeString();
             }
             excelSheet.get_Range("A1", excelSheet.Cells[rowCount + 1, colCount]).Value2 = dataArray;
+        }
+
+        private DataTable TurnToDataTable(IList<AttendanceInAndOutRecord> attendances)
+        {
+            List<Employee> employees = CleanAttendanceInAndOutList(attendances);
+            DataTable ret_dt = new DataTable();
+            ret_dt.Columns.Add("员工姓名");
+            ret_dt.Columns.Add("日期");
+            ret_dt.Columns.Add("最早打卡时间");
+            ret_dt.Columns.Add("最晚打卡时间");
+            for (int i = 0; i < attendances.Count; i++)
+            {
+                DataRow dr = ret_dt.NewRow();
+                dr["员工姓名"] = employees[i].Account.Name;
+                dr["日期"] =
+                    employees[i].EmployeeAttendance.AttendanceInAndOutStatistics.InTime.ToShortDateString();
+                dr["最早打卡时间"] = employees[i].EmployeeAttendance.AttendanceInAndOutStatistics.InTime.ToShortTimeString();
+                DateTime outtime = employees[i].EmployeeAttendance.AttendanceInAndOutStatistics.OutTime;
+                dr["最晚打卡时间"] = outtime == Convert.ToDateTime("1900-1-1") ? "" : outtime.ToShortTimeString();
+                ret_dt.Rows.Add(dr);
+            }
+            return ret_dt;
         }
 
         private static List<Employee> CleanAttendanceInAndOutList(IList<AttendanceInAndOutRecord> attendances)
