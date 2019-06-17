@@ -89,11 +89,11 @@ namespace SEP.HRMIS.Bll.OutApplications.MailAndPhone
                 Account innaccount = _AccountBll.GetAccountById(account.Id);
                 mailToList.AddRange(RequestUtility.GetMail(innaccount));
             }
-            List<Account> accounts = _GetDiyProcess.GetHRPrincipalByAccountID(_OutApplication.Account.Id);
-            foreach (Account acc in accounts)
-            {
-                mailToList.AddRange(RequestUtility.GetMail(acc)); 
-            }
+            //List<Account> accounts = _GetDiyProcess.GetHRPrincipalByAccountID(_OutApplication.Account.Id);
+            //foreach (Account acc in accounts)
+            //{
+            //    mailToList.AddRange(RequestUtility.GetMail(acc)); 
+            //}
             return RequestUtility.CleanMailAddress(mailToList);
         }
     }
